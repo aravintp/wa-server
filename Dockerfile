@@ -3,4 +3,4 @@ RUN apk add --no-cache python3 g++ make
 WORKDIR /app
 COPY . .
 RUN yarn install --production
-CMD ["node", "/WA-Server/index.js"]
+CMD ["node", "/wa-server/index.js"]
