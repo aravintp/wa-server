@@ -1,0 +1,6 @@
+2026/01/26-16:46:58.656 5f5c Reusing MANIFEST C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/01/26-16:46:58.656 5f5c Recovering log #96
+2026/01/26-16:46:58.729 5f5c Reusing old log C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000096.log 
+2026/01/26-16:47:02.510 5f5c Level-0 table #103: started
+2026/01/26-16:47:02.545 5f5c Level-0 table #103: 1134193 bytes OK
+2026/01/26-16:47:02.553 5f5c Delete type=0 #96

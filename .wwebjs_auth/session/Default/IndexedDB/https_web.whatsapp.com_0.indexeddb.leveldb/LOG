@@ -1,0 +1,26 @@
+2026/01/26-16:47:37.890 cb4 Reusing MANIFEST C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/01/26-16:47:37.890 cb4 Recovering log #102
+2026/01/26-16:47:37.892 cb4 Reusing old log C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000102.log 
+2026/01/26-16:47:38.601 6884 Compacting 1@1 + 3@2 files
+2026/01/26-16:47:38.670 6884 Generated table #105@1: 77369 keys, 2225018 bytes
+2026/01/26-16:47:38.739 6884 Generated table #106@1: 62171 keys, 2230464 bytes
+2026/01/26-16:47:38.766 6884 Generated table #107@1: 13197 keys, 1039792 bytes
+2026/01/26-16:47:38.766 6884 Compacted 1@1 + 3@2 files => 5495274 bytes
+2026/01/26-16:47:38.771 6884 compacted to: files[ 0 0 3 0 0 0 0 ]
+2026/01/26-16:47:38.771 6884 Delete type=2 #98
+2026/01/26-16:47:38.771 6884 Delete type=2 #99
+2026/01/26-16:47:38.771 6884 Delete type=2 #100
+2026/01/26-16:47:38.771 6884 Delete type=2 #103
+2026/01/26-17:24:30.282 6884 Level-0 table #109: started
+2026/01/26-17:24:30.451 6884 Level-0 table #109: 1178367 bytes OK
+2026/01/26-17:24:30.461 6884 Delete type=0 #102
+2026/01/26-17:25:00.266 6884 Compacting 1@1 + 3@2 files
+2026/01/26-17:25:00.701 6884 Generated table #110@1: 77938 keys, 2224061 bytes
+2026/01/26-17:25:01.114 6884 Generated table #111@1: 65385 keys, 2238867 bytes
+2026/01/26-17:25:01.271 6884 Generated table #112@1: 13297 keys, 1138381 bytes
+2026/01/26-17:25:01.271 6884 Compacted 1@1 + 3@2 files => 5601309 bytes
+2026/01/26-17:25:01.275 6884 compacted to: files[ 0 0 3 0 0 0 0 ]
+2026/01/26-17:25:01.279 6884 Delete type=2 #105
+2026/01/26-17:25:01.280 6884 Delete type=2 #106
+2026/01/26-17:25:01.281 6884 Delete type=2 #107
+2026/01/26-17:25:01.281 6884 Delete type=2 #109
