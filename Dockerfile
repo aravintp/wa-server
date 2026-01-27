@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 RUN apk add --no-cache python3 g++ make
-WORKDIR /app
+WORKDIR /
 COPY . .
 RUN yarn install --production
 CMD ["node", "/index.js"]
