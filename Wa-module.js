@@ -4,6 +4,9 @@ const { Client, LocalAuth  } = require('whatsapp-web.js');
 
 const whatsapp = new Client({
     authStrategy: new LocalAuth(),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    },
     // temp
     webVersionCache: {
         type: 'remote',
