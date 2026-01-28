@@ -1,6 +1,17 @@
-2026/01/26-16:46:58.656 5f5c Reusing MANIFEST C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/01/26-16:46:58.656 5f5c Recovering log #96
-2026/01/26-16:46:58.729 5f5c Reusing old log C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000096.log 
-2026/01/26-16:47:02.510 5f5c Level-0 table #103: started
-2026/01/26-16:47:02.545 5f5c Level-0 table #103: 1134193 bytes OK
-2026/01/26-16:47:02.553 5f5c Delete type=0 #96
+2026/01/28-15:50:53.108 2ed0 Reusing MANIFEST C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/01/28-15:50:53.108 2ed0 Recovering log #27
+2026/01/28-15:50:53.111 2ed0 Reusing old log C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000027.log 
+2026/01/28-15:50:53.112 2ed0 Delete type=2 #25
+2026/01/28-15:50:53.112 2ed0 Delete type=2 #26
+2026/01/28-15:50:53.112 2ed0 Delete type=2 #28
+2026/01/28-15:51:00.280 2fac Level-0 table #33: started
+2026/01/28-15:51:00.305 2fac Level-0 table #33: 1099652 bytes OK
+2026/01/28-15:51:00.306 2fac Delete type=0 #27
+2026/01/28-15:51:00.347 2fac Compacting 1@1 + 2@2 files
+2026/01/28-15:51:00.400 2fac Generated table #34@1: 44210 keys, 2198930 bytes
+2026/01/28-15:51:00.455 2fac Generated table #35@1: 57519 keys, 2212035 bytes
+2026/01/28-15:51:00.455 2fac Compacted 1@1 + 2@2 files => 4410965 bytes
+2026/01/28-15:51:00.457 2fac compacted to: files[ 0 0 2 0 0 0 0 ]
+2026/01/28-15:51:00.457 2fac Delete type=2 #29
+2026/01/28-15:51:00.457 2fac Delete type=2 #30
+2026/01/28-15:51:00.457 2fac Delete type=2 #33
