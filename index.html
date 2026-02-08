@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Forwarder Terminal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            margin-bottom: 1.5rem;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .window-control {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background-color: #ff5f56; }
+        .yellow { background-color: #ffbd2e; }
+        .green { background-color: #27c93f; }
+
+        .title {
+            color: #8b949e;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .controls-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 0.375rem;
+            color: #10b981;
+            font-size: 0.75rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: #10b981;
+            margin-right: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .log-count {
+            color: #6e7681;
+            font-size: 0.75rem;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        button {
+            background-color: transparent;
+            border: 1px solid #30363d;
+            color: #8b949e;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            font-size: 0.75rem;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: #21262d;
+            color: #c9d1d9;
+        }
+
+        button.active {
+            color: #10b981;
+        }
+
+        button.danger:hover {
+            color: #ef4444;
+        }
+
+        .terminal {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 0.5rem;
+            height: 70vh;
+            overflow-y: auto;
+            padding: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .terminal::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .terminal::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+
+        .log-entry {
+            display: flex;
+            gap: 1rem;
+            padding: 0.25rem 0.5rem;
+            margin: 0 -0.5rem;
+            border-radius: 0.25rem;
+            animation: fadeIn 0.2s ease-in;
+        }
+
+        .log-entry:hover {
+            background-color: rgba(48, 54, 61, 0.3);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .log-time {
+            color: #6e7681;
+            flex-shrink: 0;
+        }
+
+        .log-type {
+            flex-shrink: 0;
+        }
+
+        .log-type.info { color: #8b949e; }
+        .log-type.success { color: #10b981; }
+        .log-type.warning { color: #f59e0b; }
+        .log-type.error { color: #ef4444; }
+
+        .log-message {
+            color: #c9d1d9;
+        }
+
+        .cursor-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            color: #6e7681;
+        }
+
+        .cursor {
+            width: 8px;
+            height: 16px;
+            background-color: #6e7681;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .footer {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: space-between;
+            color: #6e7681;
+            font-size: 0.75rem;
+        }
+
+        .empty-state {
+            color: #6e7681;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .controls-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="window-controls">
+                <div class="window-control red"></div>
+                <div class="window-control yellow"></div>
+                <div class="window-control green"></div>
+            </div>
+            <div class="title">whatsapp-forwarder — node</div>
+        </div>
+
+        <!-- Controls Bar -->
+        <div class="controls-bar">
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <span class="status-badge">
+                    <span class="status-dot"></span>
+                    LIVE
+                </span>
+                <span class="log-count"><span id="logCount">0</span> log entries</span>
+            </div>
+            
+            <div class="buttons">
+                <button id="autoScrollBtn" class="active" onclick="toggleAutoScroll()">
+                    ↓ Auto-scroll
+                </button>
+                <button id="pauseBtn" onclick="togglePause()">
+                    ⏸ Pause
+                </button>
+                <button class="danger" onclick="clearLogs()">
+                    🗑 Clear
+                </button>
+            </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="terminal" id="terminal">
+            <div class="empty-state">No logs yet. Waiting for activity...</div>
+            <div class="cursor-line">
+                <span>$</span>
+                <div class="cursor"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <span>WhatsApp → n8n Forwarder</span>
+            <span>Press Pause to stop auto-refresh</span>
+        </div>
+    </div>
+
+    <script>
+        let logs = [];
+        let isPaused = false;
+        let autoScroll = true;
+        let logId = 1;
+        let intervalId = null;
+
+        const terminal = document.getElementById('terminal');
+        const logCount = document.getElementById('logCount');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const autoScrollBtn = document.getElementById('autoScrollBtn');
+
+        // Sample log messages
+        const sampleMessages = [
+            { type: 'info', message: 'Heartbeat: Connection alive' },
+            { type: 'success', message: 'New message received' },
+            { type: 'info', message: 'Forwarding to n8n webhook...' },
+            { type: 'success', message: 'Webhook response: 200 OK' },
+            { type: 'warning', message: 'Queue size: 5 messages pending' },
+            { type: 'success', message: 'Message delivered successfully' },
+            { type: 'info', message: 'Processing message payload...' },
+            { type: 'success', message: 'Message received from +1234567890' },
+        ];
+
+        // Add initial logs
+        function initLogs() {
+            addLog('info', 'WhatsApp Forwarder initialized');
+            addLog('success', 'Connected to n8n webhook endpoint');
+            addLog('info', 'Listening for incoming messages...');
+        }
+
+        function formatTime(date) {
+            return date.toTimeString().split(' ')[0];
+        }
+
+        function getLogPrefix(type) {
+            switch (type) {
+                case 'success': return '[SUCCESS]';
+                case 'warning': return '[WARNING]';
+                case 'error': return '[ERROR]';
+                default: return '[INFO]';
+            }
+        }
+
+        function addLog(type, message) {
+            const log = {
+                id: logId++,
+                type: type,
+                message: message,
+                timestamp: new Date()
+            };
+            
+            logs.push(log);
+            if (logs.length > 100) {
+                logs.shift();
+            }
+
+            renderLogs();
+        }
+
+        function renderLogs() {
+            const cursorLine = terminal.querySelector('.cursor-line');
+            const emptyState = terminal.querySelector('.empty-state');
+            
+            if (emptyState) {
+                emptyState.remove();
+            }
+
+            // Clear existing logs (except cursor)
+            const existingLogs = terminal.querySelectorAll('.log-entry');
+            existingLogs.forEach(log => log.remove());
+
+            // Render all logs
+            logs.forEach(log => {
+                const logEntry = document.createElement('div');
+                logEntry.className = 'log-entry';
+                logEntry.innerHTML = `
+                    <span class="log-time">${formatTime(log.timestamp)}</span>
+                    <span class="log-type ${log.type}">${getLogPrefix(log.type)}</span>
+                    <span class="log-message">${log.message}</span>
+                `;
+                terminal.insertBefore(logEntry, cursorLine);
+            });
+
+            logCount.textContent = logs.length;
+
+            if (autoScroll) {
+                terminal.scrollTop = terminal.scrollHeight;
+            }
+        }
+
+        function simulateLog() {
+            const randomMsg = sampleMessages[Math.floor(Math.random() * sampleMessages.length)];
+            addLog(randomMsg.type, randomMsg.message);
+        }
+
+        function startSimulation() {
+            if (!isPaused && !intervalId) {
+                intervalId = setInterval(simulateLog, 3000);
+            }
+        }
+
+        function stopSimulation() {
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            pauseBtn.textContent = isPaused ? '▶ Resume' : '⏸ Pause';
+            
+            if (isPaused) {
+                stopSimulation();
+            } else {
+                startSimulation();
+            }
+        }
+
+        function toggleAutoScroll() {
+            autoScroll = !autoScroll;
+            if (autoScroll) {
+                autoScrollBtn.classList.add('active');
+                terminal.scrollTop = terminal.scrollHeight;
+            } else {
+                autoScrollBtn.classList.remove('active');
+            }
+        }
+
+        function clearLogs() {
+            logs = [];
+            terminal.innerHTML = `
+                <div class="empty-state">No logs yet. Waiting for activity...</div>
+                <div class="cursor-line">
+                    <span>$</span>
+                    <div class="cursor"></div>
+                </div>
+            `;
+            logCount.textContent = '0';
+        }
+
+        // Public function to add custom logs (call from your Node.js app)
+        window.addCustomLog = function(type, message) {
+            addLog(type, message);
+        };
+
+        // Initialize
+        initLogs();
+        startSimulation();
+    </script>
+</body>
+</html>

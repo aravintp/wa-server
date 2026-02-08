@@ -1,3 +1,3 @@
-2026/01/28-15:50:51.018 2ed0 Reusing MANIFEST C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\Sync Data\LevelDB/MANIFEST-000001
-2026/01/28-15:50:51.035 2ed0 Recovering log #3
-2026/01/28-15:50:51.037 2ed0 Reusing old log C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\Sync Data\LevelDB/000003.log 
+2026/01/28-17:43:21.389 164 Reusing MANIFEST C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\Sync Data\LevelDB/MANIFEST-000001
+2026/01/28-17:43:21.393 164 Recovering log #3
+2026/01/28-17:43:21.396 164 Reusing old log C:\Users\aravi\Documents\Code\node\wa-server\.wwebjs_auth\session\Default\Sync Data\LevelDB/000003.log 
