@@ -2,6 +2,8 @@
 const {app} = require("./server"); // Import the app instance=
 const whatsapp = require("./Wa-module"); // Import the app 
 
+console.log(__dirname)
+
 // my cod
     app.put('/send-wa-notification', (req, res) => {
         msg = req.query.msg
