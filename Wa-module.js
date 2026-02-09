@@ -1,7 +1,7 @@
 const qrcode = require('qrcode-terminal');
 
 const {io} = require("./server"); // Import the app instance=
-const { Client, LocalAuth, NoAuth  } = require('whatsapp-web.js');
+const { Client, NoAuth  } = require('whatsapp-web.js');
 
 
 const client = new Client({
@@ -18,6 +18,7 @@ const client = new Client({
         remotePath: `https://raw.githubusercontent.com/wppconnect-team/wa-version/refs/heads/main/html/2.3000.1031490220-alpha.html`,    
     },
 
+    // need to add this in the frontend
     pairWithPhoneNumber: {
         phoneNumber: '6580739726 ', // Include country code, no + or spaces
         //6596350023
