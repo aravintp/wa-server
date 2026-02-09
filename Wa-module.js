@@ -19,8 +19,8 @@ const client = new Client({
     },
 
     pairWithPhoneNumber: {
-        phoneNumber: '6596350023 ', // Include country code, no + or spaces
-        //6580739726
+        phoneNumber: '6580739726 ', // Include country code, no + or spaces
+        //6596350023
     }
 
 });
