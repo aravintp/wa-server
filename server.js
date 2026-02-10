@@ -57,6 +57,13 @@
     res.send('Got a DELETE request at /user')
   });
 
+  app.put('/api/send-wa-notification', (req, res) => {
+      msg = req.query.msg
+      num = req.query.number  + '@c.us'
+      // whatsapp.sendMessage(num,msg)
+      
+      res.send('Done')
+  })
 
   module.exports= {app,io};
 

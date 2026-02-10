@@ -11,18 +11,6 @@
             const pauseBtn = document.getElementById('pauseBtn');
             const autoScrollBtn = document.getElementById('autoScrollBtn');
 
-            // // Sample log messages
-            // const sampleMessages = [
-            //     { type: 'info', message: 'Heartbeat: Connection alive' },
-            //     { type: 'success', message: 'New message received' },
-            //     { type: 'info', message: 'Forwarding to n8n webhook...' },
-            //     { type: 'success', message: 'Webhook response: 200 OK' },
-            //     { type: 'warning', message: 'Queue size: 5 messages pending' },
-            //     { type: 'success', message: 'Message delivered successfully' },
-            //     { type: 'info', message: 'Processing message payload...' },
-            //     { type: 'success', message: 'Message received from +1234567890' },
-            // ];
-
             // Add initial logs
             function initLogs() {
                 addLog('info', 'WhatsApp Forwarder initialized');
