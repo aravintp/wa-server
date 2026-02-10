@@ -1,8 +1,11 @@
-const qrcode = require('qrcode-terminal');
-
-const {io} = require("./server"); // Import the app instance=
+ const qrcode = require('qrcode-terminal');
+ const {io} = require("./server"); // Import the app instance=
 const { Client, NoAuth  } = require('whatsapp-web.js');
 
+    send_log({
+        type:'info',
+        msg: `Entered Wa=module`
+    })
 
 const client = new Client({
 
@@ -20,12 +23,14 @@ const client = new Client({
 
     // need to add this in the frontend
     pairWithPhoneNumber: {
-        phoneNumber: '6580739726 ', // Include country code, no + or spaces
-        //6596350023
+        phoneNumber: '6580739726', // Include country code, no + or spaces
+        //6596350023 6580739726
     }
 
 });
 
+
+client.initialize();
 
 client.on('loading_screen', (percent, message) => {
 
@@ -45,16 +50,17 @@ client.on('qr', async (qr) => {
 });
 
 client.on('code', (code) => {
-    
-    io.emit("event message",{
+
+    send_log({
         type:'info',
-        msg: `Pairing code: ${code}`})
+        msg: `Pairing code: ${code}`
+    })
 
 });
 
 client.on('authenticated', () => {
     
-    io.emit("event message",{
+    send_log({
         type:'success',
         msg: `Authenticated`})
 });
@@ -62,7 +68,7 @@ client.on('authenticated', () => {
 client.on('auth_failure', msg => {
     // Fired if session restore was unsuccessful
     
-    io.emit("event message",{
+    send_log({
         type:'error',
         msg: `AUTHENTICATION FAILURE: ${msg}`})
 
@@ -72,26 +78,34 @@ client.on('ready', async () => {
 
     const debugWWebVersion = await client.getWWebVersion();
     
-    io.emit("event message",{
+    send_log({
         type:'info',
         msg: `ready..\nWebVersion = ${debugWWebVersion}`})
 
     client.pupPage.on('pageerror', function(err) {
             
-        io.emit("event message",{
+        send_log({
             type:'error',
             msg: `Page error: ${err.toString()}`})
     });
     client.pupPage.on('error', function(err) {
-        io.emit("event message",{
+
+        send_log({
             type:'error',
             msg: `Page error: ${err.toString()}`})
     });
     
 });
 
-client.initialize();
-// end whatsapp
+function send_log(debug){
 
+    console.log(debug.msg)
+
+    io.emit("event message",{
+        type: debug.type,
+        msg: debug.msg})
+
+};
+// end whatsapp
 
 module.exports = client;
