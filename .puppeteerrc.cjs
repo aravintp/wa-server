@@ -1,10 +1,18 @@
 
-// const {join} = require('path');
+const {join} = require('path');
+const {platform} = require('os');
 
-// /**
-//  * @type {import("puppeteer").Configuration}
-//  */
-// module.exports = {
-//   // Changes the cache location for Puppeteer.
-//   cacheDirectory: join(__dirname, '.cache', 'puppeteer'),
-// };
+
+// Check if OS is Windows
+if (platform() === 'Linux') {
+  /**
+   * @type {import("puppeteer").Configuration}
+   */
+  module.exports = {
+    // Changes the cache location for Puppeteer.
+    cacheDirectory: join(__dirname, '.cache', 'puppeteer'),
+  };
+}
+
+
+console.log('Continuing script on ' + process.platform);

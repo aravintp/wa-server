@@ -2,12 +2,17 @@
         const {io} = require("./server"); // Import the app instance=
         const { Client, NoAuth, LocalAuth  } = require('whatsapp-web.js');
         const {forward_n8n} = require('./app.js')
-
+        const {getlogs,createLog} = require('./global.js')
+        
+        import { logs,createLog } from "./global";
+        
+        
             send_log({
                 type:'info',
                 msg: `Entered Wa=module`
             })
 
+        // might need to make this a funciton
         const client = new Client({
 
             authStrategy: new LocalAuth(),
@@ -15,11 +20,6 @@
             puppeteer: {
                 args: ['--no-sandbox', '--disable-setuid-sandbox'],
             },
-
-            // webVersionCache: {
-            //     type: 'remote',
-            //     remotePath: `https://raw.githubusercontent.com/wppconnect-team/wa-version/refs/heads/main/html/2.3000.1031490220-alpha.html`,    
-            // },
 
             // need to add this in the frontend
             pairWithPhoneNumber: {
@@ -41,8 +41,9 @@
 
         });
 
-        
-        // Authentication Events
+        /**       
+         * Authentication Events
+         */
 
         client.on('qr', async (qr) => {
             // NOTE: This event will not be fired if a session is specified.
@@ -66,8 +67,10 @@
         });
 
 
-        // Connection status Events
-
+        /**       
+         *  Connection status Events
+         */
+        
         client.on('authenticated', () => {
             
             send_log({
@@ -101,7 +104,9 @@
         });
 
 
-        // When auth completed  
+        /**       
+         *  Auth completed Events
+         */
         
         client.on('ready', async () => {
 
@@ -127,7 +132,10 @@
         });
 
         
-        // Message activity notification
+        /**       
+         *  Message activity Events
+         */
+        
         client.on('message', msg => {
 
             send_log({
@@ -139,6 +147,8 @@
         
         client.on('message_create', msg => {
 
+
+            console.log("at wa-module.js\n", logs)
             send_log({
                 type:'info',
                 msg: `Message created: ${msg.body}`})
@@ -165,13 +175,16 @@
 
 
         // Send log to front end and print console
-        function send_log(debug){
+        function send_log(n){
 
-            console.log(debug.msg)
 
-            io.emit("event message",{
-                type: debug.type,
-                msg: debug.msg})
+            log = createLog(n.type,n.msg)
+            logs.push(log)
+            console.log(n.msg)
+
+            // io.emit("event message",{
+            //     type: debug.type,
+            //     msg: debug.msg})
 
         };
         // end whatsapp

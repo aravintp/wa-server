@@ -1,9 +1,9 @@
 
-
-            let logs = [];
+           // var {logs,createLog} = require('./global')
+            
+            import { logs,createLog } from "./global";
             let isPaused = false;
             let autoScroll = true;
-            let logId = 1;
             let intervalId = null;
         
             const terminal = document.getElementById('terminal');
@@ -33,12 +33,7 @@
 
             // This funtion adds to log array and pushes to display it
             function addLog(type, message) {
-                const log = {
-                    id: logId++,
-                    type: type,
-                    message: message,
-                    timestamp: new Date()
-                };
+                const log = createLog(type,message)
                 
                 logs.push(log);
                 if (logs.length > 100) {
@@ -140,7 +135,9 @@
             initLogs();
 
             socket.on('event message', (n) => {
-                addLog(n.type.toString(),n.msg.toString())
+                //addLog(n.type.toString(),n.msg.toString())
+
+                console.log("at scipt.js\n", logs)
             }); 
 
         
