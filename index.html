@@ -229,10 +229,6 @@
         }
     </style>
 </head>
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io();
-</script>
 
 <body>
     <div class="container">
@@ -284,7 +280,8 @@
             <span>Press Pause to stop auto-refresh</span>
         </div>
     </div>
-    <script type="module" src=".\global.js"></script>
     <script  type="module" src=".\script.js" defer></script> 
+    <script src="/socket.io/socket.io.js"></script>
+    <script> const socket = io(); </script>
 </body>
 </html>

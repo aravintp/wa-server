@@ -1,10 +1,9 @@
 
-           // var {logs,createLog} = require('./global')
-            
-            import { logs,createLog } from "./global";
             let isPaused = false;
             let autoScroll = true;
             let intervalId = null;
+            let logId = 1;
+            let logs = [];
         
             const terminal = document.getElementById('terminal');
             const logCount = document.getElementById('logCount');
@@ -14,7 +13,6 @@
             // Add initial logs
             function initLogs() {
                 addLog('info', 'WhatsApp Forwarder initialized');
-                addLog('success', 'Connected to n8n webhook endpoint');
                 addLog('info', 'Listening for incoming messages...');
             }
 
@@ -27,20 +25,27 @@
                     case 'success': return '[SUCCESS]';
                     case 'warning': return '[WARNING]';
                     case 'error': return '[ERROR]';
+                    case 'debug': return '[DEBUG]';
                     default: return '[INFO]';
                 }
             }
 
             // This funtion adds to log array and pushes to display it
             function addLog(type, message) {
-                const log = createLog(type,message)
-                
+                const log =  {
+                    id: logId++,
+                    type: type,
+                    message: message,
+                    timestamp: new Date()
+                };
+
                 logs.push(log);
                 if (logs.length > 100) {
                     logs.shift();
                 }
-
+                
                 renderLogs();
+
             }
 
             // This is the log display
@@ -75,17 +80,6 @@
                 }
             }
 
-            // function simulateLog() {
-            //     const randomMsg = sampleMessages[Math.floor(Math.random() * sampleMessages.length)];
-            //     addLog(randomMsg.type, randomMsg.message);
-            // }
-
-            // function startSimulation() {
-            //     if (!isPaused && !intervalId) {
-            //         intervalId = setInterval(simulateLog, 3000);
-            //     }
-            // }
-
             function stopSimulation() {
                 if (intervalId) {
                     clearInterval(intervalId);
@@ -116,6 +110,7 @@
 
             function clearLogs() {
                 logs = [];
+                set_logs(logs)
                 terminal.innerHTML = `
                     <div class="empty-state">No logs yet. Waiting for activity...</div>
                     <div class="cursor-line">
@@ -126,18 +121,19 @@
                 logCount.textContent = '0';
             }
 
-            // Public function to add custom logs (call from your Node.js app)
-            globalThis.addCustomLog = function(type, message) {
-                addLog(type, message);
-            };
             
             // Initialize
             initLogs();
 
+            // receive message
             socket.on('event message', (n) => {
-                //addLog(n.type.toString(),n.msg.toString())
-
-                console.log("at scipt.js\n", logs)
+                console.log(n)
+                addLog(n.type.toString(),n.msg.toString())
             }); 
 
+            // receive message
+            socket.on('event messages', (n) => {
+                console.log(n)
+                addLog(n.type.toString(),n.msg.toString())
+            }); 
         

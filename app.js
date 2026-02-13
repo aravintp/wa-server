@@ -1,13 +1,19 @@
 
-// const { AsyncIterableUtil } = require("puppeteer-core");
-// const {app} = require("./server"); // Import the app instance=
-// const whatsapp = require("./Wa-module"); // Import the app 
-// const axios = require('axios');
+import { AsyncIterableUtil } from "puppeteer-core";
+import axios from 'axios';
 
-const { AsyncIterableUtil } = require("puppeteer-core");
-const {app} = require("./server"); // Import the app instance=
-const whatsapp = require("./Wa-module"); // Import the app 
-const axios = require('axios');
+/**
+ * 1) the phone number is static
+ * 2) if the paring is overused the promise fais
+ * 3) need to set axios n8n webhook
+ */
+
+import "./server.js"; // Import the app instance=
+import './Wa-module.cjs';
+import {initLogs,set_debug} from './global.js'
+
+initLogs();
+set_debug(false)
 
 // receive message from n8n and reply to user
 async function forward_msg(num,msg){
@@ -27,4 +33,5 @@ async function forward_n8n(msg) {
 }
 
 
-module.exports = {forward_msg,forward_n8n}
+
+export {forward_msg,forward_n8n}
