@@ -1,7 +1,7 @@
 
     import { sendtoFrontend } from "./server.js";
 
-    logs = [];
+    var logs = [];
     var logId = 1;
     var debug = false;
 
