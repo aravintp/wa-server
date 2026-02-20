@@ -1,9 +1,8 @@
 
-    import { sendtoFrontend } from "./server.js";
 
-    var logs = [];
     var logId = 1;
     var debug = false;
+    export var logs = [];
 
     send_log({
         type:'debug',
@@ -61,7 +60,5 @@
         let log = createLog(n.type,n.msg)
 
         logs.push(log);
-        sendtoFrontend(n)
-        
-        console.log(n.msg)
+       // console.log(n.msg)
     };

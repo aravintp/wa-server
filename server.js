@@ -1,10 +1,15 @@
 
   
-  // import { send_log } from "./global.js";;
+  
+  import pkg from './Wa-module.cjs';
+  const {get_state,init_client,close_client} = pkg;
+
+  import {logs,send_log} from './global.js'
   import express  from 'express';
   import { createServer } from 'node:http';
   import { Server } from 'socket.io';
   import path from 'path';
+import { cdpSpecificCookiePropertiesFromPuppeteerToBidi } from 'puppeteer-core/internal/bidi/Page.js';
 
   const app = express()
   const server = createServer(app);
@@ -12,6 +17,10 @@
 
   const port = 8080
   var socket_connected = false;
+  const intervalId = setInterval(() => {
+        logstoFrontend(logs);
+    }, 3000);
+
 
       // Serve static files from the "public" directory
       app.use(express.static(path.join(import.meta.dirname, '.')));
@@ -29,16 +38,37 @@
 
       });
 
-      app.post('/', (req, res) => {
-        res.send('Got a POST request')
+      // app.post('/', (req, res) => {
+      //   res.send('Got a POST request')
+      // });
+
+      // app.put('/user', (req, res) => {
+      //   res.send('Got a PUT request at /user')
+      // });
+
+      // app.delete('/user', (req, res) => {
+      //   res.send('Got a DELETE request at /user')
+      // });
+        
+      /**
+       * Api requet
+       */
+      app.get('/api/getstate',async (req, res)  => {
+        const state = await get_state()
+        res.send(JSON.stringify(state))
+
+      });
+      
+      app.get('/api/wa-initialise',async (req, res)  => {
+        init_client('6596350023')
+        res.send(JSON.stringify("received"))
+
       });
 
-      app.put('/user', (req, res) => {
-        res.send('Got a PUT request at /user')
-      });
-
-      app.delete('/user', (req, res) => {
-        res.send('Got a DELETE request at /user')
+      
+      app.get('/api/wa-close',async (req, res)  => {
+        console.log("Close client code api")
+        close_client()
       });
 
       app.put('/api/send-wa-notification', (req, res) => {
@@ -50,11 +80,26 @@
       })
 
         
+      /**
+       * Web socket io
+       */
+      function sendtoFrontend(m){
+          io.emit('event message',{
+          type: m.type,
+          msg: m.msg}); 
+      }
+
+    function logstoFrontend(m){
+        if(socket_connected)
+            io.emit('event logs',m); 
+      }
+
+
           // socket connection for event messages
       io.on('connection', (socket) => {
-          console.log('a user connected');
 
-          socket_connected= io.emit('event message',{
+          socket_connected=  true
+          send_log({
           type: 'success',
           msg: 'websocket io connected'}); 
 
@@ -68,12 +113,7 @@
           console.log(err.context);  // some additional error context
       });
 
-      function sendtoFrontend(m){
-        
-          io.emit('event message',{
-          type: m.type,
-          msg: m.msg}); 
-      }
+
 
   export {app,sendtoFrontend,socket_connected};
 

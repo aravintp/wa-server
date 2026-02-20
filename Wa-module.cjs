@@ -1,29 +1,54 @@
         
         
-        const { Client, LocalAuth  } = require('whatsapp-web.js');``
+        const { Client, LocalAuth, ClientOptions  } = require('whatsapp-web.js');``
         const qrcode = require('qrcode-terminal');
-        const {send_log} = require('./global.js')
+        const {send_log} = require('./global.js');
+
+        var wa_ready = false;
 
         send_log({
             type:'Debug',
             msg: `@WA-Module Entered..`})
 
         // might need to make this a funciton
-
-        const client = new Client({
-
-            authStrategy: new LocalAuth(),
-
-            puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'], },
-
-            pairWithPhoneNumber: {
-                phoneNumber: '6580739726', // Include country code, no + or spaces
-                //6596350023 g6580739726
+            var cp = {
+                authStrategy: new LocalAuth(),
+                puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'], },
+                pairWithPhoneNumber: { phoneNumber: '6580739726' }
             }
 
-        });
+        var client = new Client(cp)
 
+        function init_client(number){
+            
+            send_log({
+                type:'Info',
+                msg: `Initialising Wa-client..`})
 
+            var cp = {
+                authStrategy: new LocalAuth(),
+                puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'], },
+                pairWithPhoneNumber: { phoneNumber: number }
+            }
+
+            client.initialize().catch()
+        }
+
+        async function get_state(){
+            
+            if (wa_ready) 
+                return await client.getState()
+        }
+
+        function close_client(){
+
+            send_log({
+                type:'Info',
+                msg: `Closing..`})
+            console.log("Destroying client...");
+            client.destroy();
+
+        }
         //Loading screen
         client.on('loading_screen', (percent, message) => {
 
@@ -34,9 +59,7 @@
         /**       
          * Authentication Events
          */
-
         client.on('INITIALIZING', () => {
-            
             send_log({
                 type:'Info',
                 msg: `Initialising..`})
@@ -52,6 +75,7 @@
         
         client.on('ready', async () => {
 
+            wa_ready = true;
             const debugWWebVersion = await client.getWWebVersion();
             
             send_log({
@@ -79,7 +103,7 @@
          * 
          */
         // Paring code
-        client.on('code', (code) => {
+        client.on('code', async (code) => {
 
             send_log({
                 type:'info',
@@ -103,7 +127,7 @@
          *  Connection State Events
          */
         
-        client.on('authenticated', () => {
+        client.on('authenticated', async () => {
             
             send_log({
                 type:'success',
@@ -111,7 +135,7 @@
         });
 
         
-        client.on('change_state', () => {
+        client.on('change_state',async () => {
             
             send_log({
                 type:'info',
@@ -119,14 +143,14 @@
         });
 
         
-        client.on('CONNECTED', () => {
+        client.on('CONNECTED', async () => {
             
             send_log({
                 type:'Info',
                 msg: `Client Connected`})
         });
         
-        client.on('disconnected', () => {
+        client.on('disconnected',async () => {
             
             send_log({
                 type:'warning',
@@ -134,14 +158,15 @@
         });
         
 
-        client.on('CONFLICT', () => {
+        client.on('CONFLICT',async () => {
             
             send_log({
                 type:'warning',
                 msg: `Client CONFLICT`})
         });
 
-        client.on('auth_failure', msg => {
+
+        client.on('auth_failure',async (msg) => {
             
             send_log({
                 type:'error',
@@ -150,7 +175,7 @@
         });
 
 
-        client.on('PAIRING', () => {
+        client.on('PAIRING', async () => {
             
             send_log({
                 type:'Info',
@@ -158,16 +183,15 @@
         });
 
         
-        client.on('UNPAIRED', () => {
+        client.on('UNPAIRED', async () => {
             
             send_log({
                 type:'Info',
                 msg: `Client Paring..`})
         });
 
-
         
-        client.on('TIMEOUT', () => {
+        client.on('TIMEOUT', async () => {
             
             send_log({
                 type:'Error',
@@ -180,7 +204,7 @@
          *  Message activity Events
          */
         
-        client.on('message', msg => {
+        client.on('message', async (msg) => {
 
             send_log({
                 type:'info',
@@ -188,15 +212,8 @@
 
         });
 
-        
-
-        try {
-            client.initialize();
-            
-        } catch (error) {
-            send_log({type:"error",msg:error})
-        }
-
-
         // end whatsapp
-        module.exports = client;
+        module.exports.client = client
+        module.exports.get_state = get_state;
+        module.exports.close_client = close_client;
+        module.exports.init_client = init_client;

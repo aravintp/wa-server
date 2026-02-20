@@ -89,6 +89,12 @@
             font-size: 0.75rem;
         }
 
+        
+        .wa-status {
+            color: #6e7681;
+            font-size: 0.75rem;
+        }
+
         .buttons {
             display: flex;
             gap: 0.5rem;
@@ -242,6 +248,7 @@
             <div class="title">whatsapp-forwarder — node</div>
         </div>
 
+    <script  type="module" src=".\script.js" defer></script> 
         <!-- Controls Bar -->
         <div class="controls-bar">
             <div style="display: flex; gap: 1rem; align-items: center;">
@@ -250,14 +257,15 @@
                     LIVE
                 </span>
                 <span class="log-count"><span id="logCount">0</span> log entries</span>
+                <span class="wa-status"><span id="status">Status:</span> </span>
             </div>
             
             <div class="buttons">
-                <button id="autoScrollBtn" class="active" onclick="toggleAutoScroll()">
+                <button id="autoScrollBtn" class="active">
                     ↓ Auto-scroll
                 </button>
-                <button id="pauseBtn" onclick="togglePause()">
-                    ⏸ Pause
+                <button id="startBtn" class= "active">
+                    ▶ Start
                 </button>
                 <button class="danger" onclick="clearLogs()">
                     🗑 Clear
@@ -280,7 +288,6 @@
             <span>Press Pause to stop auto-refresh</span>
         </div>
     </div>
-    <script  type="module" src=".\script.js" defer></script> 
     <script src="/socket.io/socket.io.js"></script>
     <script> const socket = io(); </script>
 </body>

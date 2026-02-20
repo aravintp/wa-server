@@ -1,14 +1,25 @@
 
-            let isPaused = false;
+let d = 0;
+let d1 = 0;
+            let isStopped = false;
             let autoScroll = true;
-            let intervalId = null;
             let logId = 1;
             let logs = [];
         
             const terminal = document.getElementById('terminal');
             const logCount = document.getElementById('logCount');
-            const pauseBtn = document.getElementById('pauseBtn');
+            const startBtn = document.getElementById('startBtn');
+            const wastatus = document.getElementById('status')
             const autoScrollBtn = document.getElementById('autoScrollBtn');
+            const timeoutId = setTimeout(() => {
+                let intervalId= setInterval(() => {
+                    update_WaStatus();
+                        }, 2000);
+            }, 5000);
+                        
+            document.getElementById('startBtn').addEventListener('click', toggleScript);
+                        
+            document.getElementById('autoScrollBtn').addEventListener('click', toggleAutoScroll);
 
             // Add initial logs
             function initLogs() {
@@ -45,7 +56,6 @@
                 }
                 
                 renderLogs();
-
             }
 
             // This is the log display
@@ -80,32 +90,18 @@
                 }
             }
 
-            function stopSimulation() {
-                if (intervalId) {
-                    clearInterval(intervalId);
-                    intervalId = null;
-                }
-            }
 
-            function togglePause() {
-                isPaused = !isPaused;
-                pauseBtn.textContent = isPaused ? '▶ Resume' : '⏸ Pause';
+
+            async function toggleAutoScroll() {
+
                 
-                if (isPaused) {
-                    stopSimulation();
-                } else {
-                    startSimulation();
-                }
-            }
-
-            function toggleAutoScroll() {
-                autoScroll = !autoScroll;
-                if (autoScroll) {
-                    autoScrollBtn.classList.add('active');
-                    terminal.scrollTop = terminal.scrollHeight;
-                } else {
-                    autoScrollBtn.classList.remove('active');
-                }
+                // autoScroll = !autoScroll;
+                // if (autoScroll) {
+                //     autoScrollBtn.classList.add('active');
+                //     terminal.scrollTop = terminal.scrollHeight;
+                // } else {
+                //     autoScrollBtn.classList.remove('active');
+                // }
             }
 
             function clearLogs() {
@@ -121,19 +117,101 @@
                 logCount.textContent = '0';
             }
 
-            
+            async function toggleScript(){
+                
+                isStopped = !isStopped;
+                const api_url = isStopped ? 'wa-initialise' : 'wa-close' ;
+                startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
+
+
+                await fetchBackendData(`http://localhost:8080/api/${api_url}`)
+
+            }
+
+            async function update_WaStatus() {
+
+                const url = 'http://localhost:8080/api/getstate'
+                try {
+                    
+                    var state = await fetchBackendData(url)
+                } catch (error) {
+                    state = "Offine"
+                }
+                wastatus.textContent = `Status: ${state.toLowerCase()}`
+            }
+
             // Initialize
             initLogs();
 
             // receive message
             socket.on('event message', (n) => {
-                console.log(n)
-                addLog(n.type.toString(),n.msg.toString())
             }); 
 
-            // receive message
-            socket.on('event messages', (n) => {
-                console.log(n)
-                addLog(n.type.toString(),n.msg.toString())
+            // receive logs
+            socket.on('event logs', (n) => {
+
+               // console.log('evt \n', n)
+                let n_logs = get_new_logs(logs,n)
+                //console.log(n_logs)
+            
+                n_logs.forEach(e => {
+                   addLog(e.type,e.message)
+                })
+
             }); 
-        
+
+                        
+            // FUkcing old way to do, but it works -_-!
+            function get_new_logs(mainArray,newArray){
+                
+               // console.log('gnl')
+                const sha_copy = []
+
+                const main_is_larger =  mainArray.length > newArray.length;
+                const m = main_is_larger? mainArray:newArray
+                const n = main_is_larger? newArray:mainArray
+
+                for (let index = 0; index < m.length; index++) {
+                    const e = m[index];
+                        
+                    for (let index2 = 0; index2 < n.length; index2++) {
+                        const e2 = n[index2];
+                        const same = e.message === e2.message
+                        const eol = index2 === n.length-1
+                        
+                        if (same){ 
+                            break; }
+
+                        if (eol){ 
+                            sha_copy.push(e) }
+                    }
+                }
+                
+                return !main_is_larger? sha_copy: []
+            }
+
+
+            async function fetchBackendData(url) {
+                
+                let _ret = ""
+                try {
+                    
+                    const baseUrl = window.location.origin; 
+
+                    // The URL should match your backend server and endpoint
+                    const response = await fetch(url);
+
+                    if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    _ret = await response.json(); // Parse the response body as JSON
+
+                } catch (error) {
+
+                    throw error;
+                    
+                }
+
+                return _ret
+            }
