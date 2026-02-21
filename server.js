@@ -2,14 +2,13 @@
   
   
   import pkg from './Wa-module.cjs';
-  const {get_state,init_client,close_client} = pkg;
+  const {get_state,init_client,close_client,send_message} = pkg;
 
   import {logs,send_log} from './global.js'
   import express  from 'express';
   import { createServer } from 'node:http';
   import { Server } from 'socket.io';
   import path from 'path';
-import { cdpSpecificCookiePropertiesFromPuppeteerToBidi } from 'puppeteer-core/internal/bidi/Page.js';
 
   const app = express()
   const server = createServer(app);
@@ -71,12 +70,11 @@ import { cdpSpecificCookiePropertiesFromPuppeteerToBidi } from 'puppeteer-core/i
         close_client()
       });
 
-      app.put('/api/send-wa-notification', (req, res) => {
-          msg = req.query.msg
-          num = req.query.number  + '@c.us'
-          // whatsapp.sendMessage(num,msg)
-          
-          res.send('Done')
+      app.put('/api/send-wa-notification', async(req, res) => {
+          const msg = req.query.msg
+          const num = req.query.number  + '@c.us'
+          const r = await send_message(num,msg)
+          res.send(r)
       })
 
         

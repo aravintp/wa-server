@@ -1,16 +1,16 @@
 
-let d = 0;
-let d1 = 0;
+
             let isStopped = false;
             let autoScroll = true;
             let logId = 1;
             let logs = [];
         
+                    
+            const baseUrl = window.location.origin; 
             const terminal = document.getElementById('terminal');
             const logCount = document.getElementById('logCount');
             const startBtn = document.getElementById('startBtn');
             const wastatus = document.getElementById('status')
-            const autoScrollBtn = document.getElementById('autoScrollBtn');
             const timeoutId = setTimeout(() => {
                 let intervalId= setInterval(() => {
                     update_WaStatus();
@@ -18,8 +18,6 @@ let d1 = 0;
             }, 5000);
                         
             document.getElementById('startBtn').addEventListener('click', toggleScript);
-                        
-            document.getElementById('autoScrollBtn').addEventListener('click', toggleAutoScroll);
 
             // Add initial logs
             function initLogs() {
@@ -91,19 +89,6 @@ let d1 = 0;
             }
 
 
-
-            async function toggleAutoScroll() {
-
-                
-                // autoScroll = !autoScroll;
-                // if (autoScroll) {
-                //     autoScrollBtn.classList.add('active');
-                //     terminal.scrollTop = terminal.scrollHeight;
-                // } else {
-                //     autoScrollBtn.classList.remove('active');
-                // }
-            }
-
             function clearLogs() {
                 logs = [];
                 set_logs(logs)
@@ -123,14 +108,13 @@ let d1 = 0;
                 const api_url = isStopped ? 'wa-initialise' : 'wa-close' ;
                 startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
 
-
-                await fetchBackendData(`http://localhost:8080/api/${api_url}`)
+                await fetchBackendData(`${baseUrl}/api/${api_url}`)
 
             }
 
             async function update_WaStatus() {
 
-                const url = 'http://localhost:8080/api/getstate'
+                const url = `${baseUrl}api/getstate`
                 try {
                     
                     var state = await fetchBackendData(url)
@@ -150,10 +134,8 @@ let d1 = 0;
             // receive logs
             socket.on('event logs', (n) => {
 
-               // console.log('evt \n', n)
                 let n_logs = get_new_logs(logs,n)
-                //console.log(n_logs)
-            
+
                 n_logs.forEach(e => {
                    addLog(e.type,e.message)
                 })
@@ -195,8 +177,6 @@ let d1 = 0;
                 
                 let _ret = ""
                 try {
-                    
-                    const baseUrl = window.location.origin; 
 
                     // The URL should match your backend server and endpoint
                     const response = await fetch(url);
@@ -210,7 +190,6 @@ let d1 = 0;
                 } catch (error) {
 
                     throw error;
-                    
                 }
 
                 return _ret

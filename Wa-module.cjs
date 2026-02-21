@@ -7,7 +7,7 @@
         var wa_ready = false;
 
         send_log({
-            type:'Debug',
+            type:'debug',
             msg: `@WA-Module Entered..`})
 
         // might need to make this a funciton
@@ -34,22 +34,61 @@
             client.initialize().catch()
         }
 
+    
+        /**       
+         * Fxport functions
+         */
+
         async function get_state(){
-            
+            var state = ""
             if (wa_ready) 
-                return await client.getState()
+                try {
+
+                    state = await client.getState();
+
+                } catch (error) {
+
+                            
+                    send_log({
+                        type:'error',
+                        msg: `get_state Wa-client.${error}`});
+
+                }
+                return state
         }
 
-        function close_client(){
+        async function close_client(){
+            ret = await client.destroy();
 
             send_log({
-                type:'Info',
-                msg: `Closing..`})
-            console.log("Destroying client...");
-            client.destroy();
+                type:'info',
+                msg: `Destroying client..`})
+            return ret
+        }
+
+        async function send_message(num,msg){
+        // await client.sendMessage(num,msg);
+            send_log({
+                type:'info',
+                msg: `Send message request: ${num}`})
+            send_log({
+                type:'info',
+                msg: `Send message request: ${msg}`})
+            
+            if (wa_ready) 
+               return await client.sendMessage(num,msg);
+            else    
+                send_log({
+                    type:'warning',
+                    msg: `Wa-Client not ready!`})
 
         }
-        //Loading screen
+
+
+        /**       
+         * Events
+         */
+
         client.on('loading_screen', (percent, message) => {
 
             console.log('LOADING SCREEN', percent, message);
@@ -217,3 +256,4 @@
         module.exports.get_state = get_state;
         module.exports.close_client = close_client;
         module.exports.init_client = init_client;
+        module.exports.send_message = send_message;
