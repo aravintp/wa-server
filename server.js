@@ -2,7 +2,7 @@
   
   
   import pkg from './Wa-module.cjs';
-  const {get_state,init_client,close_client,send_message} = pkg;
+  const {get_state,init_client,close_client,send_message,clearProfileLock} = pkg;
 
   import {logs,send_log} from './global.js'
   import express  from 'express';
@@ -20,6 +20,8 @@
         logstoFrontend(logs);
     }, 3000);
 
+      // Clear locks?
+      await clearProfileLock()
 
       // Serve static files from the "public" directory
       app.use(express.static(path.join(import.meta.dirname, '.')));

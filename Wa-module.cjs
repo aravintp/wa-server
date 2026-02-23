@@ -251,9 +251,25 @@
 
         });
 
+        
+        export const clearProfileLock = async (id) => {
+            try {
+                const lockFilePath = ClientHelper.base_path + `/${ClientHelper.session_prefix}-${id}/SingletonLock`;
+
+                const stats = fs.lstatSync(lockFilePath);
+
+                if (stats.isSymbolicLink()) {
+                    fs.unlinkSync(lockFilePath);
+                }
+            } catch (err) {
+                console.log(`Clear profile lock error: ${err}`);
+            }
+        };
+
         // end whatsapp
         module.exports.client = client
         module.exports.get_state = get_state;
         module.exports.close_client = close_client;
         module.exports.init_client = init_client;
         module.exports.send_message = send_message;
+        module.exports.clearProfileLock = clearProfileLock;
