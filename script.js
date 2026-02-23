@@ -106,22 +106,33 @@
                 
                 isStopped = !isStopped;
                 const api_url = isStopped ? 'wa-initialise' : 'wa-close' ;
-                startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
+
+               // const isOffline = get_server_state()? 'Offline': 'Connected'
 
                 await fetchBackendData(`${baseUrl}/api/${api_url}`)
+
+                
+                startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
 
             }
 
             async function update_WaStatus() {
 
-                const url = `${baseUrl}api/getstate`
+                const state = get_server_state()
+                wastatus.textContent = `Status: ${state.toLowerCase()}`
+            }
+
+            async function get_server_state(){
+                
+                const url = `${baseUrl}/api/getstate`
                 try {
                     
                     var state = await fetchBackendData(url)
                 } catch (error) {
                     state = "Offine"
                 }
-                wastatus.textContent = `Status: ${state.toLowerCase()}`
+                
+                return state
             }
 
             // Initialize
