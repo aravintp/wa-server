@@ -118,7 +118,7 @@
 
             async function update_WaStatus() {
 
-                const state = get_server_state()
+                const state = await get_server_state()
                 wastatus.textContent = `Status: ${state}`
             }
 
