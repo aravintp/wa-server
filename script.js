@@ -119,7 +119,7 @@
             async function update_WaStatus() {
 
                 const state = get_server_state()
-                wastatus.textContent = `Status: ${state.toLowerCase()}`
+                wastatus.textContent = `Status: ${state}`
             }
 
             async function get_server_state(){
