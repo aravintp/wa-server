@@ -91,29 +91,38 @@
         }
 
         async function close_client(){
-            ret = await client.destroy();
-
             send_log({
                 type:'info',
-                msg: `Destroying client..`})
+                msg: `Closing client..`})
+            ret = client.destroy().then(r=>{
+                    
+                send_log({
+                    type:'success',
+                    msg: `Client closed..`})
+            })
+
             return ret
         }
 
         async function send_message(num,msg){
-        // await client.sendMessage(num,msg);
+            
             send_log({
                 type:'info',
-                msg: `Send message request: ${num}`})
-            send_log({
-                type:'info',
-                msg: `Send message request: ${msg}`})
+                msg: `Send message request:\n${num} ${msg}`})
             
             if (wa_ready) 
-               return await client.sendMessage(num,msg);
+                client.sendMessage(num,msg).then(r=>{
+                    
+                    send_log({
+                        type:'success',
+                        msg: `Message Sent`})
+                
+                })
             else    
                 send_log({
                     type:'warning',
                     msg: `Wa-Client not ready!`})
+            return
 
         }
 
@@ -131,7 +140,7 @@
         /**       
          * Authentication Events
          */
-        client.on('INITIALIZING', () => {
+        client.on('INITIALIZING',async () => {
             send_log({
                 type:'Info',
                 msg: `Initialising..`})
@@ -152,7 +161,11 @@
             
             send_log({
                 type:'info',
-                msg: `ready..\nWebVersion = ${debugWWebVersion}`})
+                msg: `Ready!`})
+                
+            send_log({
+                type:'info',
+                msg: `WebVersion = ${debugWWebVersion}`})
 
             client.pupPage.on('pageerror', function(err) {
                     
@@ -207,11 +220,11 @@
         });
 
         
-        client.on('change_state',async () => {
+        client.on('change_state',async (state) => {
             
             send_log({
-                type:'info',
-                msg: `State Changed`})
+                type:'warning',
+                msg: `State Changed: ${state}`})
         });
 
         
