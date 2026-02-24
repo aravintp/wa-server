@@ -12,7 +12,7 @@
     export function initLogs() {
         add_log('info', 'WhatsApp Forwarder initialized');
         add_log('info', 'Listening for incoming messages...');
-        add_log('success', 'Connected to n8n webhook endpoint');
+       // add_log('success', 'Connected to n8n webhook endpoint');
     }
 
 
@@ -60,5 +60,5 @@
         let log = createLog(n.type,n.msg)
 
         logs.push(log);
-       // console.log(n.msg)
+        console.log(n.msg)
     };

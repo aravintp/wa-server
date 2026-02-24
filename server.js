@@ -2,9 +2,10 @@
   
   
   import pkg from './Wa-module.cjs';
-  const {get_state,init_client,close_client,send_message,clearProfileLock} = pkg;
+  const {get_state,init_client,close_client,send_message,client} = pkg;
 
   import {logs,send_log} from './global.js'
+
   import express  from 'express';
   import { createServer } from 'node:http';
   import { Server } from 'socket.io';
@@ -20,16 +21,30 @@
         logstoFrontend(logs);
     }, 3000);
 
-      // Clear locks?
-      await clearProfileLock()
+      
+      send_log({
+          type:'debug',
+          msg: `@Module server.js entered`
+      })
 
       // Serve static files from the "public" directory
       app.use(express.static(path.join(import.meta.dirname, '.')));
 
+      
+      send_log({
+          type:'debug',
+          msg: `express.js is using ${path.join(import.meta.dirname, '.')}`
+      })
+
 
       // server listening
       server.listen(port, () => {
-        console.log(`Server listening on port ${port}`)
+          
+        send_log({
+            type:'info',
+            msg: `Server listening on port ${port}`
+        })
+
       });
 
 
@@ -61,7 +76,10 @@
       });
       
       app.get('/api/wa-initialise',async (req, res)  => {
-        init_client('6596350023')
+               // might need to make this a funciton
+
+
+        init_client("6596350023")
         res.send(JSON.stringify("received"))
 
       });

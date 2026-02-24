@@ -1,6 +1,6 @@
         
         
-        const { Client, LocalAuth, ClientOptions  } = require('whatsapp-web.js');``
+        const { Client, LocalAuth } = require('whatsapp-web.js');``
         const qrcode = require('qrcode-terminal');
         const {send_log} = require('./global.js');
 
@@ -17,21 +17,54 @@
                 pairWithPhoneNumber: { phoneNumber: '6580739726' }
             }
 
-        var client = new Client(cp)
+         var client = new Client(cp)
 
-        function init_client(number){
+        async function init_client(number){
             
             send_log({
-                type:'Info',
+                type:'info',
                 msg: `Initialising Wa-client..`})
+            
+            client.initialize().then(r =>{
 
-            var cp = {
-                authStrategy: new LocalAuth(),
-                puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'], },
-                pairWithPhoneNumber: { phoneNumber: number }
-            }
+                send_log({
+                    type:'success',
+                    msg: `completed..`})
 
-            client.initialize().catch()
+            })
+
+            // Works but on event dont fire any more
+            // var cp = {
+            //     authStrategy: new LocalAuth(),
+            //     puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'], },
+            //     pairWithPhoneNumber: { phoneNumber: number }
+            // }
+
+            // client = new Client(cp)
+            // client.initialize().then(r =>{
+
+            //     send_log({
+            //         type:'success',
+            //         msg: `completed..`})
+            //     client.pairWithPhoneNumber = number
+                
+            //     send_log({
+            //         type:'info',
+            //         msg: `start paring..`})
+            //     client.requestPairingCode(number).then(r=>{
+                    
+                
+            //         send_log({
+            //             type:'success',
+            //             msg: `Paring code ${r}.`})
+
+            //     })
+
+            // })
+
+            
+
+
         }
 
     
@@ -226,7 +259,7 @@
             
             send_log({
                 type:'Info',
-                msg: `Client Paring..`})
+                msg: `Client Unpaired..`})
         });
 
         
@@ -251,8 +284,8 @@
 
         });
 
-        
-        export const clearProfileLock = async (id) => {
+
+        const clearProfileLock = async (id) => {
             try {
                 const lockFilePath = ClientHelper.base_path + `/${ClientHelper.session_prefix}-${id}/SingletonLock`;
 

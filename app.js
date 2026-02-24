@@ -9,7 +9,6 @@ import axios from 'axios';
  */
 
 import "./server.js"; // Import the app instance=
-import './Wa-module.cjs';
 import {initLogs,set_debug} from './global.js'
 
 initLogs();
