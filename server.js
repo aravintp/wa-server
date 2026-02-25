@@ -70,31 +70,36 @@
        * Api requet
        */
       app.get('/api/getstate',async (req, res)  => {
-        const state = await get_state()
-        res.send(JSON.stringify(state))
+        get_state().then(s=>{
+
+            res.send(JSON.stringify(s))
+        })
 
       });
       
       app.get('/api/wa-initialise',async (req, res)  => {
                // might need to make this a funciton
 
-
-        init_client("6596350023")
-        res.send(JSON.stringify("received"))
+        init_client("6596350023").then(r=>{
+            res.send(JSON.stringify("received"))
+        })
 
       });
 
       
       app.get('/api/wa-close',async (req, res)  => {
         console.log("Close client code api")
-        close_client()
+        close_client().then(f=>{
+            res.send(JSON.stringify("Close client completed"))
+        })
       });
 
       app.put('/api/send-wa-notification', async(req, res) => {
           const msg = req.query.msg
           const num = req.query.number  + '@c.us'
-          const r = await send_message(num,msg)
-          res.send(r)
+          send_message(num,msg).then(r=>{
+            res.send(JSON.stringify(r))
+          })
       })
 
         

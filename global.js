@@ -57,8 +57,13 @@
     // Send log to front end and print console
     export function send_log(n){
 
+        // ugly date variable. To use with pm2. 
+        let date = new Date()
+        let d = "[" + date.toLocaleDateString().replaceAll("/","-") + 
+        " " + date.toTimeString().split(' ')[0] + "]"
+
         let log = createLog(n.type,n.msg)
 
         logs.push(log);
-        console.log(n.msg)
+        console.log(d,n.msg)
     };
