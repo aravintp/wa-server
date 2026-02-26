@@ -75,7 +75,10 @@
             res.send(JSON.stringify(s))
 
         }).catch(err => {
-                next(err); // Explicitly pass the error to Express
+                send_log({
+                    type:'error',
+                    msg: `${err}`
+                }) // Explicitly pass the error to Log
             });
 
       });
@@ -88,9 +91,11 @@
             res.send(JSON.stringify("received"))
 
         }).catch(err => {
-                next(err); // Explicitly pass the error to Express
+                send_log({
+                    type:'error',
+                    msg: `${err}`
+                }) // Explicitly pass the error to Log
             });
-
       });
 
       
@@ -98,10 +103,13 @@
         console.log("Close client code api")
         close_client().then(f=>{
 
-            res.send(JSON.stringify({client_closed:true,data:f}))
+            res.json({client_closed:true,data:f})
 
         }).catch(err => {
-                next(err); // Explicitly pass the error to Express
+                send_log({
+                    type:'error',
+                    msg: `${err}`
+                }) // Explicitly pass the error to Log
             });
       });
 
@@ -110,10 +118,13 @@
           const num = req.query.number  + '@c.us'
           send_message(num,msg).then(r=>{
 
-            res.send(JSON({message_sent:true,data:r}))
+            res.json({message_sent:true,data:r})
             
           }).catch(err => {
-                next(err); // Explicitly pass the error to Express
+                send_log({
+                    type:'error',
+                    msg: `${err}`
+                }) // Explicitly pass the error to Log
             });
       })
 
