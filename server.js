@@ -110,7 +110,7 @@
           const num = req.query.number  + '@c.us'
           send_message(num,msg).then(r=>{
 
-            res.send(JSON.stringify({message_sent:true,data:r}))
+            res.send(JSON({message_sent:true,data:r}))
             
           }).catch(err => {
                 next(err); // Explicitly pass the error to Express
