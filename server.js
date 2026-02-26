@@ -73,7 +73,10 @@
         get_state().then(s=>{
 
             res.send(JSON.stringify(s))
-        })
+
+        }).catch(err => {
+                next(err); // Explicitly pass the error to Express
+            });
 
       });
       
@@ -81,8 +84,12 @@
                // might need to make this a funciton
 
         init_client("6596350023").then(r=>{
+            
             res.send(JSON.stringify("received"))
-        })
+
+        }).catch(err => {
+                next(err); // Explicitly pass the error to Express
+            });
 
       });
 
@@ -90,16 +97,24 @@
       app.get('/api/wa-close',async (req, res)  => {
         console.log("Close client code api")
         close_client().then(f=>{
-            res.send(JSON.stringify("Close client completed"))
-        })
+
+            res.send(JSON.stringify({client_closed:true,data:f}))
+
+        }).catch(err => {
+                next(err); // Explicitly pass the error to Express
+            });
       });
 
       app.put('/api/send-wa-notification', async(req, res) => {
           const msg = req.query.msg
           const num = req.query.number  + '@c.us'
           send_message(num,msg).then(r=>{
-            res.send(JSON.stringify(r))
-          })
+
+            res.send(JSON.stringify({message_sent:true,data:r}))
+            
+          }).catch(err => {
+                next(err); // Explicitly pass the error to Express
+            });
       })
 
         

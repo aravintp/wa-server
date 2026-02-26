@@ -106,6 +106,7 @@
 
         async function send_message(num,msg){
             
+            //need to obfuscate for PDPA
             send_log({
                 type:'info',
                 msg: `Send message request:\n${num} ${msg}`})
