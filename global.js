@@ -4,7 +4,7 @@
     import TelegramBot from 'node-telegram-bot-api'
     const token = '8795149074:AAHDYsBmChN-sdCkcsf7Q79bLvFPbiqDjmI';
     const chat_id = "-5187352091"
-    const bot = new TelegramBot(token, {polling: true});
+    const bot = new TelegramBot(token, {polling: false});
 
 
     var logId = 1;
