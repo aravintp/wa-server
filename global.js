@@ -88,6 +88,9 @@
         bot_log.forEach(m =>{
             message += `${m.time} ${m.msg}\n`;
         })
-        bot.sendMessage(chat_id, message);
-        bot_log = []
+        
+        if (bot_log.length > 0) {
+            bot.sendMessage(chat_id, message);
+            bot_log = []
+        }
     }
