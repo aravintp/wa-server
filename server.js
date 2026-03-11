@@ -2,15 +2,14 @@
   
   
   import pkg from './Wa-module.cjs';
+  import express from 'express';
+  import path from 'path';
+
   const {get_state,init_client,close_client,send_message,client} = pkg;
 
   import {logs,send_log} from './global.js'
-
-  import express  from 'express';
   import { createServer } from 'node:http';
   import { Server } from 'socket.io';
-  import path from 'path';
-
   const app = express()
   const server = createServer(app);
   const io = new Server(server);
@@ -29,12 +28,28 @@
 
       // Serve static files from the "public" directory
       app.use(express.static(path.join(import.meta.dirname, '.')));
-
-      
       send_log({
           type:'debug',
           msg: `express.js is using ${path.join(import.meta.dirname, '.')}`
       })
+
+    // Custom error handling middleware
+    app.use((err, req, res, next) => {
+        // Log the error stack to the file
+    
+      send_log({
+          type:'error',
+          msg: `${err.stack}\n`
+      })
+        
+        // Also log to the console for development visibility
+        console.error(err.stack);
+
+        // Send a generic error response to the client
+        res.status(err.status || 500).send('Internal Server Error');
+    });
+
+        
 
 
       // server listening
@@ -54,18 +69,6 @@
 
       });
 
-      // app.post('/', (req, res) => {
-      //   res.send('Got a POST request')
-      // });
-
-      // app.put('/user', (req, res) => {
-      //   res.send('Got a PUT request at /user')
-      // });
-
-      // app.delete('/user', (req, res) => {
-      //   res.send('Got a DELETE request at /user')
-      // });
-        
       /**
        * Api requet
        */
@@ -96,6 +99,7 @@
                     msg: `${err}`
                 }) // Explicitly pass the error to Log
             });
+        
       });
 
       

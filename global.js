@@ -1,4 +1,11 @@
 
+    
+    
+    import TelegramBot from 'node-telegram-bot-api'
+    const token = '8795149074:AAHDYsBmChN-sdCkcsf7Q79bLvFPbiqDjmI';
+    const chat_id = "-5187352091"
+    const bot = new TelegramBot(token, {polling: true});
+
 
     var logId = 1;
     var debug = false;
@@ -65,5 +72,7 @@
         let log = createLog(n.type,n.msg)
 
         logs.push(log);
+        
         console.log(d,n.msg)
-    };
+        bot.sendMessage(chat_id, `[${log.type}]: ${log.message}`);
+    }
