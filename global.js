@@ -84,13 +84,14 @@
 
     function bot_sendlogs(){
 
-        var message = "wa-server internal\n\n";
-        bot_log.forEach(m =>{
-            message += `${m.time} ${m.msg}\n`;
-        })
-        
-        if (bot_log.length > 0) {
-            bot.sendMessage(chat_id, message);
-            bot_log = []
-        }
+        // var message = bot_log.length + "wa-server internal123\n\n";
+        // bot_log.forEach(m =>{
+        //     message += `${m.time} ${m.msg}\n`;
+        // })
+
+        // if (Array.isArray(bot_log) && bot_log.length > 0) {
+        //     bot.sendMessage(chat_id, "message");
+        //    console.log(message)
+        //     bot_log = []
+        // }
     }
