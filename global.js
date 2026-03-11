@@ -2,7 +2,7 @@
     
     
     import TelegramBot from 'node-telegram-bot-api'
-    const token = '8795149074:AAHDYsBmChN-sdCkcsf7Q79bLvFPbiqDjmI';
+    const token = '8795149074:AAFV7CbP2nxz2p7jVNG8Va6tEcvaVuNogWE';
     const chat_id = "-5187352091"
     const bot = new TelegramBot(token, {polling: false});
 
@@ -84,14 +84,13 @@
 
     function bot_sendlogs(){
 
-        // var message = bot_log.length + "wa-server internal123\n\n";
-        // bot_log.forEach(m =>{
-        //     message += `${m.time} ${m.msg}\n`;
-        // })
+        var message = bot_log.length + "wa-server internal123\n\n";
+        bot_log.forEach(m =>{
+            message += `${m.time} ${m.msg}\n`;
+        })
 
-        // if (Array.isArray(bot_log) && bot_log.length > 0) {
-        //     bot.sendMessage(chat_id, "message");
-        //    console.log(message)
-        //     bot_log = []
-        // }
+        if (Array.isArray(bot_log) && bot_log.length > 0) {
+            bot.sendMessage(chat_id, message);
+            bot_log = []
+        }
     }
