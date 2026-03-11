@@ -80,14 +80,14 @@
         bot_log.push({time:d,msg:n.msg})
         console.log(d,n.msg)
 
-        bot.sendMessage(chat_id, `[${log.type}]: ${log.message}`);
     }
 
     function bot_sendlogs(){
 
-        var g = "wa-server internal\n\n";
+        var message = "wa-server internal\n\n";
         bot_log.forEach(m =>{
-            g += `${m.time} ${m.msg}\n`;
+            message += `${m.time} ${m.msg}\n`;
         })
+        bot.sendMessage(chat_id, message);
         bot_log = []
     }
