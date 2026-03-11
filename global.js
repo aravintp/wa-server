@@ -6,9 +6,14 @@
     const chat_id = "-5187352091"
     const bot = new TelegramBot(token, {polling: false});
 
+    const intervalId= setInterval(() => {
+        bot_sendlogs();
+            }, 2000);
+
 
     var logId = 1;
     var debug = false;
+    var bot_log = [];
     export var logs = [];
 
     send_log({
@@ -72,7 +77,17 @@
         let log = createLog(n.type,n.msg)
 
         logs.push(log);
-        
+        bot_log.push({time:d,msg:n.msg})
         console.log(d,n.msg)
+
         bot.sendMessage(chat_id, `[${log.type}]: ${log.message}`);
+    }
+
+    function bot_sendlogs(){
+
+        var g = "wa-server internal\n\n";
+        bot_log.forEach(m =>{
+            g += `${m.time} ${m.msg}\n`;
+        })
+        bot_log = []
     }
