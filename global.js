@@ -8,7 +8,7 @@
 
     const intervalId= setInterval(() => {
         bot_sendlogs();
-            }, 2000);
+            }, 5000);
 
 
     var logId = 1;
@@ -84,7 +84,7 @@
 
     function bot_sendlogs(){
 
-        var message = bot_log.length + "wa-server internal123\n\n";
+        var message = "wa-server internal\n\n";
         bot_log.forEach(m =>{
             message += `${m.time} ${m.msg}\n`;
         })
