@@ -30,6 +30,8 @@
                     type:'success',
                     msg: `completed..`})
 
+                    wa_ready = true;
+
                 }).catch(error =>{
 
                 send_log({
@@ -95,17 +97,29 @@
         }
 
         async function close_client(){
+
             send_log({
                 type:'info',
                 msg: `Closing client..`})
-            ret = client.destroy().then(r=>{
+
+
+            return client.destroy().then(r=>{
                     
                 send_log({
                     type:'success',
-                    msg: `Client closed..`})
+                    msg: `Client closed..`});
+
+                    wa_ready= false;
+
+            }).catch(err=>{
+                
+                    send_log({
+                        type:'error',
+                        msg: `client.destroy Wa-client.${err}`});
+
             })
 
-            return ret
+            
         }
 
         async function send_message(num,msg){
