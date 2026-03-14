@@ -1,34 +1,29 @@
 
   
-  
-  import pkg from './Wa-module.cjs';
-  import express from 'express';
-  import path from 'path';
+    
+    import WhatsAppClient from './Wa-class.cjs';
+    import express from 'express';
+    import path from 'path';
 
-  const {get_state,init_client,close_client,send_message,client} = pkg;
+    import {logs,send_log} from './global.js'
+    import { createServer } from 'node:http';
+    import { Server } from 'socket.io';
 
-  import {logs,send_log} from './global.js'
-  import { createServer } from 'node:http';
-  import { Server } from 'socket.io';
-  const app = express()
-  const server = createServer(app);
-  const io = new Server(server);
+    const app = express()
+    const server = createServer(app);
+    const io = new Server(server);
+    const wa = new WhatsAppClient();
+    const intervalId = setInterval(() => {logstoFrontend(logs);}, 3000);
+    const port = 8080
+    var socket_connected = false;
 
-  const port = 8080
-  var socket_connected = false;
-  const intervalId = setInterval(() => {
-        logstoFrontend(logs);}, 3000);
 
-      
-        send_log({
-            type:'debug',
-            msg: `@Module server.js entered`
-        })
-
+        // Log to console on entering module  
+        send_log({type:'debug',msg: `@Module server.js entered`})
 
 
         // Serve static files from the "public" directory
-            app.use(express.static(path.join(import.meta.dirname, '.')));
+        app.use(express.static(path.join(import.meta.dirname, '.')));
                 send_log({
             type:'debug',
             msg: `express.js is using ${path.join(import.meta.dirname, '.')}`
@@ -38,12 +33,9 @@
 
         // Custom error handling middleware
         app.use((err, req, res, next) => {
+
             // Log the error stack to the file
-            
-            send_log({
-                type:'error',
-                msg: `${err.stack}\n`
-            })
+            send_log({type:'error',msg: `${err.stack}\n`})
                 
             // Also log to the console for development visibility
             console.error(err.stack);
@@ -53,15 +45,10 @@
         });
 
             
-
-
         // server listening
         server.listen(port, () => {
             
-            send_log({
-                type:'info',
-                msg: `Server listening on port ${port}`
-            })
+            send_log({type:'info',msg: `Server listening on port ${port}`})
 
         });
 
@@ -77,39 +64,39 @@
          * Api requet
          */
         app.get('/api/getstate',async (req, res)  => {
-            get_state().then(s=>{
 
+            // get state of wa from wa-class
+            wa.getState().then(s=>{
+
+                // send the state back to the browser
                 res.send(JSON.stringify(s))
 
             }).catch(err => {
-                    send_log({
-                        type:'error',
-                        msg: `${err}`
-                    }) // Explicitly pass the error to Log
+
+                    // Explicitly pass the error to Log
+                    send_log({type:'error',msg: `${err}` })
                 });
 
         });
         
 
         app.get('/api/wa-initialise',async (req, res)  => {
-                // might need to make this a funciton
 
-            send_log({
-                type:'info',
-                msg: `Received command to init client!`
-            })
+            // log to console on receiving command from browser
+            send_log({type:'info',msg: `Received command to init client!`})
 
-            init_client("").then(r=>{
-                
+            // initiate the client 
+            wa.initClient().then(r=>{
+
+                // send response to be true back to browser
                 res.json({client_init:true})
                 
             }).catch(err => {
                 
-                    send_log({
-                        type:'error',
-                        msg: `${err}`
-                    }) // Explicitly pass the error to Log
+                    //  Fortunatly fuck you, Explicitly pass the error to Log
+                    send_log({type:'error',msg: `${err}`}) 
                     
+                    // Send reposnce back to browser that init has failed
                     res.json({client_init:false})
                 });
             
@@ -118,34 +105,38 @@
         
         app.get('/api/wa-close',async (req, res)  => {
 
-            close_client().then(f=>{
+            wa.closeClient().then(f=>{
 
                 res.json({client_closed:true})
 
             }).catch(err => {
-                    send_log({
-                        type:'error',
-                        msg: `${err}`
-                    }) // Explicitly pass the error to Log
+
+                    //  Explicitly pass the error to Log
+                    send_log({type:'error',msg: `${err}`}) 
                     
+                    // Send reposnce back to browser that close has failed
                     res.json({client_closed:false})
                 });
         });
 
 
         app.put('/api/send-wa-notification', async(req, res) => {
+
+            // Prepare the number for wa-class
             const msg = req.query.msg
             const num = req.query.number  + '@c.us'
-            send_message(num,msg).then(r=>{
 
+            // Send message out
+            wa.sendMessage(num,msg).then(r=>{
+
+                // if promise succeeds response to browser as true
                 res.json({message_sent:true})
                 
             }).catch(err => {
-                    send_log({
-                        type:'error',
-                        msg: `${err}`
-                    }) // Explicitly pass the error to Log
+                    //  Explicitly pass the error to Log
+                    send_log({type:'error',msg: `${err}`}) 
                     
+                    // Send reposnce back to browser that message sent, has failed
                     res.json({message_sent:false})
                 });
         })
@@ -155,12 +146,14 @@
          * Web socket io
          `*/
         function sendtoFrontend(m){
+            // send one single message, maybe like 'fuck you, this is too early!'
             io.emit('event message',{
             type: m.type,
             msg: m.msg}); 
         }
 
         function logstoFrontend(m){
+            // send the whole log instead, cos you are a lazy fuck
             if(socket_connected)
                 io.emit('event logs',m); 
         }
@@ -170,9 +163,7 @@
         io.on('connection', (socket) => {
 
             socket_connected=  true
-            send_log({
-            type: 'success',
-            msg: 'websocket io connected'}); 
+            send_log({type: 'success',msg: 'New browser connected'}); 
 
         });
 
@@ -185,7 +176,7 @@
         });
 
 
-
+  // export? really who the FUCK NEEDS this?
   export {app,sendtoFrontend,socket_connected};
 
 

@@ -1,6 +1,9 @@
+//const WhatsAppClient = require('./whatsapp');
 
-        let date = new Date()
-        let d = date.toLocaleDateString().replaceAll("/","-") + 
-        " " + date.toTimeString().split(' ')[0]
+import WhatsAppClient from './Wa-class.cjs';
 
-        console.log(d)
+const wa = new WhatsAppClient();
+
+wa.initClient();
+
+await wa.sendMessage('6581234567@c.us', 'Hello');
