@@ -93,6 +93,7 @@
                         msg: `get_state Wa-client.${error}`});
 
                 }
+            else{ state = "Offline"}
                 return state
         }
 
