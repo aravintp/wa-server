@@ -9,11 +9,10 @@
         send_log({
             type:'debug',
             msg: `@WA-Module Entered..`})
-
         // might need to make this a funciton
             var cp = {
                 authStrategy: new LocalAuth(),
-                puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'], },
+                puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'] },
                 pairWithPhoneNumber: { phoneNumber: '6580739726' }
             }
 
@@ -25,12 +24,17 @@
                 type:'info',
                 msg: `Initialising Wa-client..`})
             
-            client.initialize().then(r =>{
+            return client.initialize().then(r =>{
 
                 send_log({
                     type:'success',
                     msg: `completed..`})
 
+                }).catch(error =>{
+
+                send_log({
+                    type:'error',
+                    msg: `Error @ client initialise:\n ${error.message}`})
             })
 
             // Works but on event dont fire any more
@@ -112,7 +116,7 @@
                 msg: `Send message request:\n${num} ${msg}`})
             
             if (wa_ready) 
-                client.sendMessage(num,msg).then(r=>{
+               return client.sendMessage(num,msg).then(r=>{
                     
                     send_log({
                         type:'success',
@@ -123,7 +127,6 @@
                 send_log({
                     type:'warning',
                     msg: `Wa-Client not ready!`})
-            return
 
         }
 

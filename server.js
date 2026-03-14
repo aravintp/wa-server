@@ -17,154 +17,172 @@
   const port = 8080
   var socket_connected = false;
   const intervalId = setInterval(() => {
-        logstoFrontend(logs);
-    }, 3000);
+        logstoFrontend(logs);}, 3000);
 
       
-      send_log({
-          type:'debug',
-          msg: `@Module server.js entered`
-      })
-
-      // Serve static files from the "public" directory
-      app.use(express.static(path.join(import.meta.dirname, '.')));
-      send_log({
-          type:'debug',
-          msg: `express.js is using ${path.join(import.meta.dirname, '.')}`
-      })
-
-    // Custom error handling middleware
-    app.use((err, req, res, next) => {
-        // Log the error stack to the file
-    
-      send_log({
-          type:'error',
-          msg: `${err.stack}\n`
-      })
-        
-        // Also log to the console for development visibility
-        console.error(err.stack);
-
-        // Send a generic error response to the client
-        res.status(err.status || 500).send('Internal Server Error');
-    });
-
-        
-
-
-      // server listening
-      server.listen(port, () => {
-          
         send_log({
-            type:'info',
-            msg: `Server listening on port ${port}`
+            type:'debug',
+            msg: `@Module server.js entered`
         })
 
-      });
 
 
-      app.get('/', (req, res) => {
-
-        res.sendFile(path.join(__dirname, 'index.html'));
-
-      });
-
-      /**
-       * Api requet
-       */
-      app.get('/api/getstate',async (req, res)  => {
-        get_state().then(s=>{
-
-            res.send(JSON.stringify(s))
-
-        }).catch(err => {
+        // Serve static files from the "public" directory
+            app.use(express.static(path.join(import.meta.dirname, '.')));
                 send_log({
-                    type:'error',
-                    msg: `${err}`
-                }) // Explicitly pass the error to Log
-            });
+            type:'debug',
+            msg: `express.js is using ${path.join(import.meta.dirname, '.')}`
+        })
 
-      });
-      
-      app.get('/api/wa-initialise',async (req, res)  => {
-               // might need to make this a funciton
 
-        init_client("6596350023").then(r=>{
+
+        // Custom error handling middleware
+        app.use((err, req, res, next) => {
+            // Log the error stack to the file
             
-            res.send(JSON.stringify("received"))
+            send_log({
+                type:'error',
+                msg: `${err.stack}\n`
+            })
+                
+            // Also log to the console for development visibility
+            console.error(err.stack);
 
-        }).catch(err => {
-                send_log({
-                    type:'error',
-                    msg: `${err}`
-                }) // Explicitly pass the error to Log
-            });
-        
-      });
+            // Send a generic error response to the client
+            res.status(err.status || 500).send('Internal Server Error');
+        });
 
-      
-      app.get('/api/wa-close',async (req, res)  => {
-        console.log("Close client code api")
-        close_client().then(f=>{
-
-            res.json({client_closed:true,data:f})
-
-        }).catch(err => {
-                send_log({
-                    type:'error',
-                    msg: `${err}`
-                }) // Explicitly pass the error to Log
-            });
-      });
-
-      app.put('/api/send-wa-notification', async(req, res) => {
-          const msg = req.query.msg
-          const num = req.query.number  + '@c.us'
-          send_message(num,msg).then(r=>{
-
-            res.json({message_sent:true,data:r})
             
-          }).catch(err => {
-                send_log({
-                    type:'error',
-                    msg: `${err}`
-                }) // Explicitly pass the error to Log
-            });
-      })
+
+
+        // server listening
+        server.listen(port, () => {
+            
+            send_log({
+                type:'info',
+                msg: `Server listening on port ${port}`
+            })
+
+        });
+
+
+        app.get('/', (req, res) => {
+
+            res.sendFile(path.join(__dirname, 'index.html'));
+
+        });
+
+
+        /**
+         * Api requet
+         */
+        app.get('/api/getstate',async (req, res)  => {
+            get_state().then(s=>{
+
+                res.send(JSON.stringify(s))
+
+            }).catch(err => {
+                    send_log({
+                        type:'error',
+                        msg: `${err}`
+                    }) // Explicitly pass the error to Log
+                });
+
+        });
+        
+
+        app.get('/api/wa-initialise',async (req, res)  => {
+                // might need to make this a funciton
+
+            send_log({
+                type:'info',
+                msg: `Received command to init client!`
+            })
+
+            init_client("").then(r=>{
+                
+                res.json({client_init:true})
+                
+            }).catch(err => {
+                
+                    send_log({
+                        type:'error',
+                        msg: `${err}`
+                    }) // Explicitly pass the error to Log
+                    
+                    res.json({client_init:false})
+                });
+            
+        });
 
         
-      /**
-       * Web socket io
-       */
-      function sendtoFrontend(m){
-          io.emit('event message',{
-          type: m.type,
-          msg: m.msg}); 
-      }
+        app.get('/api/wa-close',async (req, res)  => {
 
-    function logstoFrontend(m){
-        if(socket_connected)
-            io.emit('event logs',m); 
-      }
+            close_client().then(f=>{
+
+                res.json({client_closed:true})
+
+            }).catch(err => {
+                    send_log({
+                        type:'error',
+                        msg: `${err}`
+                    }) // Explicitly pass the error to Log
+                    
+                    res.json({client_closed:false})
+                });
+        });
+
+
+        app.put('/api/send-wa-notification', async(req, res) => {
+            const msg = req.query.msg
+            const num = req.query.number  + '@c.us'
+            send_message(num,msg).then(r=>{
+
+                res.json({message_sent:true})
+                
+            }).catch(err => {
+                    send_log({
+                        type:'error',
+                        msg: `${err}`
+                    }) // Explicitly pass the error to Log
+                    
+                    res.json({message_sent:false})
+                });
+        })
+
+            
+        /**
+         * Web socket io
+         */
+        function sendtoFrontend(m){
+            io.emit('event message',{
+            type: m.type,
+            msg: m.msg}); 
+        }
+
+        function logstoFrontend(m){
+            if(socket_connected)
+                io.emit('event logs',m); 
+        }
 
 
           // socket connection for event messages
-      io.on('connection', (socket) => {
+        io.on('connection', (socket) => {
 
-          socket_connected=  true
-          send_log({
-          type: 'success',
-          msg: 'websocket io connected'}); 
+            socket_connected=  true
+            send_log({
+            type: 'success',
+            msg: 'websocket io connected'}); 
 
-      });
+        });
 
 
-      io.engine.on("connection_error", (err) => {
-          console.log(err.req);      // the request object
-          console.log(err.code);     // the error code, for example 1
-          console.log(err.message);  // the error message, for example "Session ID unknown"
-          console.log(err.context);  // some additional error context
-      });
+        io.engine.on("connection_error", (err) => {
+            console.log(err.req);      // the request object
+            console.log(err.code);     // the error code, for example 1
+            console.log(err.message);  // the error message, for example "Session ID unknown"
+            console.log(err.context);  // some additional error context
+        });
 
 
 
