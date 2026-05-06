@@ -1,7 +1,8 @@
 
 import { GOOGLESHEETS_FIELDS } from "../server/util/path.js";
+import { GoogleSheetsService } from "./googlesheets.js"
 import { createWriteStream } from 'node:fs';
-const { send_log } = require('./global.js');
+import { send_log } from "./global.js";
 
 
 
@@ -95,6 +96,7 @@ export class AgentStatsProcessor {
         // Load CRM from each employee
         const emp_crm = (await Promise.all(emp_prod.map(async(s) => {
 
+            console.log(s.GoogleSheets)
             const gdata = await this.#fetchGoogleData(this.#googleapi,s.GoogleSheets)
             return gdata.map(g => ({
                     ...g,
@@ -224,6 +226,7 @@ export class AgentStatsProcessor {
 
     async #fetchGoogleData(gsheetapi,sheetid) {
             // load google sheets class
+        gsheetapi = new GoogleSheetsService();
         gsheetapi.requiredFields = GOOGLESHEETS_FIELDS;
         gsheetapi.principalColumn = "Status";
         gsheetapi.worksheet = "Main";

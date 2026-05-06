@@ -1,5 +1,7 @@
+
+import { send_log } from "./global.js";
 import { PhoneS2SAuthClient } from "@zoom/rivet/phone";
-const { send_log } = require('./global.js');
+
 
 export class ZoomPhoneLogs {
     #phoneClient;

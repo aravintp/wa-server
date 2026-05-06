@@ -1,5 +1,4 @@
-// const axios = require('axios');
-// const XLSX = require('xlsx');
+
 import axios from 'axios';
 import {read,utils} from "xlsx"
 

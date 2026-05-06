@@ -6,14 +6,6 @@
     const chat_id = "-5187352091"
     const bot = new TelegramBot(token, {polling: false});
 
-// will remove this after new server.js is complete
-// export const zoomapi = {
-//     clientId: "GQMuoJjISuCPfZtQBu7yLw",
-//     clientSecret: "VSte7plb3A8y7aHfkBEI73H3ltlRAroL",
-//     webhooksSecretToken: "BQmvSs67SwKSCUdkI6i3EQ",
-//     accountId: "S4tiTjL4T0qiFRLffIkzew"
-// }
-
     const intervalId= setInterval(() => {
         bot_sendlogs();
             }, 5000);
