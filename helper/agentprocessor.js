@@ -1,6 +1,7 @@
 
 import { GOOGLESHEETS_FIELDS } from "../server/util/path.js";
 import { createWriteStream } from 'node:fs';
+const { send_log } = require('./global.js');
 
 
 
@@ -81,6 +82,7 @@ export class AgentStatsProcessor {
     // 2. Connect sheets data and call data to create crmlogs
     async init() {
 
+        send_log({type: 'debug',msg: '@AgentStatsProcessor Entered..'});
         this.#zoomusers = this.#get_zoomusers(this.#zoom);
         const employees = await this.#fetchEmployees();
         const emp_prod = employees.filter(e =>
@@ -114,6 +116,7 @@ export class AgentStatsProcessor {
             this.#stats[n.zoomname] = structuredClone(this.#stats["All Agents"]);
         });
 
+        send_log({type: 'debug',msg: '@AgentStatsProcessor completed..'});
     }
 
     // ---------------- STAT GENERATOR ----------------

@@ -1,4 +1,5 @@
 import { PhoneS2SAuthClient } from "@zoom/rivet/phone";
+const { send_log } = require('./global.js');
 
 export class ZoomPhoneLogs {
     #phoneClient;
@@ -18,7 +19,9 @@ export class ZoomPhoneLogs {
     }
 
     async getLogs(monthsBack = 6) {
-        console.log("------------- Connecting to Zoom Phone Api ----------------");
+        
+        send_log({type: 'debug',msg: 'Connecting to Zoom Phone Api'});
+        //console.log("------------- Connecting to Zoom Phone Api ----------------");
 
         let allData = [];
         const today = new Date();
@@ -42,13 +45,15 @@ export class ZoomPhoneLogs {
             allData.push(...results.flat());
         }
 
-        console.log(`Total records: ${allData.length}`);
-        console.log("------------- Completed Zoom Phone Api ----------------");
+       //console.log(`Total records: ${allData.length}`);
+        //console.log("------------- Completed Zoom Phone Api ----------------");
+        send_log({type: 'success',msg: `Total records: ${allData.length}`});
         return allData;
     }
 
     async queryZoom(fromISO,toISO){
-            console.log(`Fetching: ${fromISO} → ${toISO}`);
+            //console.log(`Fetching: ${fromISO} → ${toISO}`);
+            send_log({type: 'debug',msg: `Fetching: ${fromISO} → ${toISO}`});
 
             let nextPageToken = "";
             let monthData = [];
