@@ -1,0 +1,108 @@
+
+    
+    
+    import TelegramBot from 'node-telegram-bot-api'
+    const token = '8795149074:AAFV7CbP2nxz2p7jVNG8Va6tEcvaVuNogWE';
+    const chat_id = "-5187352091"
+    const bot = new TelegramBot(token, {polling: false});
+
+// will remove this after new server.js is complete
+// export const zoomapi = {
+//     clientId: "GQMuoJjISuCPfZtQBu7yLw",
+//     clientSecret: "VSte7plb3A8y7aHfkBEI73H3ltlRAroL",
+//     webhooksSecretToken: "BQmvSs67SwKSCUdkI6i3EQ",
+//     accountId: "S4tiTjL4T0qiFRLffIkzew"
+// }
+
+    const intervalId= setInterval(() => {
+        bot_sendlogs();
+            }, 5000);
+
+
+    var logId = 1;
+    var debug = false;
+    var bot_log = [];
+    //added newlogs
+    export var newlogs = false;
+    export var logs = [];
+
+    send_log({
+        type:'debug',
+        msg: `@Module: global.js entered`
+    })
+
+    export function initLogs() {
+        add_log('info', 'WhatsApp Forwarder initialized');
+        add_log('info', 'Listening for incoming messages...');
+       // add_log('success', 'Connected to n8n webhook endpoint');
+    }
+
+
+    export function createLog(type, message){
+            let log = {
+                id: logId++,
+                type: type,
+                message: message,
+                timestamp: new Date()
+            };
+
+            return log
+        }
+        
+    // Getter to retrieve temperature in Celsius
+    export function get_logs() {
+        return logs
+    }
+
+    // Setter to set temperature using a Celsius value
+    export function set_logs(n) {
+        logs = n
+    }
+
+    export function set_debug(n){
+        debug = n;
+    }
+
+    export function get_debug(){
+        return debug;
+    }
+    
+    // Setter to set temperature using a Celsius value
+    export function add_log(n,s) {
+
+        // added this line for log bug fix still testing
+        newlogs = true
+        const log =  createLog(n,s)
+        logs.push(log)
+    }
+
+
+    
+    // Send log to front end and print console
+    export function send_log(n){
+
+        // ugly date variable. To use with pm2. 
+        let date = new Date()
+        let d = "[" + date.toLocaleDateString().replaceAll("/","-") + 
+        " " + date.toTimeString().split(' ')[0] + "]"
+
+        let log = createLog(n.type,n.msg)
+
+        logs.push(log);
+        bot_log.push({time:d,msg:n.msg})
+        console.log(d,n.msg)
+
+    }
+
+    function bot_sendlogs(){
+
+        var message = "wa-server internal\n\n";
+        bot_log.forEach(m =>{
+            message += `${m.time} ${m.msg}\n`;
+        })
+
+        if (Array.isArray(bot_log) && bot_log.length > 0) {
+            bot.sendMessage(chat_id, message);
+            bot_log = []
+        }
+    }

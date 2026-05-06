@@ -1,0 +1,35 @@
+
+mutiple caller causes inaccuracy in appointment count
+so caller date HAS to match 
+caller date
+
+
+googlesheets console is ugly
+util.js is too rigit
+
+zoom api, did not load answered
+
+proccesor class
+
+you should be able to pass zoom log and it creates new agents according to unique email address
+
+instead of current flow use crm to reference zoom call records
+which req n8n -> sheet id -> get sheet data -> add email -> connect calls and crm -> build stats
+
+we should reference zoom call to crm 
+zoom log -> filter by date -> get email -> n8n -> sheet id -> get sheet data
+
+adding crm info should be another flow
+zoom_account
+email
+
+Zoom pure data
+
+total calls
+clockin
+total hrs worked
+total picked up
+
+total appointment
+total outreach
+

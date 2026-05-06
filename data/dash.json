@@ -1,0 +1,3472 @@
+{
+  "All Agents": {
+    "dashboard": {}
+  },
+  "Aravinth Pillai": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          117,
+          "4:17:49 pm",
+          "3hr 3min",
+          45,
+          5,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            11,
+            31,
+            23,
+            16,
+            0,
+            33
+          ],
+          "byday": [
+            0,
+            60,
+            57,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            117,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          5,
+          11,
+          26,
+          11,
+          9,
+          3,
+          2
+        ],
+        "apt": [
+          [
+            "06/05/2026",
+            "LEE HUISHAN",
+            "06/05/2026",
+            "12.00 pm",
+            "The Coffee Bean and Tea Leaf - Tan Tock Seng Hospital",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "MohamedIsmailBinAbdulRehuman",
+            "06/05/2026",
+            "2.00 pm",
+            "Stays at Woodlands. He will provide accurate location on date",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "05/05/2026",
+            "LOWYINSHUO",
+            "07/05/2026",
+            "11.00 am",
+            "Woods Square Mall tower 2",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "05/05/2026",
+            "LIM PEI XIA",
+            "23/05/2026",
+            "3.00 pm",
+            "Singapore 323108 21-210",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "05/05/2026",
+            "LING MING YAO ",
+            "12/05/2026",
+            "2.00 pm",
+            "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      },
+      "month": {
+        "card": [
+          117,
+          "4:17:49 pm",
+          "3hr 3min",
+          45,
+          5,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            11,
+            31,
+            23,
+            16,
+            0,
+            33
+          ],
+          "byday": [
+            0,
+            60,
+            57,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            117,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          5,
+          11,
+          26,
+          11,
+          9,
+          3,
+          2
+        ],
+        "apt": [
+          [
+            "06/05/2026",
+            "LEE HUISHAN",
+            "06/05/2026",
+            "12.00 pm",
+            "The Coffee Bean and Tea Leaf - Tan Tock Seng Hospital",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "MohamedIsmailBinAbdulRehuman",
+            "06/05/2026",
+            "2.00 pm",
+            "Stays at Woodlands. He will provide accurate location on date",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "05/05/2026",
+            "LOWYINSHUO",
+            "07/05/2026",
+            "11.00 am",
+            "Woods Square Mall tower 2",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "05/05/2026",
+            "LIM PEI XIA",
+            "23/05/2026",
+            "3.00 pm",
+            "Singapore 323108 21-210",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "05/05/2026",
+            "LING MING YAO ",
+            "12/05/2026",
+            "2.00 pm",
+            "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      },
+      "lastMonth": {
+        "card": [
+          1428,
+          "4:24:51 pm",
+          "28hr 15min",
+          580,
+          53,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            1,
+            20,
+            134,
+            6,
+            246,
+            149,
+            272,
+            285,
+            168,
+            0,
+            29,
+            118
+          ],
+          "byday": [
+            350,
+            143,
+            360,
+            443,
+            131,
+            1
+          ],
+          "byweek": [
+            0,
+            228,
+            370,
+            503,
+            327
+          ]
+        },
+        "pchart": [
+          484,
+          53,
+          200,
+          51,
+          128,
+          34,
+          10
+        ],
+        "apt": [
+          [
+            "13/04/2026",
+            "Chang Jing Ting, Lynn",
+            "01/05/2026",
+            "11.00 am",
+            "Senkang Grand Mall. 70 Compassvale Bow, Singapore 544692",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/04/2026",
+            "Soh Xin Ren",
+            "14/04/2026",
+            "6.30 pm",
+            "\r\n10 Bendemeer Rd, Singapore 330010",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "28/04/2026",
+            "Jane Wong",
+            "14/04/2026",
+            "1.00 pm",
+            "200 Ang Mo Kio Ave 9, Singapore 569770. McDonald's Yio Chu Kang Sports Complex",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/04/2026",
+            "Stanley Lui",
+            "17/04/2026",
+            "2.00 pm",
+            "Clementi 120319",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "17/04/2026",
+            "TANHUALIAN",
+            "21/04/2026",
+            "12.00 pm",
+            "17 Petir Rd, Singapore 678278, Hillion Mall",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "Wu Cheng Hui",
+            "22/04/2026",
+            "1.00 pm",
+            "Toast Box (Loyang Point)\n259 Pasir Ris Street 21, #02-38, Loyang Point, Singapore 510259",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "Zheng Hao Wen Nicholas",
+            "21/04/2026",
+            "12.00 pm",
+            "Kopitiam,930 Yishun Avenue 2, #B2-12, Northpoint, 769098",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/04/2026",
+            "Oh Yu Cheng",
+            "24/04/2026",
+            "8.00 pm",
+            598368,
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/04/2026",
+            "LOO JUNJIE JORDAN ",
+            "15/04/2026",
+            "3.00 pm",
+            470131,
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/04/2026",
+            "DANIEL YAM YING JIE",
+            "16/04/2026",
+            "3.00 pm",
+            339213,
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/04/2026",
+            "TEO ZHAN RUI",
+            "17/04/2026",
+            "10.00 am",
+            "Kim San Leng Food Centre Yishun, 417 Yishun Ave 11, #01-351, Singapore 760417",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "22/04/2026",
+            "LINLIJUNJOANNA",
+            "02/05/2026",
+            "11.00 am",
+            "Junction 8, Coffee Bean/Toast ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "NG JUN HAO ABNER",
+            "30/04/2026",
+            "11.00 am",
+            "64 Kallang Bahru, #01-375, Singapore 330064",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "NGLIENEDRIC",
+            "16/04/2026",
+            "4.00 pm",
+            "Starbucks (The Seletar Mall)",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "AZRINNA BINTE ALANG MUHAMMAD",
+            "16/04/2026",
+            "1.00 pm",
+            "Toast Box (Manulife Tower)\r\n8 Cross St, #01-K1 Manulife Tower, Singapore 048424",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "Tan Wei Min ",
+            "22/04/2026",
+            "7.00 pm",
+            "Singapore 536502",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "28/04/2026",
+            "HOON WEI XIONG",
+            "23/04/2026",
+            "1.30 pm",
+            "MBFC Tower 3 lobby, 12 Marina Blvd, Singapore 018982",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "MOHAMMED SHABRIE BIN ISMAIL",
+            "20/04/2026",
+            "8.00 pm",
+            "470141 #06-1527",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "24/04/2026",
+            "Terence Chan Qi Wei",
+            "24/04/2026",
+            "12.00 pm",
+            "33 Leng Kee Rd, Singapore 159102, office building",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "Goh Xin Jie Edmund",
+            "23/04/2026",
+            "5.30 pm",
+            "1 Ghim Moh Rd, Singapore 270001",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "Khoa Shumin",
+            "21/04/2026",
+            "3.00 pm",
+            "CHAGEE @Lentor Modern,\n1 Lentor Central, #01-27 Lentor Modern, Singapore 788887",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/04/2026",
+            "MUHAMMAD AZLAN BIN AHMAD MAHDI",
+            "20/04/2026",
+            "3.00 pm",
+            "Ayza’s Restaurant,508 Jurong West Street 52, #01-170, Singapore 640508",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "22/04/2026",
+            "HUANG JIAN GHENG",
+            "28/04/2026",
+            "7.30 pm",
+            "511A Yishun St 51 #11-423, Singapore 761511 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "22/04/2026",
+            "GENEVIEVE ANG FENG XIANG",
+            "29/04/2026",
+            "1.00 pm",
+            "124 Beach Rd, Midtown ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "16/04/2026",
+            "WEI XIU QING",
+            "30/04/2026",
+            "6.00 pm",
+            "Block 448A HDB Punggol 821448 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "17/04/2026",
+            "SIM KIAN HENG",
+            "23/04/2026",
+            "8.00 pm",
+            "Blk 663A Punggol Dr, Singapore 821663. Kopi Shop Nearby",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "EUGENE KOH CHOONTAK",
+            "21/04/2026",
+            "1.00 pm",
+            "Ya Kun Kaya Toast (Heartland Mall Kovan)",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "17/04/2026",
+            "LIMLYESIONG",
+            "05/05/2026",
+            "8.30 pm",
+            "",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "17/04/2026",
+            "GOH SHANG LIAN NICHOLAS ",
+            "04/05/2026",
+            "5.00 pm",
+            "Jurong east 600327, #10-164",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "17/04/2026",
+            "Wan Juan",
+            "21/04/2026",
+            "10.30 am",
+            "83 Punggol Central, B2-07/K4 Waterway Point West Wing, Singapore 828761",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "20/04/2026",
+            "Thaangaraju Elaiyaraja ",
+            "25/04/2026",
+            "10.00 am",
+            "126C Canberra St  #05-819 , Singapore 753126blk",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "28/04/2026",
+            "KYAW THU AUNG BA RYan",
+            "25/04/2026",
+            "11.00 am",
+            "537 Bukit Batok St 52 #03-597, Singapore 650537 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "28/04/2026",
+            "SuiLihSheng Edison",
+            "23/04/2026",
+            "2.00 pm",
+            "E-MESH GROUP, 110 Tagore Ln, Singapore 787545",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "22/04/2026",
+            "Mr Lim ",
+            "24/04/2026",
+            "8.00 pm",
+            "The Esparis, 9A Pasir Ris Drive 4,  #01-22, 519463 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "20/04/2026",
+            "MEH METGUL",
+            "09/05/2026",
+            "2.30 pm",
+            "Grand Bazaar,61 Bussorah St, Singapore 199477",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "20/04/2026",
+            "YAO GUILI",
+            "24/04/2026",
+            "11.00 am",
+            "29 Ghim Moh Link, Singapore 270029, Kopishop beside block",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "20/04/2026",
+            "TENG SHIEH CHIEN",
+            "28/04/2026",
+            "1.00 pm",
+            "Ng teng Fong hospital, food court",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "LAI WEE LOON",
+            "29/04/2026",
+            "3.00 pm",
+            "402a Northshore Dr, Singapore 821402 #19-46",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "23/04/2026",
+            "WangQin Candy",
+            "01/05/2026",
+            "6.00 pm",
+            "tenative",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "TANBOONJIUN",
+            "30/04/2026",
+            "11.00 am",
+            "address tenative, cos he is moving around",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "S J VAISHNAVI",
+            "06/05/2026",
+            "1.00 pm",
+            "588B Montreal Dr, Singapore 752588 #02-90",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "GANSHIWEI",
+            "08/05/2026",
+            "11.00 am",
+            "115 Potong Pasir Ave 1, Block 115, Singapore 350115 #05-880",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "GOH SHAE TING DAVANIA ",
+            "05/05/2026",
+            "11.00 am",
+            "26C Jln Membina, Singapore 166026, #11-175",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "QUAH PEIZHI PAM",
+            "21/05/2026",
+            "1.00 pm",
+            "Starbucks Bugis+\r\n,201 Victoria St, #02-12/13 Bugis+, Singapore 188067",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "TEOMEIYNG",
+            "04/05/2026",
+            "4.00 pm",
+            "Starbucks @ PLQ Paya Lebar Quarter",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "29/04/2026",
+            "TEOWENWEI",
+            "06/05/2026",
+            "1.00 pm",
+            "89.7 Supper Club, 5 Changi Village Rd, Singapore 500005",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "30/04/2026",
+            "HONG JUNLIANG ",
+            "26/05/2026",
+            "11.00 am",
+            "Syntech Switchgear & Engineering, 11 Yishun Industrial Street 1, Bizhub, #07-91/92 North Spring, Singapore 768089",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "30/04/2026",
+            "CHUA PEI FERN VALERIE ",
+            "12/05/2026",
+            "11.00 am",
+            "438 Hougang Ave 8, Singapore 530438, Void deck",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "30/04/2026",
+            "AHMAD ZAKI BIN HAIRODIN",
+            "07/05/2026",
+            "11.00 am",
+            "86 Flora Rd, Singapore 507002 #03-19",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "30/04/2026",
+            "GAN WEI SHENG",
+            "07/05/2026",
+            "3.00 pm",
+            "91 Hillview Link, Block 2, #01-201, Singapore 669723",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "23/04/2026",
+            "Ng Heng Lee",
+            "24/04/2026",
+            "1.00 pm",
+            "517 Serangoon North Ave 4, Singapore 550517",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "23/04/2026",
+            "Michelle Chin",
+            "30/04/2026",
+            "1.00 pm",
+            "6 Bishan Street 25, Singapore 573975",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "30/04/2026",
+            "Chua Swee Keong",
+            "30/04/2026",
+            "1.00 pm",
+            "one north,Ayer Rajah Ave, Singapore 138647",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      }
+    }
+  },
+  "Will": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          130,
+          "1:14:27 pm",
+          "2hr 57min",
+          74,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            41,
+            40,
+            37,
+            12,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            130,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            130,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          130,
+          "1:14:27 pm",
+          "2hr 57min",
+          74,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            41,
+            40,
+            37,
+            12,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            130,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            130,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          183,
+          "7:35:56 pm",
+          "1hr 17min",
+          79,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            2,
+            16,
+            46,
+            16,
+            61,
+            33,
+            1,
+            0,
+            4,
+            0
+          ],
+          "byday": [
+            6,
+            47,
+            3,
+            122,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            58,
+            125
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Kate Chng": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          90,
+          "11:33:05 am",
+          "5hr 26min",
+          52,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            46,
+            34,
+            0,
+            9,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            16,
+            43,
+            31,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            90,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          90,
+          "11:33:05 am",
+          "5hr 26min",
+          52,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            46,
+            34,
+            0,
+            9,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            16,
+            43,
+            31,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            90,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          341,
+          "3:26:19 pm",
+          "9hr 20min",
+          158,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            4,
+            160,
+            114,
+            7,
+            48,
+            6,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "byday": [
+            58,
+            79,
+            74,
+            85,
+            45,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            134,
+            146,
+            61
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Wilfred Tan": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          121,
+          "10:20:18 am",
+          "2hr 20min",
+          57,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            61,
+            59,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            78,
+            43,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            121,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          121,
+          "10:20:18 am",
+          "2hr 20min",
+          57,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            61,
+            59,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            78,
+            43,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            121,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          1404,
+          "10:20:11 am",
+          "23hr 27min",
+          686,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            524,
+            571,
+            3,
+            207,
+            72,
+            26,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "byday": [
+            261,
+            257,
+            246,
+            395,
+            245,
+            0
+          ],
+          "byweek": [
+            308,
+            409,
+            238,
+            308,
+            141
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Visalini Sabarina": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          17,
+          "2:18:29 pm",
+          "1hr 0min",
+          9,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            17,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            17,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          17,
+          "2:18:29 pm",
+          "1hr 0min",
+          9,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            15,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            17,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            17,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          95,
+          "3:29:26 pm",
+          "2hr 57min",
+          61,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            12,
+            2,
+            6,
+            26,
+            23,
+            26,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            44,
+            0,
+            0,
+            15,
+            36,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            64,
+            17,
+            14
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Noriel Marasigan": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          839,
+          "10:15:55 am",
+          "20hr 38min",
+          398,
+          59,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            30,
+            193,
+            109,
+            80,
+            47,
+            94,
+            69,
+            81,
+            90,
+            41,
+            5,
+            0
+          ],
+          "byday": [
+            206,
+            81,
+            131,
+            207,
+            99,
+            75
+          ],
+          "byweek": [
+            637,
+            167,
+            31,
+            4,
+            0
+          ]
+        },
+        "pchart": [
+          59,
+          174,
+          83,
+          31,
+          59,
+          11,
+          8
+        ],
+        "apt": [
+          [
+            "13/04/2026",
+            "Chee Kwong Lau",
+            "20-01-2026 Tuesday",
+            "6.00 pm",
+            730888,
+            "Face to face",
+            "John"
+          ],
+          [
+            "17/04/2026",
+            "Nabong Arnulfo",
+            "17-01-2026 Saturday",
+            "3.00 pm",
+            "545123 blk123",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Goh Cheng Chuan",
+            "23/02/2026",
+            "1.30 pm",
+            530806,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Joseph Selvan John",
+            "21/03/2026",
+            "4.00 pm",
+            600265,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Khan Rehana",
+            "27-02-2026 Friday",
+            "11.00 am",
+            460035,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Mohamad Yusri Bin Busori",
+            "17-01-2026 Saturday",
+            "12.00 pm",
+            640419,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Jenevieve",
+            "16-01-2026 Friday",
+            "10.00 am",
+            "670180 tentative time",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Suffian",
+            "14-01-2026 Wednesday",
+            "8.00 pm",
+            730755,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Adrian, Kay Tiong Tay",
+            "15-01-2026 Thursday",
+            "12.30 pm",
+            570115,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Seah Teck Kuan",
+            "16-01-2026 Friday",
+            "2.00 pm",
+            670526,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Ang Adelina Abdullah",
+            "02-03-2026 Monday",
+            "10.00 am",
+            539220,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Looi Peck Khim",
+            "25-02-2026 Wednesday",
+            "5.00 pm",
+            680350,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Rita Waswani",
+            "25/02/2026",
+            "9.00 am",
+            449284,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            " Peter",
+            "21-01-2026 Wednesday",
+            "7.00 pm",
+            797530,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Salina Manap",
+            "18-01-2026 Sunday",
+            "4.00 pm",
+            520359,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Joanna",
+            "11-02-2026 Wednesday",
+            "10.00 am",
+            470144,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Mahmood Gaous",
+            "21-01-2026 Wednesday",
+            "8.30 pm",
+            "blk227 pasiris st 21 ",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Khairani",
+            "17-01-2026 Saturday",
+            "3.00 pm",
+            "731898 898B",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Hirwanis Ismail",
+            "15-01-2026 Thursday",
+            "2.00 pm",
+            "650176 BLK176",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Pong Kok Ann",
+            "15-01-2026 Thursday",
+            "2.30 pm",
+            520455,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Cheong Pek Yi",
+            "30/03/2026",
+            "10.00 am",
+            228258,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Doris Ang",
+            "22-01-2026 Thursday",
+            "4.00 pm",
+            650291,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Than Kai Lee",
+            "15-01-2026 Thursday",
+            "7.00 pm",
+            128021,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Rosila Ramly",
+            "29-01-2026 Thursday",
+            "2.00 pm",
+            "ASIA 1 SQUARE TOWER 018960",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Ernesto Estrella",
+            "20-01-2026 Tuesday",
+            "12.00 pm",
+            "04-17 lucky plaza office",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Eddy",
+            "28-01-2026 Wednesday",
+            "11.00 am",
+            528771,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Lim Roger",
+            "23-01-2026 Friday",
+            "3.30 pm",
+            642273,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Marie Mathews",
+            "04-02-2026 Wednesday",
+            "12.30 pm",
+            201718,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Harneis",
+            "20-01-2026 Tuesday",
+            "4.00 pm",
+            416992,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Lui Kum Fai",
+            "30-01-2026 Friday",
+            "3.00 pm",
+            "670275 blk275",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Lok Choi Yuet",
+            "24-01-2026 Saturday",
+            "4.00 pm",
+            688210,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Ng Teck Koon",
+            "24/02/2026",
+            "10.30 am",
+            787805,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Jorine Kok",
+            "06-03-2026 Friday",
+            "10.00 am",
+            575577,
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Jenny Liew Yen Yung",
+            "22-01-2026 Thursday",
+            "8.30 pm",
+            "tampanise hub, outside mcdonalds",
+            "Face to face",
+            "John"
+          ],
+          [
+            "13/04/2026",
+            "Hui Mei Ling",
+            "23-01-2026 Friday",
+            "3.00 pm",
+            731189,
+            "Face to face",
+            "John"
+          ],
+          [
+            "03/04/2026",
+            "PY Loh",
+            "06-11-2025 Thursday",
+            "7.00 pm",
+            " jurong east GEM mall",
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Adam Lee",
+            "20-12-2025 Saturday",
+            "2.00 pm",
+            "643A fenja close 671643",
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Eliezer Wee",
+            "03-01-2026 Saturday",
+            "1.30 pm",
+            310160,
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Derrick Law",
+            "02-01-2026 Friday",
+            "7.00 pm",
+            "677722 segar road under block",
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Kenneth Kho",
+            "05-01-2026 Monday",
+            "2.00 pm",
+            "512 chai chee, he forgot the postal code got a problem with prrevios agent and asked me to help him with some matters ",
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Cindy  Toh",
+            "23-01-2026 Friday",
+            "7.00 pm",
+            "woodlands let you know where to meet on 23th Jan .",
+            "Face to face",
+            "John"
+          ],
+          [
+            "15/04/2026",
+            "Teo Kim Chye",
+            "21/03/2026",
+            "1.00 pm",
+            730108,
+            "Face to face",
+            "John"
+          ],
+          [
+            "15/04/2026",
+            "Tan Wee Hui",
+            "01/04/2026",
+            "7.00 pm",
+            "bouna vista ",
+            "Face to face",
+            "John"
+          ],
+          [
+            "15/04/2026",
+            "Rosalind Lee",
+            "18/03/2026",
+            "2.30 pm",
+            "",
+            "Face to face",
+            "John"
+          ],
+          [
+            "15/04/2026",
+            "Azman Md",
+            "28/03/2026",
+            "10.00 am",
+            730323,
+            "Face to face",
+            "John"
+          ],
+          [
+            "15/04/2026",
+            "Aldrin Loo",
+            "21/03/2026",
+            "10.00 am",
+            650139,
+            "Face to face",
+            "John"
+          ],
+          [
+            "07/04/2026",
+            "Rozita Binte Mohamed Sani",
+            "11/04/2026",
+            "10.00 am",
+            732688,
+            "Face to face",
+            "John"
+          ],
+          [
+            "06/04/2026",
+            "Lianne",
+            "07/04/2026",
+            "10.00 am",
+            "",
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Lim Aie Yoke",
+            "05/04/2026",
+            "4.00 pm",
+            544185,
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Geetha",
+            "04/04/2026",
+            "10.00 am",
+            85401,
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Ng Seng Giap",
+            "08/04/2026",
+            "10.00 am",
+            506853,
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Cindy Toh",
+            "03/04/2026",
+            "11.00 am",
+            520246,
+            "Face to face",
+            "John"
+          ],
+          [
+            "02/04/2026",
+            "Ronnie Loo",
+            "04/04/2026",
+            "10.00 am",
+            "",
+            "Face to face",
+            "John"
+          ],
+          [
+            "06/04/2026",
+            "Cheong C.K.",
+            "07/04/2026",
+            "2.00 pm",
+            650269,
+            "Face to face",
+            "John"
+          ],
+          [
+            "06/04/2026",
+            "Zarina Ahmad Zakri",
+            "07/04/2026",
+            "2.00 pm",
+            "",
+            "Face to face",
+            "John"
+          ],
+          [
+            "06/04/2026",
+            "Baharudin",
+            "07/04/2026",
+            "10.00 am",
+            460132,
+            "Face to face",
+            "John"
+          ],
+          [
+            "07/04/2026",
+            "Benny Ng",
+            "07/04/2026",
+            "12.30 pm",
+            102118,
+            "Face to face",
+            "John"
+          ],
+          [
+            "07/04/2026",
+            "Shan Dani",
+            "09/04/2026",
+            "12.00 pm",
+            "",
+            "Face to face",
+            "John"
+          ],
+          [
+            "07/04/2026",
+            "Yvonne Wee",
+            "14/04/2026",
+            "11.00 am",
+            18936,
+            "Face to face",
+            "John"
+          ]
+        ]
+      }
+    }
+  },
+  "Cheah Yuee Ciel": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          42,
+          "1:26:37 pm",
+          "1hr 7min",
+          22,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            10,
+            24,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            2,
+            0,
+            0,
+            40,
+            0,
+            0
+          ],
+          "byweek": [
+            34,
+            7,
+            1,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Jaris Chung": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          15,
+          "2:44:13 pm",
+          "0hr 12min",
+          12,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            4,
+            1,
+            0,
+            3,
+            5,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "byday": [
+            1,
+            0,
+            1,
+            5,
+            6,
+            1
+          ],
+          "byweek": [
+            0,
+            10,
+            5,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Leianne Acosta": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          1490,
+          "10:46:06 am",
+          "21hr 39min",
+          664,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            98,
+            47,
+            92,
+            249,
+            279,
+            320,
+            168,
+            105,
+            80,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            190,
+            304,
+            88,
+            533,
+            375,
+            0
+          ],
+          "byweek": [
+            594,
+            726,
+            170,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Sam Mvp": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          16,
+          "6:07:29 pm",
+          "0hr 58min",
+          11,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12,
+            1,
+            0,
+            2,
+            1,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            3,
+            13,
+            0,
+            0
+          ],
+          "byweek": [
+            3,
+            13,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      }
+    }
+  },
+  "Blesil Marasigan": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "week": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "month": {
+        "card": [
+          0,
+          "1:02:34 am",
+          "0hr 0min",
+          null,
+          0,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "apt": []
+      },
+      "lastMonth": {
+        "card": [
+          618,
+          "4:16:13 pm",
+          "11hr 1min",
+          255,
+          8,
+          0
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            51,
+            214,
+            233,
+            114,
+            2,
+            0
+          ],
+          "byday": [
+            206,
+            126,
+            152,
+            134,
+            0,
+            0
+          ],
+          "byweek": [
+            618,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": [
+          308,
+          64,
+          77,
+          110,
+          19,
+          8
+        ],
+        "apt": [
+          [
+            "01/04/2026",
+            "Iris Sim",
+            "28/04/2026",
+            "8.00 pm",
+            521646,
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "01/04/2026",
+            "Jason Tey",
+            "09/04/2026",
+            "11.30 am",
+            598435,
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "01/04/2026",
+            "Jannah Lee",
+            "13/04/2026",
+            "7.00 pm",
+            310124,
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "02/04/2026",
+            "Hermansyah Sabri",
+            "30/04/2026",
+            "2.00 pm",
+            670602,
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "02/04/2026",
+            "Leng kwee Koh",
+            "08/04/2026",
+            "5.00 pm",
+            162009,
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "06/04/2026",
+            "Rajkumaralal Panneerselvam",
+            "09/04/2026",
+            "1.30 pm",
+            "",
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "06/04/2026",
+            "Serene Seet",
+            "04/05/2026",
+            "12.30 pm",
+            48581,
+            "Face to face",
+            "Bless"
+          ],
+          [
+            "07/04/2026",
+            "Angela Ng",
+            "08/05/2026",
+            "7.30 pm",
+            "toa payoh central",
+            "Face to face",
+            "Bless"
+          ]
+        ]
+      }
+    }
+  }
+}

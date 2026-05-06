@@ -13,15 +13,18 @@
     "postinstall": "npx puppeteer browsers install"
   },
   "dependencies": {
+    "@zoom/rivet": "^0.4.0",
     "axios": "^1.13.5",
     "express": "^5.2.1",
     "node-telegram-bot-api": "^0.67.0",
+    "p-limit": "^7.3.0",
     "puppeteer-core": "^24.37.2",
     "qrcode": "^1.5.4",
     "qrcode-terminal": "^0.12.0",
     "socket.io": "^4.8.3",
     "socket.io-client": "^4.8.3",
-    "whatsapp-web.js": "^1.34.6"
+    "whatsapp-web.js": "^1.34.6",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

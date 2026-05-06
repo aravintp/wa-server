@@ -1,7 +1,7 @@
 
 const {join} = require('path');
 const {platform} = require('os');
-        const {send_log} = require('./global.js');
+        const {send_log} = require('./helper/global.js');
 const cacheDir =join(__dirname , '.cache' ,'puppeteer')
 
 // Check if OS is Windows
