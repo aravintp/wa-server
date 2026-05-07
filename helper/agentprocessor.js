@@ -200,6 +200,8 @@ export class AgentStatsProcessor {
         const total_hrs_worked = wkhr.work.str
         const outreach = call_results["No Record"]? call_results["No Record"]: 0
         const calls_pickedup = call_results.connected + (call_results?.answered ?? 0)
+        const conversion =  `${((appointments.length / calls_total) * 100).toFixed(2)} %`;
+        const answerrate =  `${((calls_pickedup / calls_total) * 100).toFixed(2)}% answer rate`;
 
 
         return this.#stats[zm.zoomname].dashboard[cyclename] = {
@@ -209,7 +211,10 @@ export class AgentStatsProcessor {
             total_hrs_worked,
             calls_pickedup,
             appointments.length,
-            outreach
+            conversion,
+            outreach,
+            answerrate
+            
             ],
             graph,
             pchart: status_object,
@@ -463,13 +468,13 @@ export class AgentStatsProcessor {
         const month = new Date(today);
         month.setDate(1);
 
-        const lastMonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+        const lastmonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
 
         return {
             today: { start: today, end: now },
             week: { start: week, end: now },
             month: { start: month, end: now },
-            lastMonth: { start: lastMonth, end: month },
+            lastmonth: { start: lastmonth, end: month },
         };
     };
            

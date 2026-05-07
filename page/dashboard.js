@@ -103,6 +103,7 @@ export function applyFilters() {
   const appt = user[agent].dashboard[period].apt
 
 
+  console.log(period)
   if (period=== "custom") {
     fp.open(); // open floating calendar
   }
@@ -124,7 +125,8 @@ export function applyFilters() {
 function updateCard(card) {
   // const d = (CALL_DATA[agent] || CALL_DATA.all)[period];
   // const conv       = d.picked > 0 ? ((d.appointments / d.picked) * 100).toFixed(1) : '0.0';
-  // const answerRate = d.total  > 0 ? ((d.picked / d.total) * 100).toFixed(1)         : '0.0';
+   //const answerRate = card[0] > 0 ? ((card[3] / card[0]) * 100).toFixed(1) : '0.0';
+
 
   document.getElementById('stat-total').textContent       = card[0]
   document.getElementById('stat-clockin').textContent     = card[1];
@@ -133,6 +135,8 @@ function updateCard(card) {
   document.getElementById('stat-appts').textContent       = card[4];
   document.getElementById('stat-conv').textContent        = card[5];
   document.getElementById('stat-outreach').textContent    = card[6];
+  document.getElementById('stat-answer-rate').textContent = card[7];
+
 }
 
 function updateChartSubtitle(agent, period) {
