@@ -88,7 +88,7 @@ function crmselect(date){
     return;
   }
 
-  console.log(name)
+
   drawDonut(donut);
 }
 
@@ -103,7 +103,6 @@ export function applyFilters() {
   const appt = user[agent].dashboard[period].apt
 
 
-  console.log(period)
   if (period=== "custom") {
     fp.open(); // open floating calendar
   }
