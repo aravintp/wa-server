@@ -7,7 +7,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -45,23 +45,18 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
-          117,
+          209,
           "4:17:49 pm",
-          "3hr 3min",
-          45,
-          5,
+          "6hr 14min",
+          75,
+          18,
           0
         ],
         "graph": {
@@ -70,44 +65,74 @@
             0,
             0,
             0,
+            1,
             0,
-            0,
-            3,
-            11,
-            31,
-            23,
-            16,
-            0,
-            33
+            7,
+            12,
+            40,
+            41,
+            45,
+            18,
+            43
           ],
           "byday": [
             0,
-            60,
-            57,
-            0,
+            63,
+            66,
+            80,
             0,
             0
           ],
           "byweek": [
-            117,
+            209,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          5,
-          11,
-          26,
-          11,
-          9,
-          3,
-          2
-        ],
+        "pchart": {
+          "Francis Leads": [
+            6,
+            0,
+            11,
+            26,
+            11,
+            3,
+            11
+          ],
+          "Daniel Age 50 to 60 ": [
+            4,
+            0,
+            12,
+            47,
+            6,
+            0,
+            3
+          ],
+          "Algo - Blood Pressure": [
+            8,
+            0,
+            0,
+            25,
+            1,
+            0,
+            3
+          ],
+          "all_crm": [
+            18,
+            0,
+            23,
+            98,
+            18,
+            3,
+            17
+          ]
+        },
         "apt": [
           [
             "06/05/2026",
+            "Francis Leads",
             "LEE HUISHAN",
             "06/05/2026",
             "12.00 pm",
@@ -117,6 +142,7 @@
           ],
           [
             "06/05/2026",
+            "Francis Leads",
             "MohamedIsmailBinAbdulRehuman",
             "06/05/2026",
             "2.00 pm",
@@ -125,7 +151,18 @@
             "Aravinth"
           ],
           [
+            "07/05/2026",
+            "Francis Leads",
+            "GAN WEI SHENG",
+            "07/05/2026",
+            "3.00 pm",
+            "91 Hillview Link, Block 2, #01-201, Singapore 669723",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
             "05/05/2026",
+            "Francis Leads",
             "LOWYINSHUO",
             "07/05/2026",
             "11.00 am",
@@ -135,6 +172,7 @@
           ],
           [
             "05/05/2026",
+            "Francis Leads",
             "LIM PEI XIA",
             "23/05/2026",
             "3.00 pm",
@@ -144,10 +182,131 @@
           ],
           [
             "05/05/2026",
+            "Francis Leads",
             "LING MING YAO ",
             "12/05/2026",
             "2.00 pm",
             "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "David Fong",
+            "11/05/2026",
+            "3.30 pm",
+            "34 Bedok S Ave 2, Singapore 460034",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "El-n Lim",
+            "07/06/2026",
+            "1.00 pm",
+            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "Julian Lee Hiung Koh",
+            "11/05/2026",
+            "12.00 pm",
+            "Coffee Bean and Tea Leaf (Komo Shoppes), 961 Upper Changi Rd N, Singapore 507663",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "Liaw Wee Soo, Peter",
+            "13/05/2026",
+            "11.00 am",
+            "location he will say tomorrow, i have to call him",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Seethalakshmi Balagopalan",
+            "13/05/2026",
+            "7.00 pm",
+            "106 Spottiswoode Park Rd, Singapore 080106",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Heelmy Abu Hassan",
+            "12/05/2026",
+            "11.00 am",
+            "144 Rivervale Dr, Singapore 540144, void desk",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Serene Loo",
+            "08/05/2026",
+            "2.00 pm",
+            "Fortune Centre, 190 Middle Rd, Singapore 188979",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Algo - Blood Pressure",
+            "K. Selvam",
+            "12/05/2026",
+            "11.00 am",
+            "215 Yishun Ring Rd, Block 215, Singapore 760215 #07-293",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Vemula Hariprasad",
+            "08/05/2026",
+            "11.00 am",
+            "Jurong west 648560 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Yeng Swee Keing",
+            "27/05/2026",
+            "12.00 pm",
+            "Starbucks - Compass One, 1 Sengkang Square, #01- 06, Singapore 545078",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Mohamed Haron",
+            "09/05/2026",
+            "11.00 am",
+            "371 Bukit Batok Street 31, Singapore 650371 Koptiam ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Algo - Blood Pressure",
+            "Emma Danishq",
+            "15/05/2026",
+            "7.00 pm",
+            "381C Yishun Ring Rd, Singapore 763381",
             "Face to face",
             "Aravinth"
           ]
@@ -155,11 +314,11 @@
       },
       "month": {
         "card": [
-          117,
+          209,
           "4:17:49 pm",
-          "3hr 3min",
-          45,
-          5,
+          "6hr 14min",
+          75,
+          18,
           0
         ],
         "graph": {
@@ -168,44 +327,74 @@
             0,
             0,
             0,
+            1,
             0,
-            0,
-            3,
-            11,
-            31,
-            23,
-            16,
-            0,
-            33
+            7,
+            12,
+            40,
+            41,
+            45,
+            18,
+            43
           ],
           "byday": [
             0,
-            60,
-            57,
-            0,
+            63,
+            66,
+            80,
             0,
             0
           ],
           "byweek": [
-            117,
+            209,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          5,
-          11,
-          26,
-          11,
-          9,
-          3,
-          2
-        ],
+        "pchart": {
+          "Francis Leads": [
+            6,
+            0,
+            11,
+            26,
+            11,
+            3,
+            11
+          ],
+          "Daniel Age 50 to 60 ": [
+            4,
+            0,
+            12,
+            47,
+            6,
+            0,
+            3
+          ],
+          "Algo - Blood Pressure": [
+            8,
+            0,
+            0,
+            25,
+            1,
+            0,
+            3
+          ],
+          "all_crm": [
+            18,
+            0,
+            23,
+            98,
+            18,
+            3,
+            17
+          ]
+        },
         "apt": [
           [
             "06/05/2026",
+            "Francis Leads",
             "LEE HUISHAN",
             "06/05/2026",
             "12.00 pm",
@@ -215,6 +404,7 @@
           ],
           [
             "06/05/2026",
+            "Francis Leads",
             "MohamedIsmailBinAbdulRehuman",
             "06/05/2026",
             "2.00 pm",
@@ -223,7 +413,18 @@
             "Aravinth"
           ],
           [
+            "07/05/2026",
+            "Francis Leads",
+            "GAN WEI SHENG",
+            "07/05/2026",
+            "3.00 pm",
+            "91 Hillview Link, Block 2, #01-201, Singapore 669723",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
             "05/05/2026",
+            "Francis Leads",
             "LOWYINSHUO",
             "07/05/2026",
             "11.00 am",
@@ -233,6 +434,7 @@
           ],
           [
             "05/05/2026",
+            "Francis Leads",
             "LIM PEI XIA",
             "23/05/2026",
             "3.00 pm",
@@ -242,10 +444,131 @@
           ],
           [
             "05/05/2026",
+            "Francis Leads",
             "LING MING YAO ",
             "12/05/2026",
             "2.00 pm",
             "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "David Fong",
+            "11/05/2026",
+            "3.30 pm",
+            "34 Bedok S Ave 2, Singapore 460034",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "El-n Lim",
+            "07/06/2026",
+            "1.00 pm",
+            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "Julian Lee Hiung Koh",
+            "11/05/2026",
+            "12.00 pm",
+            "Coffee Bean and Tea Leaf (Komo Shoppes), 961 Upper Changi Rd N, Singapore 507663",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "Liaw Wee Soo, Peter",
+            "13/05/2026",
+            "11.00 am",
+            "location he will say tomorrow, i have to call him",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Seethalakshmi Balagopalan",
+            "13/05/2026",
+            "7.00 pm",
+            "106 Spottiswoode Park Rd, Singapore 080106",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Heelmy Abu Hassan",
+            "12/05/2026",
+            "11.00 am",
+            "144 Rivervale Dr, Singapore 540144, void desk",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Serene Loo",
+            "08/05/2026",
+            "2.00 pm",
+            "Fortune Centre, 190 Middle Rd, Singapore 188979",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Algo - Blood Pressure",
+            "K. Selvam",
+            "12/05/2026",
+            "11.00 am",
+            "215 Yishun Ring Rd, Block 215, Singapore 760215 #07-293",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Vemula Hariprasad",
+            "08/05/2026",
+            "11.00 am",
+            "Jurong west 648560 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Yeng Swee Keing",
+            "27/05/2026",
+            "12.00 pm",
+            "Starbucks - Compass One, 1 Sengkang Square, #01- 06, Singapore 545078",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "06/05/2026",
+            "Algo - Blood Pressure",
+            "Mohamed Haron",
+            "09/05/2026",
+            "11.00 am",
+            "371 Bukit Batok Street 31, Singapore 650371 Koptiam ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Algo - Blood Pressure",
+            "Emma Danishq",
+            "15/05/2026",
+            "7.00 pm",
+            "381C Yishun Ring Rd, Singapore 763381",
             "Face to face",
             "Aravinth"
           ]
@@ -253,57 +576,87 @@
       },
       "lastMonth": {
         "card": [
-          1428,
+          1541,
           "4:24:51 pm",
-          "28hr 15min",
-          580,
-          53,
+          "32hr 14min",
+          639,
+          52,
           0
         ],
         "graph": {
           "byhour": [
-            0,
+            1,
             1,
             20,
-            134,
-            6,
-            246,
-            149,
-            272,
-            285,
-            168,
-            0,
-            29,
-            118
+            141,
+            8,
+            260,
+            162,
+            288,
+            308,
+            186,
+            5,
+            30,
+            127
           ],
           "byday": [
-            350,
-            143,
-            360,
-            443,
-            131,
-            1
+            379,
+            150,
+            382,
+            489,
+            139,
+            2
           ],
           "byweek": [
             0,
-            228,
-            370,
-            503,
-            327
+            242,
+            415,
+            525,
+            359
           ]
         },
-        "pchart": [
-          484,
-          53,
-          200,
-          51,
-          128,
-          34,
-          10
-        ],
+        "pchart": {
+          "Daniel Leads 1": [
+            4,
+            0,
+            29,
+            43,
+            12,
+            1,
+            8
+          ],
+          "Francis Leads": [
+            45,
+            0,
+            153,
+            317,
+            74,
+            21,
+            37
+          ],
+          "CY Leads": [
+            3,
+            0,
+            18,
+            124,
+            42,
+            12,
+            6
+          ],
+          "all_crm": [
+            52,
+            0,
+            200,
+            484,
+            128,
+            34,
+            51
+          ]
+        },
         "apt": [
           [
             "13/04/2026",
+            "Daniel Leads 1",
             "Chang Jing Ting, Lynn",
             "01/05/2026",
             "11.00 am",
@@ -312,7 +665,8 @@
             "Aravinth"
           ],
           [
-            "13/04/2026",
+            "28/04/2026",
+            "Daniel Leads 1",
             "Soh Xin Ren",
             "14/04/2026",
             "6.30 pm",
@@ -322,6 +676,7 @@
           ],
           [
             "28/04/2026",
+            "Daniel Leads 1",
             "Jane Wong",
             "14/04/2026",
             "1.00 pm",
@@ -331,6 +686,7 @@
           ],
           [
             "14/04/2026",
+            "Daniel Leads 1",
             "Stanley Lui",
             "17/04/2026",
             "2.00 pm",
@@ -340,6 +696,7 @@
           ],
           [
             "17/04/2026",
+            "Francis Leads",
             "TANHUALIAN",
             "21/04/2026",
             "12.00 pm",
@@ -349,6 +706,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "Wu Cheng Hui",
             "22/04/2026",
             "1.00 pm",
@@ -358,6 +716,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "Zheng Hao Wen Nicholas",
             "21/04/2026",
             "12.00 pm",
@@ -367,6 +726,7 @@
           ],
           [
             "13/04/2026",
+            "Francis Leads",
             "Oh Yu Cheng",
             "24/04/2026",
             "8.00 pm",
@@ -375,7 +735,8 @@
             "Aravinth"
           ],
           [
-            "14/04/2026",
+            "15/04/2026",
+            "Francis Leads",
             "LOO JUNJIE JORDAN ",
             "15/04/2026",
             "3.00 pm",
@@ -385,6 +746,7 @@
           ],
           [
             "14/04/2026",
+            "Francis Leads",
             "DANIEL YAM YING JIE",
             "16/04/2026",
             "3.00 pm",
@@ -394,6 +756,7 @@
           ],
           [
             "14/04/2026",
+            "Francis Leads",
             "TEO ZHAN RUI",
             "17/04/2026",
             "10.00 am",
@@ -403,6 +766,7 @@
           ],
           [
             "22/04/2026",
+            "Francis Leads",
             "LINLIJUNJOANNA",
             "02/05/2026",
             "11.00 am",
@@ -412,6 +776,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "NG JUN HAO ABNER",
             "30/04/2026",
             "11.00 am",
@@ -421,6 +786,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "NGLIENEDRIC",
             "16/04/2026",
             "4.00 pm",
@@ -430,6 +796,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "AZRINNA BINTE ALANG MUHAMMAD",
             "16/04/2026",
             "1.00 pm",
@@ -439,6 +806,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "Tan Wei Min ",
             "22/04/2026",
             "7.00 pm",
@@ -447,7 +815,8 @@
             "Aravinth"
           ],
           [
-            "28/04/2026",
+            "29/04/2026",
+            "Francis Leads",
             "HOON WEI XIONG",
             "23/04/2026",
             "1.30 pm",
@@ -457,6 +826,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "MOHAMMED SHABRIE BIN ISMAIL",
             "20/04/2026",
             "8.00 pm",
@@ -466,6 +836,7 @@
           ],
           [
             "24/04/2026",
+            "Francis Leads",
             "Terence Chan Qi Wei",
             "24/04/2026",
             "12.00 pm",
@@ -475,6 +846,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "Goh Xin Jie Edmund",
             "23/04/2026",
             "5.30 pm",
@@ -484,6 +856,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "Khoa Shumin",
             "21/04/2026",
             "3.00 pm",
@@ -493,6 +866,7 @@
           ],
           [
             "15/04/2026",
+            "Francis Leads",
             "MUHAMMAD AZLAN BIN AHMAD MAHDI",
             "20/04/2026",
             "3.00 pm",
@@ -502,6 +876,7 @@
           ],
           [
             "22/04/2026",
+            "Francis Leads",
             "HUANG JIAN GHENG",
             "28/04/2026",
             "7.30 pm",
@@ -511,6 +886,7 @@
           ],
           [
             "22/04/2026",
+            "Francis Leads",
             "GENEVIEVE ANG FENG XIANG",
             "29/04/2026",
             "1.00 pm",
@@ -520,6 +896,7 @@
           ],
           [
             "16/04/2026",
+            "Francis Leads",
             "WEI XIU QING",
             "30/04/2026",
             "6.00 pm",
@@ -529,6 +906,7 @@
           ],
           [
             "17/04/2026",
+            "Francis Leads",
             "SIM KIAN HENG",
             "23/04/2026",
             "8.00 pm",
@@ -538,6 +916,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "EUGENE KOH CHOONTAK",
             "21/04/2026",
             "1.00 pm",
@@ -547,6 +926,7 @@
           ],
           [
             "17/04/2026",
+            "Francis Leads",
             "LIMLYESIONG",
             "05/05/2026",
             "8.30 pm",
@@ -556,6 +936,7 @@
           ],
           [
             "17/04/2026",
+            "Francis Leads",
             "GOH SHANG LIAN NICHOLAS ",
             "04/05/2026",
             "5.00 pm",
@@ -565,6 +946,7 @@
           ],
           [
             "17/04/2026",
+            "Francis Leads",
             "Wan Juan",
             "21/04/2026",
             "10.30 am",
@@ -574,6 +956,7 @@
           ],
           [
             "20/04/2026",
+            "Francis Leads",
             "Thaangaraju Elaiyaraja ",
             "25/04/2026",
             "10.00 am",
@@ -583,6 +966,7 @@
           ],
           [
             "28/04/2026",
+            "Francis Leads",
             "KYAW THU AUNG BA RYan",
             "25/04/2026",
             "11.00 am",
@@ -591,7 +975,8 @@
             "Aravinth"
           ],
           [
-            "28/04/2026",
+            "29/04/2026",
+            "Francis Leads",
             "SuiLihSheng Edison",
             "23/04/2026",
             "2.00 pm",
@@ -601,6 +986,7 @@
           ],
           [
             "22/04/2026",
+            "Francis Leads",
             "Mr Lim ",
             "24/04/2026",
             "8.00 pm",
@@ -610,6 +996,7 @@
           ],
           [
             "20/04/2026",
+            "Francis Leads",
             "MEH METGUL",
             "09/05/2026",
             "2.30 pm",
@@ -619,6 +1006,7 @@
           ],
           [
             "20/04/2026",
+            "Francis Leads",
             "YAO GUILI",
             "24/04/2026",
             "11.00 am",
@@ -628,6 +1016,7 @@
           ],
           [
             "20/04/2026",
+            "Francis Leads",
             "TENG SHIEH CHIEN",
             "28/04/2026",
             "1.00 pm",
@@ -637,6 +1026,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "LAI WEE LOON",
             "29/04/2026",
             "3.00 pm",
@@ -646,6 +1036,7 @@
           ],
           [
             "23/04/2026",
+            "Francis Leads",
             "WangQin Candy",
             "01/05/2026",
             "6.00 pm",
@@ -655,6 +1046,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "TANBOONJIUN",
             "30/04/2026",
             "11.00 am",
@@ -664,6 +1056,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "S J VAISHNAVI",
             "06/05/2026",
             "1.00 pm",
@@ -673,6 +1066,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "GANSHIWEI",
             "08/05/2026",
             "11.00 am",
@@ -682,6 +1076,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "GOH SHAE TING DAVANIA ",
             "05/05/2026",
             "11.00 am",
@@ -691,6 +1086,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "QUAH PEIZHI PAM",
             "21/05/2026",
             "1.00 pm",
@@ -700,6 +1096,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "TEOMEIYNG",
             "04/05/2026",
             "4.00 pm",
@@ -709,6 +1106,7 @@
           ],
           [
             "29/04/2026",
+            "Francis Leads",
             "TEOWENWEI",
             "06/05/2026",
             "1.00 pm",
@@ -718,6 +1116,7 @@
           ],
           [
             "30/04/2026",
+            "Francis Leads",
             "HONG JUNLIANG ",
             "26/05/2026",
             "11.00 am",
@@ -727,6 +1126,7 @@
           ],
           [
             "30/04/2026",
+            "Francis Leads",
             "CHUA PEI FERN VALERIE ",
             "12/05/2026",
             "11.00 am",
@@ -736,6 +1136,7 @@
           ],
           [
             "30/04/2026",
+            "Francis Leads",
             "AHMAD ZAKI BIN HAIRODIN",
             "07/05/2026",
             "11.00 am",
@@ -744,16 +1145,8 @@
             "Aravinth"
           ],
           [
-            "30/04/2026",
-            "GAN WEI SHENG",
-            "07/05/2026",
-            "3.00 pm",
-            "91 Hillview Link, Block 2, #01-201, Singapore 669723",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
             "23/04/2026",
+            "CY Leads",
             "Ng Heng Lee",
             "24/04/2026",
             "1.00 pm",
@@ -763,6 +1156,7 @@
           ],
           [
             "23/04/2026",
+            "CY Leads",
             "Michelle Chin",
             "30/04/2026",
             "1.00 pm",
@@ -772,6 +1166,7 @@
           ],
           [
             "30/04/2026",
+            "CY Leads",
             "Chua Swee Keong",
             "30/04/2026",
             "1.00 pm",
@@ -788,7 +1183,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -826,22 +1221,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
-          130,
+          206,
           "1:14:27 pm",
-          "2hr 57min",
-          74,
+          "5hr 9min",
+          108,
           0,
           0
         ],
@@ -852,11 +1242,11 @@
             0,
             0,
             0,
-            41,
-            40,
-            37,
-            12,
-            0,
+            66,
+            49,
+            68,
+            22,
+            1,
             0,
             0,
             0
@@ -864,35 +1254,30 @@
           "byday": [
             0,
             0,
-            130,
-            0,
+            138,
+            68,
             0,
             0
           ],
           "byweek": [
-            130,
+            206,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
-          130,
+          206,
           "1:14:27 pm",
-          "2hr 57min",
-          74,
+          "5hr 9min",
+          108,
           0,
           0
         ],
@@ -903,11 +1288,11 @@
             0,
             0,
             0,
-            41,
-            40,
-            37,
-            12,
-            0,
+            66,
+            49,
+            68,
+            22,
+            1,
             0,
             0,
             0
@@ -915,35 +1300,30 @@
           "byday": [
             0,
             0,
-            130,
-            0,
+            138,
+            68,
             0,
             0
           ],
           "byweek": [
-            130,
+            206,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          183,
-          "7:35:56 pm",
-          "1hr 17min",
-          79,
+          188,
+          "4:28:59 pm",
+          "1hr 18min",
+          81,
           0,
           0
         ],
@@ -953,40 +1333,35 @@
             0,
             0,
             2,
-            16,
+            17,
             46,
             16,
-            61,
-            33,
-            1,
+            63,
+            34,
+            2,
             0,
             4,
             0
           ],
           "byday": [
-            6,
-            47,
-            3,
-            122,
+            7,
+            48,
+            4,
+            124,
             0,
             0
           ],
           "byweek": [
+            1,
             0,
             0,
-            0,
-            58,
-            125
+            60,
+            127
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -996,7 +1371,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -1034,22 +1409,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
-          90,
+          138,
           "11:33:05 am",
-          "5hr 26min",
-          52,
+          "8hr 40min",
+          75,
           0,
           0
         ],
@@ -1058,49 +1428,44 @@
             0,
             0,
             0,
-            46,
-            34,
-            0,
-            9,
+            57,
+            58,
+            6,
+            12,
+            4,
             1,
-            0,
             0,
             0,
             0,
             0
           ],
           "byday": [
-            16,
-            43,
-            31,
-            0,
+            18,
+            49,
+            34,
+            37,
             0,
             0
           ],
           "byweek": [
-            90,
+            138,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
-          90,
+          138,
           "11:33:05 am",
-          "5hr 26min",
-          52,
+          "8hr 40min",
+          75,
           0,
           0
         ],
@@ -1109,49 +1474,44 @@
             0,
             0,
             0,
-            46,
-            34,
-            0,
-            9,
+            57,
+            58,
+            6,
+            12,
+            4,
             1,
-            0,
             0,
             0,
             0,
             0
           ],
           "byday": [
-            16,
-            43,
-            31,
-            0,
+            18,
+            49,
+            34,
+            37,
             0,
             0
           ],
           "byweek": [
-            90,
+            138,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          341,
+          367,
           "3:26:19 pm",
-          "9hr 20min",
-          158,
+          "10hr 11min",
+          166,
           0,
           0
         ],
@@ -1161,40 +1521,35 @@
             0,
             4,
             160,
-            114,
-            7,
-            48,
-            6,
-            0,
-            0,
+            124,
+            9,
+            51,
+            13,
             2,
             0,
+            2,
+            1,
             0
           ],
           "byday": [
-            58,
-            79,
-            74,
-            85,
-            45,
+            60,
+            84,
+            75,
+            98,
+            49,
             0
           ],
           "byweek": [
             0,
             0,
-            134,
-            146,
-            61
+            141,
+            153,
+            73
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -1204,7 +1559,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -1242,22 +1597,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
-          121,
+          189,
           "10:20:18 am",
-          "2hr 20min",
-          57,
+          "4hr 18min",
+          84,
           0,
           0
         ],
@@ -1265,11 +1615,11 @@
           "byhour": [
             0,
             0,
-            61,
-            59,
-            1,
-            0,
-            0,
+            64,
+            95,
+            8,
+            11,
+            10,
             0,
             0,
             0,
@@ -1278,37 +1628,32 @@
             0
           ],
           "byday": [
-            78,
-            43,
+            83,
+            47,
             0,
-            0,
+            59,
             0,
             0
           ],
           "byweek": [
-            121,
+            189,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
-          121,
+          189,
           "10:20:18 am",
-          "2hr 20min",
-          57,
+          "4hr 18min",
+          84,
           0,
           0
         ],
@@ -1316,11 +1661,11 @@
           "byhour": [
             0,
             0,
-            61,
-            59,
-            1,
-            0,
-            0,
+            64,
+            95,
+            8,
+            11,
+            10,
             0,
             0,
             0,
@@ -1329,80 +1674,70 @@
             0
           ],
           "byday": [
-            78,
-            43,
+            83,
+            47,
             0,
-            0,
+            59,
             0,
             0
           ],
           "byweek": [
-            121,
+            189,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          1404,
+          1531,
           "10:20:11 am",
-          "23hr 27min",
-          686,
+          "30hr 15min",
+          719,
           0,
           0
         ],
         "graph": {
           "byhour": [
-            0,
-            0,
-            524,
-            571,
+            2,
+            2,
+            539,
+            609,
+            22,
+            225,
+            84,
+            34,
+            5,
             3,
-            207,
-            72,
-            26,
-            0,
-            0,
-            0,
-            1,
+            4,
+            2,
             0
           ],
           "byday": [
-            261,
-            257,
-            246,
-            395,
-            245,
-            0
+            288,
+            274,
+            272,
+            434,
+            255,
+            4
           ],
           "byweek": [
-            308,
-            409,
-            238,
-            308,
-            141
+            339,
+            449,
+            259,
+            333,
+            151
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -1412,7 +1747,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -1450,22 +1785,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
-          17,
+          32,
           "2:18:29 pm",
-          "1hr 0min",
-          9,
+          "1hr 52min",
+          15,
           0,
           0
         ],
@@ -1475,48 +1805,43 @@
             0,
             0,
             0,
-            0,
-            0,
+            13,
+            1,
             2,
             15,
-            0,
+            1,
             0,
             0,
             0,
             0
           ],
           "byday": [
-            17,
+            18,
             0,
             0,
-            0,
+            14,
             0,
             0
           ],
           "byweek": [
-            17,
+            32,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
-          17,
+          32,
           "2:18:29 pm",
-          "1hr 0min",
-          9,
+          "1hr 52min",
+          15,
           0,
           0
         ],
@@ -1526,48 +1851,43 @@
             0,
             0,
             0,
-            0,
-            0,
+            13,
+            1,
             2,
             15,
-            0,
+            1,
             0,
             0,
             0,
             0
           ],
           "byday": [
-            17,
+            18,
             0,
             0,
-            0,
+            14,
             0,
             0
           ],
           "byweek": [
-            17,
+            32,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          95,
+          111,
           "3:29:26 pm",
-          "2hr 57min",
-          61,
+          "3hr 24min",
+          66,
           0,
           0
         ],
@@ -1580,37 +1900,32 @@
             12,
             2,
             6,
-            26,
-            23,
-            26,
-            0,
+            31,
+            27,
+            32,
+            1,
             0,
             0
           ],
           "byday": [
-            44,
+            54,
             0,
             0,
             15,
-            36,
+            42,
             0
           ],
           "byweek": [
             0,
             0,
-            64,
-            17,
+            75,
+            22,
             14
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -1620,7 +1935,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -1658,20 +1973,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -1709,20 +2019,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -1760,69 +2065,94 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          839,
+          907,
           "10:15:55 am",
-          "20hr 38min",
-          398,
+          "23hr 24min",
+          424,
           59,
           0
         ],
         "graph": {
           "byhour": [
-            0,
+            1,
             30,
-            193,
-            109,
-            80,
-            47,
+            198,
+            115,
+            95,
+            56,
+            99,
+            76,
+            84,
             94,
-            69,
-            81,
-            90,
-            41,
-            5,
-            0
+            49,
+            8,
+            1
           ],
           "byday": [
-            206,
-            81,
-            131,
-            207,
-            99,
-            75
+            225,
+            91,
+            138,
+            221,
+            109,
+            82
           ],
           "byweek": [
-            637,
-            167,
-            31,
-            4,
+            680,
+            186,
+            36,
+            5,
             0
           ]
         },
-        "pchart": [
-          59,
-          174,
-          83,
-          31,
-          59,
-          11,
-          8
-        ],
+        "pchart": {
+          "Main1": [
+            41,
+            0,
+            2,
+            1,
+            0,
+            0,
+            1
+          ],
+          "Main2": [
+            7,
+            0,
+            13,
+            42,
+            4,
+            4,
+            8
+          ],
+          "Main": [
+            11,
+            0,
+            44,
+            131,
+            4,
+            7,
+            22
+          ],
+          "all_crm": [
+            59,
+            0,
+            59,
+            174,
+            8,
+            11,
+            31
+          ]
+        },
         "apt": [
           [
             "13/04/2026",
+            "Main1",
             "Chee Kwong Lau",
             "20-01-2026 Tuesday",
             "6.00 pm",
@@ -1832,6 +2162,7 @@
           ],
           [
             "17/04/2026",
+            "Main1",
             "Nabong Arnulfo",
             "17-01-2026 Saturday",
             "3.00 pm",
@@ -1841,6 +2172,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Goh Cheng Chuan",
             "23/02/2026",
             "1.30 pm",
@@ -1850,6 +2182,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Joseph Selvan John",
             "21/03/2026",
             "4.00 pm",
@@ -1859,6 +2192,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Khan Rehana",
             "27-02-2026 Friday",
             "11.00 am",
@@ -1868,6 +2202,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Mohamad Yusri Bin Busori",
             "17-01-2026 Saturday",
             "12.00 pm",
@@ -1877,6 +2212,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Jenevieve",
             "16-01-2026 Friday",
             "10.00 am",
@@ -1886,6 +2222,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Suffian",
             "14-01-2026 Wednesday",
             "8.00 pm",
@@ -1895,6 +2232,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Adrian, Kay Tiong Tay",
             "15-01-2026 Thursday",
             "12.30 pm",
@@ -1904,6 +2242,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Seah Teck Kuan",
             "16-01-2026 Friday",
             "2.00 pm",
@@ -1913,6 +2252,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Ang Adelina Abdullah",
             "02-03-2026 Monday",
             "10.00 am",
@@ -1922,6 +2262,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Looi Peck Khim",
             "25-02-2026 Wednesday",
             "5.00 pm",
@@ -1931,6 +2272,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Rita Waswani",
             "25/02/2026",
             "9.00 am",
@@ -1940,6 +2282,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             " Peter",
             "21-01-2026 Wednesday",
             "7.00 pm",
@@ -1949,6 +2292,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Salina Manap",
             "18-01-2026 Sunday",
             "4.00 pm",
@@ -1958,6 +2302,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Joanna",
             "11-02-2026 Wednesday",
             "10.00 am",
@@ -1967,6 +2312,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Mahmood Gaous",
             "21-01-2026 Wednesday",
             "8.30 pm",
@@ -1976,6 +2322,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Khairani",
             "17-01-2026 Saturday",
             "3.00 pm",
@@ -1985,6 +2332,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Hirwanis Ismail",
             "15-01-2026 Thursday",
             "2.00 pm",
@@ -1994,6 +2342,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Pong Kok Ann",
             "15-01-2026 Thursday",
             "2.30 pm",
@@ -2003,6 +2352,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Cheong Pek Yi",
             "30/03/2026",
             "10.00 am",
@@ -2012,6 +2362,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Doris Ang",
             "22-01-2026 Thursday",
             "4.00 pm",
@@ -2021,6 +2372,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Than Kai Lee",
             "15-01-2026 Thursday",
             "7.00 pm",
@@ -2030,6 +2382,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Rosila Ramly",
             "29-01-2026 Thursday",
             "2.00 pm",
@@ -2039,6 +2392,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Ernesto Estrella",
             "20-01-2026 Tuesday",
             "12.00 pm",
@@ -2048,6 +2402,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Eddy",
             "28-01-2026 Wednesday",
             "11.00 am",
@@ -2057,6 +2412,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Lim Roger",
             "23-01-2026 Friday",
             "3.30 pm",
@@ -2066,6 +2422,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Marie Mathews",
             "04-02-2026 Wednesday",
             "12.30 pm",
@@ -2075,6 +2432,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Harneis",
             "20-01-2026 Tuesday",
             "4.00 pm",
@@ -2083,7 +2441,8 @@
             "John"
           ],
           [
-            "13/04/2026",
+            "18/04/2026",
+            "Main1",
             "Lui Kum Fai",
             "30-01-2026 Friday",
             "3.00 pm",
@@ -2093,6 +2452,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Lok Choi Yuet",
             "24-01-2026 Saturday",
             "4.00 pm",
@@ -2102,6 +2462,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Ng Teck Koon",
             "24/02/2026",
             "10.30 am",
@@ -2111,6 +2472,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Jorine Kok",
             "06-03-2026 Friday",
             "10.00 am",
@@ -2120,6 +2482,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Jenny Liew Yen Yung",
             "22-01-2026 Thursday",
             "8.30 pm",
@@ -2129,6 +2492,7 @@
           ],
           [
             "13/04/2026",
+            "Main1",
             "Hui Mei Ling",
             "23-01-2026 Friday",
             "3.00 pm",
@@ -2138,6 +2502,7 @@
           ],
           [
             "03/04/2026",
+            "Main1",
             "PY Loh",
             "06-11-2025 Thursday",
             "7.00 pm",
@@ -2147,6 +2512,7 @@
           ],
           [
             "02/04/2026",
+            "Main1",
             "Adam Lee",
             "20-12-2025 Saturday",
             "2.00 pm",
@@ -2156,6 +2522,7 @@
           ],
           [
             "02/04/2026",
+            "Main1",
             "Eliezer Wee",
             "03-01-2026 Saturday",
             "1.30 pm",
@@ -2165,6 +2532,7 @@
           ],
           [
             "02/04/2026",
+            "Main1",
             "Derrick Law",
             "02-01-2026 Friday",
             "7.00 pm",
@@ -2174,6 +2542,7 @@
           ],
           [
             "02/04/2026",
+            "Main1",
             "Kenneth Kho",
             "05-01-2026 Monday",
             "2.00 pm",
@@ -2183,6 +2552,7 @@
           ],
           [
             "02/04/2026",
+            "Main1",
             "Cindy  Toh",
             "23-01-2026 Friday",
             "7.00 pm",
@@ -2192,6 +2562,7 @@
           ],
           [
             "15/04/2026",
+            "Main2",
             "Teo Kim Chye",
             "21/03/2026",
             "1.00 pm",
@@ -2201,6 +2572,7 @@
           ],
           [
             "15/04/2026",
+            "Main2",
             "Tan Wee Hui",
             "01/04/2026",
             "7.00 pm",
@@ -2210,6 +2582,7 @@
           ],
           [
             "15/04/2026",
+            "Main2",
             "Rosalind Lee",
             "18/03/2026",
             "2.30 pm",
@@ -2219,6 +2592,7 @@
           ],
           [
             "15/04/2026",
+            "Main2",
             "Azman Md",
             "28/03/2026",
             "10.00 am",
@@ -2228,6 +2602,7 @@
           ],
           [
             "15/04/2026",
+            "Main2",
             "Aldrin Loo",
             "21/03/2026",
             "10.00 am",
@@ -2237,6 +2612,7 @@
           ],
           [
             "07/04/2026",
+            "Main2",
             "Rozita Binte Mohamed Sani",
             "11/04/2026",
             "10.00 am",
@@ -2246,6 +2622,7 @@
           ],
           [
             "06/04/2026",
+            "Main2",
             "Lianne",
             "07/04/2026",
             "10.00 am",
@@ -2255,6 +2632,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Lim Aie Yoke",
             "05/04/2026",
             "4.00 pm",
@@ -2264,6 +2642,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Geetha",
             "04/04/2026",
             "10.00 am",
@@ -2273,6 +2652,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Ng Seng Giap",
             "08/04/2026",
             "10.00 am",
@@ -2282,6 +2662,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Cindy Toh",
             "03/04/2026",
             "11.00 am",
@@ -2291,6 +2672,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Ronnie Loo",
             "04/04/2026",
             "10.00 am",
@@ -2300,6 +2682,7 @@
           ],
           [
             "06/04/2026",
+            "Main",
             "Cheong C.K.",
             "07/04/2026",
             "2.00 pm",
@@ -2309,6 +2692,7 @@
           ],
           [
             "06/04/2026",
+            "Main",
             "Zarina Ahmad Zakri",
             "07/04/2026",
             "2.00 pm",
@@ -2318,6 +2702,7 @@
           ],
           [
             "06/04/2026",
+            "Main",
             "Baharudin",
             "07/04/2026",
             "10.00 am",
@@ -2327,6 +2712,7 @@
           ],
           [
             "07/04/2026",
+            "Main",
             "Benny Ng",
             "07/04/2026",
             "12.30 pm",
@@ -2336,6 +2722,7 @@
           ],
           [
             "07/04/2026",
+            "Main",
             "Shan Dani",
             "09/04/2026",
             "12.00 pm",
@@ -2345,6 +2732,7 @@
           ],
           [
             "07/04/2026",
+            "Main",
             "Yvonne Wee",
             "14/04/2026",
             "11.00 am",
@@ -2361,7 +2749,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2399,20 +2787,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2450,20 +2833,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2501,22 +2879,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          42,
+          46,
           "1:26:37 pm",
-          "1hr 7min",
-          22,
+          "1hr 15min",
+          25,
           0,
           0
         ],
@@ -2525,10 +2898,10 @@
             1,
             0,
             1,
-            0,
+            1,
             0,
             10,
-            24,
+            27,
             0,
             6,
             0,
@@ -2537,29 +2910,24 @@
             0
           ],
           "byday": [
-            2,
+            3,
             0,
             0,
-            40,
+            43,
             0,
             0
           ],
           "byweek": [
-            34,
-            7,
+            37,
+            8,
             1,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -2569,7 +2937,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2607,20 +2975,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2658,20 +3021,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2709,22 +3067,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          15,
+          18,
           "2:44:13 pm",
-          "0hr 12min",
-          12,
+          "0hr 13min",
+          14,
           0,
           0
         ],
@@ -2737,8 +3090,8 @@
             1,
             0,
             3,
-            5,
-            0,
+            6,
+            2,
             0,
             0,
             1,
@@ -2749,25 +3102,20 @@
             0,
             1,
             5,
-            6,
-            1
+            8,
+            2
           ],
           "byweek": [
             0,
-            10,
+            13,
             5,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -2777,7 +3125,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2815,20 +3163,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2866,20 +3209,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -2917,65 +3255,55 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          1490,
+          1632,
           "10:46:06 am",
-          "21hr 39min",
-          664,
+          "24hr 41min",
+          665,
           0,
           0
         ],
         "graph": {
           "byhour": [
-            98,
-            47,
-            92,
-            249,
-            279,
-            320,
-            168,
-            105,
-            80,
+            102,
+            53,
+            96,
+            272,
+            306,
+            352,
+            194,
+            113,
+            85,
+            1,
             0,
-            0,
-            0,
-            0
+            2,
+            1
           ],
           "byday": [
-            190,
-            304,
-            88,
-            533,
-            375,
-            0
+            208,
+            335,
+            97,
+            567,
+            423,
+            1
           ],
           "byweek": [
-            594,
-            726,
-            170,
+            634,
+            812,
+            186,
             0,
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -2985,7 +3313,7 @@
       "today": {
         "card": [
           0,
-          "1:46:07 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -3023,20 +3351,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -3074,20 +3397,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -3125,14 +3443,9 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
@@ -3176,14 +3489,9 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       }
     }
@@ -3193,7 +3501,7 @@
       "today": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -3231,20 +3539,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "week": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -3282,20 +3585,15 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "month": {
         "card": [
           0,
-          "1:46:08 am",
+          "3:14:55 am",
           "0hr 0min",
           null,
           0,
@@ -3333,22 +3631,17 @@
             0
           ]
         },
-        "pchart": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
+        "pchart": {
+          "all_crm": []
+        },
         "apt": []
       },
       "lastMonth": {
         "card": [
-          618,
-          "4:16:13 pm",
-          "11hr 1min",
-          255,
+          665,
+          "11:29:53 am",
+          "11hr 36min",
+          270,
           8,
           0
         ],
@@ -3357,44 +3650,66 @@
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            4,
-            51,
-            214,
-            233,
-            114,
             2,
+            0,
+            0,
+            5,
+            54,
+            225,
+            249,
+            122,
+            6,
             0
           ],
           "byday": [
-            206,
-            126,
-            152,
-            134,
+            221,
+            132,
+            164,
+            147,
             0,
             0
           ],
           "byweek": [
-            618,
+            665,
             0,
             0,
             0,
             0
           ]
         },
-        "pchart": [
-          308,
-          64,
-          77,
-          110,
-          19,
-          8
-        ],
+        "pchart": {
+          "Main_old": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Main": [
+            8,
+            0,
+            110,
+            307,
+            77,
+            19,
+            64
+          ],
+          "all_crm": [
+            8,
+            0,
+            110,
+            308,
+            77,
+            19,
+            64
+          ]
+        },
         "apt": [
           [
             "01/04/2026",
+            "Main",
             "Iris Sim",
             "28/04/2026",
             "8.00 pm",
@@ -3404,6 +3719,7 @@
           ],
           [
             "01/04/2026",
+            "Main",
             "Jason Tey",
             "09/04/2026",
             "11.30 am",
@@ -3413,6 +3729,7 @@
           ],
           [
             "01/04/2026",
+            "Main",
             "Jannah Lee",
             "13/04/2026",
             "7.00 pm",
@@ -3422,6 +3739,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Hermansyah Sabri",
             "30/04/2026",
             "2.00 pm",
@@ -3431,6 +3749,7 @@
           ],
           [
             "02/04/2026",
+            "Main",
             "Leng kwee Koh",
             "08/04/2026",
             "5.00 pm",
@@ -3440,6 +3759,7 @@
           ],
           [
             "06/04/2026",
+            "Main",
             "Rajkumaralal Panneerselvam",
             "09/04/2026",
             "1.30 pm",
@@ -3449,6 +3769,7 @@
           ],
           [
             "06/04/2026",
+            "Main",
             "Serene Seet",
             "04/05/2026",
             "12.30 pm",
@@ -3458,6 +3779,7 @@
           ],
           [
             "07/04/2026",
+            "Main",
             "Angela Ng",
             "08/05/2026",
             "7.30 pm",

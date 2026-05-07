@@ -8,6 +8,7 @@ export class GoogleSheetsService {
     #principalColumnName = "";
     #sheet_id = "";
     #worksheet = ""
+    #status_map = "";
 
 
     constructor() {
@@ -50,6 +51,10 @@ export class GoogleSheetsService {
 
     set worksheet(worksheet) {
         this.#worksheet = worksheet
+    }
+
+    set status_map(fields) {
+        this.#status_map = fields;
     }
     //------------------------------
 
@@ -134,8 +139,13 @@ export class GoogleSheetsService {
                 SheetName: sheetName,
                 Index: row['Index'],
                 Name: row['Name'],
-                Numbers: row['Numbers'],
-                Status: row['Status'],
+                Numbers:
+                typeof row['Numbers'] === "string"
+                    ? Number(row['Numbers'].replace(/\s/g, ""))
+                    : row['Numbers'] ?? 0,
+                    
+                Status: this.#status_map[row['Status']],
+
                 'Apt Date': row['Apt Date'],
                 Time: row['Time'],
                 Location: row['Location']

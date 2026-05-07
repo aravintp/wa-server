@@ -7,7 +7,7 @@ const agentSelect = document.getElementById('agent-filter');
 const periodSelect = document.getElementById('period-filter');
 const gperiodSelect = document.getElementById('gperiod-filter');
 const stats_totalcall = document.getElementById('stats-totalcalls');
-
+const crmSelect = document.getElementById('crm-filter');
 
 //calendar
 const fp = flatpickr("#calendar", {
@@ -15,6 +15,8 @@ const fp = flatpickr("#calendar", {
   onChange:  (selectedDates, dateStr) => customdate(dateStr)
 });
 
+
+// calendar listner
 periodSelect.addEventListener("change", (e) => {
   if (e.target.value === "custom") {
     fp.open(); // open floating calendar
@@ -26,26 +28,29 @@ periodSelect.addEventListener("change", (e) => {
 agentSelect.addEventListener('click', applyFilters);
 periodSelect.addEventListener('click', applyFilters);
 gperiodSelect.addEventListener('click', applyFilters);
+crmSelect.addEventListener('click', crmselect);
+
 
 // Fetch dash data
 user = await fetchBackendData(`${baseUrl}/api/dash/datafile`)
 
-  
-// // parameter passed from outside
-// const now = new Date("April 01 2026 23:15:30");
-// const startOfToday = new Date("April 01 2026");
-// startOfToday.setHours(0, 0, 0, 0);
 
-//var newstat = await fetchStats(`${baseUrl}/api/dash/custom`,"Blesil Marasigan",startOfToday,now)
-
-// add option dynamically
+// Add user agent dynamically in dropdown
 Object.keys(user).map(key => {
-    addOption(key,key);
+    addAgent(key,key);
 })
 
 
-function addOption(name,value){
+/* ══════════════════════════════════════════════════════════════
+   DASHBOARD — Options
+══════════════════════════════════════════════════════════════ */
+
+function addAgent(name,value){
     agentSelect.options[agentSelect.options.length] = new Option(name, value);
+}
+
+function addCrm(name,value){
+    crmSelect.options[crmSelect.options.length] = new Option(name, value);
 }
 
 
@@ -53,7 +58,6 @@ function addOption(name,value){
 /* ══════════════════════════════════════════════════════════════
    DASHBOARD — STATS
 ══════════════════════════════════════════════════════════════ */
-
 
 
 async function customdate(date) {
@@ -69,11 +73,28 @@ async function customdate(date) {
   applyFilters();
 }
 
+function crmselect(date){
+
+  const agent  = document.getElementById('agent-filter').value;
+  const period = document.getElementById('period-filter').value.toLowerCase();
+  const crmSelect = document.getElementById('crm-filter');
+  const name   = crmSelect.value; // selected CRM / sheet
+
+  // Get the array for the selected CRM
+  const donut = user?.[agent]?.dashboard?.[period]?.pchart?.[name];
+
+  if (!donut) {
+    console.warn(`No data found for ${name}`);
+    return;
+  }
+
+  console.log(name)
+  drawDonut(donut);
+}
+
 export function applyFilters() {
   
-  
   const agent  = document.getElementById('agent-filter').value;
-  console.log(agent)
   const period = (document.getElementById('period-filter').value).toLowerCase();
   const gperiod = (document.getElementById('gperiod-filter').value).toLowerCase();
   const card = user[agent].dashboard[period].card
@@ -82,15 +103,20 @@ export function applyFilters() {
   const appt = user[agent].dashboard[period].apt
 
 
-  console.log(period)
   if (period=== "custom") {
     fp.open(); // open floating calendar
   }
 
+  crmSelect.options.length = 0;
+  Object.keys(donut).map(key => {
+    addCrm(key,key);
+  })
+
+
   updateCard(card)
   updateChartSubtitle(agent,period,gperiod)
   drawLineChart(graph, period,gperiod ) 
-  drawDonut(donut)
+  drawDonut(donut.all_crm)
   renderTable(agent,appt);
 }
 
@@ -129,8 +155,6 @@ function drawLineChart(data, period, gperiod) {
 
   } 
 
-  console.log(gperiod)
-  console.log( period_map[gperiod])
   const canvas = document.getElementById('line-canvas');
   const W = canvas.parentElement.clientWidth || 500;
   const H = 200;
@@ -232,9 +256,8 @@ function drawDonut(data) {
   data.forEach((val, i) => {
     const slice = (val / total) * Math.PI * 2;
     ctx.beginPath();
-    ctx.moveTo(cx, cy);
-    ctx.arc(cx, cy, r, startAngle + 0.03, startAngle + slice - 0.03);
-    ctx.arc(cx, cy, innerR, startAngle + slice - 0.03, startAngle + 0.03, true);
+    ctx.arc(cx, cy, r, startAngle, startAngle + slice);
+    ctx.arc(cx, cy, innerR, startAngle + slice, startAngle, true);
     ctx.closePath();
     ctx.fillStyle = APPT_TYPES[i].color;
     ctx.fill();
@@ -276,6 +299,7 @@ function renderTable(agent,data) {
   const thead = document.getElementById('head-table');
   thead.innerHTML = `<tr>
                   <th>Call Date</th>
+                  <th>Source</th>
                   <th>Client Name</th>
                   <th>Appt. Date</th>
                   <th>Appt. Time</th>
@@ -293,9 +317,10 @@ const agentbody =""
           <td>${a[1]}</td>
           <td>${a[2]}</td>
           <td>${a[3]}</td>
-          <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis" title="${a[4]}">${a[4]}</td>
-          <td><span class="badge ${TYPE_BADGE[a[5]] || 'badge-gray'}">${a[5]}</span></td>
-          ${(agent==="all")? `<td>${a[6]}</td>`: ""}
+          <td>${a[4]}</td>
+          <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis" title="${a[5]}">${a[5]}</td>
+          <td><span class="badge ${TYPE_BADGE[a[6]] || 'badge-gray'}">${a[6]}</span></td>
+          ${(agent==="all")? `<td>${a[7]}</td>`: ""}
         </tr>
       `
     ).join('');

@@ -19,4 +19,14 @@ export const zoomapi = {
     accountId: "S4tiTjL4T0qiFRLffIkzew"
 }
 
+export const STATUS_MAP = {
+        'f2f': 'Face to face',
+        'zoom': 'Zoom',
+        'not Intrested': 'Not interested',
+        'npu': 'Never Pick Up',
+        'niu': 'Not in use',
+        'wrong number': 'Wrong Number',
+        'cb': 'Call back'
+    };
+
 export const GOOGLESHEETS_FIELDS = ['Name', 'Numbers', 'Status', 'Apt Date', 'Time', 'Location']

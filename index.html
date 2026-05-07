@@ -209,14 +209,29 @@
             <div class="chart-x-labels" id="chart-x-labels"></div>
           </div>
 
+
           <div class="card chart-card chart-small">
-            <div class="chart-header">
-              <p class="chart-title">Appointment Types</p>
-              <p class="chart-sub">Outcome breakdown by telemarketer</p>
+            <div class="chart-top">
+              <div class="chart-header">
+                <p class="chart-title">Appointment Types</p>
+                <p class="chart-sub">Outcome breakdown by telemarketer</p>
+              </div>
+
+              <!-- NEW CRM DROPDOWN -->
+              <select id="crm-filter" class="filter-select">
+                <option value="all">All CRM</option>
+                <option value="hubspot">HubSpot</option>
+                <option value="salesforce">Salesforce</option>
+                <option value="zoho">Zoho</option>
+              </select>
             </div>
+
+              <!-- CHART -->
             <div class="donut-wrap">
               <canvas id="donut-canvas" width="160" height="160"></canvas>
             </div>
+
+            <!-- LEGEND -->
             <div class="legend" id="donut-legend"></div>
           </div>
         </div>
@@ -231,6 +246,7 @@
             <table>
               <thead  id= "head-table">
                 <tr>
+                  <th>Source</th>
                   <th>Call Date</th>
                   <th>Client Name</th>
                   <th>Appt. Date</th>

@@ -1,5 +1,5 @@
 
-import { GOOGLESHEETS_FIELDS } from "../server/util/path.js";
+import { GOOGLESHEETS_FIELDS, STATUS_MAP } from "../server/util/path.js";
 import { GoogleSheetsService } from "./googlesheets.js"
 import { createWriteStream } from 'node:fs';
 import { send_log } from "./global.js";
@@ -19,21 +19,11 @@ export class AgentStatsProcessor {
 
     #crm = "";
     #zoom = ""
-    #zoomusers = ""
     #stats = ""
-    #googleapi = ""
+    #google = ""
+    #zoomusers = ""
     #processedCount = 0
     #totalCount = 0
-
-    static STATUS_MAP = {
-        'f2f': 'Face to face',
-        'zoom': 'Zoom',
-        'not Intrested': 'Not interested',
-        'npu': 'Never Pick Up',
-        'niu': 'Not in use',
-        'wrong number': 'Wrong Number',
-        'cb': 'Call back'
-    };
 
     constructor() {
         this.#stats = {
@@ -61,8 +51,8 @@ export class AgentStatsProcessor {
         return this.#stats;
     }
 
-    set dash(fields) {
-        this.#stats = fields
+    set google(fields) {
+        this.#google = fields
     }
     
     set crm(fields) {
@@ -74,10 +64,14 @@ export class AgentStatsProcessor {
         this.#zoomusers = this.#get_zoomusers(this.#zoom);
     }
 
-    set googleApi(fields) {
-        this.#googleapi = fields
+    set google(fields) {
+        this.#google = fields
     }
-
+    
+    set dash(fields) {
+        this.#stats = fields
+    }
+    
     // Init does 2 things. 
     // 1. Create empty agent stats
     // 2. Connect sheets data and call data to create crmlogs
@@ -93,11 +87,12 @@ export class AgentStatsProcessor {
         );
 
 
-        // Load CRM from each employee
+        // Bascially add name and email to google sheets data that is avaiable to us
         const emp_crm = (await Promise.all(emp_prod.map(async(s) => {
 
-            console.log(s.GoogleSheets)
-            const gdata = await this.#fetchGoogleData(this.#googleapi,s.GoogleSheets)
+            //changed this
+           // const gdata = await this.#fetchGoogleData(this.#googleapi,s.GoogleSheets)
+            const gdata = await this.#fetchGoogleData(s.GoogleSheets)
             return gdata.map(g => ({
                     ...g,
                     caller_name:  s.Employee,
@@ -106,8 +101,7 @@ export class AgentStatsProcessor {
             })
         )).flat();
 
-        
-        // Add call_date to gdata to create crm info
+        // Use caller_email to connect zoomlogs to crm and and call_date
         this.#processedCount = 0;
         this.#totalCount = emp_crm.length;
         this.#crm = emp_crm.map(item => this.#processRecord(item, this.#zoom));
@@ -129,41 +123,75 @@ export class AgentStatsProcessor {
         const crmlogs = this.#filter_bydate(this.#crm,"call_date",startdate,enddate)
         const zoomlogs = this.#filter_bydate(this.#zoom,"start_time",startdate,enddate)
  
+
+       //this.printf(crmlogs,"./data/aravin_crm.json")
+        
         // ---------------- ZOOM STATS ----------------
-        const agentlog = zoomlogs.filter(s => s.caller_email === zm.email);
+        const agentlog = zoomlogs.filter(s => 
+            s.caller_email === zm.email|| 
+            s.callee_email === zm.email
+        );
         const call_results = this.#key_counts(agentlog,"call_result");
         const clock_in = this.#get_earliest(agentlog,"start_time");
         const wkhr = this.#workhr(agentlog);
         const graph = this.#graphperiod(agentlog.map(s => s.start_time));
 
        // this.printf(agentlog,`./test/${zm.zoomname}.json`)
-
         // ---------------- CRM STATS ----------------
-        const agentcrm = crmlogs.filter(s => s.caller_email === zm.email);
-        const crm_counts = this.#key_counts(agentcrm,"Status");
-        delete crm_counts.total;
 
+        // get grouped by sheetname 
+        const agentcrm = crmlogs.filter(s => s.caller_email === zm.email );
+        const grouped = agentcrm.reduce((acc, item) => {
+            const sheet = item.SheetName;
+            acc[sheet] ??= []
+            acc[sheet].push(item)
+            return acc;
+        }, {})
 
+        // Return object with all the status counts
+        const grouped_count = Object.fromEntries(
+        Object.entries(grouped).map(([key, rows]) => [
+            key,
+            this.#key_counts(rows, "Status",false)
+            ])
+        );
 
-        const crm_counts_ary = 
-            Object.keys(crm_counts).length > 0?
-            Object.entries(crm_counts).map(([key, count]) => 
-                count
-            ): Array(6).fill(0);
+        // Re-arrange object to match STATUS_MAP and calculate counts
+        const status_object = Object.fromEntries(
+        Object.entries(grouped_count).map(([sheetName, counts]) => [
+            sheetName,
+            Object.values(STATUS_MAP).map(status => counts[status] ?? 0)
+        ])
+        );
 
+        // Calculate all_crm by summing each index across all sheets
+        const all_crm = Object.values(status_object).reduce((acc, counts) => {
+        counts.forEach((val, i) => {
+            acc[i] = (acc[i] || 0) + val;
+        });
+        return acc;
+        }, []);
 
+        // Add all_crm key to the object
+        status_object.all_crm = all_crm;
 
         const appointments = agentcrm
-            .filter(i => i.Status === "f2f" || i.Status === "zoom")
+            .filter(i => i.Status === "Face to face" || i.Status === "Zoom")
             .map(i => ([
                 i.call_datestr,
+                i.SheetName,
                 i.Name,
                 i['Apt Date'],
                 i.Time,
                 i.Location,
-                AgentStatsProcessor.STATUS_MAP[i.Status],
+                i.Status,
                 i.caller_name
             ]));
+
+
+        // console.log(status_count)
+        // console.log(crm_counts)
+        // console.log(appointments)
 
 
         // ---------------- ASSIGN Stats ----------------
@@ -184,13 +212,12 @@ export class AgentStatsProcessor {
             outreach
             ],
             graph,
-            pchart: crm_counts_ary,
+            pchart: status_object,
             apt: appointments
         };
 
-        console.log(this.#stats)
-
     }
+    
 
     genAuto(cyclename,start,end){
         this.#zoomusers.forEach(zm => { 
@@ -224,10 +251,11 @@ export class AgentStatsProcessor {
 
     // ---------------- GOOGLE FETCH ----------------
 
-    async #fetchGoogleData(gsheetapi,sheetid) {
+    async #fetchGoogleData(sheetid) {
             // load google sheets class
-        gsheetapi = new GoogleSheetsService();
+        const gsheetapi = new GoogleSheetsService();
         gsheetapi.requiredFields = GOOGLESHEETS_FIELDS;
+        gsheetapi.status_map = STATUS_MAP;
         gsheetapi.principalColumn = "Status";
         gsheetapi.worksheet = "Main";
         gsheetapi.sheet_id = sheetid;
@@ -273,7 +301,7 @@ export class AgentStatsProcessor {
     const item = gData
 
     const agentemail = item.caller_email;
-    const callee_number = `+65${item.Numbers}`;
+    const callee_number = `+65${String(item.Numbers).replace(/\s/g, "")}`;
     const isValidStatus = 
     ["f2f", "zoom","cb","not intrested"]
     .includes(item.Status?.toLowerCase());
@@ -328,14 +356,18 @@ export class AgentStatsProcessor {
 
     // ---------------- Generate Stats functions ----------------
 
-    #key_counts(data,keyname) {
+    #key_counts(data,keyname,showTotal=true) {
 
         return data.reduce((acc,d)=>{
             const key = d[keyname]
             acc[key] ??= 0;
             acc[key]++;
-            acc["total"] ??= 0;
-            acc["total"]++;
+
+            if(showTotal){
+                acc["total"] ??= 0;
+                acc["total"]++;
+            }
+            
             return acc; 
         }, {});
     }
