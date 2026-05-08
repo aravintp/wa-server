@@ -118,35 +118,48 @@ export class AgentStatsProcessor {
     // ---------------- STAT GENERATOR ----------------
 
     #genStat({zoomname,email},cyclename,startdate,enddate){
-
+        
         const zm = {zoomname,email}
+
+        // ---------------- DATA PREPARATION  ----------------
+
+        // start by filtering logs by date
         const crmlogs = this.#filter_bydate(this.#crm,"call_date",startdate,enddate)
         const zoomlogs = this.#filter_bydate(this.#zoom,"start_time",startdate,enddate)
- 
 
-       //this.printf(crmlogs,"./data/aravin_crm.json")
         
-        // ---------------- ZOOM STATS ----------------
-        const agentlog = zoomlogs.filter(s => 
+        // if no email. no filter look at all records
+        const agentlog = zm.email? zoomlogs.filter(s => 
             s.caller_email === zm.email|| 
             s.callee_email === zm.email
-        );
+        ): zoomlogs
+ 
+
+        // ---------------- ZOOM CALL STATS ----------------
+
         const call_results = this.#key_counts(agentlog,"call_result");
         const clock_in = this.#get_earliest(agentlog,"start_time");
         const wkhr = this.#workhr(agentlog);
         const graph = this.#graphperiod(agentlog.map(s => s.start_time));
 
-       // this.printf(agentlog,`./test/${zm.zoomname}.json`)
-        // ---------------- CRM STATS ----------------
+        
+        // ---------------- CRM STATS ---------------------
+        // ---------------- donut chart ---------------------
 
+        // if no email. no filter look at all records
+        const agentcrm = zm.email? crmlogs.filter(s => 
+            s.caller_email === zm.email 
+        ): crmlogs
+
+        
         // get grouped by sheetname 
-        const agentcrm = crmlogs.filter(s => s.caller_email === zm.email );
         const grouped = agentcrm.reduce((acc, item) => {
             const sheet = item.SheetName;
             acc[sheet] ??= []
             acc[sheet].push(item)
             return acc;
         }, {})
+
 
         // Return object with all the status counts
         const grouped_count = Object.fromEntries(
@@ -156,6 +169,7 @@ export class AgentStatsProcessor {
             ])
         );
 
+
         // Re-arrange object to match STATUS_MAP and calculate counts
         const status_object = Object.fromEntries(
         Object.entries(grouped_count).map(([sheetName, counts]) => [
@@ -163,6 +177,7 @@ export class AgentStatsProcessor {
             Object.values(STATUS_MAP).map(status => counts[status] ?? 0)
         ])
         );
+        
 
         // Calculate all_crm by summing each index across all sheets
         const all_crm = Object.values(status_object).reduce((acc, counts) => {
@@ -172,9 +187,12 @@ export class AgentStatsProcessor {
         return acc;
         }, []);
 
+        
         // Add all_crm key to the object
         status_object.all_crm = all_crm;
 
+        
+        // ---------------- appointments ---------------------
         const appointments = agentcrm
             .filter(i => i.Status === "Face to face" || i.Status === "Zoom")
             .map(i => ([
@@ -194,7 +212,7 @@ export class AgentStatsProcessor {
         // console.log(appointments)
 
 
-        // ---------------- ASSIGN Stats ----------------
+        // ---------------- calculate Stats ----------------
         const calls_total = call_results?.total ?? 0
         const clock_in_time = clock_in.toLocaleTimeString()
         const total_hrs_worked = wkhr.work.str
@@ -204,6 +222,7 @@ export class AgentStatsProcessor {
         const answerrate =  `${((calls_pickedup / calls_total) * 100).toFixed(2)}% answer rate`;
 
 
+        // ---------------- ASSIGN Stats ----------------
         return this.#stats[zm.zoomname].dashboard[cyclename] = {
             card: [
             calls_total,
@@ -224,10 +243,13 @@ export class AgentStatsProcessor {
     }
     
 
+    
     genAuto(cyclename,start,end){
         this.#zoomusers.forEach(zm => { 
-        this.#genStat(zm,cyclename,start,end)
+            this.#genStat(zm,cyclename,start,end)
         });
+
+        this.#genStat({zoomname:"All Agents",email:""},cyclename,start,end)
     }
 
     genAgent(name,cyclename,start,end){

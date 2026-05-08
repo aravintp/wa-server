@@ -140,3 +140,6 @@ dist
 .test.js
 test.js
 server old.js
+
+# Data Folder
+/data

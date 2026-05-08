@@ -1,4 +1,4 @@
-//Global
+// Global
 let user;
 
 // Variables
@@ -9,7 +9,7 @@ const gperiodSelect = document.getElementById('gperiod-filter');
 const stats_totalcall = document.getElementById('stats-totalcalls');
 const crmSelect = document.getElementById('crm-filter');
 
-//calendar
+// calendar
 const fp = flatpickr("#calendar", {
   dateFormat: "Y-m-d",
   onChange:  (selectedDates, dateStr) => customdate(dateStr)
@@ -87,7 +87,6 @@ function crmselect(date){
     console.warn(`No data found for ${name}`);
     return;
   }
-
 
   drawDonut(donut);
 }
@@ -298,7 +297,7 @@ function renderTable(agent,data) {
     return;
   }
 
-  const agenthead = (agent==="all")? `<th>Agent</th>`: ""
+  const agenthead = (agent==="All Agents")? `<th>Agent</th>`: ""
   const thead = document.getElementById('head-table');
   thead.innerHTML = `<tr>
                   <th>Call Date</th>
@@ -323,7 +322,7 @@ const agentbody =""
           <td>${a[4]}</td>
           <td style="max-width:180px;overflow:hidden;text-overflow:ellipsis" title="${a[5]}">${a[5]}</td>
           <td><span class="badge ${TYPE_BADGE[a[6]] || 'badge-gray'}">${a[6]}</span></td>
-          ${(agent==="all")? `<td>${a[7]}</td>`: ""}
+          ${(agent==="All Agents")? `<td>${a[7]}</td>`: ""}
         </tr>
       `
     ).join('');
