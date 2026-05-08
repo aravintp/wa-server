@@ -11,12 +11,12 @@ import { zoomapi,ZOOM_FILE,DASH_FILE,CRM_FILE,GOOGLE_FILE} from './server/util/p
 
 //const zoomlogs = loadJsonSafe(ZOOM_FILE, {});
 
-const gsheet = new GoogleSheetsService()
+//const gsheet = new GoogleSheetsService()
 const zoomcapi = new ZoomPhoneLogs(zoomapi)
 const zoomlogs = await zoomcapi.getLogs(2);
 const processor = new AgentStatsProcessor()
 processor.zoom_source = zoomlogs
-processor.googleApi = gsheet
+//processor.googleApi = gsheet
 await processor.init()
 
 Object.entries(processor.cycle()).forEach((key,value) => {

@@ -4,28 +4,27 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
-// outside folders
-import { send_log, logs } from "../helper/global.js";
-import * as z from "../helper/zmapi.js";
-import WhatsAppClient from '../helper/Wa-class.cjs';
-
 // server imports
 import apiRoutes from "./routes/api.js";
 import waRoutes from "./routes/whatsapp.js";
-import { zoomapi,index } from "./util/path.js";
 import { setupSocket } from "./services/socket.js";
 
-// const processor = new u.AgentStatsProcessor();
-// const zoomcapi = new z.ZoomPhoneLogs(zoomapi)
-
+// main class import
+import WhatsAppClient from '../helper/Wa-class.cjs';
+import { ZoomPhoneLogs } from "../helper/zmapi.js";
 import { AgentStatsProcessor } from "../helper/agentprocessor.js"
-import { DASH_FILE,CRM_FILE,ZOOM_FILE } from './util/path.js';
+
+// Helper import
+import { DASH_FILE,CRM_FILE,ZOOM_FILE,zoomapi} from './util/path.js';
+import { send_log, logs } from "../helper/global.js";
 import { loadJsonSafe } from './util/utils.js';
 
 const zoomsource = loadJsonSafe(ZOOM_FILE, {});
 const crmsource = loadJsonSafe(CRM_FILE, {});
 const dashsource = loadJsonSafe(DASH_FILE, {});
+
 const processor = new AgentStatsProcessor()
+const zoomcapi = new ZoomPhoneLogs(zoomapi)
 const wa = new WhatsAppClient();
 
 const app = express();
@@ -37,7 +36,7 @@ app.use(express.json());
 app.use(express.static("./"));
 
 // routes
-app.use("/api", apiRoutes(processor, zoomsource, crmsource, dashsource));
+app.use("/api", apiRoutes(processor, zoomcapi, zoomsource, crmsource, dashsource));
 app.use("/api/wa", waRoutes(wa, send_log));
 setupSocket(io, send_log, () => logs);
 
@@ -50,9 +49,3 @@ app.use((err, req, res, next) => {
 server.listen(8080, () => {
     send_log({ type: 'info', msg: "Server running" });
 });
-
-// `app.get('/', (req, res) => {
-
-//     res.sendFile(index);
-
-// });`

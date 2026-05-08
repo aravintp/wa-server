@@ -109,10 +109,13 @@ export class AgentStatsProcessor {
 
         // create stats for each zoom users
         this.#zoomusers.forEach(n => {
-            this.#stats[n.zoomname] = structuredClone(this.#stats["All Agents"]);
+            //this.#stats[n.zoomname] = structuredClone(this.#stats["All Agents"]);
+            this.createAgent(n.zoomname)
         });
 
         send_log({type: 'debug',msg: '@AgentStatsProcessor completed..'});
+
+        return this.#crm
     }
 
     // ---------------- STAT GENERATOR ----------------
@@ -194,7 +197,15 @@ export class AgentStatsProcessor {
         
         // ---------------- appointments ---------------------
         const appointments = agentcrm
-            .filter(i => i.Status === "Face to face" || i.Status === "Zoom")
+            .filter(i => {
+                const call_date = new Date(i.call_date)
+                const [day, month, year] = i['Apt Date'].split('/');
+                const apt_date = new Date(year, month - 1, day);
+
+                return ((
+                    i.Status === "Face to face" || i.Status === "Zoom") 
+                    && call_date <= apt_date );
+            })
             .map(i => ([
                 i.call_datestr,
                 i.SheetName,
@@ -205,6 +216,18 @@ export class AgentStatsProcessor {
                 i.Status,
                 i.caller_name
             ]));
+            // const appointments = agentcrm
+            // .filter(i =>  i.Status === "Face to face" || i.Status === "Zoom" )
+            // .map(i => ([
+            //     i.call_datestr,
+            //     i.SheetName,
+            //     i.Name,
+            //     i['Apt Date'],
+            //     i.Time,
+            //     i.Location,
+            //     i.Status,
+            //     i.caller_name
+            // ]));
 
 
         // console.log(status_count)
@@ -243,7 +266,6 @@ export class AgentStatsProcessor {
     }
     
 
-    
     genAuto(cyclename,start,end){
         this.#zoomusers.forEach(zm => { 
             this.#genStat(zm,cyclename,start,end)
@@ -251,6 +273,7 @@ export class AgentStatsProcessor {
 
         this.#genStat({zoomname:"All Agents",email:""},cyclename,start,end)
     }
+
 
     genAgent(name,cyclename,start,end){
         
@@ -261,6 +284,12 @@ export class AgentStatsProcessor {
             return this.#genStat(agent,cyclename,start,end)
     }
 
+
+    createAgent(name){
+                // create stats for each zoom users
+        this.#stats[name] = structuredClone(this.#stats["All Agents"]);
+
+    }
     // ---------------- N8N FETCH ----------------
 
     async #fetchEmployees() {

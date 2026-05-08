@@ -60,11 +60,6 @@ export class ZoomPhoneLogs {
             let nextPageToken = "";
             let monthData = [];
             do {
-                // console.log(
-                //     nextPageToken === ""
-                //         ? "Getting first page"
-                //         : `Next page token: ${nextPageToken}`
-                // );
 
                 const response = await this.#phoneClient
                     .endpoints
@@ -88,40 +83,40 @@ export class ZoomPhoneLogs {
 
     }
     async getLogsToday() {
-    console.log("------------- Fetching Today's Zoom Phone Logs ----------------");
+        console.log("------------- Fetching Today's Zoom Phone Logs ----------------");
 
-    const today = new Date();
-    const todayISO = today.toISOString().split("T")[0];
+        const today = new Date();
+        const todayISO = today.toISOString().split("T")[0];
 
-    let allData = [];
-    let nextPageToken = "";
+        let allData = [];
+        let nextPageToken = "";
 
-    do {
-        console.log(
-            nextPageToken === ""
-                ? "Getting first page"
-                : `Next page token: ${nextPageToken}`
-        );
+        do {
+            console.log(
+                nextPageToken === ""
+                    ? "Getting first page"
+                    : `Next page token: ${nextPageToken}`
+            );
 
-        const response = await this.#phoneClient
-            .endpoints
-            .callLogs
-            .getAccountsCallHistory({
-                query: {
-                    from: todayISO,
-                    to: todayISO,
-                    page_size: 300,
-                    next_page_token: nextPageToken
-                }
-            });
+            const response = await this.#phoneClient
+                .endpoints
+                .callLogs
+                .getAccountsCallHistory({
+                    query: {
+                        from: todayISO,
+                        to: todayISO,
+                        page_size: 300,
+                        next_page_token: nextPageToken
+                    }
+                });
 
-        nextPageToken = response.data.next_page_token || "";
-        allData = allData.concat(response.data.call_logs);
+            nextPageToken = response.data.next_page_token || "";
+            allData = allData.concat(response.data.call_logs);
 
-    } while (nextPageToken !== "");
+        } while (nextPageToken !== "");
 
-    console.log(`Today's total records: ${allData.length}`);
+        console.log(`Today's total records: ${allData.length}`);
 
-    return allData.reverse();
+        return allData;
     }
 }

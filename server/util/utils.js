@@ -21,6 +21,20 @@ export function loadJsonSafe(filePath, fallback = {}) {
     return fallback;
   }
 }
+
+export function getunique(newlogs, oldlogs, key, key2) {
+  return newlogs.filter(
+    newLog =>
+      !oldlogs.some(log => {
+        const match = key2
+          ? log[key] === newLog[key] &&
+            log[key2] === newLog[key2]
+          : log[key] === newLog[key];
+
+        return match;
+      })
+  );
+}
 // 
 // // Usage example
 // import { ZOOM_FILE } from '../util/path.js';

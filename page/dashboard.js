@@ -8,6 +8,7 @@ const periodSelect = document.getElementById('period-filter');
 const gperiodSelect = document.getElementById('gperiod-filter');
 const stats_totalcall = document.getElementById('stats-totalcalls');
 const crmSelect = document.getElementById('crm-filter');
+const refreshBtn = document.getElementById('refresh-dashboard');
 
 // calendar
 const fp = flatpickr("#calendar", {
@@ -29,6 +30,7 @@ agentSelect.addEventListener('click', applyFilters);
 periodSelect.addEventListener('click', applyFilters);
 gperiodSelect.addEventListener('click', applyFilters);
 crmSelect.addEventListener('click', crmselect);
+refreshBtn.addEventListener('click', refreshDash);
 
 
 // Fetch dash data
@@ -55,6 +57,12 @@ function addCrm(name,value){
 
 
 
+async function refreshDash(name,value){
+  refreshBtn.classList.add('loading');
+  user = await fetchStats(`${baseUrl}/api/dash/refresh-dash`)
+  applyFilters();
+  refreshBtn.classList.remove('loading');
+}
 /* ══════════════════════════════════════════════════════════════
    DASHBOARD — STATS
 ══════════════════════════════════════════════════════════════ */
@@ -70,6 +78,7 @@ async function customdate(date) {
 
   const agent  = document.getElementById('agent-filter').value;
   user = await fetchStats(`${baseUrl}/api/dash/custom`,agent,start,end)
+  console.log(user)
   applyFilters();
 }
 

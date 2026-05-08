@@ -557,3 +557,14 @@ input.flatpickr-input {
   padding: 6px 10px;
   font-family: var(--font);
 }
+
+
+/* Spnner loading */
+.btn.loading svg {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

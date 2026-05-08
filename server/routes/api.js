@@ -2,12 +2,12 @@ import express from 'express'
 import path from 'path';
 
 // import t from "./data/zoom.json" with {type: 'json'}
-import { AgentStatsProcessor } from "../../helper/agentprocessor.js"
 import { DASH_FILE,CRM_FILE,ZOOM_FILE } from '../util/path.js';
+import { getunique } from '../util/utils.js';
 
 const router = express.Router();
 
-export default (processor, zoomsource, crmsource, dashsource)=>{
+export default (processor, zoomcapi, zoomsource, crmsource, dashsource)=>{
         
         router.get('/dash/datafile', (req, res) => {
             res.sendFile(DASH_FILE);
@@ -24,6 +24,49 @@ export default (processor, zoomsource, crmsource, dashsource)=>{
             processor.dash = dashsource;
             processor.genAgent(agent,"custom",sdate,edate)
             
+            res.send(processor.dash);
+
+        });
+
+        router.get('/dash/refresh-dash', async (req, res) => {
+
+            const todaylogs = await zoomcapi.getLogsToday();
+            const uniquelogs = getunique(
+                todaylogs,
+                zoomsource,
+                "call_id"
+            );
+            
+            // console.log(zoomsource.length)
+            // console.log(todaylogs.length)
+            // console.log(uniquelogs.length)
+
+            processor.zoom_source = uniquelogs;
+            const todaycrm = await processor.init();
+            const uniquecrm = getunique(
+                todaycrm,
+                crmsource,
+                "Numbers",
+                "Index"
+            );
+
+            zoomsource.unshift(...uniquelogs);
+            crmsource.push(...uniquecrm);
+
+            Object.keys(dashsource).map((key,s)=>{
+                processor.createAgent(key)
+            })
+            processor.zoom_source = zoomsource;
+            processor.crm = crmsource;
+
+            for (const [key, value] of Object.entries(processor.cycle())) {
+                await processor.genAuto(
+                key,
+                value.start,
+                value.end
+                );
+            }
+
             res.send(processor.dash);
 
         });

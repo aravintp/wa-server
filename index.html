@@ -99,15 +99,34 @@
           <div class="dash-filters">
             <select id="agent-filter" class="filter-select" >
             </select>
+            <!--  PERIOD DROPDOWN -->
             <select id="period-filter" class="filter-select">
               <option value="today">Today</option>
-              <option value="week" selected>This Week</option>
+              <option value="week" selected>This Week</option>  
               <option value="month">This Month</option>
               <option value="lastmonth">Last Month</option>
               <option value="custom">Pick a date</option>
             </select>
-            <input type="text" id="calendar" style="display:none;">
+            <!--  CALENDAR BOX -->
+            <input type="text" id="calendar">
+            <!--  REFRESH BUTTON -->
+            <button id="refresh-dashboard" class="btn">
+              <svg viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="14"
+                  height="14">
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0114.13-3.36L23 10"></path>
+                <path d="M20.49 15a9 9 0 01-14.13 3.36L1 14"></path>
+              </svg>
+
+              Refresh
+            </button>
           </div>
+
         </div>
 
         <!-- Stats -->
