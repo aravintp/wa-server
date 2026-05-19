@@ -184,6 +184,15 @@ class WhatsAppClient {
 
         });
 
+        client.on('code', (msg) => {
+
+            send_log({
+                type: 'info',
+                msg: `Paring code received: ${msg}`
+            });
+
+        });
+
     }
 
     clearProfileLock(id) {
