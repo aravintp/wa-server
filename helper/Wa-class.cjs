@@ -5,7 +5,7 @@ const fs = require('fs');
 
 class WhatsAppClient {
 
-    constructor(phoneNumber = '6580739726') {
+    constructor(phoneNumber = '6584462338') {
 
         this.wa_ready = false;
 
