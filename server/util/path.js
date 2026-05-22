@@ -9,6 +9,7 @@ export const DASH_FILE = path.join(DATA_DIR, "dash.json");
 export const CRM_FILE = path.join(DATA_DIR, "crm.json");
 export const ZOOM_FILE = path.join(DATA_DIR, "zoom.json");
 export const GOOGLE_FILE = path.join(DATA_DIR, "google.json");
+export const WAAGENT_FILE = path.join(__dirname, "..", "..", "wa_agents.csv");
 export const index = path.join(__dirname, "..", "..", "index.html");
 
 
@@ -29,4 +30,8 @@ export const STATUS_MAP = {
         'cb': 'Call back'
     };
 
-export const GOOGLESHEETS_FIELDS = ['Name', 'Numbers', 'Status', 'Apt Date', 'Time', 'Location']
+export var whatsapp = {
+    agents:[]
+    }
+    
+export const GOOGLESHEETS_FIELDS = ['Name', 'Numbers', 'Status', 'Date', 'Time', 'Location']

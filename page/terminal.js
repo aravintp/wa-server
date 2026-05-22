@@ -1,4 +1,5 @@
 
+
             export let logs = []
             let isStopped = false;
             let autoScroll = true;
@@ -9,9 +10,31 @@
             const terminal = document.getElementById('terminal-window');
             const logCount = document.getElementById('logCount');
             const startBtn = document.getElementById('startBtn');
+            const wa_agentSelect = document.getElementById('wa_agents');
                         
             document.getElementById('startBtn').addEventListener('click', toggleScript);
 
+            // Fetch wa_agent list
+            const wa_agents = await fetchBackendData(`${baseUrl}/api/wa/agents`)
+            console.log(wa_agents)
+
+            // Add wa agent dynamically in dropdown
+             wa_agents.map(key => {
+                 add_waagents(`${key.name} - ${key.number}`,key.name);
+             })
+
+            /* ══════════════════════════════════════════════════════════════
+            wa_agents — Options
+            ══════════════════════════════════════════════════════════════ */
+
+            function add_waagents(name,value){
+                wa_agentSelect.options[wa_agentSelect.options.length] = new Option(name, value);
+            }
+
+
+            /* ══════════════════════════════════════════════════════════════
+            DISPLAY 
+            ══════════════════════════════════════════════════════════════ */
             // Add initial logs
             export function initLogs() {
                 addLog('info', 'WhatsApp Forwarder initialized');
@@ -81,6 +104,34 @@
                 }
             }
 
+            /* ══════════════════════════════════════════════════════════════
+            BUTTON functions
+            ══════════════════════════════════════════════════════════════ */
+            async function toggleScript(){
+
+                const wa_agent  = wa_agentSelect.value;
+                const number = wa_agents.filter(key => key.name === wa_agent).at(0).number
+                const state = await fetchBackendData(`${baseUrl}/api/wa/getstate?id=${wa_agent}`)
+                const api_url =
+                    state === 'READY'
+                        ? 'close'
+                        : 'initialise';
+                                
+                console.log(api_url)
+                // http://localhost:8080/api/wa/?id=mediway&number=80739726
+               const res = await fetchBackendData(`${baseUrl}/api/wa/${api_url}?id=${wa_agent}&number=${number}`)
+
+               addLog("info",`${baseUrl}/api/wa/${api_url}?id=${wa_agent}&number=${number}`)
+            //     isStopped = !isStopped;
+            //     const api_url = isStopped ? 'initialise' : 'close' ;
+
+            //    // const isOffline = get_server_state()? 'Offline': 'Connected'
+
+            //     await fetchBackendData(`${baseUrl}/api/wa/${api_url}`)
+            //     startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
+
+            }
+
 
             function clearLogs() {
                 logs = [];
@@ -95,18 +146,9 @@
                 logCount.textContent = '0';
             }
 
-            async function toggleScript(){
-                
-                isStopped = !isStopped;
-                const api_url = isStopped ? 'initialise' : 'close' ;
-
-               // const isOffline = get_server_state()? 'Offline': 'Connected'
-
-                await fetchBackendData(`${baseUrl}/api/wa/${api_url}`)
-                startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
-
-            }
-
+            /* ══════════════════════════════════════════════════════════════
+            API CALLS
+            ══════════════════════════════════════════════════════════════ */
             async function fetchBackendData(url) {
                 
                 let _ret = ""

@@ -43,6 +43,13 @@ Object.keys(user).map(key => {
 })
 
 
+// Add user agent dynamically in dropdown
+const dash = user['All Agents'].dashboard
+Object.keys(dash).map(key => {
+    addPeriod(key,key);
+})
+addPeriod("custom","custom");
+
 /* ══════════════════════════════════════════════════════════════
    DASHBOARD — Options
 ══════════════════════════════════════════════════════════════ */
@@ -53,6 +60,10 @@ function addAgent(name,value){
 
 function addCrm(name,value){
     crmSelect.options[crmSelect.options.length] = new Option(name, value);
+}
+
+function addPeriod(name,value){
+    periodSelect.options[periodSelect.options.length] = new Option(name, value);
 }
 
 

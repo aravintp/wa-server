@@ -1,4 +1,6 @@
-const str = "24/04/2026".split("/")
-const a = new Date(str)
 
-console.log(a)
+import WhatsAppClient from './helper/Wa-class.cjs';
+
+const wa = new WhatsAppClient("6584462338");
+
+wa.initClient()

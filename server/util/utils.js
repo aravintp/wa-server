@@ -1,5 +1,6 @@
-import fs from 'fs';
+import fsLegacy  from 'fs';
 import path from 'path';
+import fs from 'fs/promises';
 
 /**
  * Safely load a JSON file.
@@ -10,7 +11,7 @@ import path from 'path';
 export function loadJsonSafe(filePath, fallback = {}) {
   try {
     const absolutePath = path.resolve(filePath); // ensure absolute path
-    const jsonString = fs.readFileSync(absolutePath, 'utf-8');
+    const jsonString = fsLegacy.readFileSync(absolutePath, 'utf-8');
     return JSON.parse(jsonString);
   } catch (err) {
     if (err.code === 'ENOENT') {
@@ -35,6 +36,31 @@ export function getunique(newlogs, oldlogs, key, key2) {
       })
   );
 }
+
+export async function loadWAAgents(path) {
+    try {
+        const data = await fs.readFile(path, 'utf8');
+
+        // Split into rows
+        const rows = data.trim().split(/\r?\n/);
+
+        // Convert CSV rows into objects
+        var wa_agents = rows.map(row => {
+            const [name, number] = row.split(/,/);
+
+            return {
+                name: name.trim(),
+                number: number.trim(),
+            };
+        });
+
+        return wa_agents;
+
+    } catch (err) {
+        console.error(err);
+    }
+}
+
 // 
 // // Usage example
 // import { ZOOM_FILE } from '../util/path.js';

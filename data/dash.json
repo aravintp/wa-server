@@ -3,21 +3,21 @@
     "dashboard": {
       "today": {
         "card": [
+          43,
+          "10:14:38 am",
+          "0hr 58min",
+          26,
           0,
-          "12:29:48 am",
-          "0hr 0min",
-          null,
+          "0.00 %",
           0,
-          "NaN %",
-          0,
-          "NaN% answer rate"
+          "60.47% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
             0,
-            0,
-            0,
+            30,
+            13,
             0,
             0,
             0,
@@ -33,14 +33,14 @@
             0,
             0,
             0,
-            0,
+            43,
             0
           ],
           "byweek": [
             0,
             0,
             0,
-            0,
+            43,
             0
           ]
         },
@@ -51,291 +51,104 @@
       },
       "week": {
         "card": [
-          1022,
-          "10:20:18 am",
-          "30hr 11min",
-          467,
-          19,
-          "1.86 %",
+          754,
+          "4:37:52 am",
+          "22hr 33min",
+          333,
+          3,
+          "0.40 %",
           0,
-          "45.69% answer rate"
+          "44.16% answer rate"
         ],
         "graph": {
           "byhour": [
+            0,
             1,
-            2,
+            120,
+            133,
+            106,
+            117,
+            114,
+            85,
             67,
-            189,
-            102,
-            126,
-            146,
-            129,
-            100,
-            47,
-            47,
-            18,
-            43
+            3,
+            0,
+            2,
+            4
           ],
           "byday": [
-            119,
-            159,
-            238,
-            258,
-            248,
+            321,
+            51,
+            148,
+            191,
+            43,
             0
           ],
           "byweek": [
-            774,
-            248,
             0,
             0,
+            711,
+            43,
             0
           ]
         },
         "pchart": {
-          "Daniel Leads 1": [
+          "Daniel Age 30 to 40": [
+            6,
+            0,
+            19,
+            59,
+            11,
             1,
+            10
+          ],
+          "Daniel Age 50 to 60 ": [
             0,
             0,
-            3,
+            0,
+            1,
             0,
             0,
             0
           ],
-          "Francis Leads": [
-            6,
-            0,
-            11,
-            26,
-            11,
-            3,
-            11
-          ],
-          "Daniel Age 30 to 40": [
-            4,
-            0,
-            6,
-            33,
-            1,
-            0,
-            7
-          ],
-          "Daniel Age 50 to 60 ": [
-            4,
-            0,
-            21,
-            76,
-            6,
-            0,
-            7
-          ],
-          "Algo - Blood Pressure": [
-            8,
-            0,
-            0,
-            25,
-            1,
-            0,
-            3
-          ],
           "all_crm": [
-            23,
+            6,
             0,
-            38,
-            163,
             19,
-            3,
-            28
+            60,
+            11,
+            1,
+            10
           ]
         },
         "apt": [
           [
-            "05/05/2026",
-            "Francis Leads",
-            "LOWYINSHUO",
-            "07/05/2026",
-            "11.00 am",
-            "Woods Square Mall tower 2",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LIM PEI XIA",
-            "23/05/2026",
-            "3.00 pm",
-            "Singapore 323108 21-210",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LING MING YAO ",
-            "12/05/2026",
-            "2.00 pm",
-            "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Stephen Goh Wei Qin",
-            "14/05/2026",
-            "6.30 pm",
-            "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Lee Wei Yee",
             "18/05/2026",
-            "11.00 am",
-            "Starbucks - Jurong Point 63 Jurong West Central 3, #03-52/52A, Singapore 648331",
+            "Daniel Age 30 to 40",
+            "Tan Kok Leong",
+            "25/05/2026",
+            "6.30 pm",
+            "city square mall startbak",
             "Face to face",
             "Aravinth"
           ],
           [
-            "08/05/2026",
+            "18/05/2026",
             "Daniel Age 30 to 40",
-            "Tan Jialing Janicia",
-            "16/05/2026",
-            "11.00 am",
-            "Coffee Shop nearby, 288C Compassvale Cres, Singapore 543288",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Teo Jun Jie",
+            "Masita",
             "26/05/2026",
-            "4.00 pm",
-            "The Coffee Bean Sengkang Grand Mall,, 70 Compassvale Bow, #01-71/72  Singapore 544692",
+            "6.30 pm",
+            "744 Jurong West Street 73, #01-19, Singapore 640744",
             "Face to face",
             "Aravinth"
           ],
           [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "David Fong",
-            "11/05/2026",
-            "3.30 pm",
-            "34 Bedok S Ave 2, Singapore 460034",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "El-n Lim",
-            "07/06/2026",
-            "1.00 pm",
-            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Julian Lee Hiung Koh",
-            "11/05/2026",
-            "12.00 pm",
-            "Coffee Bean and Tea Leaf (Komo Shoppes), 961 Upper Changi Rd N, Singapore 507663",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Liaw Wee Soo, Peter",
-            "13/05/2026",
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Jagan Rai; Jack",
+            "20/06/2026",
             "11.00 am",
-            "location he will say tomorrow, i have to call him",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Seethalakshmi Balagopalan",
-            "13/05/2026",
-            "7.00 pm",
-            "106 Spottiswoode Park Rd, Singapore 080106",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Heelmy Abu Hassan",
-            "12/05/2026",
-            "11.00 am",
-            "144 Rivervale Dr, Singapore 540144, void desk",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Serene Loo",
-            "08/05/2026",
-            "2.00 pm",
-            "Fortune Centre, 190 Middle Rd, Singapore 188979",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "K. Selvam",
-            "12/05/2026",
-            "11.00 am",
-            "215 Yishun Ring Rd, Block 215, Singapore 760215 #07-293",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Vemula Hariprasad",
-            "08/05/2026",
-            "11.00 am",
-            "Jurong west 648560 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Yeng Swee Keing",
-            "27/05/2026",
-            "12.00 pm",
-            "Starbucks - Compass One, 1 Sengkang Square, #01- 06, Singapore 545078",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Mohamed Haron",
-            "09/05/2026",
-            "11.00 am",
-            "371 Bukit Batok Street 31, Singapore 650371 Koptiam ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "Emma Danishq",
-            "15/05/2026",
-            "7.00 pm",
-            "381C Yishun Ring Rd, Singapore 763381",
+            "Novena TTSH Coffee bean",
             "Face to face",
             "Aravinth"
           ]
@@ -343,161 +156,153 @@
       },
       "month": {
         "card": [
-          1022,
+          2987,
           "10:20:18 am",
-          "30hr 11min",
-          467,
-          19,
-          "1.86 %",
+          "87hr 2min",
+          1321,
+          14,
+          "0.47 %",
           0,
-          "45.69% answer rate"
+          "44.22% answer rate"
         ],
         "graph": {
           "byhour": [
-            1,
-            2,
-            67,
-            189,
-            102,
-            126,
-            146,
-            129,
-            100,
-            47,
-            47,
-            18,
-            43
+            4,
+            3,
+            342,
+            526,
+            336,
+            377,
+            400,
+            371,
+            258,
+            142,
+            49,
+            71,
+            91
           ],
           "byday": [
-            119,
-            159,
-            238,
-            258,
-            248,
-            0
+            584,
+            438,
+            683,
+            712,
+            519,
+            51
           ],
           "byweek": [
             774,
-            248,
-            0,
-            0,
+            1191,
+            979,
+            43,
             0
           ]
         },
         "pchart": {
           "Daniel Leads 1": [
-            1,
+            2,
             0,
             0,
             3,
             0,
             0,
-            0
-          ],
-          "Francis Leads": [
-            6,
-            0,
-            11,
-            26,
-            11,
-            3,
-            11
+            1
           ],
           "Daniel Age 30 to 40": [
-            4,
+            16,
             0,
-            6,
-            33,
-            1,
-            0,
-            7
+            73,
+            267,
+            30,
+            2,
+            50
           ],
           "Daniel Age 50 to 60 ": [
             4,
             0,
-            21,
-            76,
-            6,
+            27,
+            98,
+            7,
             0,
-            7
-          ],
-          "Algo - Blood Pressure": [
-            8,
-            0,
-            0,
-            25,
-            1,
-            0,
-            3
+            8
           ],
           "all_crm": [
-            23,
+            22,
             0,
-            38,
-            163,
-            19,
-            3,
-            28
+            100,
+            368,
+            37,
+            2,
+            59
           ]
         },
         "apt": [
           [
-            "05/05/2026",
-            "Francis Leads",
-            "LOWYINSHUO",
-            "07/05/2026",
-            "11.00 am",
-            "Woods Square Mall tower 2",
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong William",
+            "22/05/2026",
+            "1.00 pm",
+            "50 E Coast Rd, Roxy Square 1, Singapore 428769",
             "Face to face",
             "Aravinth"
           ],
           [
-            "05/05/2026",
-            "Francis Leads",
-            "LIM PEI XIA",
-            "23/05/2026",
-            "3.00 pm",
-            "Singapore 323108 21-210",
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Clinston Tan",
+            "30/05/2026",
+            "10.00 am",
+            "Bendemeer, exact location will be shared on the dat",
             "Face to face",
             "Aravinth"
           ],
           [
-            "05/05/2026",
-            "Francis Leads",
-            "LING MING YAO ",
-            "12/05/2026",
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Tee Kaixin Amelia",
+            "20/05/2026",
             "2.00 pm",
-            "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
+            "Blk17 Canberra Walk , #03-34, Parc Canberra SG 756949 ",
             "Face to face",
             "Aravinth"
           ],
           [
-            "08/05/2026",
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong Yao Hsiang",
+            "23/05/2026",
+            "12.00 pm",
+            "Starbucks, 30 Sembawang Dr, #01-22 Sun Plaza, Singapore 757713",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Henry Cheng",
+            "06/06/2026",
+            "2.00 pm",
+            "808 Yishun Ring Rd, Singapore 760808",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Tan Kok Leong",
+            "25/05/2026",
+            "6.30 pm",
+            "city square mall startbak",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
             "Daniel Age 30 to 40",
             "Stephen Goh Wei Qin",
             "14/05/2026",
             "6.30 pm",
             "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Lee Wei Yee",
-            "18/05/2026",
-            "11.00 am",
-            "Starbucks - Jurong Point 63 Jurong West Central 3, #03-52/52A, Singapore 648331",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Tan Jialing Janicia",
-            "16/05/2026",
-            "11.00 am",
-            "Coffee Shop nearby, 288C Compassvale Cres, Singapore 543288",
             "Face to face",
             "Aravinth"
           ],
@@ -512,12 +317,52 @@
             "Aravinth"
           ],
           [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "David Fong",
-            "11/05/2026",
-            "3.30 pm",
-            "34 Bedok S Ave 2, Singapore 460034",
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Yishan",
+            "20/05/2026",
+            "5.30 pm",
+            "Jurong east, Westgate startbuck",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Low Wee Hao Eddie",
+            "05/06/2026",
+            "1.00 pm",
+            "Coffee Bean, 407 Northshore Dr, #1 Northshore Plaza, Singapore 820407",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Lim Zheng Wei",
+            "19/05/2026",
+            "6.30 pm",
+            "Ang mo Kia hub coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Masita",
+            "26/05/2026",
+            "6.30 pm",
+            "744 Jurong West Street 73, #01-19, Singapore 640744",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Jagan Rai; Jack",
+            "20/06/2026",
+            "11.00 am",
+            "Novena TTSH Coffee bean",
             "Face to face",
             "Aravinth"
           ],
@@ -528,106 +373,6 @@
             "07/06/2026",
             "1.00 pm",
             "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Julian Lee Hiung Koh",
-            "11/05/2026",
-            "12.00 pm",
-            "Coffee Bean and Tea Leaf (Komo Shoppes), 961 Upper Changi Rd N, Singapore 507663",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Liaw Wee Soo, Peter",
-            "13/05/2026",
-            "11.00 am",
-            "location he will say tomorrow, i have to call him",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Seethalakshmi Balagopalan",
-            "13/05/2026",
-            "7.00 pm",
-            "106 Spottiswoode Park Rd, Singapore 080106",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Heelmy Abu Hassan",
-            "12/05/2026",
-            "11.00 am",
-            "144 Rivervale Dr, Singapore 540144, void desk",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Serene Loo",
-            "08/05/2026",
-            "2.00 pm",
-            "Fortune Centre, 190 Middle Rd, Singapore 188979",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "K. Selvam",
-            "12/05/2026",
-            "11.00 am",
-            "215 Yishun Ring Rd, Block 215, Singapore 760215 #07-293",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Vemula Hariprasad",
-            "08/05/2026",
-            "11.00 am",
-            "Jurong west 648560 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Yeng Swee Keing",
-            "27/05/2026",
-            "12.00 pm",
-            "Starbucks - Compass One, 1 Sengkang Square, #01- 06, Singapore 545078",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Mohamed Haron",
-            "09/05/2026",
-            "11.00 am",
-            "371 Bukit Batok Street 31, Singapore 650371 Koptiam ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "Emma Danishq",
-            "15/05/2026",
-            "7.00 pm",
-            "381C Yishun Ring Rd, Singapore 763381",
             "Face to face",
             "Aravinth"
           ]
@@ -639,8 +384,8 @@
           "10:15:55 am",
           "130hr 2min",
           3080,
-          61,
-          "0.87 %",
+          1,
+          "0.01 %",
           0,
           "43.86% answer rate"
         ],
@@ -677,1407 +422,117 @@
           ]
         },
         "pchart": {
-          "Main1": [
-            41,
-            0,
+          "Daniel Leads 1": [
             2,
+            0,
+            29,
+            40,
+            12,
             1,
-            0,
-            0,
-            1
+            7
           ],
-          "Main2": [
+          "all_crm": [
+            2,
+            0,
+            29,
+            40,
+            12,
+            1,
+            7
+          ]
+        },
+        "apt": [
+          [
+            "14/04/2026",
+            "Daniel Leads 1",
+            "Stanley Lui",
+            "17/04/2026",
+            "2.00 pm",
+            "Clementi 120319",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      },
+      "daniel crm": {
+        "card": [
+          10009,
+          "10:15:55 am",
+          "217hr 5min",
+          4401,
+          15,
+          "0.15 %",
+          0,
+          "43.97% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            111,
+            89,
+            1200,
+            1832,
+            921,
+            1337,
+            1047,
+            1061,
+            1037,
+            709,
+            234,
+            126,
+            220
+          ],
+          "byday": [
+            2030,
+            1552,
+            1819,
+            2868,
+            1544,
+            142
+          ],
+          "byweek": [
+            3133,
+            2914,
+            2097,
+            1141,
+            724
+          ]
+        },
+        "pchart": {
+          "Daniel Leads 1": [
+            4,
+            0,
+            29,
+            43,
+            12,
+            1,
+            8
+          ],
+          "Daniel Age 30 to 40": [
+            16,
+            0,
+            73,
+            267,
+            30,
+            2,
+            50
+          ],
+          "Daniel Age 50 to 60 ": [
+            4,
+            0,
+            27,
+            98,
             7,
             0,
-            13,
-            42,
-            4,
-            4,
             8
           ],
-          "Main": [
-            19,
-            0,
-            154,
-            438,
-            81,
-            26,
-            86
-          ],
-          "Main_old": [
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0
-          ],
-          "Daniel Leads 1": [
-            3,
-            0,
-            29,
-            40,
-            12,
-            1,
-            8
-          ],
-          "Francis Leads": [
-            45,
-            0,
-            153,
-            317,
-            74,
-            21,
-            37
-          ],
-          "CY Leads": [
-            3,
-            0,
-            18,
-            124,
-            42,
-            12,
-            6
-          ],
           "all_crm": [
-            118,
+            24,
             0,
-            369,
-            963,
-            213,
-            64,
-            146
-          ]
-        },
-        "apt": [
-          [
-            "07/04/2026",
-            "Main2",
-            "Rozita Binte Mohamed Sani",
-            "11/04/2026",
-            "10.00 am",
-            732688,
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main2",
-            "Lianne",
-            "07/04/2026",
-            "10.00 am",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Lim Aie Yoke",
-            "05/04/2026",
-            "4.00 pm",
-            544185,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Geetha",
-            "04/04/2026",
-            "10.00 am",
-            85401,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Ng Seng Giap",
-            "08/04/2026",
-            "10.00 am",
-            506853,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Cindy Toh",
-            "03/04/2026",
-            "11.00 am",
-            520246,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Ronnie Loo",
-            "04/04/2026",
-            "10.00 am",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Cheong C.K.",
-            "07/04/2026",
-            "2.00 pm",
-            650269,
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Zarina Ahmad Zakri",
-            "07/04/2026",
-            "2.00 pm",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Baharudin",
-            "07/04/2026",
-            "10.00 am",
-            460132,
-            "Face to face",
-            "John"
-          ],
-          [
-            "07/04/2026",
-            "Main",
-            "Shan Dani",
-            "09/04/2026",
-            "12.00 pm",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "07/04/2026",
-            "Main",
-            "Yvonne Wee",
-            "14/04/2026",
-            "11.00 am",
-            18936,
-            "Face to face",
-            "John"
-          ],
-          [
-            "01/04/2026",
-            "Main",
-            "Iris Sim",
-            "28/04/2026",
-            "8.00 pm",
-            521646,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "01/04/2026",
-            "Main",
-            "Jason Tey",
-            "09/04/2026",
-            "11.30 am",
-            598435,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "01/04/2026",
-            "Main",
-            "Jannah Lee",
-            "13/04/2026",
-            "7.00 pm",
-            310124,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Hermansyah Sabri",
-            "30/04/2026",
-            "2.00 pm",
-            670602,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Leng kwee Koh",
-            "08/04/2026",
-            "5.00 pm",
-            162009,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Rajkumaralal Panneerselvam",
-            "09/04/2026",
-            "1.30 pm",
-            "",
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Serene Seet",
-            "04/05/2026",
-            "12.30 pm",
-            48581,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "07/04/2026",
-            "Main",
-            "Angela Ng",
-            "08/05/2026",
-            "7.30 pm",
-            "toa payoh central",
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "14/04/2026",
-            "Daniel Leads 1",
-            "Stanley Lui",
-            "17/04/2026",
-            "2.00 pm",
-            "Clementi 120319",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "TANHUALIAN",
-            "21/04/2026",
-            "12.00 pm",
-            "17 Petir Rd, Singapore 678278, Hillion Mall",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Wu Cheng Hui",
-            "22/04/2026",
-            "1.00 pm",
-            "Toast Box (Loyang Point)\n259 Pasir Ris Street 21, #02-38, Loyang Point, Singapore 510259",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Zheng Hao Wen Nicholas",
-            "21/04/2026",
-            "12.00 pm",
-            "Kopitiam,930 Yishun Avenue 2, #B2-12, Northpoint, 769098",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "13/04/2026",
-            "Francis Leads",
-            "Oh Yu Cheng",
-            "24/04/2026",
-            "8.00 pm",
-            598368,
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "14/04/2026",
-            "Francis Leads",
-            "DANIEL YAM YING JIE",
-            "16/04/2026",
-            "3.00 pm",
-            339213,
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "14/04/2026",
-            "Francis Leads",
-            "TEO ZHAN RUI",
-            "17/04/2026",
-            "10.00 am",
-            "Kim San Leng Food Centre Yishun, 417 Yishun Ave 11, #01-351, Singapore 760417",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "LINLIJUNJOANNA",
-            "02/05/2026",
-            "11.00 am",
-            "Junction 8, Coffee Bean/Toast ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "NG JUN HAO ABNER",
-            "30/04/2026",
-            "11.00 am",
-            "64 Kallang Bahru, #01-375, Singapore 330064",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "NGLIENEDRIC",
-            "16/04/2026",
-            "4.00 pm",
-            "Starbucks (The Seletar Mall)",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "AZRINNA BINTE ALANG MUHAMMAD",
-            "16/04/2026",
-            "1.00 pm",
-            "Toast Box (Manulife Tower)\r\n8 Cross St, #01-K1 Manulife Tower, Singapore 048424",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Tan Wei Min ",
-            "22/04/2026",
-            "7.00 pm",
-            "Singapore 536502",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "MOHAMMED SHABRIE BIN ISMAIL",
-            "20/04/2026",
-            "8.00 pm",
-            "470141 #06-1527",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Goh Xin Jie Edmund",
-            "23/04/2026",
-            "5.30 pm",
-            "1 Ghim Moh Rd, Singapore 270001",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Khoa Shumin",
-            "21/04/2026",
-            "3.00 pm",
-            "CHAGEE @Lentor Modern,\n1 Lentor Central, #01-27 Lentor Modern, Singapore 788887",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "MUHAMMAD AZLAN BIN AHMAD MAHDI",
-            "20/04/2026",
-            "3.00 pm",
-            "Ayza’s Restaurant,508 Jurong West Street 52, #01-170, Singapore 640508",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "HUANG JIAN GHENG",
-            "28/04/2026",
-            "7.30 pm",
-            "511A Yishun St 51 #11-423, Singapore 761511 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "GENEVIEVE ANG FENG XIANG",
-            "29/04/2026",
-            "1.00 pm",
-            "124 Beach Rd, Midtown ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "16/04/2026",
-            "Francis Leads",
-            "WEI XIU QING",
-            "30/04/2026",
-            "6.00 pm",
-            "Block 448A HDB Punggol 821448 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "SIM KIAN HENG",
-            "23/04/2026",
-            "8.00 pm",
-            "Blk 663A Punggol Dr, Singapore 821663. Kopi Shop Nearby",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "LIMLYESIONG",
-            "05/05/2026",
-            "8.30 pm",
-            "",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "GOH SHANG LIAN NICHOLAS ",
-            "04/05/2026",
-            "5.00 pm",
-            "Jurong east 600327, #10-164",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "Wan Juan",
-            "21/04/2026",
-            "10.30 am",
-            "83 Punggol Central, B2-07/K4 Waterway Point West Wing, Singapore 828761",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "Thaangaraju Elaiyaraja ",
-            "25/04/2026",
-            "10.00 am",
-            "126C Canberra St  #05-819 , Singapore 753126blk",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "Mr Lim ",
-            "24/04/2026",
-            "8.00 pm",
-            "The Esparis, 9A Pasir Ris Drive 4,  #01-22, 519463 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "MEH METGUL",
-            "09/05/2026",
-            "2.30 pm",
-            "Grand Bazaar,61 Bussorah St, Singapore 199477",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "YAO GUILI",
-            "24/04/2026",
-            "11.00 am",
-            "29 Ghim Moh Link, Singapore 270029, Kopishop beside block",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "TENG SHIEH CHIEN",
-            "28/04/2026",
-            "1.00 pm",
-            "Ng teng Fong hospital, food court",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "23/04/2026",
-            "Francis Leads",
-            "WangQin Candy",
-            "01/05/2026",
-            "6.00 pm",
-            "tenative",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "TANBOONJIUN",
-            "30/04/2026",
-            "11.00 am",
-            "address tenative, cos he is moving around",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "S J VAISHNAVI",
-            "06/05/2026",
-            "1.00 pm",
-            "588B Montreal Dr, Singapore 752588 #02-90",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "GANSHIWEI",
-            "08/05/2026",
-            "11.00 am",
-            "115 Potong Pasir Ave 1, Block 115, Singapore 350115 #05-880",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "GOH SHAE TING DAVANIA ",
-            "05/05/2026",
-            "11.00 am",
-            "26C Jln Membina, Singapore 166026, #11-175",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "QUAH PEIZHI PAM",
-            "21/05/2026",
-            "1.00 pm",
-            "Starbucks Bugis+\r\n,201 Victoria St, #02-12/13 Bugis+, Singapore 188067",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "TEOMEIYNG",
-            "04/05/2026",
-            "4.00 pm",
-            "Starbucks @ PLQ Paya Lebar Quarter",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "TEOWENWEI",
-            "06/05/2026",
-            "1.00 pm",
-            "89.7 Supper Club, 5 Changi Village Rd, Singapore 500005",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "30/04/2026",
-            "Francis Leads",
-            "HONG JUNLIANG ",
-            "26/05/2026",
-            "11.00 am",
-            "Syntech Switchgear & Engineering, 11 Yishun Industrial Street 1, Bizhub, #07-91/92 North Spring, Singapore 768089",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "30/04/2026",
-            "Francis Leads",
-            "CHUA PEI FERN VALERIE ",
-            "12/05/2026",
-            "11.00 am",
-            "438 Hougang Ave 8, Singapore 530438, Void deck",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "30/04/2026",
-            "Francis Leads",
-            "AHMAD ZAKI BIN HAIRODIN",
-            "07/05/2026",
-            "11.00 am",
-            "86 Flora Rd, Singapore 507002 #03-19",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "23/04/2026",
-            "CY Leads",
-            "Ng Heng Lee",
-            "24/04/2026",
-            "1.00 pm",
-            "517 Serangoon North Ave 4, Singapore 550517",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "23/04/2026",
-            "CY Leads",
-            "Michelle Chin",
-            "30/04/2026",
-            "1.00 pm",
-            "6 Bishan Street 25, Singapore 573975",
-            "Face to face",
-            "Aravinth"
-          ]
-        ]
-      }
-    }
-  },
-  "Aravinth Pillai": {
-    "dashboard": {
-      "today": {
-        "card": [
-          0,
-          "12:29:48 am",
-          "0hr 0min",
-          null,
-          0,
-          "NaN %",
-          0,
-          "NaN% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "byday": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "byweek": [
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        "pchart": {
-          "all_crm": []
-        },
-        "apt": []
-      },
-      "week": {
-        "card": [
-          325,
-          "4:17:49 pm",
-          "9hr 48min",
-          124,
-          19,
-          "5.85 %",
-          0,
-          "38.15% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            1,
-            0,
-            0,
-            0,
-            1,
-            27,
-            45,
-            32,
-            61,
-            46,
-            47,
-            18,
-            43
-          ],
-          "byday": [
-            0,
-            63,
-            66,
-            80,
-            116,
-            0
-          ],
-          "byweek": [
-            209,
-            116,
-            0,
-            0,
-            0
-          ]
-        },
-        "pchart": {
-          "Daniel Leads 1": [
-            1,
-            0,
-            0,
+            129,
+            408,
+            49,
             3,
-            0,
-            0,
-            0
-          ],
-          "Francis Leads": [
-            6,
-            0,
-            11,
-            26,
-            11,
-            3,
-            11
-          ],
-          "Daniel Age 30 to 40": [
-            4,
-            0,
-            6,
-            33,
-            1,
-            0,
-            7
-          ],
-          "Daniel Age 50 to 60 ": [
-            4,
-            0,
-            21,
-            76,
-            6,
-            0,
-            7
-          ],
-          "Algo - Blood Pressure": [
-            8,
-            0,
-            0,
-            25,
-            1,
-            0,
-            3
-          ],
-          "all_crm": [
-            23,
-            0,
-            38,
-            163,
-            19,
-            3,
-            28
-          ]
-        },
-        "apt": [
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LOWYINSHUO",
-            "07/05/2026",
-            "11.00 am",
-            "Woods Square Mall tower 2",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LIM PEI XIA",
-            "23/05/2026",
-            "3.00 pm",
-            "Singapore 323108 21-210",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LING MING YAO ",
-            "12/05/2026",
-            "2.00 pm",
-            "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Stephen Goh Wei Qin",
-            "14/05/2026",
-            "6.30 pm",
-            "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Lee Wei Yee",
-            "18/05/2026",
-            "11.00 am",
-            "Starbucks - Jurong Point 63 Jurong West Central 3, #03-52/52A, Singapore 648331",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Tan Jialing Janicia",
-            "16/05/2026",
-            "11.00 am",
-            "Coffee Shop nearby, 288C Compassvale Cres, Singapore 543288",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Teo Jun Jie",
-            "26/05/2026",
-            "4.00 pm",
-            "The Coffee Bean Sengkang Grand Mall,, 70 Compassvale Bow, #01-71/72  Singapore 544692",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "David Fong",
-            "11/05/2026",
-            "3.30 pm",
-            "34 Bedok S Ave 2, Singapore 460034",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "El-n Lim",
-            "07/06/2026",
-            "1.00 pm",
-            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Julian Lee Hiung Koh",
-            "11/05/2026",
-            "12.00 pm",
-            "Coffee Bean and Tea Leaf (Komo Shoppes), 961 Upper Changi Rd N, Singapore 507663",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Liaw Wee Soo, Peter",
-            "13/05/2026",
-            "11.00 am",
-            "location he will say tomorrow, i have to call him",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Seethalakshmi Balagopalan",
-            "13/05/2026",
-            "7.00 pm",
-            "106 Spottiswoode Park Rd, Singapore 080106",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Heelmy Abu Hassan",
-            "12/05/2026",
-            "11.00 am",
-            "144 Rivervale Dr, Singapore 540144, void desk",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Serene Loo",
-            "08/05/2026",
-            "2.00 pm",
-            "Fortune Centre, 190 Middle Rd, Singapore 188979",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "K. Selvam",
-            "12/05/2026",
-            "11.00 am",
-            "215 Yishun Ring Rd, Block 215, Singapore 760215 #07-293",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Vemula Hariprasad",
-            "08/05/2026",
-            "11.00 am",
-            "Jurong west 648560 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Yeng Swee Keing",
-            "27/05/2026",
-            "12.00 pm",
-            "Starbucks - Compass One, 1 Sengkang Square, #01- 06, Singapore 545078",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Mohamed Haron",
-            "09/05/2026",
-            "11.00 am",
-            "371 Bukit Batok Street 31, Singapore 650371 Koptiam ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "Emma Danishq",
-            "15/05/2026",
-            "7.00 pm",
-            "381C Yishun Ring Rd, Singapore 763381",
-            "Face to face",
-            "Aravinth"
-          ]
-        ]
-      },
-      "month": {
-        "card": [
-          325,
-          "4:17:49 pm",
-          "9hr 48min",
-          124,
-          19,
-          "5.85 %",
-          0,
-          "38.15% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            1,
-            0,
-            0,
-            0,
-            1,
-            27,
-            45,
-            32,
-            61,
-            46,
-            47,
-            18,
-            43
-          ],
-          "byday": [
-            0,
-            63,
-            66,
-            80,
-            116,
-            0
-          ],
-          "byweek": [
-            209,
-            116,
-            0,
-            0,
-            0
-          ]
-        },
-        "pchart": {
-          "Daniel Leads 1": [
-            1,
-            0,
-            0,
-            3,
-            0,
-            0,
-            0
-          ],
-          "Francis Leads": [
-            6,
-            0,
-            11,
-            26,
-            11,
-            3,
-            11
-          ],
-          "Daniel Age 30 to 40": [
-            4,
-            0,
-            6,
-            33,
-            1,
-            0,
-            7
-          ],
-          "Daniel Age 50 to 60 ": [
-            4,
-            0,
-            21,
-            76,
-            6,
-            0,
-            7
-          ],
-          "Algo - Blood Pressure": [
-            8,
-            0,
-            0,
-            25,
-            1,
-            0,
-            3
-          ],
-          "all_crm": [
-            23,
-            0,
-            38,
-            163,
-            19,
-            3,
-            28
-          ]
-        },
-        "apt": [
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LOWYINSHUO",
-            "07/05/2026",
-            "11.00 am",
-            "Woods Square Mall tower 2",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LIM PEI XIA",
-            "23/05/2026",
-            "3.00 pm",
-            "Singapore 323108 21-210",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "05/05/2026",
-            "Francis Leads",
-            "LING MING YAO ",
-            "12/05/2026",
-            "2.00 pm",
-            "Tiong Bahru Plaza, , The Coffee Bean & Tea Leaf, 302 Tiong Bahru Road, #01-112 Singapore 168732",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Stephen Goh Wei Qin",
-            "14/05/2026",
-            "6.30 pm",
-            "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Lee Wei Yee",
-            "18/05/2026",
-            "11.00 am",
-            "Starbucks - Jurong Point 63 Jurong West Central 3, #03-52/52A, Singapore 648331",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Tan Jialing Janicia",
-            "16/05/2026",
-            "11.00 am",
-            "Coffee Shop nearby, 288C Compassvale Cres, Singapore 543288",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "08/05/2026",
-            "Daniel Age 30 to 40",
-            "Teo Jun Jie",
-            "26/05/2026",
-            "4.00 pm",
-            "The Coffee Bean Sengkang Grand Mall,, 70 Compassvale Bow, #01-71/72  Singapore 544692",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "David Fong",
-            "11/05/2026",
-            "3.30 pm",
-            "34 Bedok S Ave 2, Singapore 460034",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "El-n Lim",
-            "07/06/2026",
-            "1.00 pm",
-            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Julian Lee Hiung Koh",
-            "11/05/2026",
-            "12.00 pm",
-            "Coffee Bean and Tea Leaf (Komo Shoppes), 961 Upper Changi Rd N, Singapore 507663",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Daniel Age 50 to 60 ",
-            "Liaw Wee Soo, Peter",
-            "13/05/2026",
-            "11.00 am",
-            "location he will say tomorrow, i have to call him",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Seethalakshmi Balagopalan",
-            "13/05/2026",
-            "7.00 pm",
-            "106 Spottiswoode Park Rd, Singapore 080106",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Heelmy Abu Hassan",
-            "12/05/2026",
-            "11.00 am",
-            "144 Rivervale Dr, Singapore 540144, void desk",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Serene Loo",
-            "08/05/2026",
-            "2.00 pm",
-            "Fortune Centre, 190 Middle Rd, Singapore 188979",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "K. Selvam",
-            "12/05/2026",
-            "11.00 am",
-            "215 Yishun Ring Rd, Block 215, Singapore 760215 #07-293",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Vemula Hariprasad",
-            "08/05/2026",
-            "11.00 am",
-            "Jurong west 648560 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Yeng Swee Keing",
-            "27/05/2026",
-            "12.00 pm",
-            "Starbucks - Compass One, 1 Sengkang Square, #01- 06, Singapore 545078",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "06/05/2026",
-            "Algo - Blood Pressure",
-            "Mohamed Haron",
-            "09/05/2026",
-            "11.00 am",
-            "371 Bukit Batok Street 31, Singapore 650371 Koptiam ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "07/05/2026",
-            "Algo - Blood Pressure",
-            "Emma Danishq",
-            "15/05/2026",
-            "7.00 pm",
-            "381C Yishun Ring Rd, Singapore 763381",
-            "Face to face",
-            "Aravinth"
-          ]
-        ]
-      },
-      "lastmonth": {
-        "card": [
-          1541,
-          "4:24:51 pm",
-          "32hr 14min",
-          639,
-          41,
-          "2.66 %",
-          0,
-          "41.47% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            1,
-            1,
-            20,
-            141,
-            8,
-            260,
-            162,
-            288,
-            308,
-            186,
-            5,
-            30,
-            127
-          ],
-          "byday": [
-            379,
-            150,
-            382,
-            489,
-            139,
-            2
-          ],
-          "byweek": [
-            0,
-            242,
-            415,
-            525,
-            359
-          ]
-        },
-        "pchart": {
-          "Daniel Leads 1": [
-            3,
-            0,
-            29,
-            40,
-            12,
-            1,
-            8
-          ],
-          "Francis Leads": [
-            45,
-            0,
-            153,
-            317,
-            74,
-            21,
-            37
-          ],
-          "CY Leads": [
-            3,
-            0,
-            18,
-            124,
-            42,
-            12,
-            6
-          ],
-          "all_crm": [
-            51,
-            0,
-            200,
-            481,
-            128,
-            34,
-            51
+            66
           ]
         },
         "apt": [
@@ -2092,402 +547,142 @@
             "Aravinth"
           ],
           [
-            "17/04/2026",
-            "Francis Leads",
-            "TANHUALIAN",
-            "21/04/2026",
-            "12.00 pm",
-            "17 Petir Rd, Singapore 678278, Hillion Mall",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Wu Cheng Hui",
-            "22/04/2026",
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong William",
+            "22/05/2026",
             "1.00 pm",
-            "Toast Box (Loyang Point)\n259 Pasir Ris Street 21, #02-38, Loyang Point, Singapore 510259",
+            "50 E Coast Rd, Roxy Square 1, Singapore 428769",
             "Face to face",
             "Aravinth"
           ],
           [
-            "15/04/2026",
-            "Francis Leads",
-            "Zheng Hao Wen Nicholas",
-            "21/04/2026",
-            "12.00 pm",
-            "Kopitiam,930 Yishun Avenue 2, #B2-12, Northpoint, 769098",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "13/04/2026",
-            "Francis Leads",
-            "Oh Yu Cheng",
-            "24/04/2026",
-            "8.00 pm",
-            598368,
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "14/04/2026",
-            "Francis Leads",
-            "DANIEL YAM YING JIE",
-            "16/04/2026",
-            "3.00 pm",
-            339213,
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "14/04/2026",
-            "Francis Leads",
-            "TEO ZHAN RUI",
-            "17/04/2026",
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Clinston Tan",
+            "30/05/2026",
             "10.00 am",
-            "Kim San Leng Food Centre Yishun, 417 Yishun Ave 11, #01-351, Singapore 760417",
+            "Bendemeer, exact location will be shared on the dat",
             "Face to face",
             "Aravinth"
           ],
           [
-            "22/04/2026",
-            "Francis Leads",
-            "LINLIJUNJOANNA",
-            "02/05/2026",
-            "11.00 am",
-            "Junction 8, Coffee Bean/Toast ",
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Tee Kaixin Amelia",
+            "20/05/2026",
+            "2.00 pm",
+            "Blk17 Canberra Walk , #03-34, Parc Canberra SG 756949 ",
             "Face to face",
             "Aravinth"
           ],
           [
-            "29/04/2026",
-            "Francis Leads",
-            "NG JUN HAO ABNER",
-            "30/04/2026",
-            "11.00 am",
-            "64 Kallang Bahru, #01-375, Singapore 330064",
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong Yao Hsiang",
+            "23/05/2026",
+            "12.00 pm",
+            "Starbucks, 30 Sembawang Dr, #01-22 Sun Plaza, Singapore 757713",
             "Face to face",
             "Aravinth"
           ],
           [
-            "15/04/2026",
-            "Francis Leads",
-            "NGLIENEDRIC",
-            "16/04/2026",
-            "4.00 pm",
-            "Starbucks (The Seletar Mall)",
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Henry Cheng",
+            "06/06/2026",
+            "2.00 pm",
+            "808 Yishun Ring Rd, Singapore 760808",
             "Face to face",
             "Aravinth"
           ],
           [
-            "15/04/2026",
-            "Francis Leads",
-            "AZRINNA BINTE ALANG MUHAMMAD",
-            "16/04/2026",
-            "1.00 pm",
-            "Toast Box (Manulife Tower)\r\n8 Cross St, #01-K1 Manulife Tower, Singapore 048424",
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Tan Kok Leong",
+            "25/05/2026",
+            "6.30 pm",
+            "city square mall startbak",
             "Face to face",
             "Aravinth"
           ],
           [
-            "15/04/2026",
-            "Francis Leads",
-            "Tan Wei Min ",
-            "22/04/2026",
-            "7.00 pm",
-            "Singapore 536502",
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Stephen Goh Wei Qin",
+            "14/05/2026",
+            "6.30 pm",
+            "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
             "Face to face",
             "Aravinth"
           ],
           [
-            "15/04/2026",
-            "Francis Leads",
-            "MOHAMMED SHABRIE BIN ISMAIL",
-            "20/04/2026",
-            "8.00 pm",
-            "470141 #06-1527",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Goh Xin Jie Edmund",
-            "23/04/2026",
-            "5.30 pm",
-            "1 Ghim Moh Rd, Singapore 270001",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "Khoa Shumin",
-            "21/04/2026",
-            "3.00 pm",
-            "CHAGEE @Lentor Modern,\n1 Lentor Central, #01-27 Lentor Modern, Singapore 788887",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "15/04/2026",
-            "Francis Leads",
-            "MUHAMMAD AZLAN BIN AHMAD MAHDI",
-            "20/04/2026",
-            "3.00 pm",
-            "Ayza’s Restaurant,508 Jurong West Street 52, #01-170, Singapore 640508",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "HUANG JIAN GHENG",
-            "28/04/2026",
-            "7.30 pm",
-            "511A Yishun St 51 #11-423, Singapore 761511 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "GENEVIEVE ANG FENG XIANG",
-            "29/04/2026",
-            "1.00 pm",
-            "124 Beach Rd, Midtown ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "16/04/2026",
-            "Francis Leads",
-            "WEI XIU QING",
-            "30/04/2026",
-            "6.00 pm",
-            "Block 448A HDB Punggol 821448 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "SIM KIAN HENG",
-            "23/04/2026",
-            "8.00 pm",
-            "Blk 663A Punggol Dr, Singapore 821663. Kopi Shop Nearby",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "LIMLYESIONG",
-            "05/05/2026",
-            "8.30 pm",
-            "",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "GOH SHANG LIAN NICHOLAS ",
-            "04/05/2026",
-            "5.00 pm",
-            "Jurong east 600327, #10-164",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "17/04/2026",
-            "Francis Leads",
-            "Wan Juan",
-            "21/04/2026",
-            "10.30 am",
-            "83 Punggol Central, B2-07/K4 Waterway Point West Wing, Singapore 828761",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "Thaangaraju Elaiyaraja ",
-            "25/04/2026",
-            "10.00 am",
-            "126C Canberra St  #05-819 , Singapore 753126blk",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "22/04/2026",
-            "Francis Leads",
-            "Mr Lim ",
-            "24/04/2026",
-            "8.00 pm",
-            "The Esparis, 9A Pasir Ris Drive 4,  #01-22, 519463 ",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "MEH METGUL",
-            "09/05/2026",
-            "2.30 pm",
-            "Grand Bazaar,61 Bussorah St, Singapore 199477",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "YAO GUILI",
-            "24/04/2026",
-            "11.00 am",
-            "29 Ghim Moh Link, Singapore 270029, Kopishop beside block",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "20/04/2026",
-            "Francis Leads",
-            "TENG SHIEH CHIEN",
-            "28/04/2026",
-            "1.00 pm",
-            "Ng teng Fong hospital, food court",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "23/04/2026",
-            "Francis Leads",
-            "WangQin Candy",
-            "01/05/2026",
-            "6.00 pm",
-            "tenative",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "TANBOONJIUN",
-            "30/04/2026",
-            "11.00 am",
-            "address tenative, cos he is moving around",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "S J VAISHNAVI",
-            "06/05/2026",
-            "1.00 pm",
-            "588B Montreal Dr, Singapore 752588 #02-90",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "GANSHIWEI",
             "08/05/2026",
-            "11.00 am",
-            "115 Potong Pasir Ave 1, Block 115, Singapore 350115 #05-880",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "GOH SHAE TING DAVANIA ",
-            "05/05/2026",
-            "11.00 am",
-            "26C Jln Membina, Singapore 166026, #11-175",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "QUAH PEIZHI PAM",
-            "21/05/2026",
-            "1.00 pm",
-            "Starbucks Bugis+\r\n,201 Victoria St, #02-12/13 Bugis+, Singapore 188067",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "TEOMEIYNG",
-            "04/05/2026",
-            "4.00 pm",
-            "Starbucks @ PLQ Paya Lebar Quarter",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "29/04/2026",
-            "Francis Leads",
-            "TEOWENWEI",
-            "06/05/2026",
-            "1.00 pm",
-            "89.7 Supper Club, 5 Changi Village Rd, Singapore 500005",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "30/04/2026",
-            "Francis Leads",
-            "HONG JUNLIANG ",
+            "Daniel Age 30 to 40",
+            "Teo Jun Jie",
             "26/05/2026",
-            "11.00 am",
-            "Syntech Switchgear & Engineering, 11 Yishun Industrial Street 1, Bizhub, #07-91/92 North Spring, Singapore 768089",
+            "4.00 pm",
+            "The Coffee Bean Sengkang Grand Mall,, 70 Compassvale Bow, #01-71/72  Singapore 544692",
             "Face to face",
             "Aravinth"
           ],
           [
-            "30/04/2026",
-            "Francis Leads",
-            "CHUA PEI FERN VALERIE ",
-            "12/05/2026",
-            "11.00 am",
-            "438 Hougang Ave 8, Singapore 530438, Void deck",
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Yishan",
+            "20/05/2026",
+            "5.30 pm",
+            "Jurong east, Westgate startbuck",
             "Face to face",
             "Aravinth"
           ],
           [
-            "30/04/2026",
-            "Francis Leads",
-            "AHMAD ZAKI BIN HAIRODIN",
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Low Wee Hao Eddie",
+            "05/06/2026",
+            "1.00 pm",
+            "Coffee Bean, 407 Northshore Dr, #1 Northshore Plaza, Singapore 820407",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Lim Zheng Wei",
+            "19/05/2026",
+            "6.30 pm",
+            "Ang mo Kia hub coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Masita",
+            "26/05/2026",
+            "6.30 pm",
+            "744 Jurong West Street 73, #01-19, Singapore 640744",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Jagan Rai; Jack",
+            "20/06/2026",
+            "11.00 am",
+            "Novena TTSH Coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
             "07/05/2026",
-            "11.00 am",
-            "86 Flora Rd, Singapore 507002 #03-19",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "23/04/2026",
-            "CY Leads",
-            "Ng Heng Lee",
-            "24/04/2026",
+            "Daniel Age 50 to 60 ",
+            "El-n Lim",
+            "07/06/2026",
             "1.00 pm",
-            "517 Serangoon North Ave 4, Singapore 550517",
-            "Face to face",
-            "Aravinth"
-          ],
-          [
-            "23/04/2026",
-            "CY Leads",
-            "Michelle Chin",
-            "30/04/2026",
-            "1.00 pm",
-            "6 Bishan Street 25, Singapore 573975",
+            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
             "Face to face",
             "Aravinth"
           ]
@@ -2499,21 +694,21 @@
     "dashboard": {
       "today": {
         "card": [
+          12,
+          "10:46:25 am",
+          "0hr 25min",
+          9,
           0,
-          "12:29:48 am",
-          "0hr 0min",
-          null,
+          "0.00 %",
           0,
-          "NaN %",
-          0,
-          "NaN% answer rate"
+          "75.00% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
             0,
-            0,
-            0,
+            1,
+            11,
             0,
             0,
             0,
@@ -2529,14 +724,14 @@
             0,
             0,
             0,
-            0,
+            12,
             0
           ],
           "byweek": [
             0,
             0,
             0,
-            0,
+            12,
             0
           ]
         },
@@ -2547,44 +742,44 @@
       },
       "week": {
         "card": [
-          37,
-          "2:18:29 pm",
-          "2hr 9min",
-          16,
+          52,
+          "10:51:50 am",
+          "1hr 59min",
+          24,
           0,
           "0.00 %",
           0,
-          "43.24% answer rate"
+          "46.15% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
             0,
-            0,
-            0,
-            13,
-            2,
-            2,
-            15,
+            6,
+            36,
             5,
+            0,
+            5,
+            0,
+            0,
             0,
             0,
             0,
             0
           ],
           "byday": [
-            18,
             0,
             0,
-            14,
-            5,
+            0,
+            40,
+            12,
             0
           ],
           "byweek": [
-            32,
-            5,
             0,
             0,
+            40,
+            12,
             0
           ]
         },
@@ -2595,26 +790,26 @@
       },
       "month": {
         "card": [
-          37,
+          96,
           "2:18:29 pm",
-          "2hr 9min",
-          16,
+          "4hr 16min",
+          42,
           0,
           "0.00 %",
           0,
-          "43.24% answer rate"
+          "43.75% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
             0,
-            0,
-            0,
-            13,
+            6,
+            36,
+            18,
             2,
-            2,
-            15,
-            5,
+            7,
+            16,
+            10,
             0,
             0,
             0,
@@ -2622,17 +817,17 @@
           ],
           "byday": [
             18,
-            0,
-            0,
-            14,
-            5,
+            3,
+            3,
+            55,
+            17,
             0
           ],
           "byweek": [
             32,
-            5,
-            0,
-            0,
+            12,
+            40,
+            12,
             0
           ]
         },
@@ -2688,15 +883,307 @@
           "all_crm": []
         },
         "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          207,
+          "3:29:26 pm",
+          "7hr 40min",
+          108,
+          0,
+          "0.00 %",
+          0,
+          "52.17% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            6,
+            36,
+            30,
+            4,
+            13,
+            47,
+            37,
+            32,
+            1,
+            0,
+            0
+          ],
+          "byday": [
+            72,
+            3,
+            3,
+            70,
+            59,
+            0
+          ],
+          "byweek": [
+            32,
+            12,
+            115,
+            34,
+            14
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
-  "Will": {
+  "Wilfred Tan": {
+    "dashboard": {
+      "today": {
+        "card": [
+          30,
+          "10:14:38 am",
+          "0hr 58min",
+          17,
+          0,
+          "0.00 %",
+          0,
+          "56.67% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            29,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            30,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            30,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "week": {
+        "card": [
+          163,
+          "10:17:53 am",
+          "3hr 0min",
+          80,
+          0,
+          "0.00 %",
+          0,
+          "49.08% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            111,
+            47,
+            0,
+            0,
+            0,
+            3,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "byday": [
+            73,
+            1,
+            17,
+            42,
+            30,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            133,
+            30,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "month": {
+        "card": [
+          683,
+          "10:20:18 am",
+          "15hr 43min",
+          318,
+          0,
+          "0.00 %",
+          0,
+          "46.56% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            320,
+            258,
+            24,
+            58,
+            12,
+            4,
+            3,
+            1,
+            0,
+            1,
+            0
+          ],
+          "byday": [
+            202,
+            108,
+            96,
+            174,
+            96,
+            7
+          ],
+          "byweek": [
+            189,
+            298,
+            166,
+            30,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "lastmonth": {
+        "card": [
+          1531,
+          "10:20:11 am",
+          "30hr 15min",
+          719,
+          0,
+          "0.00 %",
+          0,
+          "46.96% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            2,
+            2,
+            539,
+            609,
+            22,
+            225,
+            84,
+            34,
+            5,
+            3,
+            4,
+            2,
+            0
+          ],
+          "byday": [
+            288,
+            274,
+            272,
+            434,
+            255,
+            4
+          ],
+          "byweek": [
+            339,
+            449,
+            259,
+            333,
+            151
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          2214,
+          "10:20:11 am",
+          "45hr 58min",
+          1037,
+          0,
+          "0.00 %",
+          0,
+          "46.84% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            2,
+            2,
+            859,
+            867,
+            46,
+            283,
+            96,
+            38,
+            8,
+            4,
+            4,
+            3,
+            0
+          ],
+          "byday": [
+            490,
+            382,
+            368,
+            608,
+            351,
+            11
+          ],
+          "byweek": [
+            528,
+            747,
+            425,
+            363,
+            151
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      }
+    }
+  },
+  "Aravinth Pillai": {
     "dashboard": {
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -2743,14 +1230,657 @@
       },
       "week": {
         "card": [
-          252,
-          "1:14:27 pm",
-          "7hr 3min",
-          136,
+          129,
+          "4:37:52 am",
+          "2hr 32min",
+          51,
+          3,
+          "2.33 %",
           0,
-          "0.00 %",
+          "39.53% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            2,
+            2,
+            30,
+            51,
+            34,
+            6,
+            0,
+            0,
+            1,
+            2
+          ],
+          "byday": [
+            126,
+            2,
+            0,
+            1,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            129,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "Daniel Age 30 to 40": [
+            6,
+            0,
+            19,
+            59,
+            11,
+            1,
+            10
+          ],
+          "Daniel Age 50 to 60 ": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "all_crm": [
+            6,
+            0,
+            19,
+            60,
+            11,
+            1,
+            10
+          ]
+        },
+        "apt": [
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Tan Kok Leong",
+            "25/05/2026",
+            "6.30 pm",
+            "city square mall startbak",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Masita",
+            "26/05/2026",
+            "6.30 pm",
+            "744 Jurong West Street 73, #01-19, Singapore 640744",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Jagan Rai; Jack",
+            "20/06/2026",
+            "11.00 am",
+            "Novena TTSH Coffee bean",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      },
+      "month": {
+        "card": [
+          862,
+          "4:17:49 pm",
+          "22hr 2min",
+          330,
+          14,
+          "1.62 %",
           0,
-          "53.97% answer rate"
+          "38.28% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            4,
+            0,
+            3,
+            24,
+            4,
+            74,
+            115,
+            160,
+            129,
+            136,
+            47,
+            70,
+            84
+          ],
+          "byday": [
+            129,
+            70,
+            250,
+            203,
+            177,
+            33
+          ],
+          "byweek": [
+            209,
+            431,
+            222,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "Daniel Leads 1": [
+            2,
+            0,
+            0,
+            3,
+            0,
+            0,
+            1
+          ],
+          "Daniel Age 30 to 40": [
+            16,
+            0,
+            73,
+            267,
+            30,
+            2,
+            50
+          ],
+          "Daniel Age 50 to 60 ": [
+            4,
+            0,
+            27,
+            98,
+            7,
+            0,
+            8
+          ],
+          "all_crm": [
+            22,
+            0,
+            100,
+            368,
+            37,
+            2,
+            59
+          ]
+        },
+        "apt": [
+          [
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong William",
+            "22/05/2026",
+            "1.00 pm",
+            "50 E Coast Rd, Roxy Square 1, Singapore 428769",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Clinston Tan",
+            "30/05/2026",
+            "10.00 am",
+            "Bendemeer, exact location will be shared on the dat",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Tee Kaixin Amelia",
+            "20/05/2026",
+            "2.00 pm",
+            "Blk17 Canberra Walk , #03-34, Parc Canberra SG 756949 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong Yao Hsiang",
+            "23/05/2026",
+            "12.00 pm",
+            "Starbucks, 30 Sembawang Dr, #01-22 Sun Plaza, Singapore 757713",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Henry Cheng",
+            "06/06/2026",
+            "2.00 pm",
+            "808 Yishun Ring Rd, Singapore 760808",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Tan Kok Leong",
+            "25/05/2026",
+            "6.30 pm",
+            "city square mall startbak",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Stephen Goh Wei Qin",
+            "14/05/2026",
+            "6.30 pm",
+            "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "08/05/2026",
+            "Daniel Age 30 to 40",
+            "Teo Jun Jie",
+            "26/05/2026",
+            "4.00 pm",
+            "The Coffee Bean Sengkang Grand Mall,, 70 Compassvale Bow, #01-71/72  Singapore 544692",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Yishan",
+            "20/05/2026",
+            "5.30 pm",
+            "Jurong east, Westgate startbuck",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Low Wee Hao Eddie",
+            "05/06/2026",
+            "1.00 pm",
+            "Coffee Bean, 407 Northshore Dr, #1 Northshore Plaza, Singapore 820407",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Lim Zheng Wei",
+            "19/05/2026",
+            "6.30 pm",
+            "Ang mo Kia hub coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Masita",
+            "26/05/2026",
+            "6.30 pm",
+            "744 Jurong West Street 73, #01-19, Singapore 640744",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Jagan Rai; Jack",
+            "20/06/2026",
+            "11.00 am",
+            "Novena TTSH Coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "El-n Lim",
+            "07/06/2026",
+            "1.00 pm",
+            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      },
+      "lastmonth": {
+        "card": [
+          1541,
+          "4:24:51 pm",
+          "32hr 14min",
+          639,
+          1,
+          "0.06 %",
+          0,
+          "41.47% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            1,
+            1,
+            20,
+            141,
+            8,
+            260,
+            162,
+            288,
+            308,
+            186,
+            5,
+            30,
+            127
+          ],
+          "byday": [
+            379,
+            150,
+            382,
+            489,
+            139,
+            2
+          ],
+          "byweek": [
+            0,
+            242,
+            415,
+            525,
+            359
+          ]
+        },
+        "pchart": {
+          "Daniel Leads 1": [
+            2,
+            0,
+            29,
+            40,
+            12,
+            1,
+            7
+          ],
+          "all_crm": [
+            2,
+            0,
+            29,
+            40,
+            12,
+            1,
+            7
+          ]
+        },
+        "apt": [
+          [
+            "14/04/2026",
+            "Daniel Leads 1",
+            "Stanley Lui",
+            "17/04/2026",
+            "2.00 pm",
+            "Clementi 120319",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      },
+      "daniel crm": {
+        "card": [
+          2403,
+          "4:24:51 pm",
+          "54hr 17min",
+          969,
+          15,
+          "0.62 %",
+          0,
+          "40.32% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            5,
+            1,
+            23,
+            165,
+            12,
+            334,
+            277,
+            448,
+            437,
+            322,
+            52,
+            100,
+            211
+          ],
+          "byday": [
+            508,
+            220,
+            632,
+            692,
+            316,
+            35
+          ],
+          "byweek": [
+            209,
+            673,
+            637,
+            525,
+            359
+          ]
+        },
+        "pchart": {
+          "Daniel Leads 1": [
+            4,
+            0,
+            29,
+            43,
+            12,
+            1,
+            8
+          ],
+          "Daniel Age 30 to 40": [
+            16,
+            0,
+            73,
+            267,
+            30,
+            2,
+            50
+          ],
+          "Daniel Age 50 to 60 ": [
+            4,
+            0,
+            27,
+            98,
+            7,
+            0,
+            8
+          ],
+          "all_crm": [
+            24,
+            0,
+            129,
+            408,
+            49,
+            3,
+            66
+          ]
+        },
+        "apt": [
+          [
+            "14/04/2026",
+            "Daniel Leads 1",
+            "Stanley Lui",
+            "17/04/2026",
+            "2.00 pm",
+            "Clementi 120319",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong William",
+            "22/05/2026",
+            "1.00 pm",
+            "50 E Coast Rd, Roxy Square 1, Singapore 428769",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Clinston Tan",
+            "30/05/2026",
+            "10.00 am",
+            "Bendemeer, exact location will be shared on the dat",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "14/05/2026",
+            "Daniel Age 30 to 40",
+            "Tee Kaixin Amelia",
+            "20/05/2026",
+            "2.00 pm",
+            "Blk17 Canberra Walk , #03-34, Parc Canberra SG 756949 ",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Wong Yao Hsiang",
+            "23/05/2026",
+            "12.00 pm",
+            "Starbucks, 30 Sembawang Dr, #01-22 Sun Plaza, Singapore 757713",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "15/05/2026",
+            "Daniel Age 30 to 40",
+            "Henry Cheng",
+            "06/06/2026",
+            "2.00 pm",
+            "808 Yishun Ring Rd, Singapore 760808",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Tan Kok Leong",
+            "25/05/2026",
+            "6.30 pm",
+            "city square mall startbak",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Stephen Goh Wei Qin",
+            "14/05/2026",
+            "6.30 pm",
+            "Starbucks YewTee Point, 21 Choa Chu Kang North 6 01-16 YewTee Point, 689578",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "08/05/2026",
+            "Daniel Age 30 to 40",
+            "Teo Jun Jie",
+            "26/05/2026",
+            "4.00 pm",
+            "The Coffee Bean Sengkang Grand Mall,, 70 Compassvale Bow, #01-71/72  Singapore 544692",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Yishan",
+            "20/05/2026",
+            "5.30 pm",
+            "Jurong east, Westgate startbuck",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Low Wee Hao Eddie",
+            "05/06/2026",
+            "1.00 pm",
+            "Coffee Bean, 407 Northshore Dr, #1 Northshore Plaza, Singapore 820407",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "13/05/2026",
+            "Daniel Age 30 to 40",
+            "Lim Zheng Wei",
+            "19/05/2026",
+            "6.30 pm",
+            "Ang mo Kia hub coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Masita",
+            "26/05/2026",
+            "6.30 pm",
+            "744 Jurong West Street 73, #01-19, Singapore 640744",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "18/05/2026",
+            "Daniel Age 30 to 40",
+            "Jagan Rai; Jack",
+            "20/06/2026",
+            "11.00 am",
+            "Novena TTSH Coffee bean",
+            "Face to face",
+            "Aravinth"
+          ],
+          [
+            "07/05/2026",
+            "Daniel Age 50 to 60 ",
+            "El-n Lim",
+            "07/06/2026",
+            "1.00 pm",
+            "wampo market,Whampoa Food Block 91 Food Centre, 91 Whampoa Dr, Singapore 320091",
+            "Face to face",
+            "Aravinth"
+          ]
+        ]
+      }
+    }
+  },
+  "Will": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "12:40:18 pm",
+          "0hr 0min",
+          null,
+          0,
+          "NaN %",
+          0,
+          "NaN% answer rate"
         ],
         "graph": {
           "byhour": [
@@ -2758,12 +1888,12 @@
             0,
             0,
             0,
-            1,
-            68,
-            76,
-            75,
-            31,
-            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0
@@ -2771,15 +1901,63 @@
           "byday": [
             0,
             0,
-            138,
-            68,
-            46,
+            0,
+            0,
+            0,
             0
           ],
           "byweek": [
-            206,
-            46,
             0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "week": {
+        "card": [
+          267,
+          "12:43:32 pm",
+          "9hr 18min",
+          116,
+          0,
+          "0.00 %",
+          0,
+          "43.45% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            2,
+            22,
+            81,
+            52,
+            47,
+            60,
+            2,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            86,
+            0,
+            75,
+            106,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            267,
             0,
             0
           ]
@@ -2791,43 +1969,43 @@
       },
       "month": {
         "card": [
-          252,
+          805,
           "1:14:27 pm",
-          "7hr 3min",
-          136,
+          "27hr 15min",
+          386,
           0,
           "0.00 %",
           0,
-          "53.97% answer rate"
+          "47.95% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
             0,
-            0,
-            0,
             1,
-            68,
-            76,
-            75,
-            31,
-            1,
+            2,
+            54,
+            215,
+            227,
+            183,
+            114,
+            4,
+            2,
             0,
-            0,
-            0
+            1
           ],
           "byday": [
-            0,
-            0,
-            138,
-            68,
-            46,
-            0
+            163,
+            98,
+            214,
+            174,
+            154,
+            2
           ],
           "byweek": [
             206,
-            46,
-            0,
+            223,
+            376,
             0,
             0
           ]
@@ -2884,196 +2062,48 @@
           "all_crm": []
         },
         "apt": []
-      }
-    }
-  },
-  "Wilfred Tan": {
-    "dashboard": {
-      "today": {
-        "card": [
-          0,
-          "12:29:48 am",
-          "0hr 0min",
-          null,
-          0,
-          "NaN %",
-          0,
-          "NaN% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "byday": [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0
-          ],
-          "byweek": [
-            0,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        "pchart": {
-          "all_crm": []
-        },
-        "apt": []
       },
-      "week": {
+      "daniel crm": {
         "card": [
-          228,
-          "10:20:18 am",
-          "5hr 15min",
-          99,
+          993,
+          "4:28:59 pm",
+          "28hr 34min",
+          467,
           0,
           "0.00 %",
           0,
-          "43.42% answer rate"
+          "47.03% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
             0,
-            64,
-            114,
-            16,
-            20,
-            10,
             1,
-            2,
-            0,
-            0,
-            0,
-            0
-          ],
-          "byday": [
-            83,
-            47,
-            0,
-            59,
-            39,
-            0
-          ],
-          "byweek": [
-            189,
-            39,
-            0,
-            0,
-            0
-          ]
-        },
-        "pchart": {
-          "all_crm": []
-        },
-        "apt": []
-      },
-      "month": {
-        "card": [
-          228,
-          "10:20:18 am",
-          "5hr 15min",
-          99,
-          0,
-          "0.00 %",
-          0,
-          "43.42% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            0,
-            0,
-            64,
-            114,
-            16,
-            20,
-            10,
-            1,
-            2,
-            0,
-            0,
-            0,
-            0
-          ],
-          "byday": [
-            83,
-            47,
-            0,
-            59,
-            39,
-            0
-          ],
-          "byweek": [
-            189,
-            39,
-            0,
-            0,
-            0
-          ]
-        },
-        "pchart": {
-          "all_crm": []
-        },
-        "apt": []
-      },
-      "lastmonth": {
-        "card": [
-          1531,
-          "10:20:11 am",
-          "30hr 15min",
-          719,
-          0,
-          "0.00 %",
-          0,
-          "46.96% answer rate"
-        ],
-        "graph": {
-          "byhour": [
-            2,
-            2,
-            539,
-            609,
-            22,
-            225,
-            84,
-            34,
-            5,
-            3,
             4,
+            71,
+            261,
+            243,
+            246,
+            148,
+            6,
             2,
-            0
+            4,
+            1
           ],
           "byday": [
-            288,
-            274,
-            272,
-            434,
-            255,
-            4
+            170,
+            146,
+            218,
+            298,
+            154,
+            2
           ],
           "byweek": [
-            339,
-            449,
-            259,
-            333,
-            151
+            207,
+            223,
+            376,
+            60,
+            127
           ]
         },
         "pchart": {
@@ -3087,12 +2117,12 @@
     "dashboard": {
       "today": {
         "card": [
-          0,
-          "12:29:48 am",
+          1,
+          "11:08:34 am",
           "0hr 0min",
           null,
           0,
-          "NaN %",
+          "0.00 %",
           0,
           "NaN% answer rate"
         ],
@@ -3101,7 +2131,7 @@
             0,
             0,
             0,
-            0,
+            1,
             0,
             0,
             0,
@@ -3117,14 +2147,14 @@
             0,
             0,
             0,
-            0,
+            1,
             0
           ],
           "byweek": [
             0,
             0,
             0,
-            0,
+            1,
             0
           ]
         },
@@ -3135,44 +2165,44 @@
       },
       "week": {
         "card": [
-          180,
-          "11:33:05 am",
-          "10hr 39min",
-          92,
+          142,
+          "11:53:32 am",
+          "6hr 18min",
+          62,
           0,
           "0.00 %",
           0,
-          "51.11% answer rate"
+          "43.66% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
-            2,
+            1,
             3,
-            75,
-            71,
-            9,
-            13,
+            46,
+            77,
             6,
+            6,
+            1,
             1,
             0,
             0,
             0,
-            0
+            1
           ],
           "byday": [
-            18,
-            49,
-            34,
-            37,
-            42,
+            35,
+            48,
+            56,
+            2,
+            1,
             0
           ],
           "byweek": [
-            138,
-            42,
             0,
             0,
+            141,
+            1,
             0
           ]
         },
@@ -3183,44 +2213,44 @@
       },
       "month": {
         "card": [
-          180,
+          540,
           "11:33:05 am",
-          "10hr 39min",
-          92,
+          "26hr 13min",
+          245,
           0,
           "0.00 %",
           0,
-          "51.11% answer rate"
+          "45.37% answer rate"
         ],
         "graph": {
           "byhour": [
             0,
-            2,
             3,
-            75,
-            71,
-            9,
-            13,
-            6,
+            12,
+            206,
+            236,
+            28,
+            39,
+            8,
+            2,
             1,
             0,
             0,
-            0,
-            0
+            5
           ],
           "byday": [
-            18,
-            49,
-            34,
-            37,
-            42,
-            0
+            71,
+            159,
+            120,
+            106,
+            75,
+            9
           ],
           "byweek": [
             138,
-            42,
-            0,
-            0,
+            227,
+            174,
+            1,
             0
           ]
         },
@@ -3276,6 +2306,298 @@
           "all_crm": []
         },
         "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          907,
+          "3:26:19 pm",
+          "36hr 24min",
+          411,
+          0,
+          "0.00 %",
+          0,
+          "45.31% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            3,
+            16,
+            366,
+            360,
+            37,
+            90,
+            21,
+            4,
+            1,
+            2,
+            1,
+            5
+          ],
+          "byday": [
+            131,
+            243,
+            195,
+            204,
+            124,
+            9
+          ],
+          "byweek": [
+            138,
+            227,
+            315,
+            154,
+            73
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      }
+    }
+  },
+  "Li Ting": {
+    "dashboard": {
+      "today": {
+        "card": [
+          0,
+          "12:40:18 pm",
+          "0hr 0min",
+          null,
+          0,
+          "NaN %",
+          0,
+          "NaN% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "week": {
+        "card": [
+          1,
+          "8:04:37 pm",
+          "0hr 0min",
+          null,
+          0,
+          "0.00 %",
+          0,
+          "NaN% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "byday": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "month": {
+        "card": [
+          1,
+          "8:04:37 pm",
+          "0hr 0min",
+          null,
+          0,
+          "0.00 %",
+          0,
+          "NaN% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "byday": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "lastmonth": {
+        "card": [
+          0,
+          "12:40:18 pm",
+          "0hr 0min",
+          null,
+          0,
+          "NaN %",
+          0,
+          "NaN% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          1,
+          "8:04:37 pm",
+          "0hr 0min",
+          null,
+          0,
+          "0.00 %",
+          0,
+          "NaN% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "byday": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byweek": [
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
@@ -3284,7 +2606,7 @@
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3332,7 +2654,7 @@
       "week": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3380,7 +2702,7 @@
       "month": {
         "card": [
           0,
-          "12:29:49 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3431,8 +2753,8 @@
           "10:15:55 am",
           "23hr 24min",
           424,
-          12,
-          "1.32 %",
+          0,
+          "0.00 %",
           0,
           "46.75% answer rate"
         ],
@@ -3469,165 +2791,57 @@
           ]
         },
         "pchart": {
-          "Main1": [
-            41,
-            0,
-            2,
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          907,
+          "10:15:55 am",
+          "23hr 24min",
+          424,
+          0,
+          "0.00 %",
+          0,
+          "46.75% answer rate"
+        ],
+        "graph": {
+          "byhour": [
             1,
-            0,
-            0,
+            30,
+            198,
+            115,
+            95,
+            56,
+            99,
+            76,
+            84,
+            94,
+            49,
+            8,
             1
           ],
-          "Main2": [
-            7,
-            0,
-            13,
-            42,
-            4,
-            4,
-            8
+          "byday": [
+            225,
+            91,
+            138,
+            221,
+            109,
+            82
           ],
-          "Main": [
-            11,
-            0,
-            44,
-            131,
-            4,
-            7,
-            22
-          ],
-          "all_crm": [
-            59,
-            0,
-            59,
-            174,
-            8,
-            11,
-            31
+          "byweek": [
+            680,
+            186,
+            36,
+            5,
+            0
           ]
         },
-        "apt": [
-          [
-            "07/04/2026",
-            "Main2",
-            "Rozita Binte Mohamed Sani",
-            "11/04/2026",
-            "10.00 am",
-            732688,
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main2",
-            "Lianne",
-            "07/04/2026",
-            "10.00 am",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Lim Aie Yoke",
-            "05/04/2026",
-            "4.00 pm",
-            544185,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Geetha",
-            "04/04/2026",
-            "10.00 am",
-            85401,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Ng Seng Giap",
-            "08/04/2026",
-            "10.00 am",
-            506853,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Cindy Toh",
-            "03/04/2026",
-            "11.00 am",
-            520246,
-            "Face to face",
-            "John"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Ronnie Loo",
-            "04/04/2026",
-            "10.00 am",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Cheong C.K.",
-            "07/04/2026",
-            "2.00 pm",
-            650269,
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Zarina Ahmad Zakri",
-            "07/04/2026",
-            "2.00 pm",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Baharudin",
-            "07/04/2026",
-            "10.00 am",
-            460132,
-            "Face to face",
-            "John"
-          ],
-          [
-            "07/04/2026",
-            "Main",
-            "Shan Dani",
-            "09/04/2026",
-            "12.00 pm",
-            "",
-            "Face to face",
-            "John"
-          ],
-          [
-            "07/04/2026",
-            "Main",
-            "Yvonne Wee",
-            "14/04/2026",
-            "11.00 am",
-            18936,
-            "Face to face",
-            "John"
-          ]
-        ]
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
@@ -3636,7 +2850,7 @@
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3684,7 +2898,7 @@
       "week": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3732,7 +2946,7 @@
       "month": {
         "card": [
           0,
-          "12:29:49 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3824,6 +3038,54 @@
           "all_crm": []
         },
         "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          46,
+          "1:26:37 pm",
+          "1hr 15min",
+          25,
+          0,
+          "0.00 %",
+          0,
+          "54.35% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            10,
+            27,
+            0,
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "byday": [
+            3,
+            0,
+            0,
+            43,
+            0,
+            0
+          ],
+          "byweek": [
+            37,
+            8,
+            1,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
@@ -3832,7 +3094,7 @@
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3880,7 +3142,7 @@
       "week": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -3928,7 +3190,7 @@
       "month": {
         "card": [
           0,
-          "12:29:49 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4020,6 +3282,54 @@
           "all_crm": []
         },
         "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          18,
+          "2:44:13 pm",
+          "0hr 13min",
+          14,
+          0,
+          "0.00 %",
+          0,
+          "77.78% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            4,
+            1,
+            0,
+            3,
+            6,
+            2,
+            0,
+            0,
+            1,
+            0
+          ],
+          "byday": [
+            1,
+            0,
+            1,
+            5,
+            8,
+            2
+          ],
+          "byweek": [
+            0,
+            13,
+            5,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
@@ -4028,7 +3338,7 @@
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4076,7 +3386,7 @@
       "week": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4124,7 +3434,7 @@
       "month": {
         "card": [
           0,
-          "12:29:49 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4216,6 +3526,54 @@
           "all_crm": []
         },
         "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          1632,
+          "10:46:06 am",
+          "24hr 41min",
+          665,
+          0,
+          "0.00 %",
+          0,
+          "40.75% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            102,
+            53,
+            96,
+            272,
+            306,
+            352,
+            194,
+            113,
+            85,
+            1,
+            0,
+            2,
+            1
+          ],
+          "byday": [
+            208,
+            335,
+            97,
+            567,
+            423,
+            1
+          ],
+          "byweek": [
+            634,
+            812,
+            186,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
@@ -4224,7 +3582,7 @@
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4272,7 +3630,7 @@
       "week": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4320,7 +3678,7 @@
       "month": {
         "card": [
           0,
-          "12:29:49 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4412,6 +3770,54 @@
           "all_crm": []
         },
         "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          16,
+          "6:07:29 pm",
+          "0hr 58min",
+          11,
+          0,
+          "0.00 %",
+          0,
+          "68.75% answer rate"
+        ],
+        "graph": {
+          "byhour": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            12,
+            1,
+            0,
+            2,
+            1,
+            0
+          ],
+          "byday": [
+            0,
+            0,
+            3,
+            13,
+            0,
+            0
+          ],
+          "byweek": [
+            3,
+            13,
+            0,
+            0,
+            0
+          ]
+        },
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   },
@@ -4420,7 +3826,7 @@
       "today": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4468,7 +3874,7 @@
       "week": {
         "card": [
           0,
-          "12:29:48 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4516,7 +3922,7 @@
       "month": {
         "card": [
           0,
-          "12:29:49 am",
+          "12:40:18 pm",
           "0hr 0min",
           null,
           0,
@@ -4567,8 +3973,8 @@
           "11:29:53 am",
           "11hr 36min",
           270,
-          8,
-          "1.20 %",
+          0,
+          "0.00 %",
           0,
           "40.60% answer rate"
         ],
@@ -4605,116 +4011,57 @@
           ]
         },
         "pchart": {
-          "Main_old": [
+          "all_crm": []
+        },
+        "apt": []
+      },
+      "daniel crm": {
+        "card": [
+          665,
+          "11:29:53 am",
+          "11hr 36min",
+          270,
+          0,
+          "0.00 %",
+          0,
+          "40.60% answer rate"
+        ],
+        "graph": {
+          "byhour": [
             0,
             0,
             0,
-            1,
+            2,
             0,
+            0,
+            5,
+            54,
+            225,
+            249,
+            122,
+            6,
+            0
+          ],
+          "byday": [
+            221,
+            132,
+            164,
+            147,
             0,
             0
           ],
-          "Main": [
-            8,
+          "byweek": [
+            665,
             0,
-            110,
-            307,
-            77,
-            19,
-            64
-          ],
-          "all_crm": [
-            8,
             0,
-            110,
-            308,
-            77,
-            19,
-            64
+            0,
+            0
           ]
         },
-        "apt": [
-          [
-            "01/04/2026",
-            "Main",
-            "Iris Sim",
-            "28/04/2026",
-            "8.00 pm",
-            521646,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "01/04/2026",
-            "Main",
-            "Jason Tey",
-            "09/04/2026",
-            "11.30 am",
-            598435,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "01/04/2026",
-            "Main",
-            "Jannah Lee",
-            "13/04/2026",
-            "7.00 pm",
-            310124,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Hermansyah Sabri",
-            "30/04/2026",
-            "2.00 pm",
-            670602,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "02/04/2026",
-            "Main",
-            "Leng kwee Koh",
-            "08/04/2026",
-            "5.00 pm",
-            162009,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Rajkumaralal Panneerselvam",
-            "09/04/2026",
-            "1.30 pm",
-            "",
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "06/04/2026",
-            "Main",
-            "Serene Seet",
-            "04/05/2026",
-            "12.30 pm",
-            48581,
-            "Face to face",
-            "Bless"
-          ],
-          [
-            "07/04/2026",
-            "Main",
-            "Angela Ng",
-            "08/05/2026",
-            "7.30 pm",
-            "toa payoh central",
-            "Face to face",
-            "Bless"
-          ]
-        ]
+        "pchart": {
+          "all_crm": []
+        },
+        "apt": []
       }
     }
   }

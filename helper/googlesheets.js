@@ -146,7 +146,7 @@ export class GoogleSheetsService {
                     
                 Status: this.#status_map[row['Status']],
 
-                'Apt Date': row['Apt Date'],
+                Date: row['Date'],
                 Time: row['Time'],
                 Location: row['Location']
 
@@ -177,7 +177,7 @@ export class GoogleSheetsService {
                 Name: row['Name'],
                 Numbers: row['Numbers'],
                 Status: row['Status'],
-                'Apt Date': row['Apt Date'],
+                'Date': row['Date'],
                 Time: row['Time'],
                 Location: row['Location']
 

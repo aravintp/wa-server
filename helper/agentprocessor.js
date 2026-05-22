@@ -199,7 +199,7 @@ export class AgentStatsProcessor {
         const appointments = agentcrm
             .filter(i => {
                 const call_date = new Date(i.call_date)
-                const [day, month, year] = i['Apt Date'].split('/');
+                const [day, month, year] = i.Date.split('/');
                 const apt_date = new Date(year, month - 1, day);
 
                 return ((
@@ -210,7 +210,7 @@ export class AgentStatsProcessor {
                 i.call_datestr,
                 i.SheetName,
                 i.Name,
-                i['Apt Date'],
+                i.Date,
                 i.Time,
                 i.Location,
                 i.Status,
