@@ -86,31 +86,83 @@ export default (wa,send_log,wa_agents) => {
         });
 
 
-        router.put('/send-notification', async(req, res) => {
+        // router.put('/send-notification', async(req, res) => {
 
-            send_log({type:'info',msg: req.originalUrl})
+        //     send_log({type:'info',msg: req.originalUrl})
             
-            // Prepare the number for wa-class
-            const id = req.query.id
-            const msg = req.query.msg
-            const num = req.query.number  + '@c.us'
+        //     // Prepare the number for wa-class
+        //     const id = req.query.id
+        //     const msg = req.query.msg
+        //     const num = req.query.number  + '@c.us'
 
-            send_log({type:'info',msg: `${id} recieved send-notification command `})
-            // Send message out
-            wa.sendMessage(id,num,msg).then(r=>{
+        //     send_log({type:'info',msg: `${id} recieved send-notification command `})
+        //     // Send message out
+        //     wa.sendMessage(id,num,msg).then(r=>{
 
-                // if promise succeeds response to browser as true
-                send_log({type:'success',msg: `${id} ${num} ${msg}  `})
-                res.json({message_sent:true})
+        //         // if promise succeeds response to browser as true
+        //         send_log({type:'success',msg: `${id} ${num} ${msg}  `})
+        //         res.json({message_sent:true})
                 
-            }).catch(err => {
-                    //  Explicitly pass the error to Log
-                    send_log({type:'error',msg: `${err}`}) 
+        //     }).catch(err => {
+        //             //  Explicitly pass the error to Log
+        //             send_log({type:'error',msg: `${err}`}) 
                     
-                    // Send reposnce back to browser that message sent, has failed
-                    res.json({message_sent:false})
-                });
-        })
+        //             // Send reposnce back to browser that message sent, has failed
+        //             res.json({message_sent:false})
+        //         });
+        // })
+
+        router.put('/send-notification', async (req, res) => {
+        try {
+            send_log({
+            type: 'info',
+            msg: req.originalUrl
+            });
+
+            // Prefer body instead of query for PUT requests
+            const { id, msg, number } = req.body;
+
+            // Validation
+            if (!id || !msg || !number) {
+            return res.status(400).json({
+                message_sent: false,
+                error: 'Missing id, msg or number'
+            });
+            }
+
+            // Format WhatsApp number
+            const num = `${number}@c.us`;
+
+            send_log({
+            type: 'info',
+            msg: `${id} received send-notification command`
+            });
+
+            // Send message
+            await wa.sendMessage(id, num, msg);
+
+            send_log({
+            type: 'success',
+            msg: `${id} ${num} ${msg}`
+            });
+
+            return res.json({
+            message_sent: true
+            });
+
+        } catch (err) {
+
+            send_log({
+            type: 'error',
+            msg: String(err)
+            });
+
+            return res.status(500).json({
+            message_sent: false,
+            error: String(err)
+            });
+        }
+        });
 
             
     return router;  
