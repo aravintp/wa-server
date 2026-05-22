@@ -117,18 +117,9 @@
                         ? 'close'
                         : 'initialise';
                                 
-                console.log(api_url)
-                // http://localhost:8080/api/wa/?id=mediway&number=80739726
                const res = await fetchBackendData(`${baseUrl}/api/wa/${api_url}?id=${wa_agent}&number=${number}`)
-
                addLog("info",`${baseUrl}/api/wa/${api_url}?id=${wa_agent}&number=${number}`)
-            //     isStopped = !isStopped;
-            //     const api_url = isStopped ? 'initialise' : 'close' ;
-
-            //    // const isOffline = get_server_state()? 'Offline': 'Connected'
-
-            //     await fetchBackendData(`${baseUrl}/api/wa/${api_url}`)
-            //     startBtn.textContent = isStopped ? '■ Stop' : '▶ Start' ;
+               startBtn.textContent = state === 'READY'? '■ Stop' : '▶ Start' ;
 
             }
 

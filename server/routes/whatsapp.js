@@ -7,9 +7,8 @@ export default (wa,send_log,wa_agents) => {
 
         router.get('/agents',async (req, res)  => {
 
-            console.log("=====/agents=====")
-            console.log(wa_agents)
-                res.send(JSON.stringify(wa_agents))
+            send_log({type:'info',msg: req.originalUrl})
+            res.send(JSON.stringify(wa_agents))
 
         })
 
@@ -36,6 +35,9 @@ export default (wa,send_log,wa_agents) => {
         
 
         router.get('/initialise',async (req, res)  => {
+
+            
+            send_log({type:'info',msg: req.originalUrl})
 
             // get id 
             const id = req.query.id
@@ -69,7 +71,7 @@ export default (wa,send_log,wa_agents) => {
             // get id 
             const id = req.query.id
 
-            wa.closeClient(id).then(f=>{
+            wa.destroyClient(id).then(f=>{
 
                 res.json({client_closed:true})
 
@@ -86,6 +88,8 @@ export default (wa,send_log,wa_agents) => {
 
         router.put('/send-notification', async(req, res) => {
 
+            send_log({type:'info',msg: req.originalUrl})
+            
             // Prepare the number for wa-class
             const id = req.query.id
             const msg = req.query.msg
