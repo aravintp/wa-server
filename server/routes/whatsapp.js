@@ -19,18 +19,6 @@ export default (wa,send_log,wa_agents) => {
             const id = req.query.id
             res.send(JSON.stringify(wa.getState(id)))
 
-            // wa.getState(id).then(s=>{
-
-            //     // send the state back to the browser
-            //     res.send(JSON.stringify(s))
-
-            // }).catch(err => {
-
-            //         // Explicitly pass the error to Log
-            //         send_log({type:'error',msg: `${err}` })
-            //          res.status(500).json({ error: "Failed to get state" });
-            //     });
-
         });
         
 
@@ -56,11 +44,11 @@ export default (wa,send_log,wa_agents) => {
                 
             }).catch(err => {
                 
-                    //  Fortunatly fuck you, Explicitly pass the error to Log
-                    send_log({type:'error',msg: `${err}`}) 
+                    //  Explicitly pass the error to Log
+                    send_log({ type: 'error', msg: String(err)});
                     
                     // Send reposnce back to browser that init has failed
-                    res.json({client_init:false})
+                    return res.status(500).json({client_init:false,error: String(err) });
                 });
             
         });
@@ -78,10 +66,10 @@ export default (wa,send_log,wa_agents) => {
             }).catch(err => {
 
                     //  Explicitly pass the error to Log
-                    send_log({type:'error',msg: `${err}`}) 
-                    
+                    send_log({ type: 'error', msg: String(err)});
+
                     // Send reposnce back to browser that close has failed
-                    res.json({client_closed:false})
+                    return res.status(500).json({client_closed:false,error: String(err) });
                 });
         });
 
@@ -114,53 +102,32 @@ export default (wa,send_log,wa_agents) => {
 
         router.put('/send-notification', async (req, res) => {
         try {
-            send_log({
-            type: 'info',
-            msg: req.originalUrl
-            });
+            send_log({ type: 'info', msg: req});
 
             // Prefer body instead of query for PUT requests
-            const { id, msg, number } = req.body;
+            const { name, msg, number } = req.body;
 
             // Validation
-            if (!id || !msg || !number) {
+            if (!name || !msg || !number) {
             return res.status(400).json({
                 message_sent: false,
-                error: 'Missing id, msg or number'
+                error: 'Missing name, msg or number'
             });
             }
 
             // Format WhatsApp number
             const num = `${number}@c.us`;
 
-            send_log({
-            type: 'info',
-            msg: `${id} received send-notification command`
-            });
+            send_log({ type: 'info', msg: `${name} received send-notification command` });
 
             // Send message
-            await wa.sendMessage(id, num, msg);
-
-            send_log({
-            type: 'success',
-            msg: `${id} ${num} ${msg}`
-            });
-
-            return res.json({
-            message_sent: true
-            });
+            await wa.sendMessage(name, num, msg);
+            send_log({ type: 'success',msg: `${name} ${num} ${msg}`});
+            return res.json({message_sent: true });
 
         } catch (err) {
-
-            send_log({
-            type: 'error',
-            msg: String(err)
-            });
-
-            return res.status(500).json({
-            message_sent: false,
-            error: String(err)
-            });
+            send_log({ type: 'error', msg: String(err)});
+            return res.status(500).json({message_sent: false,error: String(err) });
         }
         });
 
