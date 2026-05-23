@@ -42,6 +42,7 @@ export function startServer(){
     // middleware
     app.use(express.json());
     app.use(express.static("./"));
+    
 
     // routes
     app.use("/api", apiRoutes(processor, zoomcapi, zoomsource, crmsource, dashsource));

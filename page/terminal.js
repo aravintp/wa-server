@@ -12,16 +12,18 @@
             const startBtn = document.getElementById('startBtn');
             const wa_agentSelect = document.getElementById('wa_agents');
                         
+            // listners
             document.getElementById('startBtn').addEventListener('click', toggleScript);
+            wa_agentSelect.addEventListener('change', refresh_btn);
 
             // Fetch wa_agent list
-            const wa_agents = await fetchBackendData(`${baseUrl}/api/wa/agents`)
-            console.log(wa_agents)
+            export const wa_agents = await fetchBackendData(`${baseUrl}/api/wa/agents`)
 
             // Add wa agent dynamically in dropdown
              wa_agents.map(key => {
                  add_waagents(`${key.name} - ${key.number}`,key.name);
              })
+
 
             /* ══════════════════════════════════════════════════════════════
             wa_agents — Options
@@ -29,6 +31,14 @@
 
             function add_waagents(name,value){
                 wa_agentSelect.options[wa_agentSelect.options.length] = new Option(name, value);
+            }
+
+            
+            async function refresh_btn(){
+                
+                const wa_agent  = wa_agentSelect.value;
+                const state = await fetchBackendData(`${baseUrl}/api/wa/getstate?id=${wa_agent}`)
+                startBtn.textContent = state === 'READY'? '■ Stop' : '▶ Start' ;
             }
 
 
@@ -119,7 +129,6 @@
                                 
                const res = await fetchBackendData(`${baseUrl}/api/wa/${api_url}?id=${wa_agent}&number=${number}`)
                addLog("info",`${baseUrl}/api/wa/${api_url}?id=${wa_agent}&number=${number}`)
-               startBtn.textContent = state === 'READY'? '■ Stop' : '▶ Start' ;
 
             }
 

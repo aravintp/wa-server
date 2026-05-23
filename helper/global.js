@@ -41,12 +41,10 @@
             return log
         }
         
-    // Getter to retrieve temperature in Celsius
     export function get_logs() {
         return logs
     }
 
-    // Setter to set temperature using a Celsius value
     export function set_logs(n) {
         logs = n
     }
@@ -59,7 +57,6 @@
         return debug;
     }
     
-    // Setter to set temperature using a Celsius value
     export function add_log(n,s) {
 
         // added this line for log bug fix still testing

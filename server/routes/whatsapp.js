@@ -15,6 +15,8 @@ export default (wa,send_log,wa_agents) => {
 
         router.get('/getstate',async (req, res)  => {
 
+           // send_log({type:'info',msg: req.originalUrl})
+
             // get state of wa from wa-class
             const id = req.query.id
             res.send(JSON.stringify(wa.getState(id)))
@@ -24,32 +26,35 @@ export default (wa,send_log,wa_agents) => {
 
         router.get('/initialise',async (req, res)  => {
 
-            
-            send_log({type:'info',msg: req.originalUrl})
-
             // get id 
             const id = req.query.id
             const number = req.query.number
 
+            // log request
+            send_log({type:'info',msg: req.originalUrl})
+
             // log to console on receiving command from browser
             send_log({type:'info',msg: `Received command to init client!`})
 
-            await wa.createClient(id,number);
+            try{
+                    // intiate wa client
+                    await wa.createClient(id,number);
+                    await wa.initClient(id);
 
-            // initiate the client 
-            wa.initClient(id).then(r=>{
-
-                // send response to be true back to browser
-                res.json({client_init:true})
+                    // send response to be true back to browser
+                    res.json({client_init:true})
+                    
+                    // Explicitly pass the sucess to Log
+                    send_log({ type: 'success', msg: "api call /intialise ended"});
+            }
+            catch(err) {
                 
-            }).catch(err => {
-                
-                    //  Explicitly pass the error to Log
+                    // Explicitly pass the error to Log
                     send_log({ type: 'error', msg: String(err)});
                     
                     // Send reposnce back to browser that init has failed
                     return res.status(500).json({client_init:false,error: String(err) });
-                });
+            }
             
         });
 
@@ -59,18 +64,24 @@ export default (wa,send_log,wa_agents) => {
             // get id 
             const id = req.query.id
 
-            wa.destroyClient(id).then(f=>{
+            try {
 
-                res.json({client_closed:true})
+                    // close client
+                    await wa.destroyClient(id)
+                    res.json({client_closed:true})
+                    
+                   // Explicitly pass the sucess to Log
+                    send_log({ type: 'success', msg: "api call /intialise ended"});
 
-            }).catch(err => {
+            }
+            catch(err){
 
                     //  Explicitly pass the error to Log
                     send_log({ type: 'error', msg: String(err)});
 
                     // Send reposnce back to browser that close has failed
                     return res.status(500).json({client_closed:false,error: String(err) });
-                });
+            };
         });
 
 
@@ -101,34 +112,35 @@ export default (wa,send_log,wa_agents) => {
         // })
 
         router.put('/send-notification', async (req, res) => {
-        try {
-            send_log({ type: 'info', msg: req});
+            try {
 
-            // Prefer body instead of query for PUT requests
-            const { name, msg, number } = req.body;
+                send_log({ type: 'info', msg: req.baseUrl});
 
-            // Validation
-            if (!name || !msg || !number) {
-            return res.status(400).json({
-                message_sent: false,
-                error: 'Missing name, msg or number'
-            });
+                // Prefer body instead of query for PUT requests
+                const { name, msg, number } = req.body;
+
+                // Validation
+                if (!name || !msg || !number) {
+                return res.status(400).json({
+                    message_sent: false,
+                    error: 'Missing name, msg or number'
+                });
+                }
+
+                // Format WhatsApp number
+                const num = `${number}@c.us`;
+
+                send_log({ type: 'info', msg: `${name} received send-notification command` });
+
+                // Send message
+                await wa.sendMessage(name, num, msg);
+                send_log({ type: 'success',msg: `${name} ${num} ${msg}`});
+                return res.json({message_sent: true });
+
+            } catch (err) {
+                send_log({ type: 'error', msg: String(err)});
+                return res.status(500).json({message_sent: false,error: String(err) });
             }
-
-            // Format WhatsApp number
-            const num = `${number}@c.us`;
-
-            send_log({ type: 'info', msg: `${name} received send-notification command` });
-
-            // Send message
-            await wa.sendMessage(name, num, msg);
-            send_log({ type: 'success',msg: `${name} ${num} ${msg}`});
-            return res.json({message_sent: true });
-
-        } catch (err) {
-            send_log({ type: 'error', msg: String(err)});
-            return res.status(500).json({message_sent: false,error: String(err) });
-        }
         });
 
             

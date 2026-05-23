@@ -1,6 +1,6 @@
 import {} from "./dashboard.js"
 import {} from "./sidebar.js"
-import { wastatus,logs,addLog,initLogs } from "./terminal.js";
+import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
 
 
             const baseUrl = window.location.origin; 
@@ -11,17 +11,59 @@ import { wastatus,logs,addLog,initLogs } from "./terminal.js";
             }, 5000);
 
 
+            const startBtn = document.getElementById('startBtn');
+            const wa_agentSelect = document.getElementById('wa_agents')
+
             // Initialize
             initLogs();
+
             
+
+/* ══════════════════════════════════════════════════════════════
+   UI functions
+══════════════════════════════════════════════════════════════ */
+
+            
+            // async function update_WaStatus() {
+            //     let status_msg = "";
+
+            //     for (const s of wa_agents) {
+            //         const state = await get_server_state(s.name);
+            //         status_msg += `${s.name}:${state} \n`;
+            //     }
+
+            //     wastatus.textContent = status_msg;
+            // }
+
             async function update_WaStatus() {
-                const state = await get_server_state()
-                wastatus.textContent = `Status: ${state}`
+
+                const results = await Promise.all(
+                    wa_agents.map(async (s) => {
+
+                        const state = await get_server_state(s.name);
+
+                        let statusClass = "wa-offline";
+
+                        if (state === "READY") {
+                            statusClass = "wa-ready";
+                        } else if (state === "INITIALIZING") {
+                            statusClass = "wa-warning";
+                        }
+
+                        return `
+                            <div class="wa-status-line">
+                                <span class="wa-agent-name">${s.name}</span>
+                                <span class="wa-status ${statusClass}">${state}</span>
+                            </div>
+                            `;
+                        })
+                );
+
+                wastatus.innerHTML = results.join('');
             }
 
-            async function get_server_state(){
-                
-                const url = `${baseUrl}/api/getstate`
+            async function get_server_state(name){
+                const url = `${baseUrl}/api/wa/getstate?id=${name}`
 
                 try {
                     var state = await fetchBackendData(url)
@@ -32,6 +74,11 @@ import { wastatus,logs,addLog,initLogs } from "./terminal.js";
                 
                 return state
             }
+
+
+/* ══════════════════════════════════════════════════════════════
+   Messaging systems
+══════════════════════════════════════════════════════════════ */
 
 
             // receive message
@@ -83,6 +130,11 @@ import { wastatus,logs,addLog,initLogs } from "./terminal.js";
                 return !main_is_larger? sha_copy: []
             }
 
+
+
+/* ══════════════════════════════════════════════════════════════
+   Api function
+══════════════════════════════════════════════════════════════ */
 
             async function fetchBackendData(url) {
                 

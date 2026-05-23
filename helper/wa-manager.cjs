@@ -148,6 +148,7 @@ class WhatsAppManager {
         if (!session) return;
 
         await session.client.destroy();
+        await session.client.logout();
 
         delete this.clients[id];
 
