@@ -158,12 +158,34 @@ body {
 .term-header { display: flex; flex-direction: column; gap: 16px; }
 .term-path { font-size: 11px; color: var(--muted); }
 
-.term-toolbar {
+/* .term-toolbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+} */
+ .term-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  padding: 14px 18px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 .term-status-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
@@ -569,113 +591,85 @@ input.flatpickr-input {
   to { transform: rotate(360deg); }
 }
 
-/* WA Status */
+/* WA Status */.term-status-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+/* WA agent container */
 #status {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.wa-status-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
+/* Each agent */
 .wa-status-line {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 6px 8px;
-  border-radius: 6px;
-  white-space: nowrap;
-  overflow: hidden;
-}
+  gap: 8px;
 
-.wa-agent-name {
-  min-width: 0;
-  max-width: 70%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  padding: 6px 12px;
 
-.wa-status {
-  flex-shrink: 0;
-  padding: 4px 10px;
   border-radius: 999px;
-  white-space: nowrap;
-  text-align: center;
-}
- 
 
-.wa-ready {
-  color: var(--primary);
-}
+  background: rgba(255,255,255,0.04);
 
-.wa-offline {
-  color: var(--destructive);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(12px);
+
+  transition: all 0.2s ease;
 }
 
-.wa-warning {
-  color: var(--chart-3);
-} 
-
-/* #status {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+.wa-status-line:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.06);
 }
 
-.wa-status-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  font-size: 12px;
-  padding: 6px 8px;
-  border-radius: 6px;
-  background: rgba(255,255,255,0.01);
-  white-space: nowrap; 
-  overflow: hidden;
+/* Dot */
+.wa-status-line::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+
+  box-shadow: 0 0 10px var(--primary);
 }
 
+/* Agent name */
 .wa-agent-name {
   color: var(--foreground);
-  font-weight: 600;
-  min-width: 0;              
-  max-width: 240px;          
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.wa-status {
-  font-weight: 700;
-  flex-shrink: 0;            
-  padding: 4px 8px;
-  border-radius: 999px;      
   font-size: 11px;
-  min-width: 72px;
-  text-align: center;
 }
 
+/* Status badge */
+.wa-status {
+  font-size: 10px;
+  font-weight: 700;
 
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* READY */
 .wa-ready {
-  color: var(--primary);
+  color: #10b981;
+  background: rgba(16,185,129,0.12);
 }
 
+/* OFFLINE */
 .wa-offline {
-  color: var(--destructive);
+  color: #ef4444;
+  background: rgba(239,68,68,0.12);
 }
 
+/* WARNING */
 .wa-warning {
-  color: var(--chart-3);
-} 
-
-@media (max-width:520px){
-  .wa-agent-name { max-width: 120px; font-size:13px; }
-  .wa-status { min-width: 56px; padding:4px 6px; font-size:11px; }
-} */
-
-
+  color: #f59e0b;
+  background: rgba(245,158,11,0.12);
+}

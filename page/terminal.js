@@ -14,7 +14,7 @@
                         
             // listners
             document.getElementById('startBtn').addEventListener('click', toggleScript);
-            wa_agentSelect.addEventListener('change', refresh_btn);
+           // wa_agentSelect.addEventListener('change', refresh_btn);
 
             // Fetch wa_agent list
             export const wa_agents = await fetchBackendData(`${baseUrl}/api/wa/agents`)
@@ -34,12 +34,7 @@
             }
 
             
-            async function refresh_btn(){
-                
-                const wa_agent  = wa_agentSelect.value;
-                const state = await fetchBackendData(`${baseUrl}/api/wa/getstate?id=${wa_agent}`)
-                startBtn.textContent = state === 'READY'? '■ Stop' : '▶ Start' ;
-            }
+
 
 
             /* ══════════════════════════════════════════════════════════════

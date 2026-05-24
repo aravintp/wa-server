@@ -8,11 +8,8 @@ import { GoogleSheetsService } from "./helper/googlesheets.js"
 import { loadJsonSafe,loadWAAgents } from './server/util/utils.js'
 import { zoomapi,ZOOM_FILE,DASH_FILE,CRM_FILE,GOOGLE_FILE,WAAGENT_FILE,whatsapp} from './server/util/path.js'
 
-
 // //const zoomlogs = loadJsonSafe(ZOOM_FILE, {});
-
 // //const gsheet = new GoogleSheetsService()
-
 
 initLogs();
 set_debug(false)
@@ -33,10 +30,8 @@ async function dash_bootstrap() {
         processor.genAuto(key[0],key[1].start,key[1].end)
     });
 
-// /    // for daniel
-    
+//     for daniel
 //     const now = new Date();
-
 //     const lastmonth = new Date(now.getFullYear(), now.getMonth() - 1, 1);
 //     processor.genAuto("daniel crm",lastmonth,now)
 

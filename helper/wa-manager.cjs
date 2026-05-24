@@ -19,21 +19,27 @@ class WhatsAppManager {
             authStrategy: new LocalAuth({
                 clientId: id
             }),
-
             puppeteer: {
                 args: ['--no-sandbox', '--disable-setuid-sandbox']
             },
 
             pairWithPhoneNumber: phoneNumber
                 ? { phoneNumber }
-                : undefined
+                : undefined,
+            
+
+            restartOnAuthFail: true,
+            takeoverOnConflict: true, // <--- Set to boolean true
+            takeoverTimeoutMs: 0,   
+
         });
 
         this.registerEvents(client, id);
 
         this.clients[id] = {
             client,
-            ready: false
+            ready: false,
+            state: "OFFILNE"
         };
 
 
@@ -46,7 +52,8 @@ class WhatsAppManager {
 
         try {
 
-           await this.clients[id].client.initialize();
+            await this.clients[id].client.initialize();
+            this.clients[id].state = "INITIALIZING";
 
         } catch (error) {
 
@@ -73,6 +80,7 @@ class WhatsAppManager {
         client.on('ready', async () => {
 
             this.clients[id].ready = true;
+            this.clients[id].state = "READY";
 
             send_log({type: 'success',msg: `${id} ready`});
 
@@ -92,6 +100,7 @@ class WhatsAppManager {
 
         client.on('disconnected', (reason) => {
 
+            this.clients[id].state = "DISCONNECTED";
             send_log({type: 'error',msg:`${id} disconnected ${reason}`});
             this.clients[id].ready = false;
 
@@ -105,6 +114,7 @@ class WhatsAppManager {
 
         client.on('code', (msg) => {
 
+            this.clients[id].state = "PARING";
             send_log({
                 type: 'info',
                 msg: `Paring code received: ${msg}`
@@ -152,6 +162,7 @@ class WhatsAppManager {
 
         delete this.clients[id];
 
+        this.clients[id].state = "OFFLINE";
         send_log({type: 'success',msg: `Client ${id} destroyed`});
 
     }
@@ -164,9 +175,10 @@ class WhatsAppManager {
             return 'NOT_FOUND';
         }
 
-        return session.ready
-            ? 'READY'
-            : 'OFFLINE';
+        return session.state
+        // return session.ready
+        //     ? 'READY'
+        //     : 'OFFLINE';
 
     }
 

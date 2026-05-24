@@ -36,42 +36,54 @@ import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
             // }
 
             async function update_WaStatus() {
-
                 const results = await Promise.all(
                     wa_agents.map(async (s) => {
-
-                        const state = await get_server_state(s.name);
-
-                        let statusClass = "wa-offline";
-
-                        if (state === "READY") {
-                            statusClass = "wa-ready";
-                        } else if (state === "INITIALIZING") {
-                            statusClass = "wa-warning";
-                        }
-
-                        return `
-                            <div class="wa-status-line">
-                                <span class="wa-agent-name">${s.name}</span>
-                                <span class="wa-status ${statusClass}">${state}</span>
-                            </div>
-                            `;
-                        })
+                    const state = await get_server_state(s.name);
+                            set_btnstate(state,s.name)
+                            return set_agentPanel(state,s.name)
+                    })
                 );
-
                 wastatus.innerHTML = results.join('');
+
+            }
+
+            function set_agentPanel(state,name){
+                
+                let statusClass = "wa-offline";
+                if (state === "READY") {
+                    statusClass = "wa-ready";
+                } else if (state === "INITIALIZING") {
+                    statusClass = "wa-warning";
+                }
+
+                return `
+                        <div class="wa-status-line">
+                            <span class="wa-agent-name">${name}</span>
+
+                            <span class="wa-status ${statusClass}">
+                                ${state}
+                            </span>
+                        </div>
+                `;
+
+            }
+
+            function set_btnstate(state,name){
+                const wa_agent  = wa_agentSelect.value;
+                console.log(name, wa_agent)
+                startBtn.textContent = state === 'READY' && name === wa_agent? '■ Stop' : '▶ Start' ;
+
             }
 
             async function get_server_state(name){
-                const url = `${baseUrl}/api/wa/getstate?id=${name}`
 
+                const url = `${baseUrl}/api/wa/getstate?id=${name}`
                 try {
                     var state = await fetchBackendData(url)
-
                 } catch (error) {
                     state = "Offine"   
                 }
-                
+
                 return state
             }
 
