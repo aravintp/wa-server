@@ -4,6 +4,7 @@ import path from 'path';
 // import t from "./data/zoom.json" with {type: 'json'}
 import { DASH_FILE,CRM_FILE,ZOOM_FILE } from '../util/path.js';
 import { getunique } from '../util/utils.js';
+import { exec } from 'child_process';
 
 const router = express.Router();
 
@@ -85,5 +86,12 @@ export default (processor, zoomcapi, zoomsource, crmsource, dashsource)=>{
             }
         });
 
+        router.get('/restart', (req, res) => {
+        // Replace "my-app" with the PM2 process name or id
+            exec('pm2 restart wa-server', (err, stdout, stderr) => {
+                if (err) return res.status(500).send(`Error: ${stderr || err.message}`);
+                res.send(`Restarted: ${stdout}`);
+            });
+        });
     return router;
 }

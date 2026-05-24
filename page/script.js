@@ -1,3 +1,4 @@
+
 import {} from "./dashboard.js"
 import {} from "./sidebar.js"
 import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
@@ -70,7 +71,6 @@ import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
 
             function set_btnstate(state,name){
                 const wa_agent  = wa_agentSelect.value;
-                console.log(name, wa_agent)
                 startBtn.textContent = state === 'READY' && name === wa_agent? '■ Stop' : '▶ Start' ;
 
             }
@@ -155,13 +155,12 @@ import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
 
                     // The URL should match your backend server and endpoint
                     const response = await fetch(url);
-
+                        
                     if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                     }
 
-                    _ret = await response.json(); // Parse the response body as JSON
-
+                    _ret = await response.json()
                 } catch (error) {
 
                     throw error;

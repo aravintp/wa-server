@@ -10,10 +10,12 @@
             const terminal = document.getElementById('terminal-window');
             const logCount = document.getElementById('logCount');
             const startBtn = document.getElementById('startBtn');
+            const restartBtn = document.getElementById('restartBtn');
             const wa_agentSelect = document.getElementById('wa_agents');
                         
             // listners
             document.getElementById('startBtn').addEventListener('click', toggleScript);
+            restartBtn.addEventListener('click', restartScript);
            // wa_agentSelect.addEventListener('change', refresh_btn);
 
             // Fetch wa_agent list
@@ -141,6 +143,10 @@
                 logCount.textContent = '0';
             }
 
+            async function restartScript(){
+                  const res = await fetchBackendData(`${baseUrl}/api/restart`)
+                  addLog(res.message)
+            }
             /* ══════════════════════════════════════════════════════════════
             API CALLS
             ══════════════════════════════════════════════════════════════ */
