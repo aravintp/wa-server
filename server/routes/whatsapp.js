@@ -86,6 +86,7 @@ export default (wa,send_log,wa_agents) => {
 
 
         router.put('/send-notification', async (req, res) => {
+            let emsg = ""
             try {
 
                 send_log({ type: 'info', msg: req.baseUrl});
@@ -107,13 +108,13 @@ export default (wa,send_log,wa_agents) => {
                 send_log({ type: 'info', msg: `${name} received send-notification command` });
 
                 // Send message
-                await wa.sendMessage(name, num, msg);
+                emsg  = await wa.sendMessage(name, num, msg);
                 send_log({ type: 'success',msg: `${name} ${num} ${msg}`});
                 return res.json({message_sent: true });
 
             } catch (err) {
                 send_log({ type: 'error', msg: String(err)});
-                return res.status(500).json({message_sent: false,error: String(err) });
+                return res.status(500).json({message_sent: false,error: String(emsg) });
             }
         });
 
