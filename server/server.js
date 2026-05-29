@@ -34,9 +34,6 @@ const server = createServer(app);
 const io = new Server(server);
 
 
-console.log("=====server=====")
-console.log(whatsapp)
-
 export function startServer(){
     
     // middleware
@@ -60,20 +57,3 @@ export function startServer(){
     });
         
 }
-
-
-// const WhatsAppManager = require('./WhatsAppManager');
-// const wa = new WhatsAppManager();
-
-// (async () => {
-
-//     await wa.createClient('agent1');
-//     await wa.createClient('agent2');
-
-//     await wa.sendMessage(
-//         'agent1',
-//         '6581234567@c.us',
-//         'Hello from Agent 1'
-//     );
-
-// })();

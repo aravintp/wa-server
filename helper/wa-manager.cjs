@@ -108,7 +108,7 @@ class WhatsAppManager {
 
         client.on('message', (msg) => {
 
-            send_log({type: 'info',msg:`[${id}] ${msg.from}: ${msg.body}`});
+            // send_log({type: 'info',msg:`[${id}] ${msg.from}: ${msg.body}`});
 
         });
 

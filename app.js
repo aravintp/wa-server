@@ -14,7 +14,7 @@ import { zoomapi,ZOOM_FILE,DASH_FILE,CRM_FILE,GOOGLE_FILE,WAAGENT_FILE,whatsapp}
 initLogs();
 set_debug(false)
 whatsapp.agents = await loadWAAgents(WAAGENT_FILE)
-//await dash_bootstrap()
+await dash_bootstrap()
 startServer();
 
 

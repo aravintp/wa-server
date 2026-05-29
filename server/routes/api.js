@@ -76,7 +76,6 @@ export default (processor, zoomcapi, zoomsource, crmsource, dashsource)=>{
 
             const filename = req.query.name || "data.json";
             const folder = req.query.folder || "";
-
             const fullpath = path.join(DATA_DIR, folder, filename);
 
             if (fs.existsSync(fullpath)) {
