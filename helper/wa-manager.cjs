@@ -126,8 +126,6 @@ class WhatsAppManager {
 
     async sendMessage(id, number, message) {
 
-        console.log(this.clients)
-
         const session = this.clients[id];
 
         if (!session) {
