@@ -114,11 +114,10 @@ export default (wa,send_log,wa_agents) => {
 
             } catch (err) {
                 send_log({ type: 'error', msg: String(err)});
-                return res.status(500).json({message_sent: false,error: String(emsg) });
+                return res.status(500).json({message_sent: false,error: String(err) });
             }
         });
 
-            
     return router;  
 
 

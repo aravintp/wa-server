@@ -144,3 +144,7 @@ server old.js
 # Data Folder 
 /data
 /data
+data/dash.json
+data/zoom.json
+debug.js
+helper/zcaluri.js

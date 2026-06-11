@@ -19,9 +19,22 @@ class WhatsAppManager {
             authStrategy: new LocalAuth({
                 clientId: id
             }),
+            // puppeteer: {
+            //     args: ['--no-sandbox', '--disable-setuid-sandbox']
+            // },
             puppeteer: {
-                args: ['--no-sandbox', '--disable-setuid-sandbox']
-            },
+                    headless: true,
+                    args: [
+                        '--no-sandbox',
+                        '--disable-setuid-sandbox',
+                        '--disable-dev-shm-usage',
+                        '--disable-accelerated-2d-canvas',
+                        '--no-first-run',
+                        '--no-zygote',
+                        '--single-process', // Helps limit resources on low-RAM servers
+                        '--disable-gpu'
+                    ],
+                },
 
             pairWithPhoneNumber: phoneNumber
                 ? { phoneNumber }
@@ -106,7 +119,38 @@ class WhatsAppManager {
 
         });
 
-        client.on('message', (msg) => {
+        client.on('message',async (msg) => {
+
+            const test_server = "https://n8n.srv1343663.hstgr.cloud/webhook-test/b86af3dd-3950-4432-a3dd-39453aa87f7e";
+            const server = "https://n8n.srv1343663.hstgr.cloud/webhook/b86af3dd-3950-4432-a3dd-39453aa87f7e";
+            const profile = await msg.getContact();
+            try {
+                // 1. Send the request to the external server
+                const response = await fetch(server, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': '' // Forward headers if needed
+                    },
+                    body: JSON.stringify({
+                        "wa-agent": id,
+                        fromid: msg.from,
+                        number: profile.number,
+                        name: profile.name,
+                        message: msg.body
+                    })
+
+                });
+
+                // 2. Parse the JSON response from the external server
+                const data = await response.json();
+
+                // 3. Send the data back to your client
+                //res.json(data);
+            } catch (error) {
+                console.error('Error connecting to external server:', error);
+                //res.status(500).json({ error: 'Failed to fetch data from remote server' });
+            }
 
             // send_log({type: 'info',msg:`[${id}] ${msg.from}: ${msg.body}`});
 
