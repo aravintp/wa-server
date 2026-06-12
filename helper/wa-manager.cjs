@@ -124,7 +124,11 @@ class WhatsAppManager {
             const test_server = "https://n8n.srv1343663.hstgr.cloud/webhook-test/b86af3dd-3950-4432-a3dd-39453aa87f7e";
             const server = "https://n8n.srv1343663.hstgr.cloud/webhook/b86af3dd-3950-4432-a3dd-39453aa87f7e";
             const profile = await msg.getContact();
-            console.log(profile)
+            const displayName =
+            profile.name ??
+            profile.pushname ??
+            profile.shortName ??
+            'Unknown';
             try {
                 // 1. Send the request to the external server
                 const response = await fetch(server, {
@@ -136,8 +140,8 @@ class WhatsAppManager {
                     body: JSON.stringify({
                         "wa-agent": id,
                         fromid: msg.from,
-                        number: profile.number,
-                        name: profile.name,
+                        number: profile.id.user,
+                        name: displayName,
                         message: msg.body
                     })
 
