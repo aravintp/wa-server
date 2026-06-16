@@ -61,20 +61,26 @@ export class ZoomPhoneLogs {
             let monthData = [];
             do {
 
-                const response = await this.#phoneClient
-                    .endpoints
-                    .callLogs
-                    .getAccountsCallHistory({
-                        query: {
-                            from: fromISO,
-                            to: toISO,
-                            page_size: 300,
-                            next_page_token: nextPageToken
-                        }
-                    });
+                let response;
+                try {
+                    
+                    response = await this.#phoneClient
+                        .endpoints
+                        .callLogs
+                        .getAccountsCallHistory({
+                            query: {
+                                from: fromISO,
+                                to: toISO,
+                                page_size: 300,
+                                next_page_token: nextPageToken
+                            }
+                        });
 
-                nextPageToken = response.data.next_page_token || "";
-                monthData = monthData.concat(response.data.call_logs);
+                    nextPageToken = response.data.next_page_token || "";
+                    monthData = monthData.concat(response.data.call_logs);
+                } catch (error) {
+                    console.log(error)
+                }
 
             } while (nextPageToken !== "");
 

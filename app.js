@@ -21,10 +21,16 @@ startServer();
 async function dash_bootstrap() {
     const zoomcapi = new ZoomPhoneLogs(zoomapi)
     const zoomlogs = await zoomcapi.getLogs(2);
+    if (zoomlogs.length<=0){
+        console.log("error occured at zoomlogs, skipping dash for now");
+        return;
+    }
+
+    
     const processor = new AgentStatsProcessor()
-    processor.zoom_source = zoomlogs
-    //processor.googleApi = gsheet
-    await processor.init()
+        processor.zoom_source = zoomlogss
+        //processor.googleApi = gsheet
+        await processor.init()
 
     Object.entries(processor.cycle()).forEach((key,value) => {
         processor.genAuto(key[0],key[1].start,key[1].end)
