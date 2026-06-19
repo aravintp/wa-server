@@ -89,6 +89,7 @@ export default (wa,send_log,wa_agents) => {
             let emsg = ""
             try {
 
+                // Log
                 send_log({ type: 'info', msg: req.baseUrl});
 
                 // Prefer body instead of query for PUT requests
@@ -96,21 +97,31 @@ export default (wa,send_log,wa_agents) => {
 
                 // Validation
                 if (!name || !msg || !number) {
-                return res.status(400).json({
-                    message_sent: false,
-                    error: 'Missing name, msg or number'
-                });
+                    return res.status(400).json({
+                        message_sent: false,
+                        error: 'Missing name, msg or number'
+                    });
                 }
+
 
                 // Format WhatsApp number
                 const num = `${number}@c.us`;
 
+                // Log
                 send_log({ type: 'info', msg: `${name} received send-notification command` });
 
                 // Send message
                 emsg  = await wa.sendMessage(name, num, msg);
+
+                // Log  
                 send_log({ type: 'success',msg: `${name} ${num} ${msg}`});
-                return res.json({message_sent: true });
+
+                // return response
+                return res.json({
+
+                    message_sent: true 
+                
+                });
 
             } catch (err) {
                 send_log({ type: 'error', msg: String(err)});

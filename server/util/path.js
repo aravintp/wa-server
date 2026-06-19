@@ -12,6 +12,7 @@ export const GOOGLE_FILE = path.join(DATA_DIR, "google.json");
 export const WAAGENT_FILE = path.join(__dirname, "..", "..", "wa_agents.csv");
 export const index = path.join(__dirname, "..", "..", "index.html");
 
+export const N8N_SERVER = "https://n8n-pwa.com/webhook";
 
 export const zoomapi = {
     clientId: "GQMuoJjISuCPfZtQBu7yLw",

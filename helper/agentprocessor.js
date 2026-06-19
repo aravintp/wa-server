@@ -1,5 +1,5 @@
 
-import { GOOGLESHEETS_FIELDS, STATUS_MAP } from "../server/util/path.js";
+import { GOOGLESHEETS_FIELDS, STATUS_MAP,N8N_SERVER } from "../server/util/path.js";
 import { GoogleSheetsService } from "./googlesheets.js"
 import { createWriteStream } from 'node:fs';
 import { send_log } from "./global.js";
@@ -292,9 +292,8 @@ export class AgentStatsProcessor {
     }
     // ---------------- N8N FETCH ----------------
 
-    async #fetchEmployees() {
-        const baseUrl = "https://n8n.srv1343663.hstgr.cloud/webhook";
-        const url = `${baseUrl}/api/gettable`;
+    async #fetchEmployees() {;
+        const url = `${N8N_SERVER}/api/gettable`;
 
         try {
             const response = await fetch(url);
