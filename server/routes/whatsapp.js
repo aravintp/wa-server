@@ -1,4 +1,5 @@
 import express from "express"
+import {formatError} from "../util/utils.js"
 
 const router = express.Router()
 
@@ -53,7 +54,10 @@ export default (wa,send_log,wa_agents) => {
                     send_log({ type: 'error', msg: String(err)});
                     
                     // Send reposnce back to browser that init has failed
-                    return res.status(500).json({client_init:false,error: String(err) });
+                    return res.status(500).json({
+                        client_init:false,
+                        error: formatError(err),
+                    });
             }
             
         });
@@ -65,7 +69,6 @@ export default (wa,send_log,wa_agents) => {
             const id = req.query.id
 
             try {
-
                     // close client
                     await wa.destroyClient(id)
                     res.json({client_closed:true})
@@ -80,52 +83,60 @@ export default (wa,send_log,wa_agents) => {
                     send_log({ type: 'error', msg: String(err)});
 
                     // Send reposnce back to browser that close has failed
-                    return res.status(500).json({client_closed:false,error: String(err) });
+                    return res.status(500).json({
+                        client_closed:false,
+                        error: formatError(err),
+                    });
             };
         });
 
 
         router.put('/send-notification', async (req, res) => {
+
             let emsg = ""
             try {
+                    // Log
+                    send_log({ type: 'info', msg: req.baseUrl});
 
-                // Log
-                send_log({ type: 'info', msg: req.baseUrl});
+                    // Prefer body instead of query for PUT requests
+                    const { name, msg, number } = req.body;
 
-                // Prefer body instead of query for PUT requests
-                const { name, msg, number } = req.body;
+                    // Validation
+                    if (!name || !msg || !number) {
+                        return res.status(400).json({
+                            message_sent: false,
+                            error: 'Missing name, msg or number'
+                        });
+                    }
 
-                // Validation
-                if (!name || !msg || !number) {
-                    return res.status(400).json({
-                        message_sent: false,
-                        error: 'Missing name, msg or number'
+                    // Format WhatsApp number
+                    const num = `${number}@c.us`;
+
+                    // Log
+                    send_log({ type: 'info', msg: `${name} received send-notification command` });
+
+                    // Send message
+                    emsg  = await wa.sendMessage(name, num, msg);
+
+                    // Log  
+                    send_log({ type: 'success',msg: `${name} ${num} ${msg.slice(0, 10)}`});
+
+                    // return response
+                    return res.json({ 
+                        message_sent: true,
+                        name: name,
+                        number: num,
+                        message: msg
                     });
-                }
-
-
-                // Format WhatsApp number
-                const num = `${number}@c.us`;
-
-                // Log
-                send_log({ type: 'info', msg: `${name} received send-notification command` });
-
-                // Send message
-                emsg  = await wa.sendMessage(name, num, msg);
-
-                // Log  
-                send_log({ type: 'success',msg: `${name} ${num} ${msg}`});
-
-                // return response
-                return res.json({
-
-                    message_sent: true 
-                
-                });
 
             } catch (err) {
-                send_log({ type: 'error', msg: String(err)});
-                return res.status(500).json({message_sent: false,error: String(err) });
+
+                    // return response
+                    send_log({ type: 'error', msg: String(err)});
+                    return res.status(500).json({
+                        message_sent: false,
+                        error: formatError(err),
+                    });
             }
         });
 

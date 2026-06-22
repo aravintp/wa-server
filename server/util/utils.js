@@ -61,6 +61,14 @@ export async function loadWAAgents(path) {
     }
 }
 
+export function formatError(err) {
+  return {
+    name: err?.name || "Error",
+    message: err?.message || String(err),
+    code: err?.code || null,
+    stack: process.env.NODE_ENV === "development" ? err?.stack : undefined,
+  };
+}
 // 
 // // Usage example
 // import { ZOOM_FILE } from '../util/path.js';

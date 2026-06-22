@@ -187,11 +187,17 @@ class WhatsAppManager {
             throw new Error(`Client ${id} not ready`);
         }
 
-        await session.client.sendMessage(number, message);
+        try {
+            // Send the plain text message
+            const repsonse = await session.client.sendMessage(number, message);
+        } catch (error) {
+            throw new Error(`Client ${id}, Failed to send message:`, error);
+        }
+        
 
         send_log({
             type: 'info',
-            msg: `${id} - Send message request:\n${number} ${message}`
+            msg: `${id} - Send message request:\n${number} ${message.slice(0, 10)}`
         });
 
     }
