@@ -133,7 +133,7 @@ export default (wa,send_log,wa_agents) => {
 
                     // return response
                     send_log({ type: 'error', msg: String(err)});
-                    return res.status(500).json({
+                    return res.status(404).json({
                         message_sent: false,
                         error: formatError(err),
                     });
