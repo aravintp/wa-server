@@ -1,5 +1,4 @@
 
-import { GOOGLESHEETS_FIELDS, STATUS_MAP,N8N_SERVER } from "../server/util/path.js";
 const { N8N_SERVER } = require("../server/util/path.js")
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const { send_log } = require('./global.js');
