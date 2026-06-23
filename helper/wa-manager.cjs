@@ -1,3 +1,6 @@
+
+import { GOOGLESHEETS_FIELDS, STATUS_MAP,N8N_SERVER } from "../server/util/path.js";
+const { N8N_SERVER } = require("../server/util/path.js")
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const { send_log } = require('./global.js');
 const qrcode = require('qrcode-terminal');
@@ -119,46 +122,97 @@ class WhatsAppManager {
 
         });
 
-        client.on('message',async (msg) => {
+        // client.on('message',async (msg) => {
 
-            const test_server = "https://n8n.srv1343663.hstgr.cloud/webhook-test/b86af3dd-3950-4432-a3dd-39453aa87f7e";
-            const server = "https://n8n.srv1343663.hstgr.cloud/webhook/b86af3dd-3950-4432-a3dd-39453aa87f7e";
-            const profile = await msg.getContact();
-            const displayName =
-            profile.name ??
-            profile.pushname ??
-            profile.shortName ??
-            'Unknown';
+        //     const server = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
+        //     const profile = await msg.getContact();
+        //     const displayName =
+        //     profile.name ??
+        //     profile.pushname ??
+        //     profile.shortName ??
+        //     'Unknown';
+        //     try {
+        //         // 1. Send the request to the external server
+        //         const response = await fetch(server, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'Content-Type': 'application/json',
+        //                 'Authorization': '' // Forward headers if needed
+        //             },
+        //             body: JSON.stringify({
+        //                 "wa-agent": id,
+        //                 fromid: msg.from,
+        //                 number: profile.id.user,
+        //                 name: displayName,
+        //                 message: msg.body
+        //             })
+
+        //         });
+
+        //         // 2. Parse the JSON response from the external server
+        //         const reps = await response.json();
+
+        //     } catch (error) {
+        //         //console.error('Error connecting to external server:', error);
+        //         res.status(500).json({ error: 'Failed to fetch data from remote server' });
+        //     }
+
+
+        // });
+
+        client.on('message', async (msg) => {
+
+            const server = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
+
             try {
-                // 1. Send the request to the external server
-                const response = await fetch(server, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': '' // Forward headers if needed
-                    },
-                    body: JSON.stringify({
-                        "wa-agent": id,
-                        fromid: msg.from,
-                        number: profile.id.user,
-                        name: displayName,
-                        message: msg.body
-                    })
+                const profile = await msg.getContact();
 
+                const displayName =
+                profile.name ??
+                profile.pushname ??
+                profile.shortName ??
+                'Unknown';
+
+                const response = await fetch(server, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': ''
+                },
+                body: JSON.stringify({
+                    "wa-agent": id,
+                    fromid: msg.from,
+                    number: profile.id.user,
+                    name: displayName,
+                    message: msg.body
+                })
                 });
 
-                // 2. Parse the JSON response from the external server
-                const data = await response.json();
+                let reps = null;
+                const contentType = response.headers.get('content-type') || '';
 
-                // 3. Send the data back to your client
-                //res.json(data);
+                if (contentType.includes('application/json')) {
+                    reps = await response.json();
+                } else {
+                    reps = await response.text();
+                }
+
+                if (!response.ok) {
+                    console.error('Webhook returned error:', {
+                        status: response.status,
+                        statusText: response.statusText,
+                        body: reps
+                    });
+
+                    // Do not throw. Just stop processing this message.
+                    return;
+                }
+
+                console.log('Webhook success:', reps);
+
             } catch (error) {
-                console.error('Error connecting to external server:', error);
-                //res.status(500).json({ error: 'Failed to fetch data from remote server' });
+                console.error('Error sending message to webhook:', error.message);
             }
-
-            // send_log({type: 'info',msg:`[${id}] ${msg.from}: ${msg.body}`});
-
         });
 
         client.on('code', (msg) => {

@@ -21,7 +21,6 @@ startServer();
 async function dash_bootstrap() {
     const zoomcapi = new ZoomPhoneLogs(zoomapi)
     const zoomlogs = await zoomcapi.getLogs(2);
-    console.log(zoomlogs)
     if (zoomlogs.length<=0){
         console.log("error occured at zoomlogs, skipping dash for now");
         return;
