@@ -90,8 +90,6 @@ export class AgentStatsProcessor {
         // Bascially add name and email to google sheets data that is avaiable to us
         const emp_crm = (await Promise.all(emp_prod.map(async(s) => {
 
-            //changed this
-           // const gdata = await this.#fetchGoogleData(this.#googleapi,s.GoogleSheets)
             const gdata = await this.#fetchGoogleData(s.GoogleSheets)
             return gdata.map(g => ({
                     ...g,
@@ -100,6 +98,8 @@ export class AgentStatsProcessor {
                 }))
             })
         )).flat();
+
+        // some problem here, cant see sabrina count
 
         // Use caller_email to connect zoomlogs to crm and and call_date
         this.#processedCount = 0;
@@ -194,41 +194,80 @@ export class AgentStatsProcessor {
         // Add all_crm key to the object
         status_object.all_crm = all_crm;
 
+        // console.log(zm.zoomname, " ",agentcrm)
         
         // ---------------- appointments ---------------------
+        
+        // console.log(agentcrm)
+        // const appointments = agentcrm
+        //     .filter(i => {
+        //         const call_date = new Date(i.call_date)
+        //         const [day, month, year] = i?.Date.split('/');
+        //         const apt_date = new Date(year, month - 1, day);
+
+        //         return ((
+        //             i.Status === "Face to face" || i.Status === "Zoom") 
+        //             && call_date <= apt_date );
+        //     })
+        //     .map(i => ([
+        //         i.call_datestr,
+        //         i.SheetName,
+        //         i.Name,
+        //         i.Date,
+        //         i.Time,
+        //         i.Location,
+        //         i.Status,
+        //         i.caller_name
+        //     ]));
+  
         const appointments = agentcrm
-            .filter(i => {
-                const call_date = new Date(i.call_date)
-                const [day, month, year] = i.Date.split('/');
-                const apt_date = new Date(year, month - 1, day);
+        .filter(i => {
+            if (
+            !['Face to face', 'Zoom'].includes(i?.Status) ||
+            typeof i?.Date !== 'string' ||
+            !i.Date.trim() ||
+            !i?.call_date
+            ) {
+            return false;
+            }
 
-                return ((
-                    i.Status === "Face to face" || i.Status === "Zoom") 
-                    && call_date <= apt_date );
-            })
-            .map(i => ([
-                i.call_datestr,
-                i.SheetName,
-                i.Name,
-                i.Date,
-                i.Time,
-                i.Location,
-                i.Status,
-                i.caller_name
-            ]));
-            // const appointments = agentcrm
-            // .filter(i =>  i.Status === "Face to face" || i.Status === "Zoom" )
-            // .map(i => ([
-            //     i.call_datestr,
-            //     i.SheetName,
-            //     i.Name,
-            //     i['Apt Date'],
-            //     i.Time,
-            //     i.Location,
-            //     i.Status,
-            //     i.caller_name
-            // ]));
+            const dateParts = i.Date.trim().split('/');
 
+            if (dateParts.length !== 3) {
+            return false;
+            }
+
+            const [day, month, year] = dateParts.map(Number);
+
+            const callDate = new Date(i.call_date);
+            const appointmentDate = new Date(
+            year,
+            month - 1,
+            day
+            );
+
+            if (
+            Number.isNaN(callDate.getTime()) ||
+            Number.isNaN(appointmentDate.getTime())
+            ) {
+            return false;
+            }
+
+            callDate.setHours(0, 0, 0, 0);
+            appointmentDate.setHours(0, 0, 0, 0);
+
+            return callDate <= appointmentDate;
+        })
+        .map(i => [
+            i.call_datestr,
+            i.SheetName,
+            i.Name,
+            i.Date,
+            i.Time,
+            i.Location,
+            i.Status,
+            i.caller_name
+        ]);
 
         // console.log(status_count)
         // console.log(crm_counts)
@@ -356,7 +395,7 @@ export class AgentStatsProcessor {
     const item = gData
 
     const agentemail = item.caller_email;
-    const callee_number = `+65${String(item.Numbers).replace(/\s/g, "")}`;
+    const callee_number = `+65${String(item.Number).replace(/\s/g, "")}`;
     const isValidStatus = 
     ["f2f", "zoom","cb","not intrested"]
     .includes(item.Status?.toLowerCase());

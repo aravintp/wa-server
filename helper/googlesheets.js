@@ -139,12 +139,12 @@ export class GoogleSheetsService {
                 SheetName: sheetName,
                 Index: row['Index'],
                 Name: row['Name'],
-                Numbers:
-                typeof row['Numbers'] === "string"
-                    ? Number(row['Numbers'].replace(/\s/g, ""))
-                    : row['Numbers'] ?? 0,
+                Number:
+                typeof row['Number'] === "string"
+                    ? Number(row['Number'].replace(/\s/g, ""))
+                    : row['Number'] ?? 0,
                     
-                Status: this.#status_map[row['Status']],
+                Status: this.#status_map[String(row['Status']).toLowerCase()],
 
                 Date: row['Date'],
                 Time: row['Time'],

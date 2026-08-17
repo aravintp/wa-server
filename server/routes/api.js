@@ -1,8 +1,9 @@
 import express from 'express'
 import path from 'path';
+import fs from 'node:fs';
 
 // import t from "./data/zoom.json" with {type: 'json'}
-import { DASH_FILE,CRM_FILE,ZOOM_FILE } from '../util/path.js';
+import { DATA_DIR,DASH_FILE,CRM_FILE,ZOOM_FILE } from '../util/path.js';
 import { getunique } from '../util/utils.js';
 import { exec } from 'child_process';
 
@@ -47,7 +48,7 @@ export default (processor, zoomcapi, zoomsource, crmsource, dashsource)=>{
             const uniquecrm = getunique(
                 todaycrm,
                 crmsource,
-                "Numbers",
+                "Number",
                 "Index"
             );
 

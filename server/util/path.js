@@ -30,9 +30,23 @@ export const STATUS_MAP = {
         'wrong number': 'Wrong Number',
         'cb': 'Call back'
     };
+// export const STATUS_MAP = {
+//         'booked on calendar' : 'Face to face',
+//         'f2f': 'Face to face',
+//         'zoom': 'Zoom',
+//         'not Intrested': 'Not interested',
+//         'npu': 'Never Pick Up',
+//         'npu 1': 'Never Pick Up',
+//         'npu 2': 'Never Pick Up',
+//         'npu 3': 'Never Pick Up',
+//         'niu': 'Not in use',
+//         'wrong number': 'Wrong Number',
+//         'cb': 'Call back',
+//         'contacted': 'Call back'
+//     };
 
 export var whatsapp = {
     agents:[]
     }
     
-export const GOOGLESHEETS_FIELDS = ['Name', 'Numbers', 'Status', 'Date', 'Time', 'Location']
+export const GOOGLESHEETS_FIELDS = ['Name', 'Number', 'Status', 'Date', 'Time', 'Location']

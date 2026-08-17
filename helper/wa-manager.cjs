@@ -54,7 +54,7 @@ class WhatsAppManager {
         this.clients[id] = {
             client,
             ready: false,
-            state: "OFFILNE"
+            state: "OFFLINE"
         };
 
 
@@ -216,10 +216,10 @@ class WhatsAppManager {
 
         client.on('code', (msg) => {
 
-            this.clients[id].state = "PARING";
+            this.clients[id].state = "PAIRING";
             send_log({
                 type: 'info',
-                msg: `Paring code received: ${msg}`
+                msg: `Pairing code received: ${msg}`
             });
 
         });
@@ -244,7 +244,7 @@ class WhatsAppManager {
             // Send the plain text message
             const repsonse = await session.client.sendMessage(number, message);
         } catch (error) {
-            throw new Error(`Client ${id}, Failed to send message:`, error);
+            throw new Error(`Client ${id} failed to send message`, { cause: error });
         }
         
 
