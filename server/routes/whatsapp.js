@@ -112,7 +112,7 @@ export default (wa,send_log,wa_agents) => {
                     send_log({ type: 'info', msg: `${name} received send-notification command` });
 
                     // Send message
-                    emsg  = await wa.sendMessage(name, msg);
+                    emsg  = await wa.sendSelf(name, msg);
 
                     // Log  
                     send_log({ type: 'success',msg: `${name} ${msg.slice(0, 10)}`});

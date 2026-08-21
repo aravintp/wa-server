@@ -254,7 +254,7 @@ class WhatsAppManager {
         //     msg: `${id} - Send message request:\n${number} ${message.slice(0, 10)}`
         // });
 
-        
+
         try {
             const response = await session.client.sendMessage(number, message);
 
@@ -291,14 +291,12 @@ class WhatsAppManager {
              send_log({type: 'warning',msg:`Client ${id} not ready`});
             throw new Error(`Client ${id} not ready`);
         }
-
-        
         try {
-            const response = await session.client.sendMessage(id.phoneNumber, message);
+            const response = await session.client.sendMessage(`${session.phoneNumber}@c.us`, message);
 
             send_log({
                 type: 'info',
-                msg: `${id} - Send message to self:\n${id.phoneNumber} ${message.slice(0, 10)}`
+                msg: `${id} - Send message to self:\n${session.phoneNumber} ${message.slice(0, 10)}`
             });
 
             return response;
