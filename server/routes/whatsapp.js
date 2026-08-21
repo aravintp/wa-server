@@ -1,5 +1,4 @@
 import express from "express"
-import {formatError} from "../util/utils.js"
 
 const router = express.Router()
 
@@ -130,13 +129,19 @@ export default (wa,send_log,wa_agents) => {
                     });
 
             } catch (err) {
+                const cleanMessage = (err?.message || String(err))
+                    .split('\n')[0]
+                    .trim();
 
-                    // return response
-                    send_log({ type: 'error', msg: String(err)});
-                    return res.status(404).json({
-                        message_sent: false,
-                        error: formatError(err),
-                    });
+                send_log({
+                    type: 'error',
+                    msg: cleanMessage
+                });
+
+                return res.status(500).json({
+                    message_sent: false,
+                    error: cleanMessage,
+                });
             }
         });
 

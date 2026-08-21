@@ -54,7 +54,8 @@ class WhatsAppManager {
         this.clients[id] = {
             client,
             ready: false,
-            state: "OFFLINE"
+            state: "OFFLINE",
+            phoneNumber
         };
 
 
@@ -159,60 +160,60 @@ class WhatsAppManager {
 
         // });
 
-        client.on('message', async (msg) => {
+        // client.on('message', async (msg) => {
 
-            const server = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
+        //     const server = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
 
-            try {
-                const profile = await msg.getContact();
+        //     try {
+        //         const profile = await msg.getContact();
 
-                const displayName =
-                profile.name ??
-                profile.pushname ??
-                profile.shortName ??
-                'Unknown';
+        //         const displayName =
+        //         profile.name ??
+        //         profile.pushname ??
+        //         profile.shortName ??
+        //         'Unknown';
 
-                const response = await fetch(server, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': ''
-                },
-                body: JSON.stringify({
-                    "wa-agent": id,
-                    fromid: msg.from,
-                    number: profile.id.user,
-                    name: displayName,
-                    message: msg.body
-                })
-                });
+        //         const response = await fetch(server, {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'Authorization': ''
+        //         },
+        //         body: JSON.stringify({
+        //             "wa-agent": id,
+        //             fromid: msg.from,
+        //             number: profile.id.user,
+        //             name: displayName,
+        //             message: msg.body
+        //         })
+        //         });
 
-                let reps = null;
-                const contentType = response.headers.get('content-type') || '';
+        //         let reps = null;
+        //         const contentType = response.headers.get('content-type') || '';
 
-                if (contentType.includes('application/json')) {
-                    reps = await response.json();
-                } else {
-                    reps = await response.text();
-                }
+        //         if (contentType.includes('application/json')) {
+        //             reps = await response.json();
+        //         } else {
+        //             reps = await response.text();
+        //         }
 
-                if (!response.ok) {
-                    console.error('Webhook returned error:', {
-                        status: response.status,
-                        statusText: response.statusText,
-                        body: reps
-                    });
+        //         if (!response.ok) {
+        //             console.error('Webhook returned error:', {
+        //                 status: response.status,
+        //                 statusText: response.statusText,
+        //                 body: reps
+        //             });
 
-                    // Do not throw. Just stop processing this message.
-                    return;
-                }
+        //             // Do not throw. Just stop processing this message.
+        //             return;
+        //         }
 
-                console.log('Webhook success:', reps);
+        //         console.log('Webhook success:', reps);
 
-            } catch (error) {
-                console.error('Error sending message to webhook:', error.message);
-            }
-        });
+        //     } catch (error) {
+        //         console.error('Error sending message to webhook:', error.message);
+        //     }
+        // });
 
         client.on('code', (msg) => {
 
@@ -240,20 +241,81 @@ class WhatsAppManager {
             throw new Error(`Client ${id} not ready`);
         }
 
-        try {
-            // Send the plain text message
-            const repsonse = await session.client.sendMessage(number, message);
-        } catch (error) {
-            throw new Error(`Client ${id} failed to send message`, { cause: error });
-        }
+        /// old code 21/08
+        // try {
+        //     // Send the plain text message
+        //     const repsonse = await session.client.sendMessage(number, message);
+        // } catch (error) {
+        //     throw new Error(`Client ${id} failed to send message`, { cause: error.message });
+        // }
         
+        // send_log({
+        //     type: 'info',
+        //     msg: `${id} - Send message request:\n${number} ${message.slice(0, 10)}`
+        // });
 
-        send_log({
-            type: 'info',
-            msg: `${id} - Send message request:\n${number} ${message.slice(0, 10)}`
-        });
+        
+        try {
+            const response = await session.client.sendMessage(number, message);
 
+            send_log({
+                type: 'info',
+                msg: `${id} - Send message request:\n${number} ${message.slice(0, 10)}`
+            });
+
+            return response;
+
+        } catch (error) {
+            
+            send_log({
+                type: 'info',
+                msg: `Client ${id} failed to send message: ${error.message}`
+            });
+
+            throw new Error(
+                `Client ${id} failed to send message: ${error.message}`
+            );
+        }
     }
+
+    async sendSelf(id, message) {
+
+        const session = this.clients[id];
+
+        if (!session) {
+             send_log({type: 'warning',msg:`Client ${id} not found`});
+            throw new Error(`Client ${id} not found`);
+        }
+
+        if (!session.ready) {
+             send_log({type: 'warning',msg:`Client ${id} not ready`});
+            throw new Error(`Client ${id} not ready`);
+        }
+
+        
+        try {
+            const response = await session.client.sendMessage(id.phoneNumber, message);
+
+            send_log({
+                type: 'info',
+                msg: `${id} - Send message to self:\n${number} ${message.slice(0, 10)}`
+            });
+
+            return response;
+
+        } catch (error) {
+            
+            send_log({
+                type: 'info',
+                msg: `Client ${id} failed to send to self: ${error.message}`
+            });
+
+            throw new Error(
+                `Client ${id} failed to send to self: ${error.message}`
+            );
+        }
+    }
+
 
     async destroyClient(id) {
 

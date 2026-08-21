@@ -110,7 +110,13 @@ export class AgentStatsProcessor {
         // create stats for each zoom users
         this.#zoomusers.forEach(n => {
             //this.#stats[n.zoomname] = structuredClone(this.#stats["All Agents"]);
-            this.createAgent(n.zoomname)
+            try {
+                this.createAgent(n.zoomname)
+                
+            } catch (error) {
+                
+                    send_log({ type: 'error', msg: `${this.#zoomusers} - ${error}` });
+            }
         });
 
         send_log({type: 'debug',msg: '@AgentStatsProcessor completed..'});
