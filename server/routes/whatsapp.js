@@ -98,10 +98,10 @@ export default (wa,send_log,wa_agents) => {
                     send_log({ type: 'info', msg: req.baseUrl});
 
                     // Prefer body instead of query for PUT requests
-                    const { name, msg, number } = req.body;
+                    const { name, msg } = req.body;
 
                     // Validation
-                    if (!name || !msg || !number) {
+                    if (!name || !msg) {
                         return res.status(400).json({
                             message_sent: false,
                             error: 'Missing name, msg or number'
@@ -121,7 +121,6 @@ export default (wa,send_log,wa_agents) => {
                     return res.json({ 
                         message_sent: true,
                         name: name,
-                        number: num,
                         message: msg
                     });
 
