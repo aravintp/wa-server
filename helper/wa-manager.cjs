@@ -298,7 +298,7 @@ class WhatsAppManager {
 
             send_log({
                 type: 'info',
-                msg: `${id} - Send message to self:\n${number} ${message.slice(0, 10)}`
+                msg: `${id} - Send message to self:\n${id.phoneNumber} ${message.slice(0, 10)}`
             });
 
             return response;

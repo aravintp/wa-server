@@ -90,6 +90,58 @@ export default (wa,send_log,wa_agents) => {
         });
 
 
+        router.put('/send-self', async (req, res) => {
+
+            let emsg = ""
+            try {
+                    // Log
+                    send_log({ type: 'info', msg: req.baseUrl});
+
+                    // Prefer body instead of query for PUT requests
+                    const { name, msg, number } = req.body;
+
+                    // Validation
+                    if (!name || !msg || !number) {
+                        return res.status(400).json({
+                            message_sent: false,
+                            error: 'Missing name, msg or number'
+                        });
+                    }
+
+                    // Log
+                    send_log({ type: 'info', msg: `${name} received send-notification command` });
+
+                    // Send message
+                    emsg  = await wa.sendMessage(name, msg);
+
+                    // Log  
+                    send_log({ type: 'success',msg: `${name} ${msg.slice(0, 10)}`});
+
+                    // return response
+                    return res.json({ 
+                        message_sent: true,
+                        name: name,
+                        number: num,
+                        message: msg
+                    });
+
+            } catch (err) {
+                const cleanMessage = (err?.message || String(err))
+                    .split('\n')[0]
+                    .trim();
+
+                send_log({
+                    type: 'error',
+                    msg: cleanMessage
+                });
+
+                return res.status(500).json({
+                    message_sent: false,
+                    error: cleanMessage,
+                });
+            }
+        });
+
         router.put('/send-notification', async (req, res) => {
 
             let emsg = ""
@@ -144,6 +196,7 @@ export default (wa,send_log,wa_agents) => {
                 });
             }
         });
+
 
     return router;  
 
