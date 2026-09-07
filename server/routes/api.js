@@ -30,6 +30,7 @@ export default (processor, zoomcapi, zoomsource, crmsource, dashsource)=>{
 
         });
 
+
         router.get('/dash/refresh-dash', async (req, res) => {
 
             const todaylogs = await zoomcapi.getLogsToday();
@@ -92,6 +93,23 @@ export default (processor, zoomcapi, zoomsource, crmsource, dashsource)=>{
                 if (err) return res.status(500).send(`Error: ${stderr || err.message}`);
                 res.send(`Restarted: ${stdout}`);
             });
+        });
+
+
+        router.get('/zoom/logs', async (req, res) => {
+            try {
+                const months = Number(req.query.months) || 6;
+
+                const logs = await zoomcapi.getLogs(months);
+
+                res.send(logs);
+            } catch (error) {
+                console.error(error);
+
+                res.status(500).send({
+                    error: 'Failed to retrieve Zoom logs'
+                });
+            }
         });
     return router;
 }
