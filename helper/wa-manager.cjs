@@ -122,43 +122,43 @@ class WhatsAppManager {
 
         });
 
-        // client.on('message',async (msg) => {
+        client.on('message',async (msg) => {
 
-        //     const server = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
-        //     const profile = await msg.getContact();
-        //     const displayName =
-        //     profile.name ??
-        //     profile.pushname ??
-        //     profile.shortName ??
-        //     'Unknown';
-        //     try {
-        //         // 1. Send the request to the external server
-        //         const response = await fetch(server, {
-        //             method: 'POST',
-        //             headers: {
-        //                 'Content-Type': 'application/json',
-        //                 'Authorization': '' // Forward headers if needed
-        //             },
-        //             body: JSON.stringify({
-        //                 "wa-agent": id,
-        //                 fromid: msg.from,
-        //                 number: profile.id.user,
-        //                 name: displayName,
-        //                 message: msg.body
-        //             })
+            const server = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
+            const profile = await msg.getContact();
+            const displayName =
+            profile.name ??
+            profile.pushname ??
+            profile.shortName ??
+            'Unknown';
+            try {
+                // 1. Send the request to the external server
+                const response = await fetch(server, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': '' // Forward headers if needed
+                    },
+                    body: JSON.stringify({
+                        "wa-agent": id,
+                        fromid: msg.from,
+                        number: profile.id.user,
+                        name: displayName,
+                        message: msg.body
+                    })
 
-        //         });
+                });
 
-        //         // 2. Parse the JSON response from the external server
-        //         const reps = await response.json();
+                // 2. Parse the JSON response from the external server
+                const reps = await response.json();
 
-        //     } catch (error) {
-        //         //console.error('Error connecting to external server:', error);
-        //         res.status(500).json({ error: 'Failed to fetch data from remote server' });
-        //     }
+            } catch (error) {
+                //console.error('Error connecting to external server:', error);
+                res.status(500).json({ error: 'Failed to fetch data from remote server' });
+            }
 
 
-        // });
+        });
 
         // client.on('message', async (msg) => {
 

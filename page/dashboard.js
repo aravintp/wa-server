@@ -11,7 +11,7 @@ const crmSelect = document.getElementById('crm-filter');
 const refreshBtn = document.getElementById('refresh-dashboard');
 
 // calendar
-const fp = flatpickr("#calendar", {
+const fp = window.flatpickr("#calendar", {
   dateFormat: "Y-m-d",
   onChange:  (selectedDates, dateStr) => customdate(dateStr)
 });
