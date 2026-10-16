@@ -6,12 +6,21 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 
-const QUIET_MS = 8000;      // forward after this long with no new message from the sender
+const QUIET_MS = 4000;      // forward after this long with no new message from the sender
 const MAX_WAIT_MS = 30000;
 const REQUEST_TIMEOUT_MS = 10000;
 const RETRY_DELAYS_MS = [2000, 5000, 15000, 60000];
 const OUTBOX_DIR = process.env.WA_OUTBOX_DIR || path.join(__dirname, '.wa-webhook-outbox'); // Must be on persistent storage
 const N8N_WEBHOOK = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
+
+const TZ_OFFSET_S = 8 * 3600;   // Asia/Singapore (UTC+8, no DST). Change for other zones.
+const HISTORY_LIMIT = 200;      // max messages pulled from the chat per delivery
+
+// Unix timestamp (seconds) of 00:00 today in the configured timezone
+function startOfTodayUnix() {
+    const now = Math.floor(Date.now() / 1000);
+    return now - ((now + TZ_OFFSET_S) % 86400);
+}
 
 class WhatsAppManager {
 
@@ -40,8 +49,6 @@ class WhatsAppManager {
                     '--disable-dev-shm-usage',
                     '--disable-accelerated-2d-canvas',
                     '--no-first-run',
-                    '--no-zygote',
-                    '--single-process', // Helps limit resources on low-RAM servers
                     '--disable-gpu'
                 ],
             },
@@ -106,67 +113,72 @@ class WhatsAppManager {
                 msg: `Pairing code received: ${msg}`
             });
         });
+        // Diagnostics for the "stuck at authenticated" issue
+        client.on('loading_screen', (percent, message) => {
+            console.log(`${id} loading ${percent}% ${message}`);
+        });
+        client.on('change_state', (state) => {
+            console.log(`${id} state ${state}`);
+        });
 
-        
-    client.on('message', async (msg) => {
-        try {
-            const body = typeof msg.body === 'string'
-            ? msg.body.trim()
-            : '';
+        client.on('message', async (msg) => {
+            try {
+                const body = typeof msg.body === 'string'
+                    ? msg.body.trim()
+                    : '';
 
-            // Log unsupported or empty incoming events
-            if (!body) {
-                send_log({
-                    type: 'info',
-                    msg: `Skipped empty WhatsApp message.
+                // Log unsupported or empty incoming events
+                if (!body) {
+                    send_log({
+                        type: 'info',
+                        msg: `Skipped empty WhatsApp message.
                     Type: ${msg.type}
                     From: ${msg.from}
                     Has Media: ${msg.hasMedia}
                     ID: ${msg.id?._serialized ?? 'Unknown'}`
+                    });
+                    return;
+                }
+
+                const profile = await msg.getContact();
+
+                const displayName =
+                    profile.name ||
+                    profile.pushname ||
+                    profile.shortName ||
+                    'Unknown';
+
+                const messageId =
+                    msg.id?._serialized ??
+                    msg.id?.id ??
+                    null;
+
+                if (!messageId) {
+                    throw new Error('WhatsApp message ID unavailable');
+                }
+
+                this.queueMessage(
+                    id,
+                    msg.from,
+                    {
+                        number: profile.id.user,
+                        name: displayName
+                    },
+                    body,
+                    messageId
+                );
+
+            } catch (error) {
+                send_log({
+                    type: 'error',
+                    msg: `Error queueing message: ${error.message}`
                 });
-                return;
             }
-
-            const profile = await msg.getContact();
-
-            const displayName =
-            profile.name ||
-            profile.pushname ||
-            profile.shortName ||
-            'Unknown';
-
-            const messageId =
-            msg.id?._serialized ??
-            msg.id?.id ??
-            null;
-
-            if (!messageId) {
-            throw new Error('WhatsApp message ID unavailable');
-            }
-
-            this.queueMessage(
-            id,
-            msg.from,
-            {
-                number: profile.id.user,
-                name: displayName
-            },
-            body,
-            messageId
-            );
-
-        } catch (error) {
-            send_log({
-            type: 'error',
-            msg: `Error queueing message: ${error.message}`
-            });
-        }
-    });
-
+        });
     }
+
     // Persist each inbound message before scheduling a batch. The outbox folder
     // MUST live on a persistent volume, not temporary/container-only storage.
-
     persistEntry(entry) {
         const destination = path.join(OUTBOX_DIR, `${entry.outboxId}.json`);
         const temporary = `${destination}.tmp`;
@@ -258,22 +270,59 @@ class WhatsAppManager {
         this.retryTimers.set(entry.outboxId, timer);
     }
 
+    // Pull today's full conversation (client + admin messages) for a chat
+    async fetchTodayConversation(id, chatId) {
+        const session = this.clients[id];
+        if (!session?.ready) throw new Error(`Client ${id} not ready`);
+
+        const chat = await session.client.getChatById(chatId);
+        const since = startOfTodayUnix();
+        const msgs = await chat.fetchMessages({ limit: HISTORY_LIMIT });
+
+        return msgs
+            .filter(m => m.timestamp >= since)
+            .map(m => ({
+                id: m.id._serialized,
+                role: m.fromMe ? 'admin' : 'client',
+                body: (typeof m.body === 'string' && m.body.trim()) || `[${m.type}]`,
+                timestamp: m.timestamp
+            }));
+    }
+
     async deliverBatch(entry) {
-        const messageIds = entry.messages.map(m => m.id);
-        // Sorting makes the idempotency key independent of message ordering.
-        const batchId = crypto.createHash('sha256')
-            .update(JSON.stringify([entry.id, entry.from, [...messageIds].sort()]))
-            .digest('hex');
+        const newMessageIds = entry.messages.map(m => m.id);
+        // Arrival order, so the last one is the latest. Fixed once the batch is
+        // built, so it stays the same across retries and outbox recovery.
+        const lastNewId = newMessageIds[newMessageIds.length - 1];
+
+        let conversation;
+        try {
+            conversation = await this.fetchTodayConversation(entry.id, entry.from);
+        } catch (error) {
+            // Client not ready or fetch failed: fall back to the queued messages
+            send_log({ type: 'warning', msg: `History fetch failed for ${entry.from}: ${error.message}. Using queued messages.` });
+            conversation = entry.messages.map(m => ({
+                id: m.id,
+                role: 'client',
+                body: m.body,
+                timestamp: null
+            }));
+        }
+
         const payload = {
             'wa-agent': entry.id,
             fromid: entry.from,
             number: entry.sender.number,
             name: entry.sender.name,
-            message_id: batchId,
-            message_ids: messageIds,
-            message: entry.messages.map(m => m.body).join('\n'),
-            messages: entry.messages.map(m => m.body)
+            message_id: lastNewId,          // last new WhatsApp message id, used for dedupe
+            message_ids: newMessageIds,     // every new message in this batch
+            message: entry.messages.map(m => m.body).join('\n'), // only the new client messages
+            messages: conversation,         // full day's conversation: { id, role, body, timestamp }
+            conversation_text: conversation
+                .map(m => `${m.role === 'admin' ? 'Admin' : 'Client'}: ${m.body}`)
+                .join('\n')
         };
+
         try {
             const response = await fetch(N8N_WEBHOOK, {
                 method: 'POST',
@@ -284,7 +333,7 @@ class WhatsAppManager {
             if (!response.ok) throw new Error(`n8n responded ${response.status}`);
             // Only delete after successful HTTP acknowledgement from n8n.
             fs.unlinkSync(path.join(OUTBOX_DIR, `${entry.outboxId}.json`));
-            send_log({ type: 'success', msg: `Forwarded WA batch ${batchId.slice(0, 12)} from ${entry.from}` });
+            send_log({ type: 'success', msg: `Forwarded WA batch ...${lastNewId.slice(-12)} from ${entry.from}` });
         } catch (error) {
             entry.attempts = (entry.attempts || 0) + 1;
             entry.status = 'retry';
