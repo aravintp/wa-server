@@ -22,9 +22,19 @@ function startOfTodayUnix() {
     return now - ((now + TZ_OFFSET_S) % 86400);
 }
 
+// Readable text for errors thrown inside the WhatsApp Web page (their message can be just "r")
+function describeError(e) {
+    if (!e) return 'unknown error';
+    if (typeof e === 'string') return e.slice(0, 400);
+    const stack = String(e.stack || '').split('\n').slice(0, 3).join(' | ');
+    return [e.name, e.message, stack].filter(Boolean).join(' :: ').slice(0, 400);
+}
+
 class WhatsAppManager {
 
     constructor() {
+        this.chatRefs = new Map();   // `${clientId}:${chatId}` -> Chat taken from the incoming message
+        this.chatLog = new Map();    // `${clientId}:${chatId}` -> today's messages seen since this server started
         this.clients = {};
         this.pending = new Map();
         this.retryTimers = new Map();
@@ -121,6 +131,24 @@ class WhatsAppManager {
             console.log(`${id} state ${state}`);
         });
 
+        // Local record of today's messages (client AND admin), used when WhatsApp's own
+        // history API fails. message_create fires for incoming and outgoing messages.
+        client.on('message_create', (msg) => {
+            try {
+                const chatId = msg.fromMe ? msg.to : msg.from;
+                const mid = msg.id?._serialized;
+                if (!chatId || !mid || chatId === 'status@broadcast') return;
+                const body = (typeof msg.body === 'string' && msg.body.trim()) || `[${msg.type}]`;
+                const key = `${id}:${chatId}`;
+                const since = startOfTodayUnix();
+                const list = (this.chatLog.get(key) || []).filter(m => m.timestamp >= since);
+                if (!list.some(m => m.id === mid)) {
+                    list.push({ id: mid, role: msg.fromMe ? 'admin' : 'client', body, timestamp: msg.timestamp });
+                }
+                this.chatLog.set(key, list.slice(-HISTORY_LIMIT));
+            } catch (e) { /* logging must never break message handling */ }
+        });
+
         client.on('message', async (msg) => {
             try {
                 const body = typeof msg.body === 'string'
@@ -156,6 +184,9 @@ class WhatsAppManager {
                 if (!messageId) {
                     throw new Error('WhatsApp message ID unavailable');
                 }
+
+                // Keep the chat from the incoming message: getChatById can fail for @lid chats
+                try { this.chatRefs.set(`${id}:${msg.from}`, await msg.getChat()); } catch (e) { /* history falls back to getChatById */ }
 
                 this.queueMessage(
                     id,
@@ -275,9 +306,24 @@ class WhatsAppManager {
         const session = this.clients[id];
         if (!session?.ready) throw new Error(`Client ${id} not ready`);
 
-        const chat = await session.client.getChatById(chatId);
+        const key = `${id}:${chatId}`;
         const since = startOfTodayUnix();
-        const msgs = await chat.fetchMessages({ limit: HISTORY_LIMIT });
+        let msgs = null;
+
+        // 1) chat taken from the incoming message  2) look it up by id
+        const saved = this.chatRefs.get(key);
+        if (saved) {
+            try {
+                msgs = await saved.fetchMessages({ limit: HISTORY_LIMIT });
+            } catch (e) {
+                this.chatRefs.delete(key);   // stale after a reconnect
+                send_log({ type: 'warning', msg: `Saved chat failed for ${chatId}: ${describeError(e)}. Trying getChatById.` });
+            }
+        }
+        if (!msgs) {
+            const chat = await session.client.getChatById(chatId);
+            msgs = await chat.fetchMessages({ limit: HISTORY_LIMIT });
+        }
 
         return msgs
             .filter(m => m.timestamp >= since)
@@ -303,14 +349,24 @@ class WhatsAppManager {
         } catch (error) {
             // Client not ready or fetch failed: fall back to the queued messages
             historySource = 'queued';
-            historyError = String(error && error.message ? error.message : error).slice(0, 300);
-            send_log({ type: 'warning', msg: `History fetch failed for ${entry.from}: ${historyError}. Using queued messages.` });
-            conversation = entry.messages.map(m => ({
-                id: m.id,
-                role: 'client',
-                body: m.body,
-                timestamp: null
-            }));
+            historyError = describeError(error);
+            const since = startOfTodayUnix();
+            const local = (this.chatLog.get(`${entry.id}:${entry.from}`) || []).filter(m => m.timestamp >= since);
+            const lastNew = newMessageIds[newMessageIds.length - 1];
+            if (local.length && local.some(m => m.id === lastNew)) {
+                // Local record has both sides of today's chat (since the server started)
+                historySource = 'local_log';
+                conversation = local;
+                send_log({ type: 'warning', msg: `History fetch failed for ${entry.from}: ${historyError}. Using local log (${local.length} msgs).` });
+            } else {
+                send_log({ type: 'warning', msg: `History fetch failed for ${entry.from}: ${historyError}. Using queued messages.` });
+                conversation = entry.messages.map(m => ({
+                    id: m.id,
+                    role: 'client',
+                    body: m.body,
+                    timestamp: null
+                }));
+            }
         }
 
         const payload = {
