@@ -296,11 +296,15 @@ class WhatsAppManager {
         const lastNewId = newMessageIds[newMessageIds.length - 1];
 
         let conversation;
+        let historySource = 'chat';
+        let historyError = null;
         try {
             conversation = await this.fetchTodayConversation(entry.id, entry.from);
         } catch (error) {
             // Client not ready or fetch failed: fall back to the queued messages
-            send_log({ type: 'warning', msg: `History fetch failed for ${entry.from}: ${error.message}. Using queued messages.` });
+            historySource = 'queued';
+            historyError = String(error && error.message ? error.message : error).slice(0, 300);
+            send_log({ type: 'warning', msg: `History fetch failed for ${entry.from}: ${historyError}. Using queued messages.` });
             conversation = entry.messages.map(m => ({
                 id: m.id,
                 role: 'client',
@@ -318,6 +322,8 @@ class WhatsAppManager {
             message_ids: newMessageIds,     // every new message in this batch
             message: entry.messages.map(m => m.body).join('\n'), // only the new client messages
             messages: conversation,         // full day's conversation: { id, role, body, timestamp }
+            history_source: historySource,  // 'chat' = pulled from WhatsApp, 'queued' = fallback (client messages only)
+            history_error: historyError,    // why the history fetch failed, if it did
             conversation_text: conversation
                 .map(m => `${m.role === 'admin' ? 'Admin' : 'Client'}: ${m.body}`)
                 .join('\n')
