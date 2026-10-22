@@ -205,20 +205,39 @@ class WhatsAppManager {
         // as if the client had typed the emoji. Only reactions from the client to a
         // message WE sent (e.g. the reminder) are forwarded.
         client.on('message_reaction', async (reaction) => {
-            send_log({ type: 'debug', msg: `Reaction event: ${JSON.stringify({ r: reaction.reaction, fromMe: reaction.id?.fromMe, msgId: reaction.msgId?._serialized, sender: reaction.senderId })}` });
             try {
+                send_log({ type: 'debug', msg: `Reaction event: ${JSON.stringify({ r: reaction.reaction, fromMe: reaction.id?.fromMe, msgId: reaction.msgId, sender: reaction.senderId })}` });
+
                 const emoji = typeof reaction.reaction === 'string' ? reaction.reaction.trim() : '';
                 if (!emoji) return;                 // reaction removed
                 if (reaction.id?.fromMe) return;    // our own reaction
 
-                const targetId = reaction.msgId?._serialized;
-                if (!targetId) return;
-                const target = await client.getMessageById(targetId);
-                if (!target || !target.fromMe) return;   // only reactions to our messages
+                // msgId (the message that was reacted to) often arrives WITHOUT _serialized,
+                // so rebuild it from its parts: `${fromMe}_${remote}_${id}`
+                const key = reaction.msgId || {};
+                const remote = key.remote && typeof key.remote === 'object' ? key.remote._serialized : key.remote;
+                const targetId = key._serialized || (key.id && remote ? `${key.fromMe}_${remote}_${key.id}` : null);
+                if (key.fromMe === false) return;   // reaction to the client's own message
+                if (!targetId && !remote) {
+                    send_log({ type: 'warning', msg: 'Reaction skipped: reacted message id unavailable' });
+                    return;
+                }
 
-                const chat = await target.getChat();
+                // Find the chat: via the reacted message if WhatsApp still has it loaded,
+                // otherwise directly from the chat id in the key
+                let target = null;
+                if (targetId) {
+                    try { target = await client.getMessageById(targetId); } catch (e) { /* fall back to chat id */ }
+                }
+                if (target && !target.fromMe) return;   // only reactions to our messages
+                let chat = null;
+                if (target) {
+                    chat = await target.getChat();
+                } else if (remote) {
+                    chat = this.chatRefs.get(`${id}:${remote}`) || await client.getChatById(remote);
+                }
                 if (!chat || chat.isGroup) return;
-                const chatId = chat.id?._serialized || target.to;
+                const chatId = chat.id?._serialized || remote;
                 if (!chatId || chatId === 'status@broadcast') return;
 
                 // Same contact the 'message' handler would use for this 1:1 chat
