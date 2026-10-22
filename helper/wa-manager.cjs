@@ -205,6 +205,7 @@ class WhatsAppManager {
         // as if the client had typed the emoji. Only reactions from the client to a
         // message WE sent (e.g. the reminder) are forwarded.
         client.on('message_reaction', async (reaction) => {
+            send_log({ type: 'debug', msg: `Reaction event: ${JSON.stringify({ r: reaction.reaction, fromMe: reaction.id?.fromMe, msgId: reaction.msgId?._serialized, sender: reaction.senderId })}` });
             try {
                 const emoji = typeof reaction.reaction === 'string' ? reaction.reaction.trim() : '';
                 if (!emoji) return;                 // reaction removed
