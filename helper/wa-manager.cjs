@@ -139,13 +139,7 @@ class WhatsAppManager {
                 const mid = msg.id?._serialized;
                 if (!chatId || !mid || chatId === 'status@broadcast') return;
                 const body = (typeof msg.body === 'string' && msg.body.trim()) || `[${msg.type}]`;
-                const key = `${id}:${chatId}`;
-                const since = startOfTodayUnix();
-                const list = (this.chatLog.get(key) || []).filter(m => m.timestamp >= since);
-                if (!list.some(m => m.id === mid)) {
-                    list.push({ id: mid, role: msg.fromMe ? 'admin' : 'client', body, timestamp: msg.timestamp });
-                }
-                this.chatLog.set(key, list.slice(-HISTORY_LIMIT));
+                this.logLocal(id, chatId, { id: mid, role: msg.fromMe ? 'admin' : 'client', body, timestamp: msg.timestamp });
             } catch (e) { /* logging must never break message handling */ }
         });
 
@@ -206,6 +200,75 @@ class WhatsAppManager {
                 });
             }
         });
+
+        // Reactions (long-press 👍 etc.) do NOT fire 'message', so forward them here
+        // as if the client had typed the emoji. Only reactions from the client to a
+        // message WE sent (e.g. the reminder) are forwarded.
+        client.on('message_reaction', async (reaction) => {
+            try {
+                const emoji = typeof reaction.reaction === 'string' ? reaction.reaction.trim() : '';
+                if (!emoji) return;                 // reaction removed
+                if (reaction.id?.fromMe) return;    // our own reaction
+
+                const targetId = reaction.msgId?._serialized;
+                if (!targetId) return;
+                const target = await client.getMessageById(targetId);
+                if (!target || !target.fromMe) return;   // only reactions to our messages
+
+                const chat = await target.getChat();
+                if (!chat || chat.isGroup) return;
+                const chatId = chat.id?._serialized || target.to;
+                if (!chatId || chatId === 'status@broadcast') return;
+
+                // Same contact the 'message' handler would use for this 1:1 chat
+                const profile = await chat.getContact();
+                const displayName =
+                    profile.name ||
+                    profile.pushname ||
+                    profile.shortName ||
+                    'Unknown';
+
+                const messageId = reaction.id?._serialized
+                    || `reaction_${targetId}_${reaction.timestamp || Date.now()}`;
+
+                this.chatRefs.set(`${id}:${chatId}`, chat);
+
+                // Reactions are not in WhatsApp's message history, so add to the local log too
+                this.logLocal(id, chatId, {
+                    id: messageId,
+                    role: 'client',
+                    body: emoji,
+                    timestamp: reaction.timestamp || Math.floor(Date.now() / 1000)
+                });
+
+                send_log({ type: 'info', msg: `Reaction ${emoji} from ${chatId} forwarded as message` });
+
+                this.queueMessage(
+                    id,
+                    chatId,
+                    {
+                        number: profile.id.user,
+                        name: displayName
+                    },
+                    emoji,
+                    messageId
+                );
+            } catch (error) {
+                send_log({
+                    type: 'error',
+                    msg: `Error queueing reaction: ${describeError(error)}`
+                });
+            }
+        });
+    }
+
+    // Add one message to the local record of today's chat
+    logLocal(id, chatId, entry) {
+        const key = `${id}:${chatId}`;
+        const since = startOfTodayUnix();
+        const list = (this.chatLog.get(key) || []).filter(m => m.timestamp >= since);
+        if (!list.some(m => m.id === entry.id)) list.push(entry);
+        this.chatLog.set(key, list.slice(-HISTORY_LIMIT));
     }
 
     // Persist each inbound message before scheduling a batch. The outbox folder
@@ -366,6 +429,16 @@ class WhatsAppManager {
                     body: m.body,
                     timestamp: null
                 }));
+            }
+        }
+
+        // New messages missing from the fetched history (e.g. reactions, which WhatsApp
+        // does not return as messages) are appended at the end, so the newest client
+        // messages are always the last lines of the conversation.
+        const seen = new Set(conversation.map(m => m.id));
+        for (const m of entry.messages) {
+            if (!seen.has(m.id)) {
+                conversation.push({ id: m.id, role: 'client', body: m.body, timestamp: null });
             }
         }
 
