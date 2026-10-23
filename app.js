@@ -1,22 +1,33 @@
-
-
-import { startServer } from "./server/server.js"; // Import the app instance= //
-import { initLogs,set_debug } from './helper/global.js'
+import { startServer } from "./server/server.js";
+import { initLogs, set_debug } from './helper/global.js'
 import { AgentStatsProcessor } from "./helper/agentprocessor.js"
 import { ZoomPhoneLogs } from "./helper/zmapi.js";
 import { GoogleSheetsService } from "./helper/googlesheets.js"
-import { loadJsonSafe,loadWAAgents } from './server/util/utils.js'
-import { zoomapi,ZOOM_FILE,DASH_FILE,CRM_FILE,GOOGLE_FILE,WAAGENT_FILE,whatsapp} from './server/util/path.js'
+import { loadJsonSafe, loadWAAgents } from './server/util/utils.js'
+import { zoomapi, ZOOM_FILE, DASH_FILE, CRM_FILE, GOOGLE_FILE, WAAGENT_FILE, whatsapp } from './server/util/path.js'
 
-// //const zoomlogs = loadJsonSafe(ZOOM_FILE, {});
-// //const gsheet = new GoogleSheetsService()
+// Log stray async errors instead of letting one bad request kill both WhatsApp sessions
+process.on('unhandledRejection', (err) => {
+    console.error(`[${new Date().toISOString()}] UNHANDLED REJECTION:`, err?.stack || err);
+});
+process.on('uncaughtException', (err) => {
+    console.error(`[${new Date().toISOString()}] UNCAUGHT EXCEPTION:`, err?.stack || err);
+});
 
 initLogs();
 set_debug(false)
-whatsapp.agents = await loadWAAgents(WAAGENT_FILE)
+
+try {
+    whatsapp.agents = await loadWAAgents(WAAGENT_FILE)
+} catch (err) {
+    console.error("Failed to load WA agents, starting with none:", err.message);
+    whatsapp.agents = whatsapp.agents || {};
+}
+
 //await dash_bootstrap()
 startServer();
 
+// ... dash_bootstrap() unchanged below
 
 async function dash_bootstrap() {
     const zoomcapi = new ZoomPhoneLogs(zoomapi)
