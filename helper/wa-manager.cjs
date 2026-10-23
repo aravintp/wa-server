@@ -16,6 +16,11 @@ const N8N_WEBHOOK = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
 const TZ_OFFSET_S = 8 * 3600;   // Asia/Singapore (UTC+8, no DST). Change for other zones.
 const HISTORY_LIMIT = 200;      // max messages pulled from the chat per delivery
 
+// Self-healing: a session that hasn't reached 'ready' this long after init gets restarted
+const WATCHDOG_MS = 60 * 1000;          // how often to check sessions
+const STUCK_MS = 5 * 60 * 1000;         // how long a session may sit un-ready before restart
+const MAX_RESTART_DELAY_MS = 60 * 1000; // backoff cap between restart attempts
+
 // Unix timestamp (seconds) of 00:00 today in the configured timezone
 function startOfTodayUnix() {
     const now = Math.floor(Date.now() / 1000);
@@ -40,6 +45,7 @@ class WhatsAppManager {
         this.retryTimers = new Map();
         fs.mkdirSync(OUTBOX_DIR, { recursive: true });
         this.recoverOutbox();
+        this.watchdog = setInterval(() => this.checkClients(), WATCHDOG_MS);
     }
 
     async createClient(id, phoneNumber = null) {
@@ -74,36 +80,101 @@ class WhatsAppManager {
             client,
             ready: false,
             state: "OFFLINE",
-            phoneNumber
+            phoneNumber,
+            initAt: null,        // when the current init started (watchdog uses this)
+            restarting: false,   // true while a restart / manual destroy is in progress
+            attempts: 0          // consecutive restarts, for backoff
         };
         // await this.initClient(id)
     }
 
     async initClient(id) {
-        send_log({ type: 'info', msg: 'Initialising Wa-client..' });
+        const session = this.clients[id];
+        if (!session) return;
+        session.ready = false;
+        session.state = "INITIALIZING";
+        session.initAt = Date.now();
+        send_log({ type: 'info', msg: `Initialising ${id}..` });
         try {
-            await this.clients[id].client.initialize();
-            this.clients[id].state = "INITIALIZING";
+            await session.client.initialize();
+            // If Chromium dies later (crash, OOM), rebuild the session instead of leaving it dead
+            session.client.pupBrowser?.on('disconnected', () => {
+                this.restartClient(id, 'browser closed');
+            });
+            send_log({ type: 'success', msg: `${id} initialise completed` });
         } catch (error) {
             send_log({
                 type: 'error',
-                msg: `Error @ client initialise:\n ${error.message}`
+                msg: `Error @ ${id} initialise: ${describeError(error)}`
             });
+            this.restartClient(id, 'initialise failed');
         }
-        send_log({ type: 'success', msg: 'completed..' });
+    }
+
+    // Tear the session down and build a fresh Client. Uses destroy(), NOT logout(),
+    // so the LocalAuth session on disk is kept and no new QR scan is needed.
+    async restartClient(id, reason) {
+        const session = this.clients[id];
+        if (!session || session.restarting) return;
+        session.restarting = true;
+        session.ready = false;
+        session.state = "RESTARTING";
+        const attempts = (session.attempts || 0) + 1;
+        const delay = Math.min(MAX_RESTART_DELAY_MS, 5000 * attempts);
+        send_log({ type: 'warning', msg: `Restarting ${id} in ${delay / 1000}s (${reason}), attempt ${attempts}` });
+
+        try {
+            await session.client.destroy();
+        } catch (error) {
+            send_log({ type: 'warning', msg: `Destroy failed for ${id}: ${describeError(error)}` });
+        }
+        // Saved Chat objects belong to the dead browser
+        for (const key of this.chatRefs.keys()) {
+            if (key.startsWith(`${id}:`)) this.chatRefs.delete(key);
+        }
+        delete this.clients[id];
+
+        setTimeout(async () => {
+            try {
+                if (this.clients[id]) return;   // something else already recreated it
+                await this.createClient(id, session.phoneNumber);
+                this.clients[id].attempts = attempts;
+                await this.initClient(id);
+            } catch (error) {
+                send_log({ type: 'error', msg: `Recreate failed for ${id}: ${describeError(error)}` });
+            }
+        }, delay);
+    }
+
+    // Catches sessions that never reach 'ready' — e.g. when WhatsApp Web reloads
+    // mid-inject ("Execution context was destroyed") and the client silently stalls.
+    checkClients() {
+        for (const [id, s] of Object.entries(this.clients)) {
+            if (s.ready || s.restarting || !s.initAt) continue;
+            if (s.state === 'QR' || s.state === 'PAIRING') continue;   // waiting for a human to scan/pair
+            if (Date.now() - s.initAt > STUCK_MS) {
+                this.restartClient(id, `not ready after ${STUCK_MS / 60000} min (state ${s.state})`);
+            }
+        }
     }
 
     registerEvents(client, id) {
         client.on('qr', (qr) => {
+            if (this.clients[id]) this.clients[id].state = "QR";
             console.log(`QR for ${id}`);
             qrcode.generate(qr, { small: true });
         });
         client.on('ready', async () => {
-            this.clients[id].ready = true;
-            this.clients[id].state = "READY";
+            const session = this.clients[id];
+            if (!session) return;
+            session.ready = true;
+            session.state = "READY";
+            session.attempts = 0;
             send_log({ type: 'success', msg: `${id} ready` });
-            const version = await client.getWWebVersion();
-            send_log({ type: 'info', msg: `Version ${version}` });
+            try {
+                const version = await client.getWWebVersion();
+                send_log({ type: 'info', msg: `Version ${version}` });
+            } catch (e) { /* version is informational only */ }
         });
         client.on('authenticated', () => {
             send_log({ type: 'success', msg: `${id} authenticated` });
@@ -112,12 +183,15 @@ class WhatsAppManager {
             send_log({ type: 'error', msg: `${id} auth failure ${msg}` });
         });
         client.on('disconnected', (reason) => {
-            this.clients[id].state = "DISCONNECTED";
+            const session = this.clients[id];
+            if (!session) return;
+            session.state = "DISCONNECTED";
+            session.ready = false;
             send_log({ type: 'error', msg: `${id} disconnected ${reason}` });
-            this.clients[id].ready = false;
+            this.restartClient(id, `disconnected: ${reason}`);
         });
         client.on('code', (msg) => {
-            this.clients[id].state = "PAIRING";
+            if (this.clients[id]) this.clients[id].state = "PAIRING";
             send_log({
                 type: 'info',
                 msg: `Pairing code received: ${msg}`
@@ -558,10 +632,12 @@ class WhatsAppManager {
         }
     }
 
+    // Manual, permanent removal (logs the number out). Not used for auto-restarts.
     async destroyClient(id) {
         const session = this.clients[id];
         send_log({ type: 'info', msg: 'Closing client..' });
         if (!session) return;
+        session.restarting = true;   // stop the watchdog / disconnect handlers from reviving it
         // Drop any batches still waiting for this client
         for (const [key, entry] of this.pending) {
             if (key.startsWith(`${id}:`)) {
@@ -574,7 +650,11 @@ class WhatsAppManager {
         } catch (error) {
             send_log({ type: 'warning', msg: `Logout failed for ${id}: ${error.message}` });
         }
-        await session.client.destroy();
+        try {
+            await session.client.destroy();
+        } catch (error) {
+            send_log({ type: 'warning', msg: `Destroy failed for ${id}: ${error.message}` });
+        }
         delete this.clients[id];
         send_log({ type: 'success', msg: `Client ${id} destroyed` });
     }
