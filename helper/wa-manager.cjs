@@ -1,4 +1,4 @@
-const { N8N_SERVER } = require("../server/util/path.js")
+const { N8N_SERVER, N8N_WA_WEBHOOK_ID } = require("../server/util/path.js")
 const { Client, LocalAuth } = require('whatsapp-web.js');
 const { send_log } = require('./global.js');
 const qrcode = require('qrcode-terminal');
@@ -11,7 +11,7 @@ const MAX_WAIT_MS = 30000;
 const REQUEST_TIMEOUT_MS = 10000;
 const RETRY_DELAYS_MS = [2000, 5000, 15000, 60000];
 const OUTBOX_DIR = process.env.WA_OUTBOX_DIR || path.join(__dirname, '.wa-webhook-outbox'); // Must be on persistent storage
-const N8N_WEBHOOK = `${N8N_SERVER}/b86af3dd-3950-4432-a3dd-39453aa87f7e`;
+const N8N_WEBHOOK = `${N8N_SERVER}/${N8N_WA_WEBHOOK_ID}`;
 
 const TZ_OFFSET_S = 8 * 3600;   // Asia/Singapore (UTC+8, no DST). Change for other zones.
 const HISTORY_LIMIT = 200;      // max messages pulled from the chat per delivery

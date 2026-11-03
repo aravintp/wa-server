@@ -148,3 +148,6 @@ data\zoom.json
 debug.js
 helper\zcaluri.js
 data/zoom.json
+
+# Credentials: kept only on the server, never committed (see secrets.example.json)
+.secrets.json

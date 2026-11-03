@@ -1,6 +1,7 @@
 import TelegramBot from 'node-telegram-bot-api'
-const token = '8795149074:AAFV7CbP2nxz2p7jVNG8Va6tEcvaVuNogWE';
-const chat_id = "-5187352091"
+import { telegram } from '../server/util/path.js'
+const token = telegram.token;
+const chat_id = telegram.chatId;
 const bot = new TelegramBot(token, {polling: false});
 
 const TG_MAX_CHARS = 4000;      // Telegram's hard limit is 4096; leave room for the header

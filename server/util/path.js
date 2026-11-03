@@ -1,3 +1,4 @@
+import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -12,13 +13,30 @@ export const GOOGLE_FILE = path.join(DATA_DIR, "google.json");
 export const WAAGENT_FILE = path.join(__dirname, "..", "..", "wa_agents.csv");
 export const index = path.join(__dirname, "..", "..", "index.html");
 
+// Credentials live in .secrets.json (gitignored, copy secrets.example.json to start).
+// Dot-prefixed so express.static("./") refuses to serve it. WA_SECRETS_FILE overrides the path.
+export const SECRETS_FILE = process.env.WA_SECRETS_FILE || path.join(__dirname, "..", "..", ".secrets.json");
+
+function loadSecrets(file) {
+    try {
+        return JSON.parse(fs.readFileSync(file, "utf8"));
+    } catch (err) {
+        throw new Error(`Cannot read secrets file ${file}: ${err.message}`);
+    }
+}
+
+const secrets = loadSecrets(SECRETS_FILE);
+
 export const N8N_SERVER = "https://n8n-pwa.com/webhook";
+export const N8N_WA_WEBHOOK_ID = secrets.n8n?.waWebhookId;
+
+export const telegram = secrets.telegram || {};
 
 export const zoomapi = {
-    clientId: "GQMuoJjISuCPfZtQBu7yLw",
-    clientSecret: "VSte7plb3A8y7aHfkBEI73H3ltlRAroL",
-    webhooksSecretToken: "BQmvSs67SwKSCUdkI6i3EQ",
-    accountId: "S4tiTjL4T0qiFRLffIkzew"
+    clientId: secrets.zoom?.clientId,
+    clientSecret: secrets.zoom?.clientSecret,
+    webhooksSecretToken: secrets.zoom?.webhooksSecretToken,
+    accountId: secrets.zoom?.accountId
 }
 
 export const STATUS_MAP = {
