@@ -7,6 +7,13 @@ const TG_MAX_CHARS = 4000;      // Telegram's hard limit is 4096; leave room for
 const TG_MAX_LINE = 1000;       // cap any single log line (stack traces, JSON dumps)
 const TG_MAX_PER_TICK = 3;      // max Telegram messages per 5s tick (group limit is ~20/min)
 const MAX_LOGS = 1000;          // in-memory log history kept for the front end
+const LOG_TZ = 'Asia/Singapore'; // timezone for console/Telegram timestamps
+
+const STAMP_FORMAT = new Intl.DateTimeFormat('en-GB', {
+    timeZone: LOG_TZ, hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
+});
 
 const intervalId = setInterval(() => {
     bot_sendlogs();
@@ -32,12 +39,18 @@ export function initLogs() {
 }
 
 
-export function createLog(type, message) {
+// "YYYY-MM-DD HH:MM:SS" in LOG_TZ
+function formatStamp(date) {
+    const p = Object.fromEntries(STAMP_FORMAT.formatToParts(date).map(x => [x.type, x.value]));
+    return `${p.year}-${p.month}-${p.day} ${p.hour}:${p.minute}:${p.second}`;
+}
+
+export function createLog(type, message, timestamp = new Date()) {
     let log = {
         id: logId++,
         type: type,
         message: message,
-        timestamp: new Date()
+        timestamp: timestamp
     };
 
     return log
@@ -78,12 +91,11 @@ export function add_log(n, s) {
 // Send log to front end and print console
 export function send_log(n) {
 
-    // ugly date variable. To use with pm2.
+    // Fixed timezone so pm2/Telegram match local time whatever the VPS is set to
     let date = new Date()
-    let d = "[" + date.toLocaleDateString().replaceAll("/", "-") +
-        " " + date.toTimeString().split(' ')[0] + "]"
+    let d = "[" + formatStamp(date) + "]"
 
-    let log = createLog(n.type, n.msg)
+    let log = createLog(n.type, n.msg, date)
 
     pushLog(log);
     console.log(d, n.msg)

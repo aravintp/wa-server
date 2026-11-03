@@ -63,12 +63,13 @@
             }
 
             // This funtion adds to log array and pushes to display it
-            export function addLog(type, message) {
+            // timestamp: pass the server's time for server logs, defaults to now for local ones
+            export function addLog(type, message, timestamp = new Date()) {
                 const log =  {
                     id: logId++,
                     type: type,
                     message: message,
-                    timestamp: new Date()
+                    timestamp: new Date(timestamp)
                 };
 
                 logs.push(log);

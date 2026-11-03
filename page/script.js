@@ -14,6 +14,7 @@ import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
 
             const startBtn = document.getElementById('startBtn');
             const wa_agentSelect = document.getElementById('wa_agents')
+            let lastServerId = 0;   // id of the newest server log already shown
 
             // Initialize
             initLogs();
@@ -100,47 +101,22 @@ import { wastatus,logs,addLog,initLogs,wa_agents} from "./terminal.js";
             // receive logs
             socket.on('event logs', (n) => {
 
-                let n_logs = get_new_logs(logs,n)
+                if (!Array.isArray(n) || n.length === 0) return;
 
-                // added this to check log bugs
-                console.log(`log: ${logs[logs.length-1].message}`)
-                console.log(`log2: ${n[0].message}`)
+                // Server ids restart at 1 when the server restarts
+                if (n[n.length - 1].id < lastServerId) lastServerId = 0;
+
+                // Only the newest 100 fit in the terminal anyway
+                const n_logs = n.filter(e => e.id > lastServerId).slice(-100)
 
                 n_logs.forEach(e => {
-                   addLog(e.type,e.message)
+                   addLog(e.type, e.message, e.timestamp)
                 })
 
-            }); 
+                lastServerId = n[n.length - 1].id
 
-                        
-            // FUkcing old way to do, but it works -_-!
-            function get_new_logs(mainArray,newArray){
-                
-               // console.log('gnl')
-                const sha_copy = []
+            });
 
-                const main_is_larger =  mainArray.length > newArray.length;
-                const m = main_is_larger? mainArray:newArray
-                const n = main_is_larger? newArray:mainArray
-
-                for (let index = 0; index < m.length; index++) {
-                    const e = m[index];
-                        
-                    for (let index2 = 0; index2 < n.length; index2++) {
-                        const e2 = n[index2];
-                        const same = e.message === e2.message
-                        const eol = index2 === n.length-1
-                        
-                        if (same){ 
-                            break; }
-
-                        if (eol){ 
-                            sha_copy.push(e) }
-                    }
-                }
-                
-                return !main_is_larger? sha_copy: []
-            }
 
 
 
