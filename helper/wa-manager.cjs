@@ -20,6 +20,7 @@ const HISTORY_LIMIT = 200;      // max messages pulled from the chat per deliver
 const WATCHDOG_MS = 60 * 1000;          // how often to check sessions
 const STUCK_MS = 5 * 60 * 1000;         // how long a session may sit un-ready before restart
 const MAX_RESTART_DELAY_MS = 60 * 1000; // backoff cap between restart attempts
+const MAX_PAIRING_CODES = 3;            // stop the session after this many unused pairing codes
 
 // Unix timestamp (seconds) of 00:00 today in the configured timezone
 function startOfTodayUnix() {
@@ -146,6 +147,26 @@ class WhatsAppManager {
         }, delay);
     }
 
+    // Pairing code limit hit: shut the session down without auto-restarting.
+    // Call /api/wa/initialise again to get a fresh set of codes.
+    async stopPairing(id) {
+        const session = this.clients[id];
+        if (!session || session.restarting) return;
+        session.restarting = true;   // blocks restartClient from the browser 'disconnected' event
+        session.ready = false;
+        session.state = "PAIRING_LIMIT";
+        send_log({ type: 'error', msg: `${id} not paired after ${MAX_PAIRING_CODES} pairing codes, stopping. Re-initialise to try again` });
+        try {
+            await session.client.destroy();
+        } catch (error) {
+            send_log({ type: 'warning', msg: `Destroy failed for ${id}: ${describeError(error)}` });
+        }
+        for (const key of this.chatRefs.keys()) {
+            if (key.startsWith(`${id}:`)) this.chatRefs.delete(key);
+        }
+        delete this.clients[id];
+    }
+
     // Catches sessions that never reach 'ready' — e.g. when WhatsApp Web reloads
     // mid-inject ("Execution context was destroyed") and the client silently stalls.
     checkClients() {
@@ -191,10 +212,17 @@ class WhatsAppManager {
             this.restartClient(id, `disconnected: ${reason}`);
         });
         client.on('code', (msg) => {
-            if (this.clients[id]) this.clients[id].state = "PAIRING";
+            const session = this.clients[id];
+            if (!session || session.restarting) return;
+            session.pairingCodes = (session.pairingCodes || 0) + 1;
+            if (session.pairingCodes > MAX_PAIRING_CODES) {
+                this.stopPairing(id);
+                return;
+            }
+            session.state = "PAIRING";
             send_log({
                 type: 'info',
-                msg: `Pairing code received: ${msg}`
+                msg: `Pairing code received (${session.pairingCodes}/${MAX_PAIRING_CODES}): ${msg}`
             });
         });
         // Diagnostics for the "stuck at authenticated" issue
