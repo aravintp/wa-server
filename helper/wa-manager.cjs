@@ -49,7 +49,27 @@ class WhatsAppManager {
         this.watchdog = setInterval(() => this.checkClients(), WATCHDOG_MS);
     }
 
-    async createClient(id, phoneNumber = null) {
+    // Bring back sessions with a saved login after the server starts. One at a time,
+    // so several Chromium instances don't all launch at once.
+    async autoStart(agents) {
+        if (!Array.isArray(agents)) return;
+        for (const { name, number } of agents) {
+            if (!fs.existsSync(path.join('.wwebjs_auth', `session-${name}`))) {
+                send_log({ type: 'info', msg: `Auto-start: ${name} has no saved login, skipping` });
+                continue;
+            }
+            try {
+                await this.createClient(name, number, { autoStart: true });
+                await this.initClient(name);
+            } catch (error) {
+                send_log({ type: 'error', msg: `Auto-start failed for ${name}: ${describeError(error)}` });
+            }
+        }
+    }
+
+    // autoStart: reconnect from the saved login only. Never generate pairing codes,
+    // because nobody is watching the dashboard during an unattended restart.
+    async createClient(id, phoneNumber = null, { autoStart = false } = {}) {
         if (this.clients[id]) {
             console.log(`Client ${id} already exists`);
             return;
@@ -69,7 +89,7 @@ class WhatsAppManager {
                     '--disable-gpu'
                 ],
             },
-            pairWithPhoneNumber: phoneNumber
+            pairWithPhoneNumber: (phoneNumber && !autoStart)
                 ? { phoneNumber }
                 : undefined,
             restartOnAuthFail: true,
@@ -82,6 +102,7 @@ class WhatsAppManager {
             ready: false,
             state: "OFFLINE",
             phoneNumber,
+            autoStart,           // true until the session first reaches 'ready'
             initAt: null,        // when the current init started (watchdog uses this)
             restarting: false,   // true while a restart / manual destroy is in progress
             attempts: 0          // consecutive restarts, for backoff
@@ -138,7 +159,7 @@ class WhatsAppManager {
         setTimeout(async () => {
             try {
                 if (this.clients[id]) return;   // something else already recreated it
-                await this.createClient(id, session.phoneNumber);
+                await this.createClient(id, session.phoneNumber, { autoStart: session.autoStart });
                 this.clients[id].attempts = attempts;
                 await this.initClient(id);
             } catch (error) {
@@ -150,12 +171,17 @@ class WhatsAppManager {
     // Pairing code limit hit: shut the session down without auto-restarting.
     // Call /api/wa/initialise again to get a fresh set of codes.
     async stopPairing(id) {
+        await this.stopSession(id, "PAIRING_LIMIT", `${id} not paired after ${MAX_PAIRING_CODES} pairing codes, stopping. Re-initialise to try again`);
+    }
+
+    // Shut a session down for good: it stays stopped until someone re-initialises it.
+    async stopSession(id, state, message) {
         const session = this.clients[id];
         if (!session || session.restarting) return;
         session.restarting = true;   // blocks restartClient from the browser 'disconnected' event
         session.ready = false;
-        session.state = "PAIRING_LIMIT";
-        send_log({ type: 'error', msg: `${id} not paired after ${MAX_PAIRING_CODES} pairing codes, stopping. Re-initialise to try again` });
+        session.state = state;
+        send_log({ type: 'error', msg: message });
         try {
             await session.client.destroy();
         } catch (error) {
@@ -181,6 +207,10 @@ class WhatsAppManager {
 
     registerEvents(client, id) {
         client.on('qr', (qr) => {
+            if (this.clients[id]?.autoStart) {
+                this.stopSession(id, "NEEDS_PAIRING", `Auto-start: ${id} saved login is no longer valid, stopping. Pair it again from the dashboard`);
+                return;
+            }
             if (this.clients[id]) this.clients[id].state = "QR";
             console.log(`QR for ${id}`);
             qrcode.generate(qr, { small: true });
@@ -191,6 +221,7 @@ class WhatsAppManager {
             session.ready = true;
             session.state = "READY";
             session.attempts = 0;
+            session.autoStart = false;
             send_log({ type: 'success', msg: `${id} ready` });
             try {
                 const version = await client.getWWebVersion();

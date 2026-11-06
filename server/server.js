@@ -54,6 +54,7 @@ export function startServer(){
 
     server.listen(8080, () => {
         send_log({ type: 'info', msg: "Server running" });
+        wa.autoStart(whatsapp.agents);
     });
         
 }
