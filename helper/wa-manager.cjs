@@ -21,6 +21,7 @@ const WATCHDOG_MS = 60 * 1000;          // how often to check sessions
 const STUCK_MS = 5 * 60 * 1000;         // how long a session may sit un-ready before restart
 const MAX_RESTART_DELAY_MS = 60 * 1000; // backoff cap between restart attempts
 const MAX_PAIRING_CODES = 3;            // stop the session after this many unused pairing codes
+const MAX_RESTARTS = 5;                 // stop the session after this many restarts without reaching 'ready'
 
 // Unix timestamp (seconds) of 00:00 today in the configured timezone
 function startOfTodayUnix() {
@@ -138,10 +139,14 @@ class WhatsAppManager {
     async restartClient(id, reason) {
         const session = this.clients[id];
         if (!session || session.restarting) return;
+        const attempts = (session.attempts || 0) + 1;
+        if (attempts > MAX_RESTARTS) {
+            await this.stopSession(id, "RESTART_LIMIT", `${id} failed to start after ${MAX_RESTARTS} restarts (${reason}), stopping. Re-initialise to try again`);
+            return;
+        }
         session.restarting = true;
         session.ready = false;
         session.state = "RESTARTING";
-        const attempts = (session.attempts || 0) + 1;
         const delay = Math.min(MAX_RESTART_DELAY_MS, 5000 * attempts);
         send_log({ type: 'warning', msg: `Restarting ${id} in ${delay / 1000}s (${reason}), attempt ${attempts}` });
 
