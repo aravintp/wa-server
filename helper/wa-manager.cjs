@@ -723,6 +723,18 @@ class WhatsAppManager {
         send_log({ type: 'success', msg: `Client ${id} destroyed` });
     }
 
+    // Forget the saved login so the next initialise asks for a new pairing code.
+    // Closes the session first (if running), then deletes .wwebjs_auth/session-<id>.
+    async resetSession(id) {
+        if (this.clients[id]) await this.destroyClient(id);
+        const dir = path.resolve('.wwebjs_auth', `session-${id}`);
+        if (path.dirname(dir) !== path.resolve('.wwebjs_auth') || path.basename(dir) !== `session-${id}`) {
+            throw new Error(`Invalid session id: ${id}`);
+        }
+        fs.rmSync(dir, { recursive: true, force: true });
+        send_log({ type: 'success', msg: `Saved login for ${id} deleted` });
+    }
+
     getState(id) {
         const session = this.clients[id];
         if (!session) {

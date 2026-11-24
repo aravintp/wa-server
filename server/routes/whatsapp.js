@@ -90,6 +90,30 @@ export default (wa,send_log,wa_agents) => {
         });
 
 
+        // Delete the saved login for an agent so the next initialise asks for a new pairing code
+        router.get('/reset', async (req, res) => {
+
+            const id = req.query.id
+            send_log({ type: 'info', msg: req.originalUrl })
+
+            if (!wa_agents.some(agent => agent.name === id)) {
+                return res.status(400).json({ session_reset: false, error: `Unknown agent: ${id}` })
+            }
+
+            try {
+                    await wa.resetSession(id)
+                    res.json({ session_reset: true })
+            }
+            catch(err){
+                    send_log({ type: 'error', msg: String(err)});
+                    return res.status(500).json({
+                        session_reset:false,
+                        error: String(err?.message || err),
+                    });
+            }
+        });
+
+
         router.put('/send-self', async (req, res) => {
 
             let emsg = ""

@@ -16,6 +16,7 @@
             // listners
             document.getElementById('startBtn').addEventListener('click', toggleScript);
             restartBtn.addEventListener('click', restartScript);
+            document.getElementById('resetBtn').addEventListener('click', resetLogin);
            // wa_agentSelect.addEventListener('change', refresh_btn);
 
             // Fetch wa_agent list
@@ -142,6 +143,24 @@
                     </div>
                 `;
                 logCount.textContent = '0';
+            }
+
+            // Delete the selected agent's saved login, then initialise it again so it asks for a new pairing code
+            async function resetLogin(){
+                const wa_agent = wa_agentSelect.value;
+                const agent = wa_agents.find(key => key.name === wa_agent);
+                if (!agent) return addLog('warning', 'Select an agent first');
+
+                if (!confirm(`Delete the saved WhatsApp login for ${wa_agent}?\n\nIt will be logged out and you'll need to enter a new pairing code on the phone (${agent.number}).`)) return;
+
+                try {
+                    addLog('warning', `Resetting login for ${wa_agent}..`);
+                    await fetchBackendData(`${baseUrl}/api/wa/reset?id=${encodeURIComponent(wa_agent)}`);
+                    addLog('info', `Requesting a new pairing code for ${wa_agent}..`);
+                    await fetchBackendData(`${baseUrl}/api/wa/initialise?id=${encodeURIComponent(wa_agent)}&number=${encodeURIComponent(agent.number)}`);
+                } catch (error) {
+                    addLog('error', `Reset login failed for ${wa_agent}: ${error.message}`);
+                }
             }
 
             async function restartScript(){
