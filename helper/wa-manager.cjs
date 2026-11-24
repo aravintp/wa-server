@@ -30,6 +30,13 @@ function startOfTodayUnix() {
     return now - ((now + TZ_OFFSET_S) % 86400);
 }
 
+// LocalAuth only accepts letters, digits, _ and - in a clientId, but agent names like
+// "ninja1(VO)" contain other characters. Map each agent to a safe session name
+// (names that are already valid, e.g. "mediway", keep their existing session folder).
+function sessionKey(id) {
+    return String(id).replace(/[^A-Za-z0-9_-]/g, '_');
+}
+
 // Readable text for errors thrown inside the WhatsApp Web page (their message can be just "r")
 function describeError(e) {
     if (!e) return 'unknown error';
@@ -56,7 +63,7 @@ class WhatsAppManager {
     async autoStart(agents) {
         if (!Array.isArray(agents)) return;
         for (const { name, number } of agents) {
-            if (!fs.existsSync(path.join('.wwebjs_auth', `session-${name}`))) {
+            if (!fs.existsSync(path.join('.wwebjs_auth', `session-${sessionKey(name)}`))) {
                 send_log({ type: 'info', msg: `Auto-start: ${name} has no saved login, skipping` });
                 continue;
             }
@@ -78,7 +85,7 @@ class WhatsAppManager {
         }
         const client = new Client({
             authStrategy: new LocalAuth({
-                clientId: id
+                clientId: sessionKey(id)
             }),
             puppeteer: {
                 headless: true,
@@ -753,13 +760,11 @@ class WhatsAppManager {
     }
 
     // Forget the saved login so the next initialise asks for a new pairing code.
-    // Closes the session first (if running), then deletes .wwebjs_auth/session-<id>.
+    // Closes the session first (if running), then deletes .wwebjs_auth/session-<sessionKey(id)>.
     async resetSession(id) {
         if (this.clients[id]) await this.destroyClient(id);
-        const dir = path.resolve('.wwebjs_auth', `session-${id}`);
-        if (path.dirname(dir) !== path.resolve('.wwebjs_auth') || path.basename(dir) !== `session-${id}`) {
-            throw new Error(`Invalid session id: ${id}`);
-        }
+        // sessionKey() leaves only letters, digits, _ and -, so this can't point outside .wwebjs_auth
+        const dir = path.resolve('.wwebjs_auth', `session-${sessionKey(id)}`);
         fs.rmSync(dir, { recursive: true, force: true });
         send_log({ type: 'success', msg: `Saved login for ${id} deleted` });
     }

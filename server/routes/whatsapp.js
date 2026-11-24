@@ -2,6 +2,15 @@ import express from "express"
 
 const router = express.Router()
 
+// Error details sent back to the browser in JSON responses
+function formatError(err) {
+    return {
+        name: err?.name || "Error",
+        message: err?.message || String(err),
+        code: err?.code || null,
+    };
+}
+
 export default (wa,send_log,wa_agents) => {
 
 
