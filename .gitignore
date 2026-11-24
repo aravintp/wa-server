@@ -137,6 +137,7 @@ dist
 
 .wwebjs_auth
 .wwebjs_cache
+.wwebjs_debug
 .test.js
 test.js
 server old.js

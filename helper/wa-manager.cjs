@@ -22,6 +22,7 @@ const STUCK_MS = 5 * 60 * 1000;         // how long a session may sit un-ready b
 const MAX_RESTART_DELAY_MS = 60 * 1000; // backoff cap between restart attempts
 const MAX_PAIRING_CODES = 3;            // stop the session after this many unused pairing codes
 const MAX_RESTARTS = 5;                 // stop the session after this many restarts without reaching 'ready'
+const DEBUG_DIR = path.join(__dirname, '..', '.wwebjs_debug');   // screenshots of failed starts
 
 // Unix timestamp (seconds) of 00:00 today in the configured timezone
 function startOfTodayUnix() {
@@ -130,7 +131,35 @@ class WhatsAppManager {
                 type: 'error',
                 msg: `Error @ ${id} initialise: ${describeError(error)}`
             });
+            await this.captureFailure(id, session);
             this.restartClient(id, 'initialise failed');
+        }
+    }
+
+    // Save what the WhatsApp Web page shows when a start fails, so we can see why
+    // (update-browser notice, blank page, QR...). Keeps the 20 newest screenshots.
+    async captureFailure(id, session) {
+        const page = session?.client?.pupPage;
+        if (!page || page.isClosed()) return;
+        try {
+            const state = await page.evaluate(() => ({
+                url: location.href,
+                title: document.title,
+                socket: window.require?.('WAWebSocketModel')?.Socket?.state ?? null,
+                text: (document.body?.innerText || '').replace(/\s+/g, ' ').slice(0, 200)
+            }));
+            send_log({ type: 'debug', msg: `${id} page at failure: ${JSON.stringify(state)}` });
+        } catch (e) { /* page may be mid-navigation */ }
+        try {
+            fs.mkdirSync(DEBUG_DIR, { recursive: true });
+            const stamp = new Date().toISOString().replace(/[:.]/g, '-');
+            const file = path.join(DEBUG_DIR, `${id.replace(/[^\w-]/g, '_')}-${stamp}.png`);
+            await page.screenshot({ path: file, fullPage: true });
+            send_log({ type: 'debug', msg: `${id} screenshot saved: ${file}` });
+            const shots = fs.readdirSync(DEBUG_DIR).filter(f => f.endsWith('.png')).sort();
+            for (const old of shots.slice(0, -20)) fs.rmSync(path.join(DEBUG_DIR, old), { force: true });
+        } catch (e) {
+            send_log({ type: 'warning', msg: `Screenshot failed for ${id}: ${describeError(e)}` });
         }
     }
 
